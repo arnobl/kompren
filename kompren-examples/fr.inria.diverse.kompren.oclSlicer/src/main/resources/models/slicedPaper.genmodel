@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/LRBAC2.model/src" modelPluginID="LRBAC2.model"
+    modelName="SlicedPaper" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>slicedPaper.ecore</foreignModel>
+  <genPackages prefix="LRBAC" disposableProviderFactory="true" ecorePackage="slicedPaper.ecore#/">
+    <genClasses ecoreClass="slicedPaper.ecore#//User">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference slicedPaper.ecore#//User/UserLoc"/>
+      <genOperations ecoreOperation="slicedPaper.ecore#//User/UpdateUserID">
+        <genParameters ecoreParameter="slicedPaper.ecore#//User/UpdateUserID/id"/>
+      </genOperations>
+      <genOperations ecoreOperation="slicedPaper.ecore#//User/UpdateUserName">
+        <genParameters ecoreParameter="slicedPaper.ecore#//User/UpdateUserName/name"/>
+      </genOperations>
+      <genOperations ecoreOperation="slicedPaper.ecore#//User/UpdateAge">
+        <genParameters ecoreParameter="slicedPaper.ecore#//User/UpdateAge/age"/>
+      </genOperations>
+      <genOperations ecoreOperation="slicedPaper.ecore#//User/AssignRole">
+        <genParameters ecoreParameter="slicedPaper.ecore#//User/AssignRole/r"/>
+      </genOperations>
+      <genOperations ecoreOperation="slicedPaper.ecore#//User/UpdateLoc">
+        <genParameters ecoreParameter="slicedPaper.ecore#//User/UpdateLoc/l"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="slicedPaper.ecore#//Location">
+      <genOperations ecoreOperation="slicedPaper.ecore#//Location/UpdateLocName">
+        <genParameters ecoreParameter="slicedPaper.ecore#//Location/UpdateLocName/name"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="slicedPaper.ecore#//Permission">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference slicedPaper.ecore#//Permission/PermOper"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference slicedPaper.ecore#//Permission/PermObj"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference slicedPaper.ecore#//Permission/PermRole"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference slicedPaper.ecore#//Permission/RoleLocPerm"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference slicedPaper.ecore#//Permission/ObjLocPerm"/>
+      <genOperations ecoreOperation="slicedPaper.ecore#//Permission/UpdatePermName">
+        <genParameters ecoreParameter="slicedPaper.ecore#//Permission/UpdatePermName/name"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="slicedPaper.ecore#//Operation"/>
+    <genClasses ecoreClass="slicedPaper.ecore#//Write"/>
+    <genClasses ecoreClass="slicedPaper.ecore#//Execute"/>
+    <genClasses ecoreClass="slicedPaper.ecore#//Read"/>
+    <genClasses ecoreClass="slicedPaper.ecore#//Object">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference slicedPaper.ecore#//Object/ObjLoc"/>
+      <genOperations ecoreOperation="slicedPaper.ecore#//Object/UpdateObjID">
+        <genParameters ecoreParameter="slicedPaper.ecore#//Object/UpdateObjID/id"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="slicedPaper.ecore#//Role">
+      <genOperations ecoreOperation="slicedPaper.ecore#//Role/UpdateRoleName">
+        <genParameters ecoreParameter="slicedPaper.ecore#//Role/UpdateRoleName/name"/>
+      </genOperations>
+      <genOperations ecoreOperation="slicedPaper.ecore#//Role/AddAssignLoc">
+        <genParameters ecoreParameter="slicedPaper.ecore#//Role/AddAssignLoc/l"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="slicedPaper.ecore#//Session">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference slicedPaper.ecore#//Session/SessUser"/>
+      <genOperations ecoreOperation="slicedPaper.ecore#//Session/UpdateMaxRoles">
+        <genParameters ecoreParameter="slicedPaper.ecore#//Session/UpdateMaxRoles/NoOfRoles"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/xtend-gen"/>
+	<classpathentry kind="src" output="target/classes" path="src/main/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src/main/resources/models"/>
+	<classpathentry kind="src" path="src/main/resources/metamodels"/>
+	<classpathentry kind="src" path="src/main/xtend"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/opt/k3/plugins/org.eclipse.ocl.common_1.1.0.v20130531-0544.jar"/>
+	<classpathentry kind="lib" path="/opt/k3/plugins/org.eclipse.ocl.ecore_3.3.0.v20130520-1222.jar"/>
+	<classpathentry kind="lib" path="/opt/k3/plugins/org.eclipse.ocl_3.3.0.v20130610-1317.jar"/>
+	<classpathentry kind="lib" path="/opt/k3/plugins/lpg.runtime.java_2.0.17.v201004271640.jar"/>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/LRBAC.model"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/LRBAC2.model"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/LRBAC.model/src" modelPluginID="LRBAC.model" modelName="Paper"
+    modelPluginClass="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>Paper.ecore</foreignModel>
+  <genPackages prefix="LRBAC" disposableProviderFactory="true" ecorePackage="Paper.ecore#/">
+    <genClasses ecoreClass="Paper.ecore#//User">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Paper.ecore#//User/UserSess"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Paper.ecore#//User/AssignedRoles"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Paper.ecore#//User/UserLoc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Paper.ecore#//User/Gender"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Paper.ecore#//User/UserName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Paper.ecore#//User/UserID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Paper.ecore#//User/Age"/>
+      <genOperations ecoreOperation="Paper.ecore#//User/UpdateUserName">
+        <genParameters ecoreParameter="Paper.ecore#//User/UpdateUserName/name"/>
+      </genOperations>
+      <genOperations ecoreOperation="Paper.ecore#//User/UpdateAge">
+        <genParameters ecoreParameter="Paper.ecore#//User/UpdateAge/age"/>
+      </genOperations>
+      <genOperations ecoreOperation="Paper.ecore#//User/UpdateLoc">
+        <genParameters ecoreParameter="Paper.ecore#//User/UpdateLoc/l"/>
+      </genOperations>
+      <genOperations ecoreOperation="Paper.ecore#//User/AssignRole">
+        <genParameters ecoreParameter="Paper.ecore#//User/AssignRole/r"/>
+      </genOperations>
+      <genOperations ecoreOperation="Paper.ecore#//User/UpdateUserID">
+        <genParameters ecoreParameter="Paper.ecore#//User/UpdateUserID/id"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="Paper.ecore#//Session">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Paper.ecore#//Session/SessRole"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Paper.ecore#//Session/SessUser"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Paper.ecore#//Session/MaxRoles"/>
+      <genOperations ecoreOperation="Paper.ecore#//Session/UpdateMaxRoles">
+        <genParameters ecoreParameter="Paper.ecore#//Session/UpdateMaxRoles/NoOfRoles"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="Paper.ecore#//Role">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Paper.ecore#//Role/AssignUser"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Paper.ecore#//Role/AssignLoc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Paper.ecore#//Role/RoleSess"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Paper.ecore#//Role/RoleName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Paper.ecore#//Role/RolePerm"/>
+      <genOperations ecoreOperation="Paper.ecore#//Role/UpdateRoleName">
+        <genParameters ecoreParameter="Paper.ecore#//Role/UpdateRoleName/name"/>
+      </genOperations>
+      <genOperations ecoreOperation="Paper.ecore#//Role/AddAssignLoc">
+        <genParameters ecoreParameter="Paper.ecore#//Role/AddAssignLoc/l"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="Paper.ecore#//Location">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Paper.ecore#//Location/LocUser"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Paper.ecore#//Location/LocAssign"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Paper.ecore#//Location/LocName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Paper.ecore#//Location/LocObj"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Paper.ecore#//Location/PermRoleLoc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Paper.ecore#//Location/PermObjLoc"/>
+      <genOperations ecoreOperation="Paper.ecore#//Location/UpdateLocName">
+        <genParameters ecoreParameter="Paper.ecore#//Location/UpdateLocName/name"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="Paper.ecore#//Permission">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Paper.ecore#//Permission/PermOper"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Paper.ecore#//Permission/PermName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Paper.ecore#//Permission/PermObj"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Paper.ecore#//Permission/PermRole"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Paper.ecore#//Permission/RoleLocPerm"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Paper.ecore#//Permission/ObjLocPerm"/>
+      <genOperations ecoreOperation="Paper.ecore#//Permission/UpdatePermName">
+        <genParameters ecoreParameter="Paper.ecore#//Permission/UpdatePermName/name"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="Paper.ecore#//Object">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Paper.ecore#//Object/ObjLoc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Paper.ecore#//Object/ObjPerm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Paper.ecore#//Object/ObjID"/>
+      <genOperations ecoreOperation="Paper.ecore#//Object/UpdateObjID">
+        <genParameters ecoreParameter="Paper.ecore#//Object/UpdateObjID/id"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="Paper.ecore#//Operation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Paper.ecore#//Operation/OperPerm"/>
+    </genClasses>
+    <genClasses ecoreClass="Paper.ecore#//Read"/>
+    <genClasses ecoreClass="Paper.ecore#//Write"/>
+    <genClasses ecoreClass="Paper.ecore#//Execute"/>
+  </genPackages>
+</genmodel:GenModel>

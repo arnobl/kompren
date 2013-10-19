@@ -1,0 +1,893 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <ocl.ecore:Constraint stereotype="precondition">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:SetType" href="ocl:///oclenv.ecore#/3/Set(Role)"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/0/@specification/@contextVariable">
+              <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://BlankModel/LRBAC#//User/AssignedRoles"/>
+          </source>
+          <argument xsi:type="ocl.ecore:VariableExp" name="r" referredVariable="/0/@specification/@parameterVariable.0">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Role"/>
+          </argument>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Set(T)_Class/excludes"/>
+        </source>
+        <argument xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:SetType" href="ocl:///oclenv.ecore#/3/Set(Location)"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="r" referredVariable="/0/@specification/@parameterVariable.0">
+              <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Role"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://BlankModel/LRBAC#//Role/AssignLoc"/>
+          </source>
+          <argument xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Location"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/0/@specification/@contextVariable">
+              <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://BlankModel/LRBAC#//User/UserLoc"/>
+          </argument>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Set(T)_Class/includes"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/and"/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+      </contextVariable>
+      <parameterVariable xsi:type="ocl.ecore:Variable" name="r">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Role"/>
+        <representedParameter xsi:type="ecore:EParameter" href="http://BlankModel/LRBAC#//User/AssignRole/r"/>
+      </parameterVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EOperation" href="http://BlankModel/LRBAC#//User/AssignRole"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint stereotype="postcondition">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:SetType" href="ocl:///oclenv.ecore#/3/Set(Role)"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/1/@specification/@contextVariable">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+          </source>
+          <referredProperty xsi:type="ecore:EReference" href="http://BlankModel/LRBAC#//User/AssignedRoles"/>
+        </source>
+        <argument xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:SetType" href="ocl:///oclenv.ecore#/3/Set(Role)"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp" markedPre="true">
+            <eType xsi:type="ocl.ecore:SetType" href="ocl:///oclenv.ecore#/3/Set(Role)"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/1/@specification/@contextVariable">
+              <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://BlankModel/LRBAC#//User/AssignedRoles"/>
+          </source>
+          <argument xsi:type="ocl.ecore:VariableExp" name="r" referredVariable="/1/@specification/@parameterVariable.0">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Role"/>
+          </argument>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Set(T)_Class/including"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Set(T)_Class/=.1"/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+      </contextVariable>
+      <parameterVariable xsi:type="ocl.ecore:Variable" name="r">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Role"/>
+        <representedParameter xsi:type="ecore:EParameter" href="http://BlankModel/LRBAC#//User/AssignRole/r"/>
+      </parameterVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EOperation" href="http://BlankModel/LRBAC#//User/AssignRole"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint stereotype="precondition">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/2/@specification/@contextVariable">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//User/UserID"/>
+        </source>
+        <argument xsi:type="ocl.ecore:VariableExp" name="id" referredVariable="/2/@specification/@parameterVariable.0">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/%3C%3E"/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+      </contextVariable>
+      <parameterVariable xsi:type="ocl.ecore:Variable" name="id">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        <representedParameter xsi:type="ecore:EParameter" href="http://BlankModel/LRBAC#//User/UpdateUserID/id"/>
+      </parameterVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EOperation" href="http://BlankModel/LRBAC#//User/UpdateUserID"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint stereotype="postcondition">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/3/@specification/@contextVariable">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//User/UserID"/>
+        </source>
+        <argument xsi:type="ocl.ecore:VariableExp" name="id" referredVariable="/3/@specification/@parameterVariable.0">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/="/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+      </contextVariable>
+      <parameterVariable xsi:type="ocl.ecore:Variable" name="id">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        <representedParameter xsi:type="ecore:EParameter" href="http://BlankModel/LRBAC#//User/UpdateUserID/id"/>
+      </parameterVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EOperation" href="http://BlankModel/LRBAC#//User/UpdateUserID"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint stereotype="precondition">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+          <source xsi:type="ocl.ecore:CollectionLiteralExp">
+            <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL/Annotations">
+              <details key="IMPLICIT_SET_CONVERSION" value="true"/>
+            </eAnnotations>
+            <eType xsi:type="ocl.ecore:SetType" href="ocl:///oclenv.ecore#/3/Set(Location)"/>
+            <part xsi:type="ocl.ecore:CollectionItem">
+              <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Location"/>
+              <item xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Location"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/4/@specification/@contextVariable">
+                  <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://BlankModel/LRBAC#//User/UserLoc"/>
+              </item>
+            </part>
+          </source>
+          <argument xsi:type="ocl.ecore:VariableExp" name="l" referredVariable="/4/@specification/@parameterVariable.0">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Location"/>
+          </argument>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Set(T)_Class/excludes"/>
+        </source>
+        <argument xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:SetType" href="ocl:///oclenv.ecore#/3/Set(Role)"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/4/@specification/@contextVariable">
+              <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://BlankModel/LRBAC#//User/AssignedRoles"/>
+          </source>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Set(T)_Class/isEmpty"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/and"/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+      </contextVariable>
+      <parameterVariable xsi:type="ocl.ecore:Variable" name="l">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Location"/>
+        <representedParameter xsi:type="ecore:EParameter" href="http://BlankModel/LRBAC#//User/UpdateLoc/l"/>
+      </parameterVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EOperation" href="http://BlankModel/LRBAC#//User/UpdateLoc"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint stereotype="postcondition">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:CollectionLiteralExp">
+          <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL/Annotations">
+            <details key="IMPLICIT_SET_CONVERSION" value="true"/>
+          </eAnnotations>
+          <eType xsi:type="ocl.ecore:SetType" href="ocl:///oclenv.ecore#/3/Set(Location)"/>
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Location"/>
+            <item xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Location"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/5/@specification/@contextVariable">
+                <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://BlankModel/LRBAC#//User/UserLoc"/>
+            </item>
+          </part>
+        </source>
+        <argument xsi:type="ocl.ecore:VariableExp" name="l" referredVariable="/5/@specification/@parameterVariable.0">
+          <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Location"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Set(T)_Class/includes"/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+      </contextVariable>
+      <parameterVariable xsi:type="ocl.ecore:Variable" name="l">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Location"/>
+        <representedParameter xsi:type="ecore:EParameter" href="http://BlankModel/LRBAC#//User/UpdateLoc/l"/>
+      </parameterVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EOperation" href="http://BlankModel/LRBAC#//User/UpdateLoc"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint stereotype="precondition">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="age" referredVariable="/6/@specification/@parameterVariable.0">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        </source>
+        <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="0">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/%3E.1"/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+      </contextVariable>
+      <parameterVariable xsi:type="ocl.ecore:Variable" name="age">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        <representedParameter xsi:type="ecore:EParameter" href="http://BlankModel/LRBAC#//User/UpdateAge/age"/>
+      </parameterVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EOperation" href="http://BlankModel/LRBAC#//User/UpdateAge"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint stereotype="postcondition">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/7/@specification/@contextVariable">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//User/Age"/>
+        </source>
+        <argument xsi:type="ocl.ecore:VariableExp" name="age" referredVariable="/7/@specification/@parameterVariable.0">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/="/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+      </contextVariable>
+      <parameterVariable xsi:type="ocl.ecore:Variable" name="age">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        <representedParameter xsi:type="ecore:EParameter" href="http://BlankModel/LRBAC#//User/UpdateAge/age"/>
+      </parameterVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EOperation" href="http://BlankModel/LRBAC#//User/UpdateAge"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint stereotype="precondition">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/8/@specification/@contextVariable">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//User/UserName"/>
+        </source>
+        <argument xsi:type="ocl.ecore:VariableExp" name="name" referredVariable="/8/@specification/@parameterVariable.0">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/%3C%3E"/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+      </contextVariable>
+      <parameterVariable xsi:type="ocl.ecore:Variable" name="name">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <representedParameter xsi:type="ecore:EParameter" href="http://BlankModel/LRBAC#//User/UpdateUserName/name"/>
+      </parameterVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EOperation" href="http://BlankModel/LRBAC#//User/UpdateUserName"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint stereotype="postcondition">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/9/@specification/@contextVariable">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//User/UserName"/>
+        </source>
+        <argument xsi:type="ocl.ecore:VariableExp" name="name" referredVariable="/9/@specification/@parameterVariable.0">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+      </contextVariable>
+      <parameterVariable xsi:type="ocl.ecore:Variable" name="name">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <representedParameter xsi:type="ecore:EParameter" href="http://BlankModel/LRBAC#//User/UpdateUserName/name"/>
+      </parameterVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EOperation" href="http://BlankModel/LRBAC#//User/UpdateUserName"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint stereotype="precondition">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/10/@specification/@contextVariable">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Session"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//Session/MaxRoles"/>
+        </source>
+        <argument xsi:type="ocl.ecore:VariableExp" name="NoOfRoles" referredVariable="/10/@specification/@parameterVariable.0">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/%3C%3E"/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Session"/>
+      </contextVariable>
+      <parameterVariable xsi:type="ocl.ecore:Variable" name="NoOfRoles">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        <representedParameter xsi:type="ecore:EParameter" href="http://BlankModel/LRBAC#//Session/UpdateMaxRoles/NoOfRoles"/>
+      </parameterVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EOperation" href="http://BlankModel/LRBAC#//Session/UpdateMaxRoles"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint stereotype="postcondition">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/11/@specification/@contextVariable">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Session"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//Session/MaxRoles"/>
+        </source>
+        <argument xsi:type="ocl.ecore:VariableExp" name="NoOfRoles" referredVariable="/11/@specification/@parameterVariable.0">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/="/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Session"/>
+      </contextVariable>
+      <parameterVariable xsi:type="ocl.ecore:Variable" name="NoOfRoles">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        <representedParameter xsi:type="ecore:EParameter" href="http://BlankModel/LRBAC#//Session/UpdateMaxRoles/NoOfRoles"/>
+      </parameterVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EOperation" href="http://BlankModel/LRBAC#//Session/UpdateMaxRoles"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint stereotype="precondition">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/12/@specification/@contextVariable">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Role"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//Role/RoleName"/>
+        </source>
+        <argument xsi:type="ocl.ecore:VariableExp" name="name" referredVariable="/12/@specification/@parameterVariable.0">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/%3C%3E"/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Role"/>
+      </contextVariable>
+      <parameterVariable xsi:type="ocl.ecore:Variable" name="name">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <representedParameter xsi:type="ecore:EParameter" href="http://BlankModel/LRBAC#//Role/UpdateRoleName/name"/>
+      </parameterVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EOperation" href="http://BlankModel/LRBAC#//Role/UpdateRoleName"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint stereotype="postcondition">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/13/@specification/@contextVariable">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Role"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//Role/RoleName"/>
+        </source>
+        <argument xsi:type="ocl.ecore:VariableExp" name="name" referredVariable="/13/@specification/@parameterVariable.0">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Role"/>
+      </contextVariable>
+      <parameterVariable xsi:type="ocl.ecore:Variable" name="name">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <representedParameter xsi:type="ecore:EParameter" href="http://BlankModel/LRBAC#//Role/UpdateRoleName/name"/>
+      </parameterVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EOperation" href="http://BlankModel/LRBAC#//Role/UpdateRoleName"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint stereotype="precondition">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:SetType" href="ocl:///oclenv.ecore#/3/Set(Location)"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/14/@specification/@contextVariable">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Role"/>
+          </source>
+          <referredProperty xsi:type="ecore:EReference" href="http://BlankModel/LRBAC#//Role/AssignLoc"/>
+        </source>
+        <argument xsi:type="ocl.ecore:VariableExp" name="l" referredVariable="/14/@specification/@parameterVariable.0">
+          <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Location"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Set(T)_Class/excludes"/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Role"/>
+      </contextVariable>
+      <parameterVariable xsi:type="ocl.ecore:Variable" name="l">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Location"/>
+        <representedParameter xsi:type="ecore:EParameter" href="http://BlankModel/LRBAC#//Role/AddAssignLoc/l"/>
+      </parameterVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EOperation" href="http://BlankModel/LRBAC#//Role/AddAssignLoc"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint stereotype="postcondition">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:SetType" href="ocl:///oclenv.ecore#/3/Set(Location)"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/15/@specification/@contextVariable">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Role"/>
+          </source>
+          <referredProperty xsi:type="ecore:EReference" href="http://BlankModel/LRBAC#//Role/AssignLoc"/>
+        </source>
+        <argument xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:SetType" href="ocl:///oclenv.ecore#/3/Set(Location)"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp" markedPre="true">
+            <eType xsi:type="ocl.ecore:SetType" href="ocl:///oclenv.ecore#/3/Set(Location)"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/15/@specification/@contextVariable">
+              <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Role"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://BlankModel/LRBAC#//Role/AssignLoc"/>
+          </source>
+          <argument xsi:type="ocl.ecore:VariableExp" name="l" referredVariable="/15/@specification/@parameterVariable.0">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Location"/>
+          </argument>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Set(T)_Class/including"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Set(T)_Class/=.1"/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Role"/>
+      </contextVariable>
+      <parameterVariable xsi:type="ocl.ecore:Variable" name="l">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Location"/>
+        <representedParameter xsi:type="ecore:EParameter" href="http://BlankModel/LRBAC#//Role/AddAssignLoc/l"/>
+      </parameterVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EOperation" href="http://BlankModel/LRBAC#//Role/AddAssignLoc"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint stereotype="precondition">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/16/@specification/@contextVariable">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Location"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//Location/LocName"/>
+        </source>
+        <argument xsi:type="ocl.ecore:VariableExp" name="name" referredVariable="/16/@specification/@parameterVariable.0">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/%3C%3E"/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Location"/>
+      </contextVariable>
+      <parameterVariable xsi:type="ocl.ecore:Variable" name="name">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <representedParameter xsi:type="ecore:EParameter" href="http://BlankModel/LRBAC#//Location/UpdateLocName/name"/>
+      </parameterVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EOperation" href="http://BlankModel/LRBAC#//Location/UpdateLocName"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint stereotype="postcondition">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/17/@specification/@contextVariable">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Location"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//Location/LocName"/>
+        </source>
+        <argument xsi:type="ocl.ecore:VariableExp" name="name" referredVariable="/17/@specification/@parameterVariable.0">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Location"/>
+      </contextVariable>
+      <parameterVariable xsi:type="ocl.ecore:Variable" name="name">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <representedParameter xsi:type="ecore:EParameter" href="http://BlankModel/LRBAC#//Location/UpdateLocName/name"/>
+      </parameterVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EOperation" href="http://BlankModel/LRBAC#//Location/UpdateLocName"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint stereotype="precondition">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/18/@specification/@contextVariable">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Object"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//Object/ObjID"/>
+        </source>
+        <argument xsi:type="ocl.ecore:VariableExp" name="id" referredVariable="/18/@specification/@parameterVariable.0">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/%3C%3E"/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Object"/>
+      </contextVariable>
+      <parameterVariable xsi:type="ocl.ecore:Variable" name="id">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        <representedParameter xsi:type="ecore:EParameter" href="http://BlankModel/LRBAC#//Object/UpdateObjID/id"/>
+      </parameterVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EOperation" href="http://BlankModel/LRBAC#//Object/UpdateObjID"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint stereotype="postcondition">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/19/@specification/@contextVariable">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Object"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//Object/ObjID"/>
+        </source>
+        <argument xsi:type="ocl.ecore:VariableExp" name="id" referredVariable="/19/@specification/@parameterVariable.0">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/="/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Object"/>
+      </contextVariable>
+      <parameterVariable xsi:type="ocl.ecore:Variable" name="id">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        <representedParameter xsi:type="ecore:EParameter" href="http://BlankModel/LRBAC#//Object/UpdateObjID/id"/>
+      </parameterVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EOperation" href="http://BlankModel/LRBAC#//Object/UpdateObjID"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint stereotype="precondition">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/20/@specification/@contextVariable">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Permission"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//Permission/PermName"/>
+        </source>
+        <argument xsi:type="ocl.ecore:VariableExp" name="name" referredVariable="/20/@specification/@parameterVariable.0">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/%3C%3E"/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Permission"/>
+      </contextVariable>
+      <parameterVariable xsi:type="ocl.ecore:Variable" name="name">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <representedParameter xsi:type="ecore:EParameter" href="http://BlankModel/LRBAC#//Permission/UpdatePermName/name"/>
+      </parameterVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EOperation" href="http://BlankModel/LRBAC#//Permission/UpdatePermName"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint stereotype="postcondition">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/21/@specification/@contextVariable">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Permission"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//Permission/PermName"/>
+        </source>
+        <argument xsi:type="ocl.ecore:VariableExp" name="name" referredVariable="/21/@specification/@parameterVariable.0">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Permission"/>
+      </contextVariable>
+      <parameterVariable xsi:type="ocl.ecore:Variable" name="name">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <representedParameter xsi:type="ecore:EParameter" href="http://BlankModel/LRBAC#//Permission/UpdatePermName/name"/>
+      </parameterVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EOperation" href="http://BlankModel/LRBAC#//Permission/UpdatePermName"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint name="NonNegativeAge" stereotype="invariant">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/22/@specification/@contextVariable">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//User/Age"/>
+        </source>
+        <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="0">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/%3E.1"/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+      </contextVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint name="UniqueUserID" stereotype="invariant">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:IteratorExp" name="forAll">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:SetType" href="ocl:///oclenv.ecore#/3/Set(User)"/>
+          <source xsi:type="ocl.ecore:TypeExp">
+            <eType xsi:type="ocl.ecore:TypeType" href="ocl:///oclenv.ecore#/36/User"/>
+            <referredType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+          </source>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclType_Class/allInstances"/>
+        </source>
+        <body xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+          <source xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="u1" referredVariable="/23/@specification/@bodyExpression/u1">
+                <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//User/UserID"/>
+            </source>
+            <argument xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="u2" referredVariable="/23/@specification/@bodyExpression/u2">
+                <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//User/UserID"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/="/>
+          </source>
+          <argument xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="u1" referredVariable="/23/@specification/@bodyExpression/u1">
+              <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+            </source>
+            <argument xsi:type="ocl.ecore:VariableExp" name="u2" referredVariable="/23/@specification/@bodyExpression/u2">
+              <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/="/>
+          </argument>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/implies"/>
+        </body>
+        <iterator xsi:type="ocl.ecore:Variable" name="u1">
+          <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+        </iterator>
+        <iterator xsi:type="ocl.ecore:Variable" name="u2">
+          <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+        </iterator>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+      </contextVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint name="GenderConstraint" stereotype="invariant">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/24/@specification/@contextVariable">
+              <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//User/Gender"/>
+          </source>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="male">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
+        </source>
+        <argument xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/24/@specification/@contextVariable">
+              <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//User/Gender"/>
+          </source>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="female">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/or"/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+      </contextVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint name="CorrectRoleAssignment" stereotype="invariant">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:IteratorExp" name="forAll">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:SetType" href="ocl:///oclenv.ecore#/3/Set(Role)"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/25/@specification/@contextVariable">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+          </source>
+          <referredProperty xsi:type="ecore:EReference" href="http://BlankModel/LRBAC#//User/AssignedRoles"/>
+        </source>
+        <body xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:SetType" href="ocl:///oclenv.ecore#/3/Set(Location)"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="r" referredVariable="/25/@specification/@bodyExpression/r">
+              <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Role"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://BlankModel/LRBAC#//Role/AssignLoc"/>
+          </source>
+          <argument xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Location"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/25/@specification/@contextVariable">
+              <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://BlankModel/LRBAC#//User/UserLoc"/>
+          </argument>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Set(T)_Class/includes"/>
+        </body>
+        <iterator xsi:type="ocl.ecore:Variable" name="r">
+          <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Role"/>
+        </iterator>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+      </contextVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//User"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint name="MaxActivatedRoles" stereotype="invariant">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/26/@specification/@contextVariable">
+            <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Session"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//Session/MaxRoles"/>
+        </source>
+        <argument xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:SetType" href="ocl:///oclenv.ecore#/3/Set(Role)"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/26/@specification/@contextVariable">
+              <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Session"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://BlankModel/LRBAC#//Session/SessRole"/>
+          </source>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Set(T)_Class/size"/>
+        </argument>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/%3E=.1"/>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Session"/>
+      </contextVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Session"/>
+  </ocl.ecore:Constraint>
+  <ocl.ecore:Constraint name="UniqueObjectID" stereotype="invariant">
+    <specification xsi:type="ocl.ecore:ExpressionInOCL">
+      <bodyExpression xsi:type="ocl.ecore:IteratorExp" name="forAll">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:SetType" href="ocl:///oclenv.ecore#/3/Set(Object)"/>
+          <source xsi:type="ocl.ecore:TypeExp">
+            <eType xsi:type="ocl.ecore:TypeType" href="ocl:///oclenv.ecore#/36/Object"/>
+            <referredType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Object"/>
+          </source>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclType_Class/allInstances"/>
+        </source>
+        <body xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+          <source xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="o1" referredVariable="/27/@specification/@bodyExpression/o1">
+                <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Object"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//Object/ObjID"/>
+            </source>
+            <argument xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="o2" referredVariable="/27/@specification/@bodyExpression/o2">
+                <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Object"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://BlankModel/LRBAC#//Object/ObjID"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/="/>
+          </source>
+          <argument xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="o1" referredVariable="/27/@specification/@bodyExpression/o1">
+              <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Object"/>
+            </source>
+            <argument xsi:type="ocl.ecore:VariableExp" name="o2" referredVariable="/27/@specification/@bodyExpression/o2">
+              <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Object"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/="/>
+          </argument>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/implies"/>
+        </body>
+        <iterator xsi:type="ocl.ecore:Variable" name="o1">
+          <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Object"/>
+        </iterator>
+        <iterator xsi:type="ocl.ecore:Variable" name="o2">
+          <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Object"/>
+        </iterator>
+      </bodyExpression>
+      <contextVariable xsi:type="ocl.ecore:Variable" name="self">
+        <eType xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Object"/>
+      </contextVariable>
+    </specification>
+    <constrainedElements xsi:type="ecore:EClass" href="http://BlankModel/LRBAC#//Object"/>
+  </ocl.ecore:Constraint>
+</xmi:XMI>
