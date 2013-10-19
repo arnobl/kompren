@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Kompren Slicer Parser
+Bundle-SymbolicName: fr.inria.diverse.kompren.parser;singleton:=true
+Bundle-Version: 3.0
+Bundle-ClassPath: parser.jar
+Export-Package: org.kermeta.kompren,
+ org.kermeta.kompren.lexer,
+ org.kermeta.kompren.parser,
+ org.kermeta.kompren.parser.sub,
+ org.kermeta.kompren.resolver
+Bundle-Vendor: Inria/IRISA Triskell Team
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.scala-ide.scala.library;bundle-version="2.10.2",
+ fr.inria.diverse.kompren.model;bundle-version="3.0"
+Bundle-ActivationPolicy: lazy
