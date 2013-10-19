@@ -1,0 +1,162 @@
+<!-- $Id: pom.xml 17173 2012-02-27 15:17:01Z dvojtise $ -->
+<!-- License    : EPL                                    -->
+<!-- Project    : org.kermeta.language.model -->
+<!-- Copyright  : IRISA / INRIA / Universite de Rennes 1 --> 
+				
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>fr.inria.diverse.kompren.edit</artifactId>
+    <packaging>bundle</packaging>
+    <name>fr.inria.diverse.kompren.edit :: Kompren edit</name>
+    
+    <parent>
+        <groupId>fr.inria.diverse</groupId>
+        <artifactId>fr.inria.diverse.kompren.root</artifactId>
+        <version>3.0-SNAPSHOT</version>
+    </parent>
+    
+    <build>
+	    <sourceDirectory>src</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>.</directory>
+				<includes>
+					<include>plugin.properties</include>
+					<include>plugin.xml</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>icons</directory>
+				<targetPath>icons</targetPath>
+			</resource>
+		</resources>
+        <plugins>
+
+            <!-- Creation of the bundle jar and its manifest -->
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>2.3.7</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>org.kermeta.kompren.slicer.edit; singleton=true</Bundle-SymbolicName>
+                        <Bundle-Name>${project.name}</Bundle-Name>
+                        <Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
+<!--                         <Bundle-Version>${bundle.version}</Bundle-Version> -->
+                        <Bundle-ManifestVersion>2</Bundle-ManifestVersion>
+                        <Export-Package>
+							kompren.provider
+                        </Export-Package>
+                        <Import-Package>
+                        	kompren.*,
+							org.eclipse.emf.*,
+                        	org.osgi.framework;version="[1.5,2)"
+                        </Import-Package>
+                        <Bundle-ClassPath>.</Bundle-ClassPath>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+		<dependency>
+            <groupId>fr.inria.diverse</groupId>
+            <artifactId>fr.inria.diverse.kompren.model</artifactId>
+            <version>${kompren.version}</version>
+        </dependency>
+		<dependency>
+            <groupId>fr.inria.diverse</groupId>
+            <artifactId>fr.inria.diverse.kompren.parser</artifactId>
+            <version>${kompren.version}</version>
+        </dependency>
+     <dependency>
+        <groupId>fr.inria.diverse</groupId>
+        <artifactId>fr.inria.diverse.kompren.slicer.compiler</artifactId>
+        <version>${kompren.version}</version>
+    </dependency>
+        <dependency>
+            <groupId>org.eclipse.core</groupId>
+            <artifactId>runtime</artifactId>
+            <version>[3.5.0,4.0.0)</version>
+        </dependency>
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.ecore.xmi</artifactId>
+			<version>${emf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.ecore</artifactId>
+			<version>${emf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.common</artifactId>
+			<version>${emf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>edit</artifactId>
+			<version>2.8.0-v20120917-0436</version>
+		</dependency>
+        
+     <dependency>
+      <groupId>org.kermeta.eclipse</groupId>
+      <artifactId>org.eclipse.core.jobs</artifactId>
+      <version>[3.5.1.0,)</version>
+    </dependency> 
+     <dependency>
+      <groupId>org.kermeta.eclipse</groupId>
+      <artifactId>org.eclipse.core.runtime</artifactId>
+      <version>[3.6.0.0,)</version>
+    </dependency>
+     <dependency>
+      <groupId>org.kermeta.eclipse</groupId>
+      <artifactId>org.eclipse.core.commands</artifactId>
+      <version>[3.6.0.0,)</version>
+    </dependency>
+     <dependency>
+      <groupId>org.kermeta.eclipse</groupId>
+      <artifactId>org.eclipse.ui</artifactId>
+      <version>[3.6.1.0,)</version>
+    </dependency>
+     <dependency>
+      <groupId>org.kermeta.eclipse</groupId>
+      <artifactId>org.eclipse.ui.workbench</artifactId>
+      <version>[3.6.1.0,)</version>
+    </dependency>
+     <dependency>
+      <groupId>org.kermeta.eclipse</groupId>
+      <artifactId>org.eclipse.core.resources</artifactId>
+      <version>[3.6.1.0,)</version>
+    </dependency>
+     <dependency>
+      <groupId>org.kermeta.eclipse</groupId>
+      <artifactId>org.eclipse.swt</artifactId>
+      <version>[3.6.1.0,)</version>
+    </dependency>
+     <dependency>
+      <groupId>org.kermeta.eclipse</groupId>
+      <artifactId>org.eclipse.swt.gtk.linux.x86_64</artifactId>
+      <version>[3.6.1.0,)</version>
+    </dependency>
+     <dependency>
+      <groupId>org.kermeta.eclipse</groupId>
+      <artifactId>org.eclipse.jface</artifactId>
+      <version>[3.6.1.0,)</version>
+    </dependency>
+     <dependency>
+      <groupId>org.kermeta.eclipse</groupId>
+      <artifactId>org.eclipse.equinox.common</artifactId>
+      <version>[3.6.0.0,)</version>
+    </dependency>
+    <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>org.osgi.core</artifactId>
+        <version>4.2.0</version>
+    </dependency>
+    </dependencies>
+</project>
