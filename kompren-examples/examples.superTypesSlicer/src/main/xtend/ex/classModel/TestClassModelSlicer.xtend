@@ -8,13 +8,6 @@ import org.junit.Test
 import static org.junit.Assert.*
 
 class TestSlicer {
-//	def static void main(String[] args) {
-//		val List<Clazz> requiredClazzs = new  ArrayList
-//		requiredClazzs.add(createClassModel(requiredClazzs).classes.head)
-//		val superTypesSlicer slicer = new superTypesSlicer(requiredClazzs)
-//		slicer.launch
-//	}
-	
 	@Test def testSlicer() {
 		val List<Clazz> requiredClazzs = new  ArrayList
 		requiredClazzs.add(createClassModel(requiredClazzs).classes.head)
