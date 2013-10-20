@@ -25,6 +25,7 @@ abstract class LRBASlicerVisitor {
 		if(!_self.sliced) {
 			_self.sliced = true
 			_self._visitToAddClasses(slicer)
+			slicer.roots.add(_self.clonedElt as EObject)
 		}
 	}
 	

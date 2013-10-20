@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<BlankModel2:Location 
+	xmi:version="2.0" 
+	xmlns:xmi="http://www.omg.org/XMI"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:BlankModel2="http://BlankModel/LRBAC2" 
+	xsi:schemaLocation="http://BlankModel/LRBAC2 slicedPaper.ecore"
+	/>

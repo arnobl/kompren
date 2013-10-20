@@ -58,11 +58,9 @@ class OCLSlicer {
 	    	root = root.eContainer as EModelElement
 	    
 	    metamodel.add(root)
-//	    metamodel.addAll(resource2.getContents.filter(typeof(EModelElement)))
 	    ecoreSlicer.slice(set, metamodel)
-	    
+
 	    resource.unload
-//	    resource2.unload
 	}
 	
 	public val Set<EOperation> ops = new HashSet

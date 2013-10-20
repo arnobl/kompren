@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
-<BlankModel:User
+<BlankModel:Location
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:BlankModel="http://BlankModel/LRBAC"
     xsi:schemaLocation="http://BlankModel/LRBAC Paper.ecore"
-    UserID="486"
-    Age="20"/>
+    LocName="FooBar"/>

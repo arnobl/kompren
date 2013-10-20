@@ -74,6 +74,7 @@ class EClassAspect extends EClassifierAspect {
 		_self.super__visitToAddClasses(theEcoreSlicer)
 
 		_self.EStructuralFeatures.filter[lowerBound>0].forEach[visitToAddClasses(theEcoreSlicer)]
+		_self.EOperations.filter[lowerBound>0].forEach[visitToAddClasses(theEcoreSlicer)]
 		_self.subClasses.forEach[cl |
 			cl.visitToAddClasses(theEcoreSlicer)
 			val cl2 = cl.clonedElt as EClass
