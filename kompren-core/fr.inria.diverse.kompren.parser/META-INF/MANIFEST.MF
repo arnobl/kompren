@@ -9,7 +9,7 @@ Export-Package: org.kermeta.kompren,
  org.kermeta.kompren.parser,
  org.kermeta.kompren.parser.sub,
  org.kermeta.kompren.resolver
-Bundle-Vendor: Inria/IRISA Triskell Team
+Bundle-Vendor: IRISA/Inria Diverse Team
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.scala-ide.scala.library;bundle-version="2.10.2",
  fr.inria.diverse.kompren.model;bundle-version="3.0"
