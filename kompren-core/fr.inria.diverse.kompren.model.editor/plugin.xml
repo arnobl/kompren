@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated kompren -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="kompren.presentation.KomprenModelWizardID"
+            name="%_UI_KomprenModelWizard_label"
+            class="kompren.presentation.KomprenModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/KomprenModelFile.gif">
+         <description>%_UI_KomprenModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated kompren -->
+      <editor
+            id="kompren.presentation.KomprenEditorID"
+            name="%_UI_KomprenEditor_label"
+            icon="icons/full/obj16/KomprenModelFile.gif"
+            extensions="kompren"
+            class="kompren.presentation.KomprenEditor"
+            contributorClass="kompren.presentation.KomprenActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
