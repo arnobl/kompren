@@ -18,10 +18,9 @@ import org.eclipse.ocl.ecore.Constraint
 import org.eclipse.ocl.ecore.EcoreEnvironmentFactory
 import org.eclipse.ocl.ecore.OCL
 
-import static extension fr.inria.triskell.kompren.oclSlicer.ConstraintAspect.*
+import static extension fr.inria.triskell.kompren.oclSlicer.OCLSlicerVisitor.*
 
 class OCLSlicer {
-	
 	def static void main(String[] args) {
 	    OCL.newInstance(EcoreEnvironmentFactory.INSTANCE)
 	    LRBACPackage.eINSTANCE.eClass

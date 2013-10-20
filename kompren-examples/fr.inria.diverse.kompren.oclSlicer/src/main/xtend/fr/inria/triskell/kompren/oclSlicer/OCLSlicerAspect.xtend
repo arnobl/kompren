@@ -39,14 +39,21 @@ import org.eclipse.ocl.utilities.PredefinedType
 abstract class OCLSlicerVisitor {
 	var boolean sliced = false
 
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {}
+	def void visitToAddClasses(OCLSlicer slicer) {
+		if(!_self.sliced) {
+			_self.sliced = true
+			_self._visitToAddClasses(slicer)
+		}
+	}
+	
+	protected def void _visitToAddClasses(OCLSlicer slicer) { }
 }
 
 @Aspect(className=typeof(AssociationClassCallExp))
 class AssociationClassCallExpAspect extends NavigationCallExpAspect {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		_self.referredAssociationClass?.visitToAddClasses(theOCLSlicer)
 	}
 }
@@ -54,8 +61,8 @@ class AssociationClassCallExpAspect extends NavigationCallExpAspect {
 @Aspect(className=typeof(ExpressionInOCL))
 class ExpressionInOCLAspect extends OCLSlicerVisitor {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		_self.bodyExpression.visitToAddClasses(theOCLSlicer)
 		_self.contextVariable.visitToAddClasses(theOCLSlicer)
 		_self.resultVariable?.visitToAddClasses(theOCLSlicer)
@@ -73,7 +80,7 @@ abstract class OCLExpressionAspect extends TypedElementAspect {
 @Aspect(className=typeof(TypedElement))
 abstract class TypedElementAspect extends OCLSlicerVisitor {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
 //		_self.super_visitToAddClasses(theOCLSlicer)
 		val EObject obj = _self.type as EObject
 		if(!(obj instanceof PredefinedType<?>)) theOCLSlicer.objects.add(obj)
@@ -83,8 +90,8 @@ abstract class TypedElementAspect extends OCLSlicerVisitor {
 @Aspect(className=typeof(CallExp))
 abstract class CallExpAspect extends OCLExpressionAspect {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		_self.source?.visitToAddClasses(theOCLSlicer)
 	}
 }
@@ -96,8 +103,8 @@ abstract class FeatureCallExpAspect extends CallExpAspect {
 @Aspect(className=typeof(IfExp))
 class IfExpAspect extends OCLExpressionAspect {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		_self.condition?.visitToAddClasses(theOCLSlicer)
 		_self.thenExpression?.visitToAddClasses(theOCLSlicer)
 		_self.elseExpression?.visitToAddClasses(theOCLSlicer)
@@ -107,8 +114,8 @@ class IfExpAspect extends OCLExpressionAspect {
 @Aspect(className=typeof(IterateExp))
 class IterateExpAspect extends LoopExpAspect {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		_self.result?.visitToAddClasses(theOCLSlicer)
 	}
 }
@@ -120,8 +127,8 @@ class IteratorExpAspect extends LoopExpAspect {
 @Aspect(className=typeof(LetExp))
 class LetExpAspect extends OCLExpressionAspect {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		_self.in?.visitToAddClasses(theOCLSlicer)
 		_self.variable?.visitToAddClasses(theOCLSlicer)
 	}
@@ -134,8 +141,8 @@ abstract class LiteralExpAspect extends OCLExpressionAspect {
 @Aspect(className=typeof(CollectionItem))
 class CollectionItemAspect extends CollectionLiteralPartAspect {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		_self.item.visitToAddClasses(theOCLSlicer)
 	}
 }
@@ -147,8 +154,8 @@ abstract class CollectionLiteralPartAspect extends TypedElementAspect {
 @Aspect(className=typeof(CollectionLiteralExp))
 class CollectionLiteralExpAspect extends LiteralExpAspect {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		_self.part.forEach[visitToAddClasses(theOCLSlicer)]
 	}
 }
@@ -156,8 +163,8 @@ class CollectionLiteralExpAspect extends LiteralExpAspect {
 @Aspect(className=typeof(CollectionRange))
 class CollectionRangeAspect extends CollectionLiteralPartAspect {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		_self.first.visitToAddClasses(theOCLSlicer)
 		_self.last.visitToAddClasses(theOCLSlicer)
 	}
@@ -166,8 +173,8 @@ class CollectionRangeAspect extends CollectionLiteralPartAspect {
 @Aspect(className=typeof(EnumLiteralExp))
 class EnumLiteralExpAspect extends LiteralExpAspect {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		theOCLSlicer.enumLiterals.add(_self.referredEnumLiteral)
 	}
 }
@@ -175,8 +182,8 @@ class EnumLiteralExpAspect extends LiteralExpAspect {
 @Aspect(className=typeof(LoopExp))
 abstract class LoopExpAspect extends CallExpAspect {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		_self.body?.visitToAddClasses(theOCLSlicer)
 		_self.iterator.forEach[visitToAddClasses(theOCLSlicer)]
 	}
@@ -185,8 +192,8 @@ abstract class LoopExpAspect extends CallExpAspect {
 @Aspect(className=typeof(MessageExp))
 class MessageExpAspect extends OCLExpressionAspect {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		_self.target?.visitToAddClasses(theOCLSlicer)
 		_self.argument.forEach[visitToAddClasses(theOCLSlicer)]
 		_self.calledOperation?.visitToAddClasses(theOCLSlicer)
@@ -197,8 +204,8 @@ class MessageExpAspect extends OCLExpressionAspect {
 @Aspect(className=typeof(SendSignalAction))
 class SendSignalActionAspect extends OCLSlicerVisitor {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		theOCLSlicer.classifiers.add(_self.signal)
 	}
 }
@@ -206,8 +213,8 @@ class SendSignalActionAspect extends OCLSlicerVisitor {
 @Aspect(className=typeof(CallOperationAction))
 class CallOperationActionAspect extends OCLSlicerVisitor {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		theOCLSlicer.ops.add(_self.operation)
 	}
 }
@@ -215,8 +222,8 @@ class CallOperationActionAspect extends OCLSlicerVisitor {
 @Aspect(className=typeof(StateExp))
 class StateExpAspect extends OCLExpressionAspect {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		theOCLSlicer.objects.add(_self.referredState)
 	}
 }
@@ -224,8 +231,8 @@ class StateExpAspect extends OCLExpressionAspect {
 @Aspect(className=typeof(TupleLiteralExp))
 class TupleLiteralExpAspect extends LiteralExpAspect {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		_self.part.forEach[visitToAddClasses(theOCLSlicer)]
 	}
 }
@@ -233,8 +240,8 @@ class TupleLiteralExpAspect extends LiteralExpAspect {
 @Aspect(className=typeof(TypeExp))
 class TypeExpAspect extends OCLExpressionAspect {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		theOCLSlicer.classifiers.add(_self.referredType)
 	}	
 }
@@ -242,8 +249,8 @@ class TypeExpAspect extends OCLExpressionAspect {
 @Aspect(className=typeof(TupleLiteralPart))
 class TupleLiteralPartAspect extends TypedElementAspect {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		_self.value?.visitToAddClasses(theOCLSlicer)
 		theOCLSlicer.features.add(_self.attribute)
 	}
@@ -252,8 +259,8 @@ class TupleLiteralPartAspect extends TypedElementAspect {
 @Aspect(className=typeof(OperationCallExp))
 class OperationCallExpAspect extends FeatureCallExpAspect {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		_self.argument.forEach[visitToAddClasses(theOCLSlicer)]
 		theOCLSlicer.ops.add(_self.referredOperation)
 	}
@@ -262,8 +269,8 @@ class OperationCallExpAspect extends FeatureCallExpAspect {
 @Aspect(className=typeof(PropertyCallExp))
 class PropertyCallExpAspect extends NavigationCallExpAspect {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		theOCLSlicer.features.add(_self.referredProperty)
 	}
 }
@@ -271,8 +278,8 @@ class PropertyCallExpAspect extends NavigationCallExpAspect {
 @Aspect(className=typeof(NavigationCallExp))
 abstract class NavigationCallExpAspect extends FeatureCallExpAspect {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		_self.qualifier?.forEach[visitToAddClasses(theOCLSlicer)]
 		if(_self.navigationSource!=null)
 			theOCLSlicer.features.add(_self.navigationSource)
@@ -282,8 +289,8 @@ abstract class NavigationCallExpAspect extends FeatureCallExpAspect {
 @Aspect(className=typeof(Variable))
 class VariableAspect extends TypedElementAspect {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		_self.initExpression?.visitToAddClasses(theOCLSlicer)
 		if(_self.representedParameter!=null)
 			theOCLSlicer.params.add(_self.representedParameter)
@@ -293,8 +300,8 @@ class VariableAspect extends TypedElementAspect {
 @Aspect(className=typeof(VariableExp))
 class VariableExpAspect extends OCLExpressionAspect {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		_self.referredVariable?.visitToAddClasses(theOCLSlicer)
 	}
 }
@@ -302,8 +309,8 @@ class VariableExpAspect extends OCLExpressionAspect {
 @Aspect(className=typeof(Constraint))
 class ConstraintAspect extends OCLSlicerVisitor {
 	@OverrideAspectMethod
-	def void visitToAddClasses(OCLSlicer theOCLSlicer) {
-		_self.super_visitToAddClasses(theOCLSlicer)
+	def void _visitToAddClasses(OCLSlicer theOCLSlicer) {
+		_self.super__visitToAddClasses(theOCLSlicer)
 		_self.specification.visitToAddClasses(theOCLSlicer)
 		_self.constrainedElements.forEach[elt | theOCLSlicer.elts.add(elt)]
 	}
