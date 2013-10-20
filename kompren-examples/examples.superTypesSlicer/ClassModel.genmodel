@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/examples.model/src/" modelPluginID="examples.superTypesSlicer"
+    modelName="ClassModel" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>ClassModel.ecore</foreignModel>
+  <genPackages prefix="Ex" disposableProviderFactory="true" ecorePackage="ClassModel.ecore#/">
+    <nestedGenPackages prefix="ClassModel" disposableProviderFactory="true" ecorePackage="ClassModel.ecore#//classModel">
+      <genClasses ecoreClass="ClassModel.ecore#//classModel/ClassModel">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ClassModel.ecore#//classModel/ClassModel/classes"/>
+      </genClasses>
+      <genClasses ecoreClass="ClassModel.ecore#//classModel/Clazz">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference ClassModel.ecore#//classModel/Clazz/superClasses"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassModel.ecore#//classModel/Clazz/name"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

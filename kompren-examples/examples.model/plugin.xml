@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ClassModel -->
+      <package
+            uri="platform:/resource/org.kermeta.ki.pruning.examples/src/kermeta/class/ClassModel.ecore#/ex/classModel"
+            class="ex.classModel.ClassModelPackage"/>
+   </extension>
+
+</plugin>
