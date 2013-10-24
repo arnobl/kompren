@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1382205440417
+Bnd-LastModified: 1382628130744
 Build-Jdk: 1.7.0_25
 Built-By: ablouin
 Bundle-ClassPath: .
