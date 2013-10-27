@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Compiler
+Bundle-SymbolicName: fr.inria.diverse.kompren.compiler
+Bundle-Version: 1.0.0.qualifier
+Export-Package: examples.classInverted,
+ examples.clazz,
+ examples.stateMachine,
+ examples.strictEcore,
+ examples.unusedVar,
+ fr.inria.diverse.fr.inria.diverse.kompren.compiler,
+ fr.inria.diverse.kompren.compiler,
+ fr.inria.triskell.kompren.helpers
