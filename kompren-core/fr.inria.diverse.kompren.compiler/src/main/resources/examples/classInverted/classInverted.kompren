@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="ASCII"?>
-<org.kermeta.kompren.slicer:Slicer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.kermeta.kompren.slicer="http://www.org.kermeta.kompren/org/kermeta/kompren/slicer" name="examples.lowerTypesSlicer" uriMetamodel="platform:/resource/org.kermeta.kompren.slicer.compiler/examples/clazz/ClassModel.ecore">
-  <slicedElements xsi:type="org.kermeta.kompren.slicer:SlicedClass" expression="stdio.writeln(&quot;class: &quot; + clazz.name)">
+<kompren:Slicer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:kompren="http://kompren/fr.inria.diverse.kompren" name="examples.lowerTypesSlicer" uriMetamodel="src/main/resources/examples/clazz/ClassModel.ecore" helper="public val StringBuilder buf = new StringBuilder&#xA;">
+  <slicedElements xsi:type="kompren:SlicedClass" expression="println(&quot;Clazz: &quot; + clazz.name)&#xA;buf.append(clazz.name).append(' ')">
     <ctx varName="clazz">
       <type href="../clazz/ClassModel.ecore#//classModel/Clazz"/>
     </ctx>
     <domain href="../clazz/ClassModel.ecore#//classModel/Clazz"/>
   </slicedElements>
-  <slicedElements xsi:type="org.kermeta.kompren.slicer:SlicedProperty" expression="stdio.writeln(tgt.name + &quot; subclass of &quot; + src.name)">
+  <slicedElements xsi:type="kompren:SlicedProperty" expression="println(&quot;Inheritance: &quot; + src.name + &quot; &quot; + tgt.name)&#xA;buf.append(src.name).append(' ').append(tgt.name).append(' ')">
     <opposite name="lowerType"/>
     <src varName="src">
       <type href="../clazz/ClassModel.ecore#//classModel/Clazz"/>
@@ -17,4 +17,4 @@
     <domain xsi:type="ecore:EReference" href="../clazz/ClassModel.ecore#//classModel/Clazz/superClasses"/>
   </slicedElements>
   <inputClasses href="../clazz/ClassModel.ecore#//classModel/Clazz"/>
-</org.kermeta.kompren.slicer:Slicer>
+</kompren:Slicer>
