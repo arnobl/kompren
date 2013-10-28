@@ -21,9 +21,11 @@ import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl
 
 class SlicerCompiler {
 	val String slicerName
+	val String pkgName
 	val Slicer slicer
 	val List<EPackage> metamodel
 	val SlicerAspectGenerator aspectGenerator
+	val SlicerMainGenerator mainGenerator
 	val String targetDir
 	
 	
@@ -38,27 +40,34 @@ class SlicerCompiler {
 		EcoreFactoryImpl.eINSTANCE.eClass
 		slicer = getSlicerModel("clazz.kompren", rs)
 		metamodel = getEcoreModel(slicer)
-		slicerName = slicer.name.split("\\.").last
-		aspectGenerator = new SlicerAspectGenerator(metamodel, slicerName, slicer)
+		pkgName = slicer.name.split("\\.").last
+		slicerName = Character.toUpperCase(pkgName.charAt(0)).toString+pkgName.substring(1)
+		aspectGenerator = new SlicerAspectGenerator(metamodel, slicerName, slicer, pkgName)
+		mainGenerator = new SlicerMainGenerator(metamodel, slicerName, slicer, pkgName)
 		this.targetDir = targetDir
 	}
 	
 	
 	protected def void compile() {
 		aspectGenerator.generate
+		mainGenerator.generate
 		println(aspectGenerator.code)
+		println(mainGenerator.code)
 		saveCode
-//		println(slicer.slicedElements.filter(SlicedClass).head.domain)
 	}
 	
 	
 	protected def void saveCode() {
-		val p = targetDir+slicer.name+"/src/main/xtend/"+slicerName+"/"
+		val p = targetDir+slicer.name+"/src/main/xtend/"+pkgName+"/"
 		val path = Paths.get(p)
 		if(!Files.exists(path))
 			Files.createDirectories(path)
-		val out = new PrintWriter(p+slicerName+"Aspects.xtend")
+		var out = new PrintWriter(p+slicerName+"Aspects.xtend")
 		out.println(aspectGenerator.code)
+		out.flush
+		out.close
+		out = new PrintWriter(p+slicerName+".xtend")
+		out.println(mainGenerator.code)
 		out.flush
 		out.close
 	}
@@ -87,6 +96,6 @@ class SlicerCompiler {
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap.put("kompren", new XMIResourceFactoryImpl)
 		val res = rs.getResource(URI.createURI(uriSlicerModel), true)
 		res.load(Collections.emptyMap)
-		return res.contents.filter(typeof(Slicer)).head
+		return res.contents.filter(Slicer).head
 	}
 }
