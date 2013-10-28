@@ -5,7 +5,7 @@ import java.util.List
 
 import static extension ex.classModel.SlicerVisitor.*
 
-class superTypesSlicer {
+class superTypesSlicer2 {
 	public var int idPass = 0
 	public val List<Clazz> requiredClazzs = new ArrayList
 	public val List<Clazz> addedClazzs = new ArrayList

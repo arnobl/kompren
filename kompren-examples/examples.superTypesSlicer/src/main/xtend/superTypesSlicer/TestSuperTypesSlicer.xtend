@@ -1,5 +1,7 @@
-package ex.classModel
+package superTypesSlicer
 
+import ex.classModel.ClassModel
+import ex.classModel.Clazz
 import ex.classModel.impl.ClassModelFactoryImpl
 import java.util.ArrayList
 import java.util.List
@@ -7,12 +9,12 @@ import org.junit.Test
 
 import static org.junit.Assert.*
 
-class TestSlicer {
+class TestSuperTypesSlicer {
 	@Test def testSlicer() {
 		val List<Clazz> requiredClazzs = new  ArrayList
 		requiredClazzs.add(createClassModel(requiredClazzs).classes.head)
-		val slicer = new superTypesSlicer2(requiredClazzs)
-		slicer.launch
+		val slicer = new SuperTypesSlicer(requiredClazzs)
+		slicer.slice
 		assertEquals("Slicing starting c3 c4 c5 c1 c2 c4 c5 c3 c4 c2 c3 c1 c2 Slicing ended", slicer.buf.toString)
 	}
 	

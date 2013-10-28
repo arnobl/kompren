@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated ClassModel -->
       <package
-            uri="platform:/resource/org.kermeta.ki.pruning.examples/src/kermeta/class/ClassModel.ecore#/ex/classModel"
+            uri="http://kompren/examples.classModel/ex/classModel"
             class="ex.classModel.ClassModelPackage"/>
    </extension>
 

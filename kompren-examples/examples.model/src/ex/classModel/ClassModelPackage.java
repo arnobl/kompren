@@ -38,7 +38,7 @@ public interface ClassModelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "platform:/resource/org.kermeta.ki.pruning.examples/src/kermeta/class/ClassModel.ecore#/ex/classModel";
+	String eNS_URI = "http://kompren/examples.classModel/ex/classModel";
 
 	/**
 	 * The package namespace name.

@@ -6,7 +6,8 @@
     operationReflection="true" importOrganizing="true">
   <foreignModel>ClassModel.ecore</foreignModel>
   <genPackages prefix="Ex" disposableProviderFactory="true" ecorePackage="ClassModel.ecore#/">
-    <nestedGenPackages prefix="ClassModel" disposableProviderFactory="true" ecorePackage="ClassModel.ecore#//classModel">
+    <nestedGenPackages prefix="ClassModel" basePackage="ex" disposableProviderFactory="true"
+        ecorePackage="ClassModel.ecore#//classModel">
       <genClasses ecoreClass="ClassModel.ecore#//classModel/ClassModel">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ClassModel.ecore#//classModel/ClassModel/classes"/>
       </genClasses>
