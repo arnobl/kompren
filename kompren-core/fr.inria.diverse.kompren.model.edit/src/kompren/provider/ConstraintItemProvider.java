@@ -81,7 +81,7 @@ public class ConstraintItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Constraint_expression_feature", "_UI_Constraint_type"),
 				 KomprenPackage.Literals.CONSTRAINT__EXPRESSION,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,

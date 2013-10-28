@@ -103,7 +103,7 @@ public class SlicedElementItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_SlicedElement_expression_feature", "_UI_SlicedElement_type"),
 				 KomprenPackage.Literals.SLICED_ELEMENT__EXPRESSION,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
