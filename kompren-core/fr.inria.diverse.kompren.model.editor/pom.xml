@@ -5,9 +5,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>fr.inria.diverse.kompren.editor</artifactId>
+    <artifactId>fr.inria.diverse.kompren.model.editor</artifactId>
     <packaging>bundle</packaging>
-    <name>fr.inria.diverse.kompren.editor :: Kompren editor</name>
+    <name>fr.inria.diverse.kompren.model.editor :: Kompren editor</name>
     
     <parent>
         <groupId>fr.inria.diverse</groupId>
@@ -38,7 +38,7 @@
             <extensions>true</extensions>
             <configuration>
                 <instructions>
-                    <Bundle-SymbolicName>org.kermeta.kompren.slicer.editor; singleton=true</Bundle-SymbolicName>
+                    <Bundle-SymbolicName>org.kermeta.kompren.model.editor; singleton=true</Bundle-SymbolicName>
                     <Bundle-Name>${project.name}</Bundle-Name>
                     <Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 <!--                     <Bundle-Version>${bundle.version}</Bundle-Version> -->
@@ -57,7 +57,7 @@
                      	 org.eclipse.jface;visibility:=reexport,
                     	 org.eclipse.swt;visibility:=reexport,
 				         org.eclipse.core.resources;visibility:=reexport,
-				         org.kermeta.kompren.slicer.edit;visibility:=reexport,
+				         org.kermeta.kompren.slicer.model.edit;visibility:=reexport,
       					 org.eclipse.emf.ecore.xmi;visibility:=reexport,
 				         org.eclipse.emf.edit.ui;visibility:=reexport,
 				         org.eclipse.ui.ide;visibility:=reexport
@@ -93,7 +93,7 @@
 		
         <dependency>
             <groupId>fr.inria.diverse</groupId>
-            <artifactId>fr.inria.diverse.kompren.edit</artifactId>
+            <artifactId>fr.inria.diverse.kompren.model.edit</artifactId>
             <version>${kompren.version}</version>
         </dependency>
      <dependency>

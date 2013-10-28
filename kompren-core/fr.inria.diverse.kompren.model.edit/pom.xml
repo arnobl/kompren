@@ -6,7 +6,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>fr.inria.diverse.kompren.edit</artifactId>
+    <artifactId>fr.inria.diverse.kompren.model.edit</artifactId>
     <packaging>bundle</packaging>
     <name>fr.inria.diverse.kompren.edit :: Kompren edit</name>
     
@@ -41,7 +41,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Bundle-SymbolicName>org.kermeta.kompren.slicer.edit; singleton=true</Bundle-SymbolicName>
+                        <Bundle-SymbolicName>org.kermeta.kompren.slicer.model.edit; singleton=true</Bundle-SymbolicName>
                         <Bundle-Name>${project.name}</Bundle-Name>
                         <Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 <!--                         <Bundle-Version>${bundle.version}</Bundle-Version> -->
@@ -49,11 +49,19 @@
                         <Export-Package>
 							kompren.provider
                         </Export-Package>
-                        <Import-Package>
-                        	kompren.*,
-							org.eclipse.emf.*,
-                        	org.osgi.framework;version="[1.5,2)"
-                        </Import-Package>
+					<Require-Bundle>
+                         org.eclipse.emf.edit;visibility:=reexport,
+                         org.eclipse.emf.ecore.edit;visibility:=reexport,
+                         org.eclipse.emf.ecore;visibility:=reexport,
+				         org.kermeta.kompren.slicer.model.edit;visibility:=reexport,
+      					 org.eclipse.emf.ecore.xmi;visibility:=reexport,
+				         org.eclipse.emf.edit.ui;visibility:=reexport
+                        </Require-Bundle>
+<!--                         <Import-Package> -->
+<!--                     	!kompren.*, -->
+<!--                     	!org.eclipse.*, -->
+<!--                     	org.osgi.framework;version="[1.5,2)" -->
+<!--                         </Import-Package> -->
                         <Bundle-ClassPath>.</Bundle-ClassPath>
                     </instructions>
                 </configuration>
@@ -67,16 +75,16 @@
             <artifactId>fr.inria.diverse.kompren.model</artifactId>
             <version>${kompren.version}</version>
         </dependency>
-		<dependency>
-            <groupId>fr.inria.diverse</groupId>
-            <artifactId>fr.inria.diverse.kompren.parser</artifactId>
-            <version>${kompren.version}</version>
-        </dependency>
-     <dependency>
-        <groupId>fr.inria.diverse</groupId>
-        <artifactId>fr.inria.diverse.kompren.slicer.compiler</artifactId>
-        <version>${kompren.version}</version>
-    </dependency>
+<!-- 		<dependency> -->
+<!--             <groupId>fr.inria.diverse</groupId> -->
+<!--             <artifactId>fr.inria.diverse.kompren.parser</artifactId> -->
+<!--             <version>${kompren.version}</version> -->
+<!--         </dependency> -->
+<!--      <dependency> -->
+<!--         <groupId>fr.inria.diverse</groupId> -->
+<!--         <artifactId>fr.inria.diverse.kompren.slicer.compiler</artifactId> -->
+<!--         <version>${kompren.version}</version> -->
+<!--     </dependency> -->
         <dependency>
             <groupId>org.eclipse.core</groupId>
             <artifactId>runtime</artifactId>
