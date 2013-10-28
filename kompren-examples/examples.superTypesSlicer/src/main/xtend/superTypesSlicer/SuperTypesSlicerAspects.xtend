@@ -4,6 +4,8 @@ import ex.classModel.*
 import static extension superTypesSlicer.__SlicerAspect__.*
 import fr.inria.triskell.k3.Aspect
 import fr.inria.triskell.k3.OverrideAspectMethod
+import java.util.List
+import java.util.ArrayList
 
 @Aspect(className=typeof(Object))
 abstract class __SlicerAspect__ {
@@ -27,6 +29,8 @@ abstract class __SlicerAspect__ {
 	}
 	
 	protected def void _visitToAddRelations(SuperTypesSlicer theSlicer){}
+
+	def void feedOpposites(){}
 }
 
 @Aspect(className=typeof(ClassModel))

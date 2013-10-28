@@ -15,10 +15,11 @@ class SlicerMainGenerator extends SlicerGenerator {
 		buf.append("package ").append(pkgName).append('\n')
 		buf.append(getMMPackagesImports)
 		buf.append("import java.util.List\n\n")
+		if(slicer.hasOpposite) buf.append("import org.eclipse.emf.ecore.EObject\n")
 		buf.append("class ").append(slicerName).append("{\n")
-		if(slicer.helper!=null && slicer.helper.length>0)
-			buf.append(slicer.helper).append('\n')
+		if(slicer.helper!=null && slicer.helper.length>0) buf.append(slicer.helper).append('\n')
 		buf.append(generateAttributes).append('\n')
+		if(slicer.hasOpposite) buf.append("\tval EObject _root\n\n")
 		buf.append(generateConstructor).append('\n')
 		buf.append(generateLaunch).append('\n')
 		buf.append(generateOnAdded).append('\n')
@@ -37,7 +38,8 @@ class SlicerMainGenerator extends SlicerGenerator {
 			buf.append("\t}\n")
 		]
 		slicer.slicedProps.filter[expression!=null && expression.length>0 && src!=null && tgt!=null].forEach[prop|
-			buf.append("\tdef void on").append(prop.domain.name).append("Sliced(").
+			val name = if(prop.opposite==null) prop.domain.name else prop.opposite.name
+			buf.append("\tdef void on").append(name).append("Sliced(").
 				append(prop.src.type.name).append(' ').append(prop.src.varName).append(", ").
 				append(prop.tgt.type.name).append(' ').append(prop.tgt.varName).append("){\n")
 			buf.append("\t\t").append(prop.expression).append('\n')
@@ -70,6 +72,8 @@ class SlicerMainGenerator extends SlicerGenerator {
 	private def StringBuilder generateLaunch() {
 		val buf = new StringBuilder
 		buf.append("\tdef void slice(){\n")
+		if(slicer.hasOpposite)
+			buf.append("\t\t_root.feedOpposites\n")
 		buf.append("\t\tonStart\n")
 		slicer.inputClasses.forEach[cl | buf.append("\t\tinput").append(cl.name).append(".forEach[visitToAddClasses(this)]\n")]
 		slicer.inputClasses.forEach[cl | buf.append("\t\tinput").append(cl.name).append(".forEach[visitToAddRelations(this)]\n")]
@@ -83,8 +87,10 @@ class SlicerMainGenerator extends SlicerGenerator {
 		val buf = new StringBuilder
 		buf.append("\tnew(")
 		buf.append(slicer.inputClasses.map[cl | new StringBuilder().append("List<").append(cl.name).append("> input").append(cl.name)].join(","))
+		if(slicer.hasOpposite) buf.append(", EObject metamodelRoot")
 		buf.append("){\n")
 		slicer.inputClasses.forEach[cl | buf.append("\t\tthis.input").append(cl.name).append(" = input").append(cl.name).append('\n')]
+		if(slicer.hasOpposite) buf.append("\t\tthis._root = metamodelRoot\n")
 		buf.append("\t}\n")
 		return buf
 	}

@@ -22,4 +22,8 @@ class SlicerAspect {
 			_self.props = _self.slicedElements.filter(SlicedProperty).toList
 		_self.props
 	}
+	
+	def boolean hasOpposite() {
+		_self.slicedProps.exists[opposite!=null]
+	}
 }

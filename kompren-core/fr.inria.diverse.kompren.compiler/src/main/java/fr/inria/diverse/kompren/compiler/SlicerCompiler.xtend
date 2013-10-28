@@ -30,15 +30,17 @@ class SlicerCompiler {
 	
 	
 	def static void main(String[] args) {
-		val slicerCompiler = new SlicerCompiler("", "/media/data/dev/kompren/kompren-examples/")
+		var slicerCompiler = new SlicerCompiler("clazz.kompren", "", "/media/data/dev/kompren/kompren-examples/")
+		slicerCompiler.compile
+		slicerCompiler = new SlicerCompiler("classInverted.kompren", "", "/media/data/dev/kompren/kompren-examples/")
 		slicerCompiler.compile
 	}
 	
-	new(String uri, String targetDir) {
+	new(String slicerURI, String uri, String targetDir) {
 		val rs = new ResourceSetImpl
 		KomprenPackageImpl.eINSTANCE.eClass
 		EcoreFactoryImpl.eINSTANCE.eClass
-		slicer = getSlicerModel("clazz.kompren", rs)
+		slicer = getSlicerModel(slicerURI, rs)
 		metamodel = getEcoreModel(slicer)
 		pkgName = slicer.name.split("\\.").last
 		slicerName = Character.toUpperCase(pkgName.charAt(0)).toString+pkgName.substring(1)

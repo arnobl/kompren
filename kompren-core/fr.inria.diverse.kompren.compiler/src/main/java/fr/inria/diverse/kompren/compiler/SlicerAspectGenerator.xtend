@@ -1,5 +1,6 @@
 package fr.inria.diverse.kompren.compiler
 
+import java.util.Iterator
 import java.util.List
 import kompren.Slicer
 import org.eclipse.emf.ecore.EClass
@@ -11,6 +12,8 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 class SlicerAspectGenerator extends SlicerGenerator {
 	val String aspectVisitor = "import fr.inria.triskell.k3.Aspect
 import fr.inria.triskell.k3.OverrideAspectMethod
+import java.util.List
+import java.util.ArrayList
 
 @Aspect(className=typeof(Object))
 abstract class __SlicerAspect__ {
@@ -34,6 +37,8 @@ abstract class __SlicerAspect__ {
 	}
 	
 	protected def void _visitToAddRelations(TYPE theSlicer){}
+
+	def void feedOpposites(){}
 }\n"
 	
 	new(List<EPackage> mm, String name, Slicer slicer, String pkgName) {
@@ -41,15 +46,20 @@ abstract class __SlicerAspect__ {
 	}
 
 	override def generate() {
-		generateClassVisitCode
-		generateRelationVisitCode
+		generateClassAspectCode
 		buf.append("package ").append(pkgName).append('\n')
 		buf.append(getMMPackagesImports).append(aspectVisitor.replace("TYPE", slicerName)).append('\n')
+		val opposite = slicer.hasOpposite
 		val mmClasses = metamodel.map[eAllContents.filter(EClass)]
+
 		mmClasses.forEach[forEach[cl |
 			val superName = if(cl.ESuperTypes.empty) "__SlicerAspect__" else cl.ESuperTypes.head.name+"Aspect"
+			if(opposite) cl.generateFeedOppositeCodeVisitor
 			buf.append("@Aspect(className=typeof(").append(cl.name).append("))\n")
 			buf.append("class ").append(cl.name).append("Aspect extends ").append(superName).append("{\n")
+			buf.append(cl.oppositeAttr)
+			if(opposite)
+				buf.append("\t@OverrideAspectMethod\n\tdef void feedOpposites(){\n").append(cl.oppositeFeed).append("\n\t}\n\n")
 			buf.append("\t@OverrideAspectMethod\n")
 			buf.append("\tdef void _visitToAddClasses(").append(slicerName).append(" theSlicer){\n")
 			buf.append(cl.codeAction)
@@ -64,12 +74,12 @@ abstract class __SlicerAspect__ {
 	}
 
 
-	protected def void generateRelationVisitCode() {
-		slicer.slicedProps.forEach[sp | sp.domain.EContainingClass.generateVisitToAddRelations(sp, slicerName)]
-	}
-
-	
-	protected def void generateClassVisitCode() {
-		slicer.slicedProps.forEach[sp | sp.domain.EContainingClass.generateVisitToAddClasses(sp, slicerName)]
+	protected def void generateClassAspectCode() {
+		slicer.slicedProps.forEach[sp |
+			sp.domain.EContainingClass.generateOppositeCode(sp)
+			sp.domain.EContainingClass.generateFeedOppositeCode(sp)
+			sp.domain.EContainingClass.generateVisitToAddClasses(sp)
+			sp.domain.EContainingClass.generateVisitToAddRelations(sp)
+		]
 	}
 }
