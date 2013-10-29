@@ -17,14 +17,16 @@ class SlicerMainGenerator extends SlicerGenerator {
 		buf.append("import java.util.List\n\n")
 		if(slicer.hasOpposite) buf.append("import org.eclipse.emf.ecore.EObject\n")
 		buf.append("class ").append(slicerName).append("{\n")
-		if(slicer.helper!=null && slicer.helper.length>0) buf.append(slicer.helper).append('\n')
+		if(!slicer.strict && slicer.helper!=null && slicer.helper.length>0) buf.append(slicer.helper).append('\n')
 		buf.append(generateAttributes).append('\n')
 		if(slicer.hasOpposite) buf.append("\tval EObject _root\n\n")
 		buf.append(generateConstructor).append('\n')
 		buf.append(generateLaunch).append('\n')
-		buf.append(generateOnAdded).append('\n')
-		buf.append(generateOnStart).append('\n')
-		buf.append(generateOnEnd).append('\n')
+		if(!slicer.strict) {
+			buf.append(generateOnAdded).append('\n')
+			buf.append(generateOnStart).append('\n')
+			buf.append(generateOnEnd).append('\n')
+		}
 		buf.append("}\n")
 	}
 
@@ -74,10 +76,10 @@ class SlicerMainGenerator extends SlicerGenerator {
 		buf.append("\tdef void slice(){\n")
 		if(slicer.hasOpposite)
 			buf.append("\t\t_root.feedOpposites\n")
-		buf.append("\t\tonStart\n")
+		if(!slicer.strict) buf.append("\t\tonStart\n")
 		slicer.inputClasses.forEach[cl | buf.append("\t\tinput").append(cl.name).append(".forEach[visitToAddClasses(this)]\n")]
 		slicer.inputClasses.forEach[cl | buf.append("\t\tinput").append(cl.name).append(".forEach[visitToAddRelations(this)]\n")]
-		buf.append("\t\tonEnd\n")
+		if(!slicer.strict) buf.append("\t\tonEnd\n")
 		buf.append("\t}\n")
 		return buf
 	}

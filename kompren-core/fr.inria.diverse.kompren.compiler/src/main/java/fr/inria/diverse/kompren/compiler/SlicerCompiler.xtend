@@ -34,6 +34,8 @@ class SlicerCompiler {
 		slicerCompiler.compile
 		slicerCompiler = new SlicerCompiler("classInverted.kompren", "", "/media/data/dev/kompren/kompren-examples/")
 		slicerCompiler.compile
+		slicerCompiler = new SlicerCompiler("sm.kompren", "", "/media/data/dev/kompren/kompren-examples/")
+		slicerCompiler.compile
 	}
 	
 	new(String slicerURI, String uri, String targetDir) {
@@ -61,6 +63,7 @@ class SlicerCompiler {
 	
 	protected def void saveCode() {
 		val p = targetDir+slicer.name+"/src/main/xtend/"+pkgName+"/"
+		println(">>>" + p)
 		val path = Paths.get(p)
 		if(!Files.exists(path))
 			Files.createDirectories(path)

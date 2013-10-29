@@ -1,6 +1,5 @@
 package fr.inria.diverse.kompren.compiler
 
-import java.util.Iterator
 import java.util.List
 import kompren.Slicer
 import org.eclipse.emf.ecore.EClass
@@ -78,8 +77,8 @@ abstract class __SlicerAspect__ {
 		slicer.slicedProps.forEach[sp |
 			sp.domain.EContainingClass.generateOppositeCode(sp)
 			sp.domain.EContainingClass.generateFeedOppositeCode(sp)
-			sp.domain.EContainingClass.generateVisitToAddClasses(sp)
-			sp.domain.EContainingClass.generateVisitToAddRelations(sp)
+			sp.domain.EContainingClass.generateVisitToAddClasses(sp, slicer)
+			sp.domain.EContainingClass.generateVisitToAddRelations(sp, slicer)
 		]
 	}
 }
