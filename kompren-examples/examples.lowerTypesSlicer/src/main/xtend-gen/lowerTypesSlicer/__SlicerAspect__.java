@@ -31,10 +31,10 @@ public abstract class __SlicerAspect__ {
     				   selfProp.put(_self, prop);
     			    }
     			     _self_ = selfProp.get(_self);
-    			        if (_self instanceof ex.classModel.Clazz){
-    			     							 lowerTypesSlicer.ClazzAspect.priv_visitToAddClasses((ex.classModel.Clazz)_self,theSlicer);
-    			     							} else    if (_self instanceof ex.classModel.ClassModel){
+    			        if (_self instanceof ex.classModel.ClassModel){
     			     							 lowerTypesSlicer.ClassModelAspect.priv_visitToAddClasses((ex.classModel.ClassModel)_self,theSlicer);
+    			     							} else    if (_self instanceof ex.classModel.Clazz){
+    			     							 lowerTypesSlicer.ClazzAspect.priv_visitToAddClasses((ex.classModel.Clazz)_self,theSlicer);
     			     							} else    if (_self instanceof java.lang.Object){
     			     							 lowerTypesSlicer.__SlicerAspect__.priv_visitToAddClasses((java.lang.Object)_self,theSlicer);
     			     							} else 
@@ -67,10 +67,10 @@ public abstract class __SlicerAspect__ {
     				   selfProp.put(_self, prop);
     			    }
     			     _self_ = selfProp.get(_self);
-    			        if (_self instanceof ex.classModel.Clazz){
-    			     							 lowerTypesSlicer.ClazzAspect.priv_visitToAddRelations((ex.classModel.Clazz)_self,theSlicer);
-    			     							} else    if (_self instanceof ex.classModel.ClassModel){
+    			        if (_self instanceof ex.classModel.ClassModel){
     			     							 lowerTypesSlicer.ClassModelAspect.priv_visitToAddRelations((ex.classModel.ClassModel)_self,theSlicer);
+    			     							} else    if (_self instanceof ex.classModel.Clazz){
+    			     							 lowerTypesSlicer.ClazzAspect.priv_visitToAddRelations((ex.classModel.Clazz)_self,theSlicer);
     			     							} else    if (_self instanceof java.lang.Object){
     			     							 lowerTypesSlicer.__SlicerAspect__.priv_visitToAddRelations((java.lang.Object)_self,theSlicer);
     			     							} else 
@@ -90,10 +90,10 @@ public abstract class __SlicerAspect__ {
     				   selfProp.put(_self, prop);
     			    }
     			     _self_ = selfProp.get(_self);
-    			        if (_self instanceof ex.classModel.Clazz){
-    			     							 lowerTypesSlicer.ClazzAspect.privfeedOpposites((ex.classModel.Clazz)_self);
-    			     							} else    if (_self instanceof ex.classModel.ClassModel){
+    			        if (_self instanceof ex.classModel.ClassModel){
     			     							 lowerTypesSlicer.ClassModelAspect.privfeedOpposites((ex.classModel.ClassModel)_self);
+    			     							} else    if (_self instanceof ex.classModel.Clazz){
+    			     							 lowerTypesSlicer.ClazzAspect.privfeedOpposites((ex.classModel.Clazz)_self);
     			     							} else    if (_self instanceof java.lang.Object){
     			     							 lowerTypesSlicer.__SlicerAspect__.privfeedOpposites((java.lang.Object)_self);
     			     							} else 

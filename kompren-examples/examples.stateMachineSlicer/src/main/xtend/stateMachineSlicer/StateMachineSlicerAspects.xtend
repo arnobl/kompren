@@ -36,38 +36,16 @@ abstract class __SlicerAspect__ {
 	def void feedOpposites(){}
 }
 
-@Aspect(className=typeof(TerminalState))
-class TerminalStateAspect extends InputStateAspect{
+@Aspect(className=typeof(StateMachine))
+class StateMachineAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StateMachineSlicer theSlicer){
-		if(_self.clonedElt==null){
-			_self.clonedElt = StateMachineFactoryImpl.eINSTANCE.createTerminalState as TerminalState
-			theSlicer.objectCloned(_self.clonedElt)
-		}
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(StateMachineSlicer theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-
-	}
-}
-
-@Aspect(className=typeof(OutputState))
-abstract class OutputStateAspect extends StateAspect{
-	@OverrideAspectMethod
-	def void _visitToAddClasses(StateMachineSlicer theSlicer){
-		_self.super__visitToAddClasses(theSlicer)
-		_self.outgoingTransitions.forEach[visitToAddClasses(theSlicer)]
-
-	}
-	@OverrideAspectMethod
-	def void _visitToAddRelations(StateMachineSlicer theSlicer){
-		_self.super__visitToAddRelations(theSlicer)
-		_self.outgoingTransitions.forEach[_elt| _elt.visitToAddRelations(theSlicer)
-			if(_self.sliced && _elt.sliced) (_self.clonedElt as OutputState).outgoingTransitions.add( _elt.clonedElt as Transition)
-		]
 
 	}
 }
@@ -98,20 +76,50 @@ class TransitionAspect extends __SlicerAspect__{
 	}
 }
 
-@Aspect(className=typeof(StandardState))
-class StandardStateAspect extends OutputStateAspect{
+@Aspect(className=typeof(State))
+abstract class StateAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StateMachineSlicer theSlicer){
-		if(_self.clonedElt==null){
-			_self.clonedElt = StateMachineFactoryImpl.eINSTANCE.createStandardState as StandardState
-			theSlicer.objectCloned(_self.clonedElt)
-		}
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(StateMachineSlicer theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+
+		if(_self.sliced) (_self.clonedElt as State).name = _self.name
+
+	}
+}
+
+@Aspect(className=typeof(InputState))
+abstract class InputStateAspect extends StateAspect{
+	@OverrideAspectMethod
+	def void _visitToAddClasses(StateMachineSlicer theSlicer){
+		_self.super__visitToAddClasses(theSlicer)
+
+	}
+	@OverrideAspectMethod
+	def void _visitToAddRelations(StateMachineSlicer theSlicer){
+		_self.super__visitToAddRelations(theSlicer)
+
+	}
+}
+
+@Aspect(className=typeof(OutputState))
+abstract class OutputStateAspect extends StateAspect{
+	@OverrideAspectMethod
+	def void _visitToAddClasses(StateMachineSlicer theSlicer){
+		_self.super__visitToAddClasses(theSlicer)
+		_self.outgoingTransitions.forEach[visitToAddClasses(theSlicer)]
+
+	}
+	@OverrideAspectMethod
+	def void _visitToAddRelations(StateMachineSlicer theSlicer){
+		_self.super__visitToAddRelations(theSlicer)
+		_self.outgoingTransitions.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) (_self.clonedElt as OutputState).outgoingTransitions.add( _elt.clonedElt as Transition)
+		]
 
 	}
 }
@@ -134,10 +142,14 @@ class InitStateAspect extends OutputStateAspect{
 	}
 }
 
-@Aspect(className=typeof(InputState))
-abstract class InputStateAspect extends StateAspect{
+@Aspect(className=typeof(StandardState))
+class StandardStateAspect extends OutputStateAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StateMachineSlicer theSlicer){
+		if(_self.clonedElt==null){
+			_self.clonedElt = StateMachineFactoryImpl.eINSTANCE.createStandardState as StandardState
+			theSlicer.objectCloned(_self.clonedElt)
+		}
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
@@ -148,24 +160,14 @@ abstract class InputStateAspect extends StateAspect{
 	}
 }
 
-@Aspect(className=typeof(State))
-abstract class StateAspect extends __SlicerAspect__{
+@Aspect(className=typeof(TerminalState))
+class TerminalStateAspect extends InputStateAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StateMachineSlicer theSlicer){
-		_self.super__visitToAddClasses(theSlicer)
-
-	}
-	@OverrideAspectMethod
-	def void _visitToAddRelations(StateMachineSlicer theSlicer){
-		_self.super__visitToAddRelations(theSlicer)
-
-	}
-}
-
-@Aspect(className=typeof(StateMachine))
-class StateMachineAspect extends __SlicerAspect__{
-	@OverrideAspectMethod
-	def void _visitToAddClasses(StateMachineSlicer theSlicer){
+		if(_self.clonedElt==null){
+			_self.clonedElt = StateMachineFactoryImpl.eINSTANCE.createTerminalState as TerminalState
+			theSlicer.objectCloned(_self.clonedElt)
+		}
 		_self.super__visitToAddClasses(theSlicer)
 
 	}

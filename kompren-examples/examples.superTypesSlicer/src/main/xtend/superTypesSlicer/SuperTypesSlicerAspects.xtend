@@ -36,6 +36,20 @@ abstract class __SlicerAspect__ {
 	def void feedOpposites(){}
 }
 
+@Aspect(className=typeof(ClassModel))
+class ClassModelAspect extends __SlicerAspect__{
+	@OverrideAspectMethod
+	def void _visitToAddClasses(SuperTypesSlicer theSlicer){
+		_self.super__visitToAddClasses(theSlicer)
+
+	}
+	@OverrideAspectMethod
+	def void _visitToAddRelations(SuperTypesSlicer theSlicer){
+		_self.super__visitToAddRelations(theSlicer)
+
+	}
+}
+
 @Aspect(className=typeof(Clazz))
 class ClazzAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
@@ -51,20 +65,6 @@ class ClazzAspect extends __SlicerAspect__{
 		_self.superClasses.forEach[_elt| _elt.visitToAddRelations(theSlicer)
 			if(_self.sliced && _elt.sliced) theSlicer.onsuperClassesSliced(_self, _elt)
 		]
-
-	}
-}
-
-@Aspect(className=typeof(ClassModel))
-class ClassModelAspect extends __SlicerAspect__{
-	@OverrideAspectMethod
-	def void _visitToAddClasses(SuperTypesSlicer theSlicer){
-		_self.super__visitToAddClasses(theSlicer)
-
-	}
-	@OverrideAspectMethod
-	def void _visitToAddRelations(SuperTypesSlicer theSlicer){
-		_self.super__visitToAddRelations(theSlicer)
 
 	}
 }
