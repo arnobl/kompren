@@ -372,8 +372,8 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
 		inputStateEClass.getESuperTypes().add(this.getState());
 		outputStateEClass.getESuperTypes().add(this.getState());
 		initStateEClass.getESuperTypes().add(this.getOutputState());
-		standardStateEClass.getESuperTypes().add(this.getOutputState());
 		standardStateEClass.getESuperTypes().add(this.getInputState());
+		standardStateEClass.getESuperTypes().add(this.getOutputState());
 		terminalStateEClass.getESuperTypes().add(this.getInputState());
 
 		// Initialize classes, features, and operations; add parameters

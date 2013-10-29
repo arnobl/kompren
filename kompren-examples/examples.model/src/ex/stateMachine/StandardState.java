@@ -13,5 +13,5 @@ package ex.stateMachine;
  * @model
  * @generated
  */
-public interface StandardState extends OutputState, InputState {
+public interface StandardState extends InputState, OutputState {
 } // StandardState

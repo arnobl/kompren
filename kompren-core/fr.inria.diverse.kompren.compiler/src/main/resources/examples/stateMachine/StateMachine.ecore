@@ -29,7 +29,7 @@
           upperBound="-1" eType="#//stateMachine/Transition"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InitState" eSuperTypes="#//stateMachine/OutputState"/>
-    <eClassifiers xsi:type="ecore:EClass" name="StandardState" eSuperTypes="#//stateMachine/OutputState #//stateMachine/InputState"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StandardState" eSuperTypes="#//stateMachine/InputState #//stateMachine/OutputState"/>
     <eClassifiers xsi:type="ecore:EClass" name="TerminalState" eSuperTypes="#//stateMachine/InputState"/>
   </eSubpackages>
 </ecore:EPackage>

@@ -3,6 +3,7 @@ package lowerTypesSlicer;
 import fr.inria.triskell.k3.Aspect;
 import lowerTypesSlicer.LowerTypesSlicer;
 import lowerTypesSlicer.__SlicerAspect__ObjectAspectProperties;
+import org.eclipse.emf.ecore.EObject;
 
 @Aspect(className = Object.class)
 @SuppressWarnings("all")
@@ -30,10 +31,10 @@ public abstract class __SlicerAspect__ {
     				   selfProp.put(_self, prop);
     			    }
     			     _self_ = selfProp.get(_self);
-    			        if (_self instanceof ex.classModel.ClassModel){
-    			     							 lowerTypesSlicer.ClassModelAspect.priv_visitToAddClasses((ex.classModel.ClassModel)_self,theSlicer);
-    			     							} else    if (_self instanceof ex.classModel.Clazz){
+    			        if (_self instanceof ex.classModel.Clazz){
     			     							 lowerTypesSlicer.ClazzAspect.priv_visitToAddClasses((ex.classModel.Clazz)_self,theSlicer);
+    			     							} else    if (_self instanceof ex.classModel.ClassModel){
+    			     							 lowerTypesSlicer.ClassModelAspect.priv_visitToAddClasses((ex.classModel.ClassModel)_self,theSlicer);
     			     							} else    if (_self instanceof java.lang.Object){
     			     							 lowerTypesSlicer.__SlicerAspect__.priv_visitToAddClasses((java.lang.Object)_self,theSlicer);
     			     							} else 
@@ -66,10 +67,10 @@ public abstract class __SlicerAspect__ {
     				   selfProp.put(_self, prop);
     			    }
     			     _self_ = selfProp.get(_self);
-    			        if (_self instanceof ex.classModel.ClassModel){
-    			     							 lowerTypesSlicer.ClassModelAspect.priv_visitToAddRelations((ex.classModel.ClassModel)_self,theSlicer);
-    			     							} else    if (_self instanceof ex.classModel.Clazz){
+    			        if (_self instanceof ex.classModel.Clazz){
     			     							 lowerTypesSlicer.ClazzAspect.priv_visitToAddRelations((ex.classModel.Clazz)_self,theSlicer);
+    			     							} else    if (_self instanceof ex.classModel.ClassModel){
+    			     							 lowerTypesSlicer.ClassModelAspect.priv_visitToAddRelations((ex.classModel.ClassModel)_self,theSlicer);
     			     							} else    if (_self instanceof java.lang.Object){
     			     							 lowerTypesSlicer.__SlicerAspect__.priv_visitToAddRelations((java.lang.Object)_self,theSlicer);
     			     							} else 
@@ -89,10 +90,10 @@ public abstract class __SlicerAspect__ {
     				   selfProp.put(_self, prop);
     			    }
     			     _self_ = selfProp.get(_self);
-    			        if (_self instanceof ex.classModel.ClassModel){
-    			     							 lowerTypesSlicer.ClassModelAspect.privfeedOpposites((ex.classModel.ClassModel)_self);
-    			     							} else    if (_self instanceof ex.classModel.Clazz){
+    			        if (_self instanceof ex.classModel.Clazz){
     			     							 lowerTypesSlicer.ClazzAspect.privfeedOpposites((ex.classModel.Clazz)_self);
+    			     							} else    if (_self instanceof ex.classModel.ClassModel){
+    			     							 lowerTypesSlicer.ClassModelAspect.privfeedOpposites((ex.classModel.ClassModel)_self);
     			     							} else    if (_self instanceof java.lang.Object){
     			     							 lowerTypesSlicer.__SlicerAspect__.privfeedOpposites((java.lang.Object)_self);
     			     							} else 
@@ -156,6 +157,32 @@ public abstract class __SlicerAspect__ {
     			      privsliced(_self,sliced); 
   }
   
+  public static EObject clonedElt(final Object _self) {
+    lowerTypesSlicer.__SlicerAspect__ObjectAspectContext _instance = lowerTypesSlicer.__SlicerAspect__ObjectAspectContext.getInstance();
+    				    java.util.Map<java.lang.Object,lowerTypesSlicer.__SlicerAspect__ObjectAspectProperties> selfProp = _instance.getMap();
+    					boolean _containsKey = selfProp.containsKey(_self);
+    				    boolean _not = (!_containsKey);
+    				    if (_not) {
+      						lowerTypesSlicer.__SlicerAspect__ObjectAspectProperties prop = new lowerTypesSlicer.__SlicerAspect__ObjectAspectProperties();
+    				   selfProp.put(_self, prop);
+    			    }
+    			     _self_ = selfProp.get(_self);
+    			     return privclonedElt(_self); 
+  }
+  
+  public static void clonedElt(final Object _self, final EObject clonedElt) {
+    lowerTypesSlicer.__SlicerAspect__ObjectAspectContext _instance = lowerTypesSlicer.__SlicerAspect__ObjectAspectContext.getInstance();
+    				    java.util.Map<java.lang.Object,lowerTypesSlicer.__SlicerAspect__ObjectAspectProperties> selfProp = _instance.getMap();
+    					boolean _containsKey = selfProp.containsKey(_self);
+    				    boolean _not = (!_containsKey);
+    				    if (_not) {
+      						lowerTypesSlicer.__SlicerAspect__ObjectAspectProperties prop = new lowerTypesSlicer.__SlicerAspect__ObjectAspectProperties();
+    				   selfProp.put(_self, prop);
+    			    }
+    			     _self_ = selfProp.get(_self);
+    			      privclonedElt(_self,clonedElt); 
+  }
+  
   protected static void privvisitToAddClasses(final Object _self, final LowerTypesSlicer theSlicer) {
     boolean _sliced = __SlicerAspect__.sliced(_self);
     boolean _not = (!_sliced);
@@ -197,5 +224,13 @@ public abstract class __SlicerAspect__ {
   
   protected static void privsliced(final Object _self, final boolean sliced) {
     lowerTypesSlicer.__SlicerAspect__._self_.sliced = sliced; 
+  }
+  
+  protected static EObject privclonedElt(final Object _self) {
+     return lowerTypesSlicer.__SlicerAspect__._self_.clonedElt; 
+  }
+  
+  protected static void privclonedElt(final Object _self, final EObject clonedElt) {
+    lowerTypesSlicer.__SlicerAspect__._self_.clonedElt = clonedElt; 
   }
 }

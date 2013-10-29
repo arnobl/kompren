@@ -349,16 +349,7 @@ public interface StateMachinePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STANDARD_STATE__NAME = OUTPUT_STATE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Outgoing Transitions</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STANDARD_STATE__OUTGOING_TRANSITIONS = OUTPUT_STATE__OUTGOING_TRANSITIONS;
+	int STANDARD_STATE__NAME = INPUT_STATE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Ingoing Transitions</b></em>' reference list.
@@ -367,7 +358,16 @@ public interface StateMachinePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STANDARD_STATE__INGOING_TRANSITIONS = OUTPUT_STATE_FEATURE_COUNT + 0;
+	int STANDARD_STATE__INGOING_TRANSITIONS = INPUT_STATE__INGOING_TRANSITIONS;
+
+	/**
+	 * The feature id for the '<em><b>Outgoing Transitions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STANDARD_STATE__OUTGOING_TRANSITIONS = INPUT_STATE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Standard State</em>' class.
@@ -376,7 +376,7 @@ public interface StateMachinePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STANDARD_STATE_FEATURE_COUNT = OUTPUT_STATE_FEATURE_COUNT + 1;
+	int STANDARD_STATE_FEATURE_COUNT = INPUT_STATE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Standard State</em>' class.
@@ -385,7 +385,7 @@ public interface StateMachinePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STANDARD_STATE_OPERATION_COUNT = OUTPUT_STATE_OPERATION_COUNT + 0;
+	int STANDARD_STATE_OPERATION_COUNT = INPUT_STATE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ex.stateMachine.impl.TerminalStateImpl <em>Terminal State</em>}' class.

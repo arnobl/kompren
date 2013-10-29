@@ -2,17 +2,13 @@
  */
 package ex.stateMachine.impl;
 
-import ex.stateMachine.InputState;
+import ex.stateMachine.OutputState;
 import ex.stateMachine.StandardState;
 import ex.stateMachine.StateMachinePackage;
 import ex.stateMachine.Transition;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
@@ -22,23 +18,22 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link ex.stateMachine.impl.StandardStateImpl#getIngoingTransitions <em>Ingoing Transitions</em>}</li>
+ *   <li>{@link ex.stateMachine.impl.StandardStateImpl#getOutgoingTransitions <em>Outgoing Transitions</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class StandardStateImpl extends OutputStateImpl implements StandardState {
+public class StandardStateImpl extends InputStateImpl implements StandardState {
 	/**
-	 * The cached value of the '{@link #getIngoingTransitions() <em>Ingoing Transitions</em>}' reference list.
+	 * The cached value of the '{@link #getOutgoingTransitions() <em>Outgoing Transitions</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIngoingTransitions()
+	 * @see #getOutgoingTransitions()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Transition> ingoingTransitions;
-
+	protected EList<Transition> outgoingTransitions;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -63,11 +58,11 @@ public class StandardStateImpl extends OutputStateImpl implements StandardState 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Transition> getIngoingTransitions() {
-		if (ingoingTransitions == null) {
-			ingoingTransitions = new EObjectResolvingEList<Transition>(Transition.class, this, StateMachinePackage.STANDARD_STATE__INGOING_TRANSITIONS);
+	public EList<Transition> getOutgoingTransitions() {
+		if (outgoingTransitions == null) {
+			outgoingTransitions = new EObjectResolvingEList<Transition>(Transition.class, this, StateMachinePackage.STANDARD_STATE__OUTGOING_TRANSITIONS);
 		}
-		return ingoingTransitions;
+		return outgoingTransitions;
 	}
 
 	/**
@@ -78,8 +73,8 @@ public class StandardStateImpl extends OutputStateImpl implements StandardState 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case StateMachinePackage.STANDARD_STATE__INGOING_TRANSITIONS:
-				return getIngoingTransitions();
+			case StateMachinePackage.STANDARD_STATE__OUTGOING_TRANSITIONS:
+				return getOutgoingTransitions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -93,9 +88,9 @@ public class StandardStateImpl extends OutputStateImpl implements StandardState 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case StateMachinePackage.STANDARD_STATE__INGOING_TRANSITIONS:
-				getIngoingTransitions().clear();
-				getIngoingTransitions().addAll((Collection<? extends Transition>)newValue);
+			case StateMachinePackage.STANDARD_STATE__OUTGOING_TRANSITIONS:
+				getOutgoingTransitions().clear();
+				getOutgoingTransitions().addAll((Collection<? extends Transition>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -109,8 +104,8 @@ public class StandardStateImpl extends OutputStateImpl implements StandardState 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case StateMachinePackage.STANDARD_STATE__INGOING_TRANSITIONS:
-				getIngoingTransitions().clear();
+			case StateMachinePackage.STANDARD_STATE__OUTGOING_TRANSITIONS:
+				getOutgoingTransitions().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -124,8 +119,8 @@ public class StandardStateImpl extends OutputStateImpl implements StandardState 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case StateMachinePackage.STANDARD_STATE__INGOING_TRANSITIONS:
-				return ingoingTransitions != null && !ingoingTransitions.isEmpty();
+			case StateMachinePackage.STANDARD_STATE__OUTGOING_TRANSITIONS:
+				return outgoingTransitions != null && !outgoingTransitions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -137,9 +132,9 @@ public class StandardStateImpl extends OutputStateImpl implements StandardState 
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == InputState.class) {
+		if (baseClass == OutputState.class) {
 			switch (derivedFeatureID) {
-				case StateMachinePackage.STANDARD_STATE__INGOING_TRANSITIONS: return StateMachinePackage.INPUT_STATE__INGOING_TRANSITIONS;
+				case StateMachinePackage.STANDARD_STATE__OUTGOING_TRANSITIONS: return StateMachinePackage.OUTPUT_STATE__OUTGOING_TRANSITIONS;
 				default: return -1;
 			}
 		}
@@ -153,9 +148,9 @@ public class StandardStateImpl extends OutputStateImpl implements StandardState 
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == InputState.class) {
+		if (baseClass == OutputState.class) {
 			switch (baseFeatureID) {
-				case StateMachinePackage.INPUT_STATE__INGOING_TRANSITIONS: return StateMachinePackage.STANDARD_STATE__INGOING_TRANSITIONS;
+				case StateMachinePackage.OUTPUT_STATE__OUTGOING_TRANSITIONS: return StateMachinePackage.STANDARD_STATE__OUTGOING_TRANSITIONS;
 				default: return -1;
 			}
 		}

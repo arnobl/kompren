@@ -1,16 +1,19 @@
 package superTypesSlicer
 import ex.*
 import ex.classModel.*
+import ex.classModel.impl.*
 import static extension superTypesSlicer.__SlicerAspect__.*
 import fr.inria.triskell.k3.Aspect
 import fr.inria.triskell.k3.OverrideAspectMethod
 import java.util.List
 import java.util.ArrayList
+import org.eclipse.emf.ecore.EObject
 
 @Aspect(className=typeof(Object))
 abstract class __SlicerAspect__ {
 	var boolean visitedForRelations = false
 	var boolean sliced = false
+	protected var EObject clonedElt = null
 
 	def void visitToAddClasses(SuperTypesSlicer theSlicer){
 		if(!_self.sliced) {
@@ -33,20 +36,6 @@ abstract class __SlicerAspect__ {
 	def void feedOpposites(){}
 }
 
-@Aspect(className=typeof(ClassModel))
-class ClassModelAspect extends __SlicerAspect__{
-	@OverrideAspectMethod
-	def void _visitToAddClasses(SuperTypesSlicer theSlicer){
-		_self.super__visitToAddClasses(theSlicer)
-		
-	}
-	@OverrideAspectMethod
-	def void _visitToAddRelations(SuperTypesSlicer theSlicer){
-		_self.super__visitToAddRelations(theSlicer)
-		
-	}
-}
-
 @Aspect(className=typeof(Clazz))
 class ClazzAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
@@ -62,6 +51,20 @@ class ClazzAspect extends __SlicerAspect__{
 		_self.superClasses.forEach[_elt| _elt.visitToAddRelations(theSlicer)
 			if(_self.sliced && _elt.sliced) theSlicer.onsuperClassesSliced(_self, _elt)
 		]
+
+	}
+}
+
+@Aspect(className=typeof(ClassModel))
+class ClassModelAspect extends __SlicerAspect__{
+	@OverrideAspectMethod
+	def void _visitToAddClasses(SuperTypesSlicer theSlicer){
+		_self.super__visitToAddClasses(theSlicer)
+
+	}
+	@OverrideAspectMethod
+	def void _visitToAddRelations(SuperTypesSlicer theSlicer){
+		_self.super__visitToAddRelations(theSlicer)
 
 	}
 }

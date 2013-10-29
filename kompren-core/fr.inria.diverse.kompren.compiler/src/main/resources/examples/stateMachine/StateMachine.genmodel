@@ -6,7 +6,8 @@
     copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>StateMachine.ecore</foreignModel>
   <genPackages prefix="Ex" disposableProviderFactory="true" ecorePackage="StateMachine.ecore#/">
-    <nestedGenPackages prefix="StateMachine" disposableProviderFactory="true" ecorePackage="StateMachine.ecore#//stateMachine">
+    <nestedGenPackages prefix="StateMachine" basePackage="ex" disposableProviderFactory="true"
+        ecorePackage="StateMachine.ecore#//stateMachine">
       <genClasses ecoreClass="StateMachine.ecore#//stateMachine/StateMachine">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference StateMachine.ecore#//stateMachine/StateMachine/initState"/>

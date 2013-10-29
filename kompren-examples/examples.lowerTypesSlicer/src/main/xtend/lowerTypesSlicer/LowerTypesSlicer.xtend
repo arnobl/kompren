@@ -1,6 +1,7 @@
 package lowerTypesSlicer
 import ex.*
 import ex.classModel.*
+import ex.classModel.impl.*
 import static extension lowerTypesSlicer.__SlicerAspect__.*
 import java.util.List
 

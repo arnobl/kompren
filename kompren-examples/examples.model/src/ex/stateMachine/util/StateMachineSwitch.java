@@ -109,8 +109,8 @@ public class StateMachineSwitch<T> extends Switch<T> {
 			case StateMachinePackage.STANDARD_STATE: {
 				StandardState standardState = (StandardState)theEObject;
 				T result = caseStandardState(standardState);
-				if (result == null) result = caseOutputState(standardState);
 				if (result == null) result = caseInputState(standardState);
+				if (result == null) result = caseOutputState(standardState);
 				if (result == null) result = caseState(standardState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
