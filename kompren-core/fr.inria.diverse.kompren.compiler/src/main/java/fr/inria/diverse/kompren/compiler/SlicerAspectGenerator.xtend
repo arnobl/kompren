@@ -1,7 +1,6 @@
 package fr.inria.diverse.kompren.compiler
 
 import java.util.List
-import java.util.Set
 import kompren.Slicer
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EPackage
@@ -43,9 +42,9 @@ abstract class __SlicerAspect__ {
 	def void feedOpposites(){}
 }\n"
 	
-	val Set<EClass> metamodelClasses
+	val List<EClass> metamodelClasses
 	
-	new(List<EPackage> mm, String name, Slicer slicer, String pkgName, Set<EClass> metamodelClasses) {
+	new(List<EPackage> mm, String name, Slicer slicer, String pkgName, List<EClass> metamodelClasses) {
 		super(mm, name, slicer, pkgName)
 		this.metamodelClasses = metamodelClasses
 	}

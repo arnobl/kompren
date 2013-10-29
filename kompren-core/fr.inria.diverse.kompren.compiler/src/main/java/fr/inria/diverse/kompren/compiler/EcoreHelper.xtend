@@ -22,6 +22,11 @@ import kompren.SlicedClass
 
 @Aspect(className=typeof(EClassifier)) class EClassifierAspect{
 	def void feedSubClassesRelations() {}
+	
+	def boolean isPrimitiveType() {
+		_self.name.equals("EString") || _self.name.equals("EBoolean") || _self.name.equals("EFloat") || _self.name.equals("EDouble") || 
+		_self.name.equals("EInt") || _self.name.equals("EInteger")
+	}
 }
 
 
@@ -112,12 +117,14 @@ import kompren.SlicedClass
 
 	def void generateVisitToAddClasses(SlicedProperty sp) {
 		val elt = sp.domain
-		val name = if(sp.opposite==null) elt.name else sp.opposite.name
-
-		if(elt.upperBound>1 || elt.upperBound<0)
-			_self.codeVisit.append("\t\t_self.").append(name).append(".forEach[visitToAddClasses(theSlicer)]\n")
-		else
-			_self.codeVisit.append("\t\t_self.").append(name).append("?.visitToAddClasses(theSlicer)\n")
+		if(!elt.EType.primitiveType) {		
+			val name = if(sp.opposite==null) elt.name else sp.opposite.name
+	
+			if(elt.upperBound>1 || elt.upperBound<0)
+				_self.codeVisit.append("\t\t_self.").append(name).append(".forEach[visitToAddClasses(theSlicer)]\n")
+			else
+				_self.codeVisit.append("\t\t_self.").append(name).append("?.visitToAddClasses(theSlicer)\n")
+		}
 	}
 
 
@@ -133,14 +140,22 @@ import kompren.SlicedClass
 	
 	
 	private def void generateVisitToAddRelations4OneCard(SlicedProperty sp, Slicer slicer, String name, boolean okSlice) {
-		if(sp.domain.lowerBound==0)
-			_self.relationCode.append("\t\tif(_self.").append(name).append("!=null){\n")
-		_self.relationCode.append("\t\t_self.").append(name).append(".visitToAddRelations(theSlicer)\n")
+		val isPrim = sp.domain.EType.isPrimitiveType
+		if(!isPrim) {
+			if(sp.domain.lowerBound==0)
+				_self.relationCode.append("\t\tif(_self.").append(name).append("!=null){\n")
+			_self.relationCode.append("\t\t_self.").append(name).append(".visitToAddRelations(theSlicer)\n")
+		}
 		if(okSlice) {
-			_self.relationCode.append("\n\t\tif(_self.sliced && _self.").append(name).append(".sliced) ")
+			_self.relationCode.append("\n\t\tif(_self.sliced")
+			if(!isPrim) _self.relationCode.append(" && _self.").append(name).append(".sliced")
+			_self.relationCode.append(") ")
 			if(slicer.strict)
-				_self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").").append(name).
-				append(" = _self.").append(name).append(".clonedElt as ").append(sp.domain.EType.name).append('\n')
+				if(isPrim)
+					_self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").").append(name).append(" = _self.").append(name).append('\n')
+				else
+					_self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").").append(name).
+					append(" = _self.").append(name).append(".clonedElt as ").append(sp.domain.EType.name).append('\n')
 			else
 				_self.relationCode.append("\t\ttheSlicer.on").append(name).append("Sliced(_self").append(", _self.").append(name).append(")\n")
 		}
@@ -152,10 +167,16 @@ import kompren.SlicedClass
 	private def void generateVisitToAddRelations4MultiCard(SlicedProperty sp, Slicer slicer, String name, boolean okSlice) {
 		_self.relationCode.append("\t\t_self.").append(name).append(".forEach[_elt| _elt.visitToAddRelations(theSlicer)")
 		if(okSlice){
-			_self.relationCode.append("\n\t\t\tif(_self.sliced && _elt.sliced) ")
+			val isPrim = sp.domain.EType.isPrimitiveType
+			_self.relationCode.append("\n\t\t\tif(_self.sliced")
+			if(!isPrim) _self.relationCode.append(" && _elt.sliced")
+			_self.relationCode.append(") ")
 			if(slicer.strict)
-				_self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").").append(name).
-				append(".add( _elt.clonedElt as ").append(sp.domain.EType.name).append(")\n")
+				if(isPrim)
+					_self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").").append(name).append(".add( _elt)\n")
+				else
+					_self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").").append(name).
+					append(".add( _elt.clonedElt as ").append(sp.domain.EType.name).append(")\n")
 			else
 				_self.relationCode.append("theSlicer.on").append(name).append("Sliced(_self").append(", _elt)\n")
 		}

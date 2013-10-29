@@ -7,7 +7,6 @@ import java.util.ArrayList
 import java.util.Collections
 import java.util.HashSet
 import java.util.List
-import java.util.Set
 import kompren.SlicedClass
 import kompren.SlicedProperty
 import kompren.Slicer
@@ -16,7 +15,7 @@ import kompren.impl.KomprenPackageImpl
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EPackage
-import org.eclipse.emf.ecore.EReference
+import org.eclipse.emf.ecore.EStructuralFeature
 import org.eclipse.emf.ecore.impl.EcoreFactoryImpl
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.ResourceSet
@@ -36,15 +35,15 @@ class SlicerCompiler {
 	val SlicerAspectGenerator aspectGenerator
 	val SlicerMainGenerator mainGenerator
 	val String targetDir
-	val Set<EClass> metamodelClasses = new HashSet
+	val List<EClass> metamodelClasses = new ArrayList
 	
 	def static void main(String[] args) {
 		var slicerCompiler = new SlicerCompiler("sm.kompren", "", "/media/data/dev/kompren/kompren-examples/")
 		slicerCompiler.compile
-//		slicerCompiler = new SlicerCompiler("classInverted.kompren", "", "/media/data/dev/kompren/kompren-examples/")
-//		slicerCompiler.compile
-//		slicerCompiler = new SlicerCompiler("clazz.kompren", "", "/media/data/dev/kompren/kompren-examples/")
-//		slicerCompiler.compile
+		slicerCompiler = new SlicerCompiler("classInverted.kompren", "", "/media/data/dev/kompren/kompren-examples/")
+		slicerCompiler.compile
+		slicerCompiler = new SlicerCompiler("clazz.kompren", "", "/media/data/dev/kompren/kompren-examples/")
+		slicerCompiler.compile
 	}
 	
 	new(String slicerURI, String uri, String targetDir) {
@@ -62,7 +61,7 @@ class SlicerCompiler {
 	}
 
 
-	private def void getAllClasses(Set<EClass> set, List<EPackage> pkgs) {
+	private def void getAllClasses(List<EClass> set, List<EPackage> pkgs) {
 		set.addAll(pkgs.map[EClassifiers].flatten.filter(EClass))
 		pkgs.forEach[pkg | getAllClasses(set, pkg.ESubpackages)]
 	}
@@ -71,7 +70,7 @@ class SlicerCompiler {
 	protected def void compile() {
 		if(slicer.strict) {
 			metamodel.forEach[feedSubClassesRelations]
-			identifyAllClassesRelationsToSlice
+			identifyAllElementsToSlice
 		}
 		aspectGenerator.generate
 		mainGenerator.generate
@@ -81,48 +80,41 @@ class SlicerCompiler {
 	}
 	
 	
-	protected def void identifyAllClassesRelationsToSlice() {
+	protected def void identifyAllElementsToSlice() {
 		val set = new HashSet<EClass>()
 		val setSlicedClasses = new HashSet<EClass>()
 		var EClass clazz
 		setSlicedClasses.addAll(slicer.slicedClasses.map[domain])
 		set.addAll(setSlicedClasses)
 
-		// Adding relation with cardinality 1
 		while(!set.empty) {
 			clazz = set.head
-			set.addAll(clazz.EReferences.filter[lowerBound>0].map[EType].filter(EClass))
-			createSlicedClass(setSlicedClasses, clazz)
-			set.remove(clazz)	
-		}
-		
-		// Adding sub-classes
-		set.addAll(setSlicedClasses)
-		while(!set.empty) {
-			clazz = set.head
-			if(clazz.lowerClasses!=null) set.addAll(clazz.lowerClasses)
-			createSlicedClass(setSlicedClasses, clazz)
-			set.remove(clazz)	
-		}
-		
-		val setSlicedRefs = new HashSet<EReference>()
+			clazz.EReferences.filter[ref| ref.lowerBound>0 && !setSlicedClasses.contains(ref.EType) && 
+				!set.contains(ref.EType)].map[EType].filter(EClass).forEach[cl |
+				set.add(cl)
+				set.addAll(cl.ESuperTypes.filter[cl2|!setSlicedClasses.contains(cl2)])
+				set.addAll(cl.lowerClasses.filter[cl2|!setSlicedClasses.contains(cl2)])
+				set.addAll(cl.EReferences.filter[ref| ref.lowerBound>0 && !setSlicedClasses.contains(ref.EType)].map[EType].filter(EClass))
+			]
+			if(!setSlicedClasses.contains(clazz)) {
+				val slicedClass = KomprenFactoryImpl.eINSTANCE.createSlicedClass
+				slicedClass.domain = clazz
+				slicer.slicedElements+=slicedClass
+				setSlicedClasses.add(clazz)
+			}
+			set.remove(clazz)
+		}		
+
+		val setSlicedRefs = new HashSet<EStructuralFeature>()
 		setSlicedRefs.addAll(slicer.slicedProps.map[domain])
 		// Adding sliced properties
-		setSlicedClasses.map[EReferences].flatten.filter[ref | ref.lowerBound>0 && !setSlicedRefs.contains(ref)].forEach[ref |
+		setSlicedClasses.map[EStructuralFeatures].flatten.filter[ref | ref.lowerBound>0 && !setSlicedRefs.contains(ref)].forEach[ref |
 			val prop = KomprenFactoryImpl.eINSTANCE.createSlicedProperty
 			prop.domain = ref
 			slicer.slicedElements+=prop
 		]
-	}
-
-
-	private def void createSlicedClass(Set<EClass> setSlicedClasses, EClass clazz) {
-		if(!setSlicedClasses.contains(clazz)) {
-			val slicedClass = KomprenFactoryImpl.eINSTANCE.createSlicedClass
-			slicedClass.domain = clazz
-			slicer.slicedElements+=slicedClass
-			setSlicedClasses.add(clazz)
-		}	
+//		println(slicer.slicedClasses.map[domain.name].join(", "))
+//		println(slicer.slicedProps.map[domain].map[name].join(", "))
 	}
 
 
