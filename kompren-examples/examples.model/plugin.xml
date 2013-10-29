@@ -13,4 +13,11 @@
             class="ex.classModel.ClassModelPackage"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated StateMachine -->
+      <package
+            uri="htpp://pruning.org/SM.stateMachine"
+            class="ex.stateMachine.StateMachinePackage"/>
+   </extension>
+
 </plugin>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/xtend-gen"/>
+	<classpathentry kind="src" path="src/main/xtend"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="con" path="org.eclipse.xtend.XTEND_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/fr.inria.diverse.k3.core"/>
+	<classpathentry kind="lib" path="/media/data/opt/k3/plugins/org.eclipse.emf.common_2.9.1.v20130827-0309.jar"/>
+	<classpathentry kind="lib" path="/media/data/opt/k3/plugins/org.eclipse.emf.ecore.xmi_2.9.1.v20130827-0309.jar"/>
+	<classpathentry kind="lib" path="/media/data/opt/k3/plugins/org.eclipse.emf.ecore_2.9.1.v20130827-0309.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/examples.model"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
