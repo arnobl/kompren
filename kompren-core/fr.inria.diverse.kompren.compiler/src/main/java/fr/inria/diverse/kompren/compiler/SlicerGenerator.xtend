@@ -33,6 +33,8 @@ abstract class SlicerGenerator {
 		
 		if(pkg!=null) {
 			buf.append("import ").append(qname).append(pkg.name).append(".*\n")
+			if(!pkg.EClassifiers.empty)
+				buf.append("import ").append(qname).append(pkg.name).append(".impl.*\n")
 			val name = qname+pkg.name+"."
 			buf.append(pkg.ESubpackages.map[sub| getMMPackageImport(name, sub)].join)
 		}

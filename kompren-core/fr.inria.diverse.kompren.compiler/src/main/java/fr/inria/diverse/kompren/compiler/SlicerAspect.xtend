@@ -8,19 +8,12 @@ import kompren.SlicedProperty
 
 @Aspect(className=typeof(Slicer))
 class SlicerAspect {
-	private var List<SlicedClass> classes
-	private var List<SlicedProperty> props
-	
 	def	List<SlicedClass> slicedClasses() {
-		if(_self.classes==null)
-			_self.classes = _self.slicedElements.filter(SlicedClass).toList
-		_self.classes
+		_self.slicedElements.filter(SlicedClass).toList
 	}
 	
 	def	List<SlicedProperty> slicedProps() {
-		if(_self.props==null)
-			_self.props = _self.slicedElements.filter(SlicedProperty).toList
-		_self.props
+		_self.slicedElements.filter(SlicedProperty).toList
 	}
 	
 	def boolean hasOpposite() {

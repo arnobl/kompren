@@ -8,9 +8,7 @@ Export-Package: examples.classInverted,
  examples.stateMachine,
  examples.strictEcore,
  examples.unusedVar,
- fr.inria.diverse.fr.inria.diverse.kompren.compiler,
- fr.inria.diverse.kompren.compiler,
- fr.inria.triskell.kompren.helpers
+ fr.inria.diverse.kompren.compiler
 Bundle-Vendor: Inria/IRISA Diverse Team
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

@@ -15,19 +15,44 @@ class SlicerMainGenerator extends SlicerGenerator {
 		buf.append("package ").append(pkgName).append('\n')
 		buf.append(getMMPackagesImports)
 		buf.append("import java.util.List\n\n")
-		if(slicer.hasOpposite) buf.append("import org.eclipse.emf.ecore.EObject\n")
+		if(slicer.hasOpposite || slicer.strict) buf.append("import org.eclipse.emf.ecore.EObject\n")
 		buf.append("class ").append(slicerName).append("{\n")
 		if(!slicer.strict && slicer.helper!=null && slicer.helper.length>0) buf.append(slicer.helper).append('\n')
 		buf.append(generateAttributes).append('\n')
 		if(slicer.hasOpposite) buf.append("\tval EObject _root\n\n")
 		buf.append(generateConstructor).append('\n')
 		buf.append(generateLaunch).append('\n')
-		if(!slicer.strict) {
+		if(slicer.strict) {
+			buf.append(generateObjectAdded).append('\n')
+			buf.append(generateSave).append('\n')
+		}
+		else {
 			buf.append(generateOnAdded).append('\n')
 			buf.append(generateOnStart).append('\n')
 			buf.append(generateOnEnd).append('\n')
 		}
 		buf.append("}\n")
+	}
+
+
+	private def StringBuilder generateSave() {
+		val content = "		val objs = this.clonedElts.filter[eContainer==null]
+		val resSet = new org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+		resSet.getResourceFactoryRegistry.getExtensionToFactoryMap.put(\"*\", new org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl)
+		val res = resSet.createResource(org.eclipse.emf.common.util.URI.createURI(\"modelSlice.xmi\"))
+		res.getContents.addAll(objs)
+	    res.save(java.util.Collections.emptyMap)
+	    res.unload"		
+		val buf = new StringBuilder
+		buf.append("\tdef void save(){\n").append(content).append("\n\t}\n")
+		return buf
+	}
+
+
+	private def StringBuilder generateObjectAdded() {
+		val buf = new StringBuilder
+		buf.append("\tdef void objectCloned(EObject object){\n\t\tthis.clonedElts.add(object)\n\t}\n")
+		return buf
 	}
 
 
@@ -79,7 +104,8 @@ class SlicerMainGenerator extends SlicerGenerator {
 		if(!slicer.strict) buf.append("\t\tonStart\n")
 		slicer.inputClasses.forEach[cl | buf.append("\t\tinput").append(cl.name).append(".forEach[visitToAddClasses(this)]\n")]
 		slicer.inputClasses.forEach[cl | buf.append("\t\tinput").append(cl.name).append(".forEach[visitToAddRelations(this)]\n")]
-		if(!slicer.strict) buf.append("\t\tonEnd\n")
+		if(slicer.strict) buf.append("\t\tsave\n")
+		else buf.append("\t\tonEnd\n")
 		buf.append("\t}\n")
 		return buf
 	}
@@ -101,6 +127,8 @@ class SlicerMainGenerator extends SlicerGenerator {
 	private def StringBuilder generateAttributes() {
 		val buf = new StringBuilder
 		slicer.inputClasses.forEach[cl | buf.append("\tval List<").append(cl.name).append("> input").append(cl.name).append('\n')]
+		if(slicer.strict)
+			buf.append("\tprivate val List<EObject> clonedElts = new java.util.ArrayList\n")
 		return buf
 	}
 }

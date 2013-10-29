@@ -1,11 +1,12 @@
 package fr.inria.diverse.kompren.compiler
 
 import java.util.List
+import java.util.Set
 import kompren.Slicer
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EPackage
 
-import static extension fr.inria.diverse.kompren.compiler.EClassAspectQName.*
+import static extension fr.inria.diverse.kompren.compiler.EClassAspect.*
 import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 
 class SlicerAspectGenerator extends SlicerGenerator {
@@ -13,11 +14,13 @@ class SlicerAspectGenerator extends SlicerGenerator {
 import fr.inria.triskell.k3.OverrideAspectMethod
 import java.util.List
 import java.util.ArrayList
+import org.eclipse.emf.ecore.EObject
 
 @Aspect(className=typeof(Object))
 abstract class __SlicerAspect__ {
 	var boolean visitedForRelations = false
 	var boolean sliced = false
+	protected var EObject clonedElt = null
 
 	def void visitToAddClasses(TYPE theSlicer){
 		if(!_self.sliced) {
@@ -40,21 +43,25 @@ abstract class __SlicerAspect__ {
 	def void feedOpposites(){}
 }\n"
 	
-	new(List<EPackage> mm, String name, Slicer slicer, String pkgName) {
+	val Set<EClass> metamodelClasses
+	
+	new(List<EPackage> mm, String name, Slicer slicer, String pkgName, Set<EClass> metamodelClasses) {
 		super(mm, name, slicer, pkgName)
+		this.metamodelClasses = metamodelClasses
 	}
+
 
 	override def generate() {
 		generateClassAspectCode
 		buf.append("package ").append(pkgName).append('\n')
 		buf.append(getMMPackagesImports).append(aspectVisitor.replace("TYPE", slicerName)).append('\n')
 		val opposite = slicer.hasOpposite
-		val mmClasses = metamodel.map[eAllContents.filter(EClass)]
 
-		mmClasses.forEach[forEach[cl |
+		metamodelClasses.forEach[cl |
 			val superName = if(cl.ESuperTypes.empty) "__SlicerAspect__" else cl.ESuperTypes.head.name+"Aspect"
 			if(opposite) cl.generateFeedOppositeCodeVisitor
 			buf.append("@Aspect(className=typeof(").append(cl.name).append("))\n")
+			if(cl.abstract) buf.append("abstract ")
 			buf.append("class ").append(cl.name).append("Aspect extends ").append(superName).append("{\n")
 			buf.append(cl.oppositeAttr)
 			if(opposite)
@@ -63,13 +70,13 @@ abstract class __SlicerAspect__ {
 			buf.append("\tdef void _visitToAddClasses(").append(slicerName).append(" theSlicer){\n")
 			buf.append(cl.codeAction)
 			buf.append("\t\t_self.super__visitToAddClasses(theSlicer)\n")
-			buf.append("\t\t").append(cl.codeVisit).append('\n')
+			buf.append(cl.codeVisit).append('\n')
 			buf.append("\t}\n\t@OverrideAspectMethod\n")
 			buf.append("\tdef void _visitToAddRelations(").append(slicerName).append(" theSlicer){\n")
 			buf.append("\t\t_self.super__visitToAddRelations(theSlicer)\n")
-			buf.append("\t\t").append(cl.relationCode).append('\n')
+			buf.append(cl.relationCode).append('\n')
 			buf.append("\t}\n}\n\n")
-		]]
+		]
 	}
 
 
@@ -77,8 +84,11 @@ abstract class __SlicerAspect__ {
 		slicer.slicedProps.forEach[sp |
 			sp.domain.EContainingClass.generateOppositeCode(sp)
 			sp.domain.EContainingClass.generateFeedOppositeCode(sp)
-			sp.domain.EContainingClass.generateVisitToAddClasses(sp, slicer)
+			sp.domain.EContainingClass.generateVisitToAddClasses(sp)
 			sp.domain.EContainingClass.generateVisitToAddRelations(sp, slicer)
+		]
+		slicer.slicedClasses.forEach[sc |
+			sc.domain.generateVisitToAddClassesActions(sc, slicer)
 		]
 	}
 }
