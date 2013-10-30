@@ -159,7 +159,7 @@ import kompren.SlicedClass
 			else
 				_self.relationCode.append("\t\ttheSlicer.on").append(name).append("Sliced(_self").append(", _self.").append(name).append(")\n")
 		}
-		if(sp.domain.lowerBound==0) _self.relationCode.append("}\n")
+		if(!isPrim && sp.domain.lowerBound==0) _self.relationCode.append("}\n")
 	}
 	
 	
