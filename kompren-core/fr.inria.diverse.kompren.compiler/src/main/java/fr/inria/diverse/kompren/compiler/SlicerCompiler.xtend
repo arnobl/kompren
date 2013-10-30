@@ -69,14 +69,12 @@ class SlicerCompiler {
 			res.load(null)
 			val GenModel gen = res.contents.filter(GenModel).head
 			val prefix = gen.genPackages.filter(GenPackage).map[basePackage].head
-			metamodel = gen.genPackages.filter(GenPackage).map[getEcoreModelElement].filter(EPackage).toList
 			pkgPrefix = if(prefix==null || prefix.length==0) "" else prefix+"."
 		}
-		else {
-			metamodel = getEcoreModel(slicer)
+		else
 			pkgPrefix = ""
-		}
 		
+		metamodel = getEcoreModel(slicer)
 		getAllClasses(metamodelClasses, metamodel)
 		pkgName = slicer.name.split("\\.").last
 		slicerName = Character.toUpperCase(pkgName.charAt(0)).toString+pkgName.substring(1)
