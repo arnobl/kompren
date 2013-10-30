@@ -44,8 +44,8 @@ abstract class __SlicerAspect__ {
 	
 	val List<EClass> metamodelClasses
 	
-	new(List<EPackage> mm, String name, Slicer slicer, String pkgName, List<EClass> metamodelClasses) {
-		super(mm, name, slicer, pkgName)
+	new(List<EPackage> mm, String name, Slicer slicer, String pkgName, List<EClass> metamodelClasses, String pkgPrefix) {
+		super(mm, name, slicer, pkgName, pkgPrefix)
 		this.metamodelClasses = metamodelClasses
 	}
 

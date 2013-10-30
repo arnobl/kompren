@@ -12,6 +12,9 @@ import kompren.SlicedProperty
 import kompren.Slicer
 import kompren.impl.KomprenFactoryImpl
 import kompren.impl.KomprenPackageImpl
+import org.eclipse.emf.codegen.ecore.genmodel.GenModel
+import org.eclipse.emf.codegen.ecore.genmodel.GenModelPackage
+import org.eclipse.emf.codegen.ecore.genmodel.GenPackage
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EPackage
@@ -36,14 +39,17 @@ class SlicerCompiler {
 	val SlicerMainGenerator mainGenerator
 	val String targetDir
 	val List<EClass> metamodelClasses = new ArrayList
+	val String pkgPrefix
 	
 	def static void main(String[] args) {
-		var slicerCompiler = new SlicerCompiler("sm.kompren", "", "/media/data/dev/kompren/kompren-examples/")
+		var slicerCompiler = new SlicerCompiler("src/main/resources/examples/strictEcore/strictEcore.kompren", "", "/media/data/dev/kompren/kompren-examples/")
 		slicerCompiler.compile
-		slicerCompiler = new SlicerCompiler("classInverted.kompren", "", "/media/data/dev/kompren/kompren-examples/")
-		slicerCompiler.compile
-		slicerCompiler = new SlicerCompiler("clazz.kompren", "", "/media/data/dev/kompren/kompren-examples/")
-		slicerCompiler.compile
+//		slicerCompiler = new SlicerCompiler("sm.kompren", "", "/media/data/dev/kompren/kompren-examples/")
+//		slicerCompiler.compile
+//		slicerCompiler = new SlicerCompiler("classInverted.kompren", "", "/media/data/dev/kompren/kompren-examples/")
+//		slicerCompiler.compile
+//		slicerCompiler = new SlicerCompiler("clazz.kompren", "", "/media/data/dev/kompren/kompren-examples/")
+//		slicerCompiler.compile
 	}
 	
 	new(String slicerURI, String uri, String targetDir) {
@@ -51,12 +57,31 @@ class SlicerCompiler {
 		KomprenPackageImpl.eINSTANCE.eClass
 		EcoreFactoryImpl.eINSTANCE.eClass
 		slicer = getSlicerModel(slicerURI, rs)
-		metamodel = getEcoreModel(slicer)
+		
+		if(slicer.uriMetamodel!=null && slicer.uriMetamodel.endsWith(".genmodel")) {
+			GenModelPackage.eINSTANCE.eClass
+			val set = new ResourceSetImpl
+			val ecoreFactory = new EcoreResourceFactoryImpl
+			val map = set.getResourceFactoryRegistry.getExtensionToFactoryMap
+	        map.put("ecore", ecoreFactory)
+			map.put("genmodel", ecoreFactory)
+			val res = set.getResource(URI.createURI(slicer.uriMetamodel), true)
+			res.load(null)
+			val GenModel gen = res.contents.filter(GenModel).head
+			val prefix = gen.genPackages.filter(GenPackage).map[basePackage].head
+			metamodel = gen.genPackages.filter(GenPackage).map[getEcoreModelElement].filter(EPackage).toList
+			pkgPrefix = if(prefix==null || prefix.length==0) "" else prefix+"."
+		}
+		else {
+			metamodel = getEcoreModel(slicer)
+			pkgPrefix = ""
+		}
+		
 		getAllClasses(metamodelClasses, metamodel)
 		pkgName = slicer.name.split("\\.").last
 		slicerName = Character.toUpperCase(pkgName.charAt(0)).toString+pkgName.substring(1)
-		aspectGenerator = new SlicerAspectGenerator(metamodel, slicerName, slicer, pkgName, metamodelClasses)
-		mainGenerator = new SlicerMainGenerator(metamodel, slicerName, slicer, pkgName)
+		aspectGenerator = new SlicerAspectGenerator(metamodel, slicerName, slicer, pkgName, metamodelClasses, pkgPrefix)
+		mainGenerator = new SlicerMainGenerator(metamodel, slicerName, slicer, pkgName, pkgPrefix)
 		this.targetDir = targetDir
 	}
 

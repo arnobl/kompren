@@ -7,8 +7,8 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 
 class SlicerMainGenerator extends SlicerGenerator {
 	
-	new(List<EPackage> mm, String name, Slicer slicer, String pkgName) {
-		super(mm, name, slicer, pkgName)
+	new(List<EPackage> mm, String name, Slicer slicer, String pkgName, String pkgPrefix) {
+		super(mm, name, slicer, pkgName, pkgPrefix)
 	}
 	
 	override generate() {

@@ -9,14 +9,16 @@ abstract class SlicerGenerator {
 	protected val String slicerName
 	protected val String pkgName
 	protected val Slicer slicer
+	protected val String pkgPrefix
 	protected val buf = new StringBuilder
 
 	
-	new(List<EPackage> mm, String name, Slicer slicer, String pkgName) {
+	new(List<EPackage> mm, String name, Slicer slicer, String pkgName, String pkgPrefix) {
 		metamodel = mm
 		slicerName = name
 		this.pkgName = pkgName
 		this.slicer = slicer
+		this.pkgPrefix = pkgPrefix
 	}
 	
 	abstract def void generate()
@@ -24,7 +26,7 @@ abstract class SlicerGenerator {
 	def StringBuilder code() { return buf }
 	
 	protected def String getMMPackagesImports() {
-		val imports = metamodel.map[pkg| getMMPackageImport("", pkg)].join
+		val imports = metamodel.map[pkg| getMMPackageImport(pkgPrefix, pkg)].join
 		return imports + "import static extension " + pkgName + ".__SlicerAspect__.*\n"
 	}
 	

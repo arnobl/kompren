@@ -39,6 +39,16 @@
 		</plugins>
 	</build>
 	<dependencies>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.eclipse.emf</groupId> -->
+<!-- 			<artifactId>codegen-ecore</artifactId> -->
+<!-- 			<version>2.2.3</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.eclipse.emf</groupId> -->
+<!-- 			<artifactId>codegen</artifactId> -->
+<!-- 			<version>2.2.3</version> -->
+<!-- 		</dependency> -->
         <dependency>
             <groupId>fr.inria.diverse</groupId>
             <artifactId>fr.inria.diverse.kompren.model</artifactId>
