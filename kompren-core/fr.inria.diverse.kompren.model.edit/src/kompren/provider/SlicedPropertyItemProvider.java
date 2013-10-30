@@ -133,12 +133,13 @@ public class SlicedPropertyItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		SlicedProperty slicedProperty = (SlicedProperty)object;
-		return getString("_UI_SlicedProperty_type") + " " + slicedProperty.isIsOption();
+		final SlicedProperty slicedProperty = (SlicedProperty)object;
+		final EStructuralFeature domain = slicedProperty.getDomain();
+		return getString("_UI_SlicedProperty_type") +
+				(domain==null ? "" : " " + domain.getEContainingClass().getName() + " -> " + domain.getName());
 	}
 
 	/**
