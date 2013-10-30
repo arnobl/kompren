@@ -83,11 +83,8 @@ import kompren.SlicedClass
 		_self.EReferences.filter[containment].forEach[ref|
 			if(ref.upperBound>1 || ref.upperBound<0)
 				_self.oppositeFeed.append("_self.").append(ref.name).append(".forEach[feedOpposites]\n")
-			else {
-				if(ref.lowerBound==0)
-					_self.oppositeFeed.append("if(_self.").append(ref.name).append("!=null) ")
-				_self.oppositeFeed.append("_self.").append(ref.name).append(".feedOpposites\n")
-			}
+			else
+				_self.oppositeFeed.append("_self.").append(ref.name).append("?.feedOpposites\n")
 		]
 	}
 
