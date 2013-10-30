@@ -146,7 +146,7 @@ import kompren.SlicedClass
 				_self.relationCode.append("\t\tif(_self.").append(name).append("!=null){\n")
 			_self.relationCode.append("\t\t_self.").append(name).append(".visitToAddRelations(theSlicer)\n")
 		}
-		if(okSlice) {
+		if(okSlice && sp.domain.changeable) {
 			_self.relationCode.append("\n\t\tif(_self.sliced")
 			if(!isPrim) _self.relationCode.append(" && _self.").append(name).append(".sliced")
 			_self.relationCode.append(") ")
@@ -166,7 +166,7 @@ import kompren.SlicedClass
 	
 	private def void generateVisitToAddRelations4MultiCard(SlicedProperty sp, Slicer slicer, String name, boolean okSlice) {
 		_self.relationCode.append("\t\t_self.").append(name).append(".forEach[_elt| _elt.visitToAddRelations(theSlicer)")
-		if(okSlice){
+		if(okSlice  && sp.domain.changeable){
 			val isPrim = sp.domain.EType.isPrimitiveType
 			_self.relationCode.append("\n\t\t\tif(_self.sliced")
 			if(!isPrim) _self.relationCode.append(" && _elt.sliced")
