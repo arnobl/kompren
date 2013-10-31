@@ -8,6 +8,10 @@ package fr.inria.diverse.kompren.compiler
 
 import fr.inria.triskell.k3.Aspect
 import fr.inria.triskell.k3.OverrideAspectMethod
+import java.util.ArrayList
+import java.util.List
+import java.util.Set
+import kompren.SlicedClass
 import kompren.SlicedProperty
 import kompren.Slicer
 import org.eclipse.emf.ecore.EClass
@@ -16,16 +20,39 @@ import org.eclipse.emf.ecore.EPackage
 
 import static extension fr.inria.diverse.kompren.compiler.EClassifierAspect.*
 import static extension fr.inria.diverse.kompren.compiler.EPackageAspect.*
-import java.util.List
-import java.util.ArrayList
-import kompren.SlicedClass
+import java.util.HashSet
+import org.eclipse.emf.ecore.EReference
 
 @Aspect(className=typeof(EClassifier)) class EClassifierAspect{
+	private var Set<String> primitiveTypes
+	
 	def void feedSubClassesRelations() {}
 	
 	def boolean isPrimitiveType() {
-		_self.name.equals("EString") || _self.name.equals("EBoolean") || _self.name.equals("EFloat") || _self.name.equals("EDouble") || 
-		_self.name.equals("EInt") || _self.name.equals("EInteger")
+		if(_self.primitiveTypes==null) {
+			_self.primitiveTypes = new HashSet
+			_self.primitiveTypes.add("EString")
+			_self.primitiveTypes.add("EBoolean")
+			_self.primitiveTypes.add("EFloat")
+			_self.primitiveTypes.add("EDouble")
+			_self.primitiveTypes.add("EInt")
+			_self.primitiveTypes.add("EInteger")
+			_self.primitiveTypes.add("EChar")
+			_self.primitiveTypes.add("EDate")
+			_self.primitiveTypes.add("EByte")
+			_self.primitiveTypes.add("ECharObject")
+			_self.primitiveTypes.add("EIntObject")
+			_self.primitiveTypes.add("EIntegerObject")
+			_self.primitiveTypes.add("EDoubleObject")
+			_self.primitiveTypes.add("EBooleanObject")
+			_self.primitiveTypes.add("EByteObject")
+			_self.primitiveTypes.add("EFloatObject")
+			_self.primitiveTypes.add("ELong")
+			_self.primitiveTypes.add("ELongObject")
+			_self.primitiveTypes.add("EShort")
+			_self.primitiveTypes.add("EShortObject")
+		}
+		return _self.primitiveTypes.contains(_self.name)
 	}
 }
 
@@ -56,7 +83,7 @@ import kompren.SlicedClass
 	
 	@OverrideAspectMethod
 	def void feedSubClassesRelations() {
-		_self.lowerClasses = new ArrayList
+		if(_self.lowerClasses==null) _self.lowerClasses = new ArrayList
 		_self.ESuperTypes.forEach[addLowerClass(_self)]
 	}
 	
@@ -143,7 +170,9 @@ import kompren.SlicedClass
 				_self.relationCode.append("\t\tif(_self.").append(name).append("!=null){\n")
 			_self.relationCode.append("\t\t_self.").append(name).append(".visitToAddRelations(theSlicer)\n")
 		}
-		if(okSlice && sp.domain.changeable) {
+		if(okSlice && !sp.domain.derived) {
+			val hasOpposite = sp.domain instanceof EReference && ((sp.domain) as EReference).EOpposite!=null
+			
 			_self.relationCode.append("\n\t\tif(_self.sliced")
 			if(!isPrim) _self.relationCode.append(" && _self.").append(name).append(".sliced")
 			_self.relationCode.append(") ")
@@ -151,8 +180,11 @@ import kompren.SlicedClass
 				if(isPrim)
 					_self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").").append(name).append(" = _self.").append(name).append('\n')
 				else
-					_self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").").append(name).
-					append(" = _self.").append(name).append(".clonedElt as ").append(sp.domain.EType.name).append('\n')
+					if(!sp.domain.changeable && hasOpposite)
+						_self.generateCodeForReadOnlyRefWithOpposite(sp)
+					else
+						_self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").").append(name).
+						append(" = _self.").append(name).append(".clonedElt as ").append(sp.domain.EType.name).append('\n')
 			else
 				_self.relationCode.append("\t\ttheSlicer.on").append(name).append("Sliced(_self").append(", _self.").append(name).append(")\n")
 		}
@@ -163,7 +195,8 @@ import kompren.SlicedClass
 	
 	private def void generateVisitToAddRelations4MultiCard(SlicedProperty sp, Slicer slicer, String name, boolean okSlice) {
 		_self.relationCode.append("\t\t_self.").append(name).append(".forEach[_elt| _elt.visitToAddRelations(theSlicer)")
-		if(okSlice  && sp.domain.changeable){
+		val hasOpposite = sp.domain instanceof EReference && ((sp.domain) as EReference).EOpposite!=null
+		if(okSlice  && !sp.domain.derived && (sp.domain.changeable || hasOpposite)){
 			val isPrim = sp.domain.EType.isPrimitiveType
 			_self.relationCode.append("\n\t\t\tif(_self.sliced")
 			if(!isPrim) _self.relationCode.append(" && _elt.sliced")
@@ -171,12 +204,25 @@ import kompren.SlicedClass
 			if(slicer.strict)
 				if(isPrim)
 					_self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").").append(name).append(".add( _elt)\n")
-				else
-					_self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").").append(name).
+				else {
+					if(!sp.domain.changeable && hasOpposite)
+						_self.generateCodeForReadOnlyRefWithOpposite(sp)
+					else _self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").").append(name).
 					append(".add( _elt.clonedElt as ").append(sp.domain.EType.name).append(")\n")
+				}
 			else
 				_self.relationCode.append("theSlicer.on").append(name).append("Sliced(_self").append(", _elt)\n")
 		}
 		_self.relationCode.append("\t\t]\n")
+	}
+	
+	
+	private def void generateCodeForReadOnlyRefWithOpposite(SlicedProperty sp) {
+		val refOpp = (sp.domain as EReference).EOpposite
+		_self.relationCode.append("(_self.").append(sp.domain.name).append(".clonedElt as ").append(sp.domain.EType.name).append(").").append(refOpp.name)
+		if(refOpp.upperBound<0 || refOpp.upperBound>1)
+			_self.relationCode.append(".add(_self.clonedElt as ").append(refOpp.EType.name).append(")\n")
+		else
+			_self.relationCode.append(" = _self.clonedElt as ").append(refOpp.EType.name).append('\n')
 	}
 }

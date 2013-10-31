@@ -102,8 +102,8 @@ class SlicerMainGenerator extends SlicerGenerator {
 		if(slicer.hasOpposite)
 			buf.append("\t\t_root.feedOpposites\n")
 		if(!slicer.strict) buf.append("\t\tonStart\n")
-		slicer.inputClasses.forEach[cl | buf.append("\t\tinput").append(cl.name).append(".forEach[visitToAddClasses(this)]\n")]
-		slicer.inputClasses.forEach[cl | buf.append("\t\tinput").append(cl.name).append(".forEach[visitToAddRelations(this)]\n")]
+		slicer.inputClasses.forEach[cl | buf.append("\t\tinput").append(cl.name).append("?.forEach[visitToAddClasses(this)]\n")]
+		slicer.inputClasses.forEach[cl | buf.append("\t\tinput").append(cl.name).append("?.forEach[visitToAddRelations(this)]\n")]
 		if(slicer.strict) buf.append("\t\tsave\n")
 		else buf.append("\t\tonEnd\n")
 		buf.append("\t}\n")
@@ -118,7 +118,8 @@ class SlicerMainGenerator extends SlicerGenerator {
 		if(slicer.hasOpposite) buf.append(", EObject metamodelRoot")
 		buf.append("){\n")
 		slicer.inputClasses.forEach[cl | buf.append("\t\tthis.input").append(cl.name).append(" = input").append(cl.name).append('\n')]
-		if(slicer.hasOpposite) buf.append("\t\tthis._root = metamodelRoot\n")
+		if(slicer.hasOpposite)
+			buf.append("\t\tif(metamodelRoot==null) throw new IllegalArgumentException\n\t\tthis._root = metamodelRoot\n")
 		buf.append("\t}\n")
 		return buf
 	}

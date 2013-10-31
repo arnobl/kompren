@@ -112,13 +112,9 @@ class SlicerCompiler {
 
 		while(!set.empty) {
 			clazz = set.head
-			clazz.EReferences.filter[ref| ref.lowerBound>0 && !setSlicedClasses.contains(ref.EType) && 
-				!set.contains(ref.EType)].map[EType].filter(EClass).forEach[cl |
-				set.add(cl)
-				set.addAll(cl.ESuperTypes.filter[cl2|!setSlicedClasses.contains(cl2)])
-				set.addAll(cl.lowerClasses.filter[cl2|!setSlicedClasses.contains(cl2)])
-				set.addAll(cl.EReferences.filter[ref| ref.lowerBound>0 && !setSlicedClasses.contains(ref.EType)].map[EType].filter(EClass))
-			]
+			set.addAll(clazz.EReferences.filter[ref| ref.lowerBound>0 && !setSlicedClasses.contains(ref.EType)].map[EType].filter(EClass))
+			set.addAll(clazz.ESuperTypes.filter[cl2|!setSlicedClasses.contains(cl2)])
+			set.addAll(clazz.lowerClasses.filter[cl2|!setSlicedClasses.contains(cl2)])
 			if(!setSlicedClasses.contains(clazz)) {
 				val slicedClass = KomprenFactoryImpl.eINSTANCE.createSlicedClass
 				slicedClass.domain = clazz
@@ -137,6 +133,7 @@ class SlicerCompiler {
 			slicer.slicedElements+=prop
 		]
 //		println(slicer.slicedClasses.map[domain.name].join(", "))
+//		println(setSlicedClasses.map[name].join(", "))
 //		println(slicer.slicedProps.map[domain].map[name].join(", "))
 	}
 

@@ -1,36 +1,32 @@
 package strictEcore
-
-import java.util.ArrayList
-import java.util.Collections
-import java.util.List
-import org.eclipse.emf.common.util.URI
-import org.eclipse.emf.ecore.EClass
-import org.eclipse.emf.ecore.EObject
-import org.eclipse.emf.ecore.EStructuralFeature
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
-
+import org.eclipse.emf.ecore.*
+import org.eclipse.emf.ecore.impl.*
 import static extension strictEcore.__SlicerAspect__.*
+import java.util.List
+
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl
 
 class StrictEcore{
 	val List<EClass> inputEClass
 	val List<EStructuralFeature> inputEStructuralFeature
-	private val List<EObject> clonedElts = new ArrayList
+	private val List<EObject> clonedElts = new java.util.ArrayList
 
 	val EObject _root
 
 	new(List<EClass> inputEClass,List<EStructuralFeature> inputEStructuralFeature, EObject metamodelRoot){
 		this.inputEClass = inputEClass
 		this.inputEStructuralFeature = inputEStructuralFeature
+		if(metamodelRoot==null) throw new IllegalArgumentException
 		this._root = metamodelRoot
 	}
 
 	def void slice(){
 		_root.feedOpposites
-		inputEClass.forEach[visitToAddClasses(this)]
-		inputEStructuralFeature.forEach[visitToAddClasses(this)]
-		inputEClass.forEach[visitToAddRelations(this)]
-		inputEStructuralFeature.forEach[visitToAddRelations(this)]
+		inputEClass?.forEach[visitToAddClasses(this)]
+		inputEStructuralFeature?.forEach[visitToAddClasses(this)]
+		inputEClass?.forEach[visitToAddRelations(this)]
+		inputEStructuralFeature?.forEach[visitToAddRelations(this)]
 		save
 	}
 
@@ -40,11 +36,11 @@ class StrictEcore{
 
 	def void save(){
 		val objs = this.clonedElts.filter[eContainer==null]
-		val resSet = new ResourceSetImpl
-		resSet.getResourceFactoryRegistry.getExtensionToFactoryMap.put("*", new XMIResourceFactoryImpl)
-		val res = resSet.createResource(URI.createURI("modelSlice.xmi"))
+		val resSet = new org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+		resSet.getResourceFactoryRegistry.getExtensionToFactoryMap.put("*", new EcoreResourceFactoryImpl)
+		val res = resSet.createResource(org.eclipse.emf.common.util.URI.createURI("modelSlice.ecore"))
 		res.getContents.addAll(objs)
-	    res.save(Collections.emptyMap)
+	    res.save(java.util.Collections.emptyMap)
 	    res.unload
 	}
 
