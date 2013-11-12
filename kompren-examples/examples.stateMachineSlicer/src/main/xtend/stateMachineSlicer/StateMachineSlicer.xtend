@@ -15,8 +15,8 @@ class StateMachineSlicer{
 	}
 
 	def void slice(){
-		inputState.forEach[visitToAddClasses(this)]
-		inputState.forEach[visitToAddRelations(this)]
+		inputState?.forEach[visitToAddClasses(this)]
+		inputState?.forEach[visitToAddRelations(this)]
 		save
 	}
 

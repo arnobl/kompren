@@ -1,28 +1,11 @@
 package strictEcore
-
+import org.eclipse.emf.ecore.*
+import org.eclipse.emf.ecore.impl.*
+import static extension strictEcore.__SlicerAspect__.*
 import fr.inria.triskell.k3.Aspect
 import fr.inria.triskell.k3.OverrideAspectMethod
-import java.util.ArrayList
 import java.util.List
-import org.eclipse.emf.ecore.EAnnotation
-import org.eclipse.emf.ecore.EAttribute
-import org.eclipse.emf.ecore.EClass
-import org.eclipse.emf.ecore.EClassifier
-import org.eclipse.emf.ecore.EDataType
-import org.eclipse.emf.ecore.EEnum
-import org.eclipse.emf.ecore.EEnumLiteral
-import org.eclipse.emf.ecore.EFactory
-import org.eclipse.emf.ecore.EGenericType
-import org.eclipse.emf.ecore.EModelElement
-import org.eclipse.emf.ecore.ENamedElement
-import org.eclipse.emf.ecore.EOperation
-import org.eclipse.emf.ecore.EPackage
-import org.eclipse.emf.ecore.EParameter
-import org.eclipse.emf.ecore.EReference
-import org.eclipse.emf.ecore.EStructuralFeature
-import org.eclipse.emf.ecore.ETypeParameter
-import org.eclipse.emf.ecore.ETypedElement
-import org.eclipse.emf.ecore.impl.EcoreFactoryImpl
+import java.util.ArrayList
 import org.eclipse.emf.ecore.EObject
 
 @Aspect(className=typeof(Object))

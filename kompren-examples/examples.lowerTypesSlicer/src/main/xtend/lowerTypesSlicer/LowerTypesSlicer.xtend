@@ -15,14 +15,15 @@ public val StringBuilder buf = new StringBuilder
 
 	new(List<Clazz> inputClazz, EObject metamodelRoot){
 		this.inputClazz = inputClazz
+		if(metamodelRoot==null) throw new IllegalArgumentException
 		this._root = metamodelRoot
 	}
 
 	def void slice(){
 		_root.feedOpposites
 		onStart
-		inputClazz.forEach[visitToAddClasses(this)]
-		inputClazz.forEach[visitToAddRelations(this)]
+		inputClazz?.forEach[visitToAddClasses(this)]
+		inputClazz?.forEach[visitToAddRelations(this)]
 		onEnd
 	}
 

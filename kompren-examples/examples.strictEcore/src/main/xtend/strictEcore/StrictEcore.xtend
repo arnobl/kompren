@@ -5,8 +5,6 @@ import static extension strictEcore.__SlicerAspect__.*
 import java.util.List
 
 import org.eclipse.emf.ecore.EObject
-import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl
-
 class StrictEcore{
 	val List<EClass> inputEClass
 	val List<EStructuralFeature> inputEStructuralFeature
@@ -37,8 +35,8 @@ class StrictEcore{
 	def void save(){
 		val objs = this.clonedElts.filter[eContainer==null]
 		val resSet = new org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
-		resSet.getResourceFactoryRegistry.getExtensionToFactoryMap.put("*", new EcoreResourceFactoryImpl)
-		val res = resSet.createResource(org.eclipse.emf.common.util.URI.createURI("modelSlice.ecore"))
+		resSet.getResourceFactoryRegistry.getExtensionToFactoryMap.put("*", new org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl)
+		val res = resSet.createResource(org.eclipse.emf.common.util.URI.createURI("modelSlice.xmi"))
 		res.getContents.addAll(objs)
 	    res.save(java.util.Collections.emptyMap)
 	    res.unload

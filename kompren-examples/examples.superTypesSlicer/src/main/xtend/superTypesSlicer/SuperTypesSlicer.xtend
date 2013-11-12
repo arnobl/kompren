@@ -16,8 +16,8 @@ public val StringBuilder buf = new StringBuilder
 
 	def void slice(){
 		onStart
-		inputClazz.forEach[visitToAddClasses(this)]
-		inputClazz.forEach[visitToAddRelations(this)]
+		inputClazz?.forEach[visitToAddClasses(this)]
+		inputClazz?.forEach[visitToAddRelations(this)]
 		onEnd
 	}
 
