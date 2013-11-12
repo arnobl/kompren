@@ -369,7 +369,7 @@ _self.ESubpackages.forEach[feedOpposites]
 			theSlicer.objectCloned(_self.clonedElt)
 		}
 		_self.super__visitToAddClasses(theSlicer)
-		_self.EFactoryInstance?.visitToAddClasses(theSlicer)
+//		_self.EFactoryInstance?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
