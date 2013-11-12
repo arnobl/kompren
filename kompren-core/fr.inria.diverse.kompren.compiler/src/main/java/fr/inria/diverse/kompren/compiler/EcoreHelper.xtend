@@ -20,8 +20,10 @@ import org.eclipse.emf.ecore.EPackage
 
 import static extension fr.inria.diverse.kompren.compiler.EClassifierAspect.*
 import static extension fr.inria.diverse.kompren.compiler.EPackageAspect.*
+import static extension fr.inria.diverse.kompren.compiler.EStructuralFeatureAspect.*
 import java.util.HashSet
 import org.eclipse.emf.ecore.EReference
+import org.eclipse.emf.ecore.EStructuralFeature
 
 @Aspect(className=typeof(EClassifier)) class EClassifierAspect{
 	private var Set<String> primitiveTypes
@@ -54,6 +56,8 @@ import org.eclipse.emf.ecore.EReference
 		}
 		return _self.primitiveTypes.contains(_self.name)
 	}
+	
+	def boolean isEcore() { _self?.EPackage.ecore }
 }
 
 
@@ -70,8 +74,26 @@ import org.eclipse.emf.ecore.EReference
 			_self._factoryName = Character.toUpperCase(_self.name.charAt(0))+_self.name.substring(1)+"FactoryImpl"
 		_self._factoryName
 	}
+	
+	def boolean isEcore() { "ecore".equals(_self.name) }
 }
 
+
+@Aspect(className=typeof(EStructuralFeature)) class EStructuralFeatureAspect {
+	def boolean isEcore() { _self?.EContainingClass.ecore }
+	
+	def String getXtendName() { _self.name }
+}
+
+
+@Aspect(className=typeof(EReference)) class EReferenceAspect extends EStructuralFeatureAspect {
+	def String getXtendName() {
+		if(_self.name.startsWith("e") && _self.ecore)
+			Character.toUpperCase(_self.name.charAt(0))+_self.name.substring(1)
+		else
+			_self.name
+	}
+}
 
 @Aspect(className=typeof(EClass)) class EClassAspect extends EClassifierAspect {
 	val StringBuilder codeVisit = new StringBuilder
@@ -109,9 +131,9 @@ import org.eclipse.emf.ecore.EReference
 	def void generateFeedOppositeCodeVisitor() {
 		_self.EReferences.filter[containment].forEach[ref|
 			if(ref.upperBound>1 || ref.upperBound<0)
-				_self.oppositeFeed.append("_self.").append(ref.name).append(".forEach[feedOpposites]\n")
+				_self.oppositeFeed.append("_self.").append(ref.xtendName).append(".forEach[feedOpposites]\n")
 			else
-				_self.oppositeFeed.append("_self.").append(ref.name).append("?.feedOpposites\n")
+				_self.oppositeFeed.append("_self.").append(ref.xtendName).append("?.feedOpposites\n")
 		]
 	}
 
@@ -121,9 +143,9 @@ import org.eclipse.emf.ecore.EReference
 
 		if(sp.opposite!=null){
 			if(elt.upperBound==1)
-				_self.oppositeFeed.append("_self.").append(elt.name).append('.').append(sp.opposite.name).append(" = ").append("_self\n")
+				_self.oppositeFeed.append("_self.").append(elt.xtendName).append('.').append(sp.opposite.name).append(" = ").append("_self\n")
 			else
-				_self.oppositeFeed.append("_self.").append(elt.name).append(".forEach[").append(sp.opposite.name).append(".add(_self)]\n")
+				_self.oppositeFeed.append("_self.").append(elt.xtendName).append(".forEach[").append(sp.opposite.name).append(".add(_self)]\n")
 		}
 	}
 
@@ -142,7 +164,7 @@ import org.eclipse.emf.ecore.EReference
 	def void generateVisitToAddClasses(SlicedProperty sp) {
 		val elt = sp.domain
 		if(!elt.EType.primitiveType) {		
-			val name = if(sp.opposite==null) elt.name else sp.opposite.name
+			val name = if(sp.opposite==null) elt.xtendName else sp.opposite.name
 	
 			if(elt.upperBound>1 || elt.upperBound<0)
 				_self.codeVisit.append("\t\t_self.").append(name).append(".forEach[visitToAddClasses(theSlicer)]\n")
@@ -154,7 +176,7 @@ import org.eclipse.emf.ecore.EReference
 
 	def void generateVisitToAddRelations(SlicedProperty sp, Slicer slicer) {
 		val okSlice = slicer.strict || (sp.expression!=null && sp.expression.length>0 && sp.tgt!=null && sp.src!=null)
-		val name = if(sp.opposite==null) sp.domain.name else sp.opposite.name
+		val name = if(sp.opposite==null) sp.domain.xtendName else sp.opposite.name
 		
 		if(sp.domain.upperBound>1 || sp.domain.upperBound<0)
 			_self.generateVisitToAddRelations4MultiCard(sp, slicer, name, okSlice)
@@ -219,7 +241,7 @@ import org.eclipse.emf.ecore.EReference
 	
 	private def void generateCodeForReadOnlyRefWithOpposite(SlicedProperty sp) {
 		val refOpp = (sp.domain as EReference).EOpposite
-		_self.relationCode.append("(_self.").append(sp.domain.name).append(".clonedElt as ").append(sp.domain.EType.name).append(").").append(refOpp.name)
+		_self.relationCode.append("(_self.").append(sp.domain.xtendName).append(".clonedElt as ").append(sp.domain.EType.name).append(").").append(refOpp.xtendName)
 		if(refOpp.upperBound<0 || refOpp.upperBound>1)
 			_self.relationCode.append(".add(_self.clonedElt as ").append(refOpp.EType.name).append(")\n")
 		else

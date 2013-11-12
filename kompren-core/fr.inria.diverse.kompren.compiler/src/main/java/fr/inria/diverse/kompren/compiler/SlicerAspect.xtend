@@ -1,10 +1,13 @@
 package fr.inria.diverse.kompren.compiler
 
 import fr.inria.triskell.k3.Aspect
-import kompren.SlicedClass
-import kompren.Slicer
 import java.util.List
+import kompren.SlicedClass
 import kompren.SlicedProperty
+import kompren.Slicer
+
+import static extension fr.inria.diverse.kompren.compiler.EClassifierAspect.*
+import static extension fr.inria.diverse.kompren.compiler.EStructuralFeatureAspect.*
 
 @Aspect(className=typeof(Slicer))
 class SlicerAspect {
@@ -19,4 +22,14 @@ class SlicerAspect {
 	def boolean hasOpposite() {
 		_self.slicedProps.exists[opposite!=null]
 	}
+}
+
+@Aspect(className=typeof(SlicedClass))
+class SlicedClassAspect {
+	def boolean isEcore() { _self.domain.ecore }
+}
+
+@Aspect(className=typeof(SlicedProperty))
+class SlicedPropertyAspect {
+	def boolean isEcore() { _self.domain.ecore }
 }
