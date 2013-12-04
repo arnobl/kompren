@@ -296,7 +296,9 @@ abstract class ENamedElementAspect extends EModelElementAspect{
 
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
+		if(theSlicer.optionENamedElement){
 		_self.super__visitToAddClasses(theSlicer)
+		}
 
 	}
 	@OverrideAspectMethod
@@ -369,7 +371,7 @@ _self.ESubpackages.forEach[feedOpposites]
 			theSlicer.objectCloned(_self.clonedElt)
 		}
 		_self.super__visitToAddClasses(theSlicer)
-//		_self.EFactoryInstance?.visitToAddClasses(theSlicer)
+		_self.EFactoryInstance?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod

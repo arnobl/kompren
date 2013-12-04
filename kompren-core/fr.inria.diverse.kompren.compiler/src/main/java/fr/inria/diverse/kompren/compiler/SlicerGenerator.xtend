@@ -23,11 +23,10 @@ abstract class SlicerGenerator {
 	
 	abstract def void generate()
 	
-	def StringBuilder code() { return buf }
+	def StringBuilder code() { buf }
 	
 	protected def String getMMPackagesImports() {
-		val imports = metamodel.map[pkg| getMMPackageImport(pkgPrefix, pkg)].join
-		return imports + "import static extension " + pkgName + ".__SlicerAspect__.*\n"
+		metamodel.map[pkg| getMMPackageImport(pkgPrefix, pkg)].join + "import static extension " + pkgName + ".__SlicerAspect__.*\n"
 	}
 	
 	private def StringBuilder getMMPackageImport(String qname, EPackage pkg) {

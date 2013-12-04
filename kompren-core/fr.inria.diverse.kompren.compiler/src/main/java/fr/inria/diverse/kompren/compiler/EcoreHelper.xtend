@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EPackage
 
 import static extension fr.inria.diverse.kompren.compiler.EClassifierAspect.*
 import static extension fr.inria.diverse.kompren.compiler.EPackageAspect.*
+import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 import static extension fr.inria.diverse.kompren.compiler.EStructuralFeatureAspect.*
 import java.util.HashSet
 import org.eclipse.emf.ecore.EReference
@@ -151,6 +152,9 @@ import org.eclipse.emf.ecore.EStructuralFeature
 
 
 	def void generateVisitToAddClassesActions(SlicedClass sc, Slicer slicer) {
+		val optionName = slicer.getOptionName(sc.domain)
+		if(optionName!=null)
+			_self.codeAction.append("\t\tif(theSlicer.").append(optionName).append("){\n")
 		if(slicer.strict) {
 			if(!_self.abstract)
 				_self.codeAction.append("\t\tif(_self.clonedElt==null){\n\t\t\t_self.clonedElt = ").append(_self.EPackage.factoryName).
@@ -158,6 +162,8 @@ import org.eclipse.emf.ecore.EStructuralFeature
 				append("\n\t\t\ttheSlicer.objectCloned(_self.clonedElt)\n\t\t}\n")
 		}
 		else _self.codeAction.append("\t\ttheSlicer.on").append(_self.name).append("Sliced(_self)\n")
+		if(optionName!=null)
+			_self.codeVisit.append("\t\t}\n")
 	}
 
 

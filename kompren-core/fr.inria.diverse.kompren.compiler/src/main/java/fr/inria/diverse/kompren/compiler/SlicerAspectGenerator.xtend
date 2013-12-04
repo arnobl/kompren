@@ -1,9 +1,11 @@
 package fr.inria.diverse.kompren.compiler
 
+import java.util.ArrayList
 import java.util.List
 import kompren.Slicer
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EPackage
+import org.eclipse.xtext.xbase.lib.Pair
 
 import static extension fr.inria.diverse.kompren.compiler.EClassAspect.*
 import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*

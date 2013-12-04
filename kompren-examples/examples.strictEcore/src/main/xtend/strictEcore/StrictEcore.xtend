@@ -9,14 +9,18 @@ class StrictEcore{
 	val List<EClass> inputEClass
 	val List<EStructuralFeature> inputEStructuralFeature
 	private val List<EObject> clonedElts = new java.util.ArrayList
+	public val boolean optioneSuperTypes
+	public val boolean optionENamedElement
 
 	val EObject _root
 
-	new(List<EClass> inputEClass,List<EStructuralFeature> inputEStructuralFeature, EObject metamodelRoot){
+	new(List<EClass> inputEClass,List<EStructuralFeature> inputEStructuralFeature, EObject metamodelRoot, boolean optioneSuperTypes,boolean optionENamedElement){
 		this.inputEClass = inputEClass
 		this.inputEStructuralFeature = inputEStructuralFeature
 		if(metamodelRoot==null) throw new IllegalArgumentException
 		this._root = metamodelRoot
+		this.optioneSuperTypes = optioneSuperTypes
+		this.optionENamedElement = optionENamedElement
 	}
 
 	def void slice(){

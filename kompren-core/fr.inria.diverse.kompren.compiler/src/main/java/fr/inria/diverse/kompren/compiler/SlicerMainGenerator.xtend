@@ -1,8 +1,9 @@
 package fr.inria.diverse.kompren.compiler
 
 import java.util.List
-import org.eclipse.emf.ecore.EPackage
 import kompren.Slicer
+import org.eclipse.emf.ecore.EPackage
+
 import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 
 class SlicerMainGenerator extends SlicerGenerator {
@@ -43,16 +44,12 @@ class SlicerMainGenerator extends SlicerGenerator {
 		res.getContents.addAll(objs)
 	    res.save(java.util.Collections.emptyMap)
 	    res.unload"		
-		val buf = new StringBuilder
-		buf.append("\tdef void save(){\n").append(content).append("\n\t}\n")
-		return buf
+		new StringBuilder("\tdef void save(){\n").append(content).append("\n\t}\n")
 	}
 
 
 	private def StringBuilder generateObjectAdded() {
-		val buf = new StringBuilder
-		buf.append("\tdef void objectCloned(EObject object){\n\t\tthis.clonedElts.add(object)\n\t}\n")
-		return buf
+		new StringBuilder("\tdef void objectCloned(EObject object){\n\t\tthis.clonedElts.add(object)\n\t}\n")
 	}
 
 
@@ -114,12 +111,16 @@ class SlicerMainGenerator extends SlicerGenerator {
 	private def StringBuilder generateConstructor() {
 		val buf = new StringBuilder
 		buf.append("\tnew(")
-		buf.append(slicer.inputClasses.map[cl | new StringBuilder().append("List<").append(cl.name).append("> input").append(cl.name)].join(","))
+		buf.append(slicer.inputClasses.map[cl | new StringBuilder("List<").append(cl.name).append("> input").append(cl.name)].join(","))
 		if(slicer.hasOpposite) buf.append(", EObject metamodelRoot")
+		val listOptions = slicer.optionNames
+		if(!listOptions.empty)
+			buf.append(", ").append(listOptions.map[name | new StringBuilder("boolean ").append(name)].join(","))
 		buf.append("){\n")
 		slicer.inputClasses.forEach[cl | buf.append("\t\tthis.input").append(cl.name).append(" = input").append(cl.name).append('\n')]
 		if(slicer.hasOpposite)
 			buf.append("\t\tif(metamodelRoot==null) throw new IllegalArgumentException\n\t\tthis._root = metamodelRoot\n")
+		listOptions.forEach[name | buf.append("\t\tthis.").append(name).append(" = ").append(name).append('\n')]
 		buf.append("\t}\n")
 		return buf
 	}
@@ -130,6 +131,7 @@ class SlicerMainGenerator extends SlicerGenerator {
 		slicer.inputClasses.forEach[cl | buf.append("\tval List<").append(cl.name).append("> input").append(cl.name).append('\n')]
 		if(slicer.strict)
 			buf.append("\tprivate val List<EObject> clonedElts = new java.util.ArrayList\n")
+		slicer.optionNames.forEach[name | buf.append("\tpublic val boolean ").append(name).append('\n')]
 		return buf
 	}
 }
