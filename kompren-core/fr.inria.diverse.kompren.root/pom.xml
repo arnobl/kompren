@@ -14,13 +14,13 @@
 
 	<properties>
 		<kermeta.version>3.0-SNAPSHOT</kermeta.version>
-		<scala.version>2.10.2</scala.version>
+		<scala.version>2.10.3</scala.version>
 		<kompren.version>3.0-SNAPSHOT</kompren.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<emf.version>2.9.0-v20130528-0742</emf.version>
 		<osgi.version>4.2.0</osgi.version>
 		<bundle.vendor>IRISA/Inria</bundle.vendor>
-		<xtend.version>2.4.3</xtend.version>
+		<xtend.version>2.5.0</xtend.version>
     	<eclipse.repository.version>indigo</eclipse.repository.version>
 	</properties>
 

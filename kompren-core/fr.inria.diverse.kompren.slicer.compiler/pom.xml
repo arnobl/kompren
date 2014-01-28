@@ -51,14 +51,14 @@
 			<version>${xtend.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>fr.inria.triskell</groupId>
-			<artifactId>k3</artifactId>
-			<version>3.0-SNAPSHOT</version>
+			<groupId>fr.inria.diverse</groupId>
+			<artifactId>fr.inria.diverse.k3.core</artifactId>
+			<version>${kermeta.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.10</version>
+			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
