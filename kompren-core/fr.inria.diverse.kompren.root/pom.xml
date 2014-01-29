@@ -21,6 +21,7 @@
 		<osgi.version>4.2.0</osgi.version>
 		<bundle.vendor>IRISA/Inria</bundle.vendor>
 		<xtend.version>2.5.0</xtend.version>
+		<xtendGenDirectory>target/generated-sources/xtend</xtendGenDirectory>
     	<eclipse.repository.version>indigo</eclipse.repository.version>
 	</properties>
 

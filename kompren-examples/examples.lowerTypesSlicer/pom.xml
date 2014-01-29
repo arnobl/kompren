@@ -22,6 +22,10 @@
 							<goal>xtend-install-debug-info</goal>
 							<goal>xtend-test-install-debug-info</goal>
 						</goals>
+                        <configuration>
+                                <outputDirectory>${xtendGenDirectory}</outputDirectory>
+								<testOutputDirectory>${xtendGenDirectory}-test</testOutputDirectory>
+                        </configuration>
 					</execution>
 				</executions>
 			</plugin>
