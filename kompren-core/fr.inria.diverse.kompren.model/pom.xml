@@ -19,6 +19,9 @@
     <build>
 		<resources>
 			<resource>
+				<directory>src/resources</directory>
+			</resource>
+			<resource>
 				<directory>.</directory>
 				<includes>
 					<include>plugin.properties</include>
