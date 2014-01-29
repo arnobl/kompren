@@ -3,7 +3,8 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.inria.diverse.kompren.model/src/main/java"
     modelPluginID="fr.inria.diverse.kompren.model" modelName="Kompren" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    runtimeVersion="2.9" operationReflection="true" importOrganizing="true">
+    runtimeVersion="2.9" usedGenPackages="../../../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
+    operationReflection="true" importOrganizing="true">
   <foreignModel>kompren.ecore</foreignModel>
   <genPackages prefix="Kompren" disposableProviderFactory="true" ecorePackage="kompren.ecore#/">
     <genClasses ecoreClass="kompren.ecore#//Slicer">

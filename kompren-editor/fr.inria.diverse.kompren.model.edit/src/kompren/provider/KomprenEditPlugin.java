@@ -5,6 +5,7 @@ package kompren.provider;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 
 /**
  * This is the central singleton for the Kompren edit plugin.
@@ -38,6 +39,7 @@ public final class KomprenEditPlugin extends EMFPlugin {
 	public KomprenEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     EcoreEditPlugin.INSTANCE,
 		   });
 	}
 
