@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src/main/generated-sources/xtend"/>
+	<classpathentry kind="src" path="src/main/xtend-gen"/>
 	<classpathentry including="**/*.java" kind="src" path="src/main/resources"/>
 	<classpathentry kind="src" output="target/classes" path="src/main/java">
 		<attributes>
@@ -24,8 +24,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry kind="lib" path="/media/data/opt/k3/plugins/org.eclipse.emf.codegen.ecore_2.9.1.v20130902-0605.jar"/>
-	<classpathentry kind="lib" path="/media/data/opt/k3/plugins/org.eclipse.emf.codegen_2.9.0.v20130902-0605.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
