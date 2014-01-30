@@ -4,7 +4,7 @@
     modelPluginID="fr.inria.diverse.kompren.model" modelName="Kompren" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
     runtimeVersion="2.9" usedGenPackages="../../../../org.eclipse.emf.ecore_2.9.1.v20130827-0309/model/Ecore.genmodel#//ecore"
-    operationReflection="true" importOrganizing="true">
+    operationReflection="true" importOrganizing="true" decoration="Live">
   <foreignModel>kompren.ecore</foreignModel>
   <genPackages prefix="Kompren" disposableProviderFactory="true" ecorePackage="kompren.ecore#/">
     <genClasses ecoreClass="kompren.ecore#//Slicer">
