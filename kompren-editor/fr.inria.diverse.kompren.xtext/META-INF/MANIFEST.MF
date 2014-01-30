@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: fr.inria.diverse.kompren.xtext
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: fr.inria.diverse.kompren.xtext; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext;visibility:=reexport,
+ org.eclipse.xtext.xbase;resolution:=optional;visibility:=reexport,
+ org.eclipse.xtext.generator;resolution:=optional,
+ org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional,
+ org.eclipse.emf.codegen.ecore;resolution:=optional,
+ org.eclipse.emf.mwe.utils;resolution:=optional,
+ org.eclipse.emf.mwe2.launch;resolution:=optional,
+ fr.inria.diverse.kompren.model,
+ org.eclipse.xtext.util,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: fr.inria.diverse.kompren,
+ fr.inria.diverse.kompren.services,
+ fr.inria.diverse.kompren.serializer,
+ fr.inria.diverse.kompren.parser.antlr,
+ fr.inria.diverse.kompren.parser.antlr.internal,
+ fr.inria.diverse.kompren.validation,
+ fr.inria.diverse.kompren.scoping,
+ fr.inria.diverse.kompren.generator,
+ fr.inria.diverse.kompren.formatting
