@@ -139,7 +139,7 @@ class SlicerCompiler {
 
 
 	protected def void saveCode() {
-		val p = targetDir+slicer.name+"/src/main/xtend/"+pkgName+"/"
+		val p = targetDir+slicer.name+"/src/main/java/"+pkgName+"/"
 //		println(">>>" + p)
 		val path = Paths.get(p)
 		if(!Files.exists(path))
