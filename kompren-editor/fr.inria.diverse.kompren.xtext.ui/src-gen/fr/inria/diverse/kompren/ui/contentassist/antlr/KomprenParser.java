@@ -48,6 +48,8 @@ public class KomprenParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSlicerAccess().getGroup_16(), "rule__Slicer__Group_16__0");
 					put(grammarAccess.getSlicerAccess().getGroup_17(), "rule__Slicer__Group_17__0");
 					put(grammarAccess.getSlicerAccess().getGroup_18(), "rule__Slicer__Group_18__0");
+					put(grammarAccess.getQNameAccess().getGroup(), "rule__QName__Group__0");
+					put(grammarAccess.getQNameAccess().getGroup_1(), "rule__QName__Group_1__0");
 					put(grammarAccess.getConstraintAccess().getGroup(), "rule__Constraint__Group__0");
 					put(grammarAccess.getRadiusAccess().getGroup(), "rule__Radius__Group__0");
 					put(grammarAccess.getRadiusAccess().getGroup_1(), "rule__Radius__Group_1__0");

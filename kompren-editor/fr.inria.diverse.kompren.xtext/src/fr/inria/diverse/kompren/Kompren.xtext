@@ -3,9 +3,9 @@ grammar fr.inria.diverse.kompren.Kompren with org.eclipse.xtext.common.Terminals
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "http://kompren/fr.inria.diverse.kompren" 
 
-Slicer returns Slicer: 'slicer' (active?='active')? (strict?='strict')? name=EString '{'
+Slicer returns Slicer: 'slicer' (active?='active')? (strict?='strict')? name=QName '{'
 		'domain' ':' uriMetamodel=EString
-		'input' ':' inputClasses+=[ecore::EClass|EString] ( "," inputClasses+=[ecore::EClass|EString])*
+		'input' ':' inputClasses+=[ecore::EClass|QName] ( "," inputClasses+=[ecore::EClass|QName])*
 		('radius' ':' radius=Radius)?
 		('constraint' ':' constraints+=Constraint)*
 		('slicedClass' ':' slicedElements+=SlicedClass)*
@@ -17,19 +17,21 @@ Slicer returns Slicer: 'slicer' (active?='active')? (strict?='strict')? name=ESt
 
 EString returns ecore::EString: STRING | ID;
 
+QName returns ecore::EString: EString ('.' EString)*;
+
 EBoolean returns ecore::EBoolean: 'true' | 'false';
 
 Constraint returns Constraint: name=EString '[[' expression=EString ']]';
 
-Radius returns Radius: {Radius} (focusedClasses+=[SlicedClass|EString] ( "," focusedClasses+=[SlicedClass|EString])* )?;
+Radius returns Radius: {Radius} (focusedClasses+=[SlicedClass|QName] ( "," focusedClasses+=[SlicedClass|QName])* )?;
 
-SlicedClass returns SlicedClass: domain=[ecore::EClass|EString] (isOption?='option')? (ctx=VarDecl)? ('[[' expression=EString ']]')?;
+SlicedClass returns SlicedClass: domain=[ecore::EClass|QName] (isOption?='option')? (ctx=VarDecl)? ('[[' expression=EString ']]')?;
 
 VarDecl returns VarDecl: varName=EString;
 //		'type' type=[ecore::EClass]
 
 SlicedProperty returns SlicedProperty:
-	domain=[ecore::EStructuralFeature|EString] (isOption?='option')? (src=VarDecl)? (tgt=VarDecl)?
+	domain=[ecore::EStructuralFeature|QName] (isOption?='option')? (src=VarDecl)? (tgt=VarDecl)?
 		(opposite=OppositeCreation)? ('[[' expression=EString ']]')?;
 
 OppositeCreation returns OppositeCreation: {OppositeCreation} 'opposite' '(' name=EString ')';

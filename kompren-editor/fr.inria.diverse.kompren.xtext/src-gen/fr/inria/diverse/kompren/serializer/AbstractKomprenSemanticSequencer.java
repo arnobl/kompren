@@ -114,7 +114,7 @@ public abstract class AbstractKomprenSemanticSequencer extends AbstractDelegatin
 	
 	/**
 	 * Constraint:
-	 *     ((focusedClasses+=[SlicedClass|EString] focusedClasses+=[SlicedClass|EString]*)?)
+	 *     ((focusedClasses+=[SlicedClass|QName] focusedClasses+=[SlicedClass|QName]*)?)
 	 */
 	protected void sequence_Radius(EObject context, Radius semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -123,7 +123,7 @@ public abstract class AbstractKomprenSemanticSequencer extends AbstractDelegatin
 	
 	/**
 	 * Constraint:
-	 *     (domain=[EClass|EString] isOption?='option'? ctx=VarDecl? expression=EString?)
+	 *     (domain=[EClass|QName] isOption?='option'? ctx=VarDecl? expression=EString?)
 	 */
 	protected void sequence_SlicedClass(EObject context, SlicedClass semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -133,7 +133,7 @@ public abstract class AbstractKomprenSemanticSequencer extends AbstractDelegatin
 	/**
 	 * Constraint:
 	 *     (
-	 *         domain=[EStructuralFeature|EString] 
+	 *         domain=[EStructuralFeature|QName] 
 	 *         isOption?='option'? 
 	 *         src=VarDecl? 
 	 *         tgt=VarDecl? 
@@ -151,10 +151,10 @@ public abstract class AbstractKomprenSemanticSequencer extends AbstractDelegatin
 	 *     (
 	 *         active?='active'? 
 	 *         strict?='strict'? 
-	 *         name=EString 
+	 *         name=QName 
 	 *         uriMetamodel=EString 
-	 *         inputClasses+=[EClass|EString] 
-	 *         inputClasses+=[EClass|EString]* 
+	 *         inputClasses+=[EClass|QName] 
+	 *         inputClasses+=[EClass|QName]* 
 	 *         radius=Radius? 
 	 *         constraints+=Constraint* 
 	 *         slicedElements+=SlicedClass* 

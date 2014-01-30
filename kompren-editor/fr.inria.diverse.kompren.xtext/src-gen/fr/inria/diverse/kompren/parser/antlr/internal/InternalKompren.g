@@ -114,9 +114,9 @@ ruleSlicer returns [EObject current=null]
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSlicerAccess().getNameEStringParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getSlicerAccess().getNameQNameParserRuleCall_3_0()); 
 	    }
-		lv_name_3_0=ruleEString		{
+		lv_name_3_0=ruleQName		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSlicerRule());
 	        }
@@ -124,7 +124,7 @@ ruleSlicer returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_3_0, 
-        		"EString");
+        		"QName");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -177,7 +177,7 @@ ruleSlicer returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getSlicerAccess().getInputClassesEClassCrossReference_10_0()); 
 	    }
-		ruleEString		{ 
+		ruleQName		{ 
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -196,7 +196,7 @@ ruleSlicer returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getSlicerAccess().getInputClassesEClassCrossReference_11_1_0()); 
 	    }
-		ruleEString		{ 
+		ruleQName		{ 
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -442,6 +442,55 @@ ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
 
 
 
+// Entry rule entryRuleQName
+entryRuleQName returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getQNameRule()); } 
+	 iv_ruleQName=ruleQName 
+	 { $current=$iv_ruleQName.current.getText(); }  
+	 EOF 
+;
+
+// Rule QName
+ruleQName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+    { 
+        newCompositeNode(grammarAccess.getQNameAccess().getEStringParserRuleCall_0()); 
+    }
+    this_EString_0=ruleEString    {
+		$current.merge(this_EString_0);
+    }
+
+    { 
+        afterParserOrEnumRuleCall();
+    }
+(
+	kw='.' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getQNameAccess().getFullStopKeyword_1_0()); 
+    }
+
+    { 
+        newCompositeNode(grammarAccess.getQNameAccess().getEStringParserRuleCall_1_1()); 
+    }
+    this_EString_2=ruleEString    {
+		$current.merge(this_EString_2);
+    }
+
+    { 
+        afterParserOrEnumRuleCall();
+    }
+)*)
+    ;
+
+
+
+
+
 
 
 // Entry rule entryRuleConstraint
@@ -539,7 +588,7 @@ ruleRadius returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getRadiusAccess().getFocusedClassesSlicedClassCrossReference_1_0_0()); 
 	    }
-		ruleEString		{ 
+		ruleQName		{ 
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -558,7 +607,7 @@ ruleRadius returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getRadiusAccess().getFocusedClassesSlicedClassCrossReference_1_1_1_0()); 
 	    }
-		ruleEString		{ 
+		ruleQName		{ 
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -594,7 +643,7 @@ ruleSlicedClass returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getSlicedClassAccess().getDomainEClassCrossReference_0_0()); 
 	    }
-		ruleEString		{ 
+		ruleQName		{ 
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -728,7 +777,7 @@ ruleSlicedProperty returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getSlicedPropertyAccess().getDomainEStructuralFeatureCrossReference_0_0()); 
 	    }
-		ruleEString		{ 
+		ruleQName		{ 
 	        afterParserOrEnumRuleCall();
 	    }
 

@@ -27,7 +27,7 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cStrictAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final Keyword cStrictStrictKeyword_2_0 = (Keyword)cStrictAssignment_2.eContents().get(0);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cNameQNameParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Keyword cDomainKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cColonKeyword_6 = (Keyword)cGroup.eContents().get(6);
@@ -37,12 +37,12 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cColonKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		private final Assignment cInputClassesAssignment_10 = (Assignment)cGroup.eContents().get(10);
 		private final CrossReference cInputClassesEClassCrossReference_10_0 = (CrossReference)cInputClassesAssignment_10.eContents().get(0);
-		private final RuleCall cInputClassesEClassEStringParserRuleCall_10_0_1 = (RuleCall)cInputClassesEClassCrossReference_10_0.eContents().get(1);
+		private final RuleCall cInputClassesEClassQNameParserRuleCall_10_0_1 = (RuleCall)cInputClassesEClassCrossReference_10_0.eContents().get(1);
 		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
 		private final Keyword cCommaKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
 		private final Assignment cInputClassesAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
 		private final CrossReference cInputClassesEClassCrossReference_11_1_0 = (CrossReference)cInputClassesAssignment_11_1.eContents().get(0);
-		private final RuleCall cInputClassesEClassEStringParserRuleCall_11_1_0_1 = (RuleCall)cInputClassesEClassCrossReference_11_1_0.eContents().get(1);
+		private final RuleCall cInputClassesEClassQNameParserRuleCall_11_1_0_1 = (RuleCall)cInputClassesEClassCrossReference_11_1_0.eContents().get(1);
 		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
 		private final Keyword cRadiusKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
 		private final Keyword cColonKeyword_12_1 = (Keyword)cGroup_12.eContents().get(1);
@@ -84,15 +84,15 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_19 = (Keyword)cGroup.eContents().get(19);
 		
 		//Slicer:
-		//	"slicer" active?="active"? strict?="strict"? name=EString "{" "domain" ":" uriMetamodel=EString "input" ":"
-		//	inputClasses+=[ecore::EClass|EString] ("," inputClasses+=[ecore::EClass|EString])* ("radius" ":" radius=Radius)?
+		//	"slicer" active?="active"? strict?="strict"? name=QName "{" "domain" ":" uriMetamodel=EString "input" ":"
+		//	inputClasses+=[ecore::EClass|QName] ("," inputClasses+=[ecore::EClass|QName])* ("radius" ":" radius=Radius)?
 		//	("constraint" ":" constraints+=Constraint)* ("slicedClass" ":" slicedElements+=SlicedClass)* ("slicedProperty" ":"
 		//	slicedElements+=SlicedProperty)* ("onStart" "[[" onStart=EString "]]")? ("onEnd" "[[" onEnd=EString "]]")? ("helper"
 		//	"[[" helper=EString "]]")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//"slicer" active?="active"? strict?="strict"? name=EString "{" "domain" ":" uriMetamodel=EString "input" ":"
-		//inputClasses+=[ecore::EClass|EString] ("," inputClasses+=[ecore::EClass|EString])* ("radius" ":" radius=Radius)?
+		//"slicer" active?="active"? strict?="strict"? name=QName "{" "domain" ":" uriMetamodel=EString "input" ":"
+		//inputClasses+=[ecore::EClass|QName] ("," inputClasses+=[ecore::EClass|QName])* ("radius" ":" radius=Radius)?
 		//("constraint" ":" constraints+=Constraint)* ("slicedClass" ":" slicedElements+=SlicedClass)* ("slicedProperty" ":"
 		//slicedElements+=SlicedProperty)* ("onStart" "[[" onStart=EString "]]")? ("onEnd" "[[" onEnd=EString "]]")? ("helper"
 		//"[[" helper=EString "]]")? "}"
@@ -113,11 +113,11 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 		//"strict"
 		public Keyword getStrictStrictKeyword_2_0() { return cStrictStrictKeyword_2_0; }
 
-		//name=EString
+		//name=QName
 		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
+		//QName
+		public RuleCall getNameQNameParserRuleCall_3_0() { return cNameQNameParserRuleCall_3_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
@@ -140,29 +140,29 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_9() { return cColonKeyword_9; }
 
-		//inputClasses+=[ecore::EClass|EString]
+		//inputClasses+=[ecore::EClass|QName]
 		public Assignment getInputClassesAssignment_10() { return cInputClassesAssignment_10; }
 
-		//[ecore::EClass|EString]
+		//[ecore::EClass|QName]
 		public CrossReference getInputClassesEClassCrossReference_10_0() { return cInputClassesEClassCrossReference_10_0; }
 
-		//EString
-		public RuleCall getInputClassesEClassEStringParserRuleCall_10_0_1() { return cInputClassesEClassEStringParserRuleCall_10_0_1; }
+		//QName
+		public RuleCall getInputClassesEClassQNameParserRuleCall_10_0_1() { return cInputClassesEClassQNameParserRuleCall_10_0_1; }
 
-		//("," inputClasses+=[ecore::EClass|EString])*
+		//("," inputClasses+=[ecore::EClass|QName])*
 		public Group getGroup_11() { return cGroup_11; }
 
 		//","
 		public Keyword getCommaKeyword_11_0() { return cCommaKeyword_11_0; }
 
-		//inputClasses+=[ecore::EClass|EString]
+		//inputClasses+=[ecore::EClass|QName]
 		public Assignment getInputClassesAssignment_11_1() { return cInputClassesAssignment_11_1; }
 
-		//[ecore::EClass|EString]
+		//[ecore::EClass|QName]
 		public CrossReference getInputClassesEClassCrossReference_11_1_0() { return cInputClassesEClassCrossReference_11_1_0; }
 
-		//EString
-		public RuleCall getInputClassesEClassEStringParserRuleCall_11_1_0_1() { return cInputClassesEClassEStringParserRuleCall_11_1_0_1; }
+		//QName
+		public RuleCall getInputClassesEClassQNameParserRuleCall_11_1_0_1() { return cInputClassesEClassQNameParserRuleCall_11_1_0_1; }
 
 		//("radius" ":" radius=Radius)?
 		public Group getGroup_12() { return cGroup_12; }
@@ -302,6 +302,34 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
 	}
 
+	public class QNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "QName");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cEStringParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cEStringParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		
+		//QName returns ecore::EString:
+		//	EString ("." EString)*;
+		public ParserRule getRule() { return rule; }
+
+		//EString ("." EString)*
+		public Group getGroup() { return cGroup; }
+
+		//EString
+		public RuleCall getEStringParserRuleCall_0() { return cEStringParserRuleCall_0; }
+
+		//("." EString)*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"."
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+
+		//EString
+		public RuleCall getEStringParserRuleCall_1_1() { return cEStringParserRuleCall_1_1; }
+	}
+
 	public class EBooleanElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EBoolean");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -365,49 +393,49 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Assignment cFocusedClassesAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
 		private final CrossReference cFocusedClassesSlicedClassCrossReference_1_0_0 = (CrossReference)cFocusedClassesAssignment_1_0.eContents().get(0);
-		private final RuleCall cFocusedClassesSlicedClassEStringParserRuleCall_1_0_0_1 = (RuleCall)cFocusedClassesSlicedClassCrossReference_1_0_0.eContents().get(1);
+		private final RuleCall cFocusedClassesSlicedClassQNameParserRuleCall_1_0_0_1 = (RuleCall)cFocusedClassesSlicedClassCrossReference_1_0_0.eContents().get(1);
 		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
 		private final Keyword cCommaKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
 		private final Assignment cFocusedClassesAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
 		private final CrossReference cFocusedClassesSlicedClassCrossReference_1_1_1_0 = (CrossReference)cFocusedClassesAssignment_1_1_1.eContents().get(0);
-		private final RuleCall cFocusedClassesSlicedClassEStringParserRuleCall_1_1_1_0_1 = (RuleCall)cFocusedClassesSlicedClassCrossReference_1_1_1_0.eContents().get(1);
+		private final RuleCall cFocusedClassesSlicedClassQNameParserRuleCall_1_1_1_0_1 = (RuleCall)cFocusedClassesSlicedClassCrossReference_1_1_1_0.eContents().get(1);
 		
 		//Radius:
-		//	{Radius} (focusedClasses+=[SlicedClass|EString] ("," focusedClasses+=[SlicedClass|EString])*)?;
+		//	{Radius} (focusedClasses+=[SlicedClass|QName] ("," focusedClasses+=[SlicedClass|QName])*)?;
 		public ParserRule getRule() { return rule; }
 
-		//{Radius} (focusedClasses+=[SlicedClass|EString] ("," focusedClasses+=[SlicedClass|EString])*)?
+		//{Radius} (focusedClasses+=[SlicedClass|QName] ("," focusedClasses+=[SlicedClass|QName])*)?
 		public Group getGroup() { return cGroup; }
 
 		//{Radius}
 		public Action getRadiusAction_0() { return cRadiusAction_0; }
 
-		//(focusedClasses+=[SlicedClass|EString] ("," focusedClasses+=[SlicedClass|EString])*)?
+		//(focusedClasses+=[SlicedClass|QName] ("," focusedClasses+=[SlicedClass|QName])*)?
 		public Group getGroup_1() { return cGroup_1; }
 
-		//focusedClasses+=[SlicedClass|EString]
+		//focusedClasses+=[SlicedClass|QName]
 		public Assignment getFocusedClassesAssignment_1_0() { return cFocusedClassesAssignment_1_0; }
 
-		//[SlicedClass|EString]
+		//[SlicedClass|QName]
 		public CrossReference getFocusedClassesSlicedClassCrossReference_1_0_0() { return cFocusedClassesSlicedClassCrossReference_1_0_0; }
 
-		//EString
-		public RuleCall getFocusedClassesSlicedClassEStringParserRuleCall_1_0_0_1() { return cFocusedClassesSlicedClassEStringParserRuleCall_1_0_0_1; }
+		//QName
+		public RuleCall getFocusedClassesSlicedClassQNameParserRuleCall_1_0_0_1() { return cFocusedClassesSlicedClassQNameParserRuleCall_1_0_0_1; }
 
-		//("," focusedClasses+=[SlicedClass|EString])*
+		//("," focusedClasses+=[SlicedClass|QName])*
 		public Group getGroup_1_1() { return cGroup_1_1; }
 
 		//","
 		public Keyword getCommaKeyword_1_1_0() { return cCommaKeyword_1_1_0; }
 
-		//focusedClasses+=[SlicedClass|EString]
+		//focusedClasses+=[SlicedClass|QName]
 		public Assignment getFocusedClassesAssignment_1_1_1() { return cFocusedClassesAssignment_1_1_1; }
 
-		//[SlicedClass|EString]
+		//[SlicedClass|QName]
 		public CrossReference getFocusedClassesSlicedClassCrossReference_1_1_1_0() { return cFocusedClassesSlicedClassCrossReference_1_1_1_0; }
 
-		//EString
-		public RuleCall getFocusedClassesSlicedClassEStringParserRuleCall_1_1_1_0_1() { return cFocusedClassesSlicedClassEStringParserRuleCall_1_1_1_0_1; }
+		//QName
+		public RuleCall getFocusedClassesSlicedClassQNameParserRuleCall_1_1_1_0_1() { return cFocusedClassesSlicedClassQNameParserRuleCall_1_1_1_0_1; }
 	}
 
 	public class SlicedClassElements extends AbstractParserRuleElementFinder {
@@ -415,7 +443,7 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cDomainAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cDomainEClassCrossReference_0_0 = (CrossReference)cDomainAssignment_0.eContents().get(0);
-		private final RuleCall cDomainEClassEStringParserRuleCall_0_0_1 = (RuleCall)cDomainEClassCrossReference_0_0.eContents().get(1);
+		private final RuleCall cDomainEClassQNameParserRuleCall_0_0_1 = (RuleCall)cDomainEClassCrossReference_0_0.eContents().get(1);
 		private final Assignment cIsOptionAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final Keyword cIsOptionOptionKeyword_1_0 = (Keyword)cIsOptionAssignment_1.eContents().get(0);
 		private final Assignment cCtxAssignment_2 = (Assignment)cGroup.eContents().get(2);
@@ -427,20 +455,20 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightSquareBracketRightSquareBracketKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
 		
 		//SlicedClass:
-		//	domain=[ecore::EClass|EString] isOption?="option"? ctx=VarDecl? ("[[" expression=EString "]]")?;
+		//	domain=[ecore::EClass|QName] isOption?="option"? ctx=VarDecl? ("[[" expression=EString "]]")?;
 		public ParserRule getRule() { return rule; }
 
-		//domain=[ecore::EClass|EString] isOption?="option"? ctx=VarDecl? ("[[" expression=EString "]]")?
+		//domain=[ecore::EClass|QName] isOption?="option"? ctx=VarDecl? ("[[" expression=EString "]]")?
 		public Group getGroup() { return cGroup; }
 
-		//domain=[ecore::EClass|EString]
+		//domain=[ecore::EClass|QName]
 		public Assignment getDomainAssignment_0() { return cDomainAssignment_0; }
 
-		//[ecore::EClass|EString]
+		//[ecore::EClass|QName]
 		public CrossReference getDomainEClassCrossReference_0_0() { return cDomainEClassCrossReference_0_0; }
 
-		//EString
-		public RuleCall getDomainEClassEStringParserRuleCall_0_0_1() { return cDomainEClassEStringParserRuleCall_0_0_1; }
+		//QName
+		public RuleCall getDomainEClassQNameParserRuleCall_0_0_1() { return cDomainEClassQNameParserRuleCall_0_0_1; }
 
 		//isOption?="option"?
 		public Assignment getIsOptionAssignment_1() { return cIsOptionAssignment_1; }
@@ -491,7 +519,7 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cDomainAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cDomainEStructuralFeatureCrossReference_0_0 = (CrossReference)cDomainAssignment_0.eContents().get(0);
-		private final RuleCall cDomainEStructuralFeatureEStringParserRuleCall_0_0_1 = (RuleCall)cDomainEStructuralFeatureCrossReference_0_0.eContents().get(1);
+		private final RuleCall cDomainEStructuralFeatureQNameParserRuleCall_0_0_1 = (RuleCall)cDomainEStructuralFeatureCrossReference_0_0.eContents().get(1);
 		private final Assignment cIsOptionAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final Keyword cIsOptionOptionKeyword_1_0 = (Keyword)cIsOptionAssignment_1.eContents().get(0);
 		private final Assignment cSrcAssignment_2 = (Assignment)cGroup.eContents().get(2);
@@ -508,22 +536,22 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 		
 		////		'type' type=[ecore::EClass]
 		//SlicedProperty:
-		//	domain=[ecore::EStructuralFeature|EString] isOption?="option"? src=VarDecl? tgt=VarDecl? opposite=OppositeCreation?
+		//	domain=[ecore::EStructuralFeature|QName] isOption?="option"? src=VarDecl? tgt=VarDecl? opposite=OppositeCreation?
 		//	("[[" expression=EString "]]")?;
 		public ParserRule getRule() { return rule; }
 
-		//domain=[ecore::EStructuralFeature|EString] isOption?="option"? src=VarDecl? tgt=VarDecl? opposite=OppositeCreation?
-		//("[[" expression=EString "]]")?
+		//domain=[ecore::EStructuralFeature|QName] isOption?="option"? src=VarDecl? tgt=VarDecl? opposite=OppositeCreation? ("[["
+		//expression=EString "]]")?
 		public Group getGroup() { return cGroup; }
 
-		//domain=[ecore::EStructuralFeature|EString]
+		//domain=[ecore::EStructuralFeature|QName]
 		public Assignment getDomainAssignment_0() { return cDomainAssignment_0; }
 
-		//[ecore::EStructuralFeature|EString]
+		//[ecore::EStructuralFeature|QName]
 		public CrossReference getDomainEStructuralFeatureCrossReference_0_0() { return cDomainEStructuralFeatureCrossReference_0_0; }
 
-		//EString
-		public RuleCall getDomainEStructuralFeatureEStringParserRuleCall_0_0_1() { return cDomainEStructuralFeatureEStringParserRuleCall_0_0_1; }
+		//QName
+		public RuleCall getDomainEStructuralFeatureQNameParserRuleCall_0_0_1() { return cDomainEStructuralFeatureQNameParserRuleCall_0_0_1; }
 
 		//isOption?="option"?
 		public Assignment getIsOptionAssignment_1() { return cIsOptionAssignment_1; }
@@ -604,6 +632,7 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private SlicerElements pSlicer;
 	private EStringElements pEString;
+	private QNameElements pQName;
 	private EBooleanElements pEBoolean;
 	private ConstraintElements pConstraint;
 	private RadiusElements pRadius;
@@ -651,8 +680,8 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Slicer:
-	//	"slicer" active?="active"? strict?="strict"? name=EString "{" "domain" ":" uriMetamodel=EString "input" ":"
-	//	inputClasses+=[ecore::EClass|EString] ("," inputClasses+=[ecore::EClass|EString])* ("radius" ":" radius=Radius)?
+	//	"slicer" active?="active"? strict?="strict"? name=QName "{" "domain" ":" uriMetamodel=EString "input" ":"
+	//	inputClasses+=[ecore::EClass|QName] ("," inputClasses+=[ecore::EClass|QName])* ("radius" ":" radius=Radius)?
 	//	("constraint" ":" constraints+=Constraint)* ("slicedClass" ":" slicedElements+=SlicedClass)* ("slicedProperty" ":"
 	//	slicedElements+=SlicedProperty)* ("onStart" "[[" onStart=EString "]]")? ("onEnd" "[[" onEnd=EString "]]")? ("helper"
 	//	"[[" helper=EString "]]")? "}";
@@ -672,6 +701,16 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getEStringRule() {
 		return getEStringAccess().getRule();
+	}
+
+	//QName returns ecore::EString:
+	//	EString ("." EString)*;
+	public QNameElements getQNameAccess() {
+		return (pQName != null) ? pQName : (pQName = new QNameElements());
+	}
+	
+	public ParserRule getQNameRule() {
+		return getQNameAccess().getRule();
 	}
 
 	//EBoolean returns ecore::EBoolean:
@@ -695,7 +734,7 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Radius:
-	//	{Radius} (focusedClasses+=[SlicedClass|EString] ("," focusedClasses+=[SlicedClass|EString])*)?;
+	//	{Radius} (focusedClasses+=[SlicedClass|QName] ("," focusedClasses+=[SlicedClass|QName])*)?;
 	public RadiusElements getRadiusAccess() {
 		return (pRadius != null) ? pRadius : (pRadius = new RadiusElements());
 	}
@@ -705,7 +744,7 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SlicedClass:
-	//	domain=[ecore::EClass|EString] isOption?="option"? ctx=VarDecl? ("[[" expression=EString "]]")?;
+	//	domain=[ecore::EClass|QName] isOption?="option"? ctx=VarDecl? ("[[" expression=EString "]]")?;
 	public SlicedClassElements getSlicedClassAccess() {
 		return (pSlicedClass != null) ? pSlicedClass : (pSlicedClass = new SlicedClassElements());
 	}
@@ -726,7 +765,7 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 
 	////		'type' type=[ecore::EClass]
 	//SlicedProperty:
-	//	domain=[ecore::EStructuralFeature|EString] isOption?="option"? src=VarDecl? tgt=VarDecl? opposite=OppositeCreation?
+	//	domain=[ecore::EStructuralFeature|QName] isOption?="option"? src=VarDecl? tgt=VarDecl? opposite=OppositeCreation?
 	//	("[[" expression=EString "]]")?;
 	public SlicedPropertyElements getSlicedPropertyAccess() {
 		return (pSlicedProperty != null) ? pSlicedProperty : (pSlicedProperty = new SlicedPropertyElements());
