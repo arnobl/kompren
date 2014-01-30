@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: fr.inria.diverse.kompren.xtext.tests
-Bundle-Vendor: My Company
-Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Inria Diverse Team
+Bundle-Version: 3.0.0.qualifier
 Bundle-SymbolicName: fr.inria.diverse.kompren.xtext.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: fr.inria.diverse.kompren.xtext,
