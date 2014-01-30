@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: fr.inria.diverse.kompren.model.editor
 Bundle-SymbolicName: fr.inria.diverse.kompren.model.editor;singleton:=true
-Bundle-Version: 3.0
+Bundle-Version: 3.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: kompren.presentation.KomprenEditorPlugin$Implementation
-Bundle-Vendor: %providerName
+Bundle-Vendor: fr.inria.diverse.kompren.model.editor
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: kompren.presentation
