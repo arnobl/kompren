@@ -17,9 +17,10 @@
     </parent>
     
     <build>
+        <sourceDirectory>src</sourceDirectory>
 		<resources>
 			<resource>
-				<directory>src/resources</directory>
+				<directory>model</directory>
 			</resource>
 			<resource>
 				<directory>.</directory>

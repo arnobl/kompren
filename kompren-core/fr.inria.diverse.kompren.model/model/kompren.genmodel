@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Inria/IRISA Diverse Team" modelDirectory="/fr.inria.diverse.kompren.model/src/main/java"
-    modelPluginID="fr.inria.diverse.kompren.model" modelName="Kompren" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" runtimeVersion="2.9"
-    usedGenPackages="../../../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Inria/IRISA Diverse Team" modelDirectory="/fr.inria.diverse.kompren.model/src"
+    modelPluginID="fr.inria.diverse.kompren.model" modelName="Kompren" modelPluginClass=""
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" runtimeVersion="2.9" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
     operationReflection="true" importOrganizing="true" decoration="Live">
   <foreignModel>kompren.ecore</foreignModel>
   <genPackages prefix="Kompren" disposableProviderFactory="true" ecorePackage="kompren.ecore#/">

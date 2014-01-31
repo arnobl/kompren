@@ -2,8 +2,6 @@
 <?eclipse version="3.0"?>
 
 <!--
- Inria/IRISA
- Diverse Team
 -->
 
 <plugin>
@@ -12,6 +10,6 @@
       <package
             uri="http://kompren/fr.inria.diverse.kompren"
             class="kompren.KomprenPackage"
-            genModel="src/resources/metamodel/kompren.genmodel"/>
+            genModel="model/kompren.genmodel"/>
    </extension>
 </plugin>
