@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -77,24 +78,14 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getUriMetamodel() <em>Uri Metamodel</em>}' attribute.
+	 * The cached value of the '{@link #getUriMetamodel() <em>Uri Metamodel</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getUriMetamodel()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String URI_METAMODEL_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getUriMetamodel() <em>Uri Metamodel</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUriMetamodel()
-	 * @generated
-	 * @ordered
-	 */
-	protected String uriMetamodel = URI_METAMODEL_EDEFAULT;
+	protected EList<String> uriMetamodel;
 
 	/**
 	 * The default value of the '{@link #isActive() <em>Active</em>}' attribute.
@@ -281,20 +272,11 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getUriMetamodel() {
+	public EList<String> getUriMetamodel() {
+		if (uriMetamodel == null) {
+			uriMetamodel = new EDataTypeUniqueEList<String>(String.class, this, KomprenPackage.SLICER__URI_METAMODEL);
+		}
 		return uriMetamodel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUriMetamodel(String newUriMetamodel) {
-		String oldUriMetamodel = uriMetamodel;
-		uriMetamodel = newUriMetamodel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, KomprenPackage.SLICER__URI_METAMODEL, oldUriMetamodel, uriMetamodel));
 	}
 
 	/**
@@ -546,7 +528,8 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 				setName((String)newValue);
 				return;
 			case KomprenPackage.SLICER__URI_METAMODEL:
-				setUriMetamodel((String)newValue);
+				getUriMetamodel().clear();
+				getUriMetamodel().addAll((Collection<? extends String>)newValue);
 				return;
 			case KomprenPackage.SLICER__ACTIVE:
 				setActive((Boolean)newValue);
@@ -594,7 +577,7 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 				setName(NAME_EDEFAULT);
 				return;
 			case KomprenPackage.SLICER__URI_METAMODEL:
-				setUriMetamodel(URI_METAMODEL_EDEFAULT);
+				getUriMetamodel().clear();
 				return;
 			case KomprenPackage.SLICER__ACTIVE:
 				setActive(ACTIVE_EDEFAULT);
@@ -638,7 +621,7 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 			case KomprenPackage.SLICER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case KomprenPackage.SLICER__URI_METAMODEL:
-				return URI_METAMODEL_EDEFAULT == null ? uriMetamodel != null : !URI_METAMODEL_EDEFAULT.equals(uriMetamodel);
+				return uriMetamodel != null && !uriMetamodel.isEmpty();
 			case KomprenPackage.SLICER__ACTIVE:
 				return active != ACTIVE_EDEFAULT;
 			case KomprenPackage.SLICER__STRICT:

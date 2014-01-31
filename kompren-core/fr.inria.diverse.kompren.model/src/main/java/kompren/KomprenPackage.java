@@ -83,7 +83,7 @@ public interface KomprenPackage extends EPackage {
 	int SLICER__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Uri Metamodel</b></em>' attribute.
+	 * The feature id for the '<em><b>Uri Metamodel</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -571,10 +571,10 @@ public interface KomprenPackage extends EPackage {
 	EAttribute getSlicer_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link kompren.Slicer#getUriMetamodel <em>Uri Metamodel</em>}'.
+	 * Returns the meta object for the attribute list '{@link kompren.Slicer#getUriMetamodel <em>Uri Metamodel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Uri Metamodel</em>'.
+	 * @return the meta object for the attribute list '<em>Uri Metamodel</em>'.
 	 * @see kompren.Slicer#getUriMetamodel()
 	 * @see #getSlicer()
 	 * @generated
@@ -946,7 +946,7 @@ public interface KomprenPackage extends EPackage {
 		EAttribute SLICER__NAME = eINSTANCE.getSlicer_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Uri Metamodel</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Uri Metamodel</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

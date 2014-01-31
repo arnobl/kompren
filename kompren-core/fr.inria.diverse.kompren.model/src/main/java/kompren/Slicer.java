@@ -68,30 +68,20 @@ public interface Slicer extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Uri Metamodel</b></em>' attribute.
+	 * Returns the value of the '<em><b>Uri Metamodel</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Uri Metamodel</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Uri Metamodel</em>' attribute.
-	 * @see #setUriMetamodel(String)
+	 * @return the value of the '<em>Uri Metamodel</em>' attribute list.
 	 * @see kompren.KomprenPackage#getSlicer_UriMetamodel()
 	 * @model required="true"
 	 * @generated
 	 */
-	String getUriMetamodel();
-
-	/**
-	 * Sets the value of the '{@link kompren.Slicer#getUriMetamodel <em>Uri Metamodel</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Uri Metamodel</em>' attribute.
-	 * @see #getUriMetamodel()
-	 * @generated
-	 */
-	void setUriMetamodel(String value);
+	EList<String> getUriMetamodel();
 
 	/**
 	 * Returns the value of the '<em><b>Active</b></em>' attribute.
