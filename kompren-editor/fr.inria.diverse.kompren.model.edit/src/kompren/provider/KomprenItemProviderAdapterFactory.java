@@ -34,6 +34,13 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  */
 public class KomprenItemProviderAdapterFactory extends KomprenAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Inria/IRISA Diverse Team";
+
+	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

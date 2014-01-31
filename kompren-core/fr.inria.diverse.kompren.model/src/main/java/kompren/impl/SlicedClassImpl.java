@@ -30,6 +30,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class SlicedClassImpl extends SlicedElementImpl implements SlicedClass {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Inria/IRISA Diverse Team";
+
+	/**
 	 * The cached value of the '{@link #getCtx() <em>Ctx</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

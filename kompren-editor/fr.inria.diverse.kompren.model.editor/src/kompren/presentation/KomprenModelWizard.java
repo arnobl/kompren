@@ -93,6 +93,13 @@ import org.eclipse.ui.PartInitException;
  */
 public class KomprenModelWizard extends Wizard implements INewWizard {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Inria/IRISA Diverse Team";
+
+	/**
 	 * The supported extensions for created files.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -50,6 +50,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Inria/IRISA Diverse Team";
+
+	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

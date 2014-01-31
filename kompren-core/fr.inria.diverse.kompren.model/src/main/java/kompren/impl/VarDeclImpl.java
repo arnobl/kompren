@@ -29,6 +29,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class VarDeclImpl extends MinimalEObjectImpl.Container implements VarDecl {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Inria/IRISA Diverse Team";
+
+	/**
 	 * The default value of the '{@link #getVarName() <em>Var Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

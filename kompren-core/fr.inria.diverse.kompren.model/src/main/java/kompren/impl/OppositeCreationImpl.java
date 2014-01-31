@@ -27,6 +27,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class OppositeCreationImpl extends MinimalEObjectImpl.Container implements OppositeCreation {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Inria/IRISA Diverse Team";
+
+	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

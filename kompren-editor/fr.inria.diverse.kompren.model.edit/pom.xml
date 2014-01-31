@@ -41,7 +41,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Bundle-SymbolicName>org.kermeta.kompren.slicer.model.edit; singleton=true</Bundle-SymbolicName>
+                        <Bundle-SymbolicName>org.kermeta.kompren.model.edit; singleton=true</Bundle-SymbolicName>
                         <Bundle-Name>${project.name}</Bundle-Name>
                         <Bundle-Vendor>${bundle.vendor}</Bundle-Vendor>
 <!--                         <Bundle-Version>${bundle.version}</Bundle-Version> -->

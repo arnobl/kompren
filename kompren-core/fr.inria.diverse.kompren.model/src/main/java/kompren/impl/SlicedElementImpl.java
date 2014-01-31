@@ -28,6 +28,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public abstract class SlicedElementImpl extends MinimalEObjectImpl.Container implements SlicedElement {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Inria/IRISA Diverse Team";
+
+	/**
 	 * The default value of the '{@link #isIsOption() <em>Is Option</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

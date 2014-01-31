@@ -24,6 +24,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface VarDecl extends EObject {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Inria/IRISA Diverse Team";
+
+	/**
 	 * Returns the value of the '<em><b>Var Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>

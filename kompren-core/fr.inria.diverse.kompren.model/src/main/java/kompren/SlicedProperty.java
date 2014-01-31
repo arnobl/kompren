@@ -25,6 +25,13 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  */
 public interface SlicedProperty extends SlicedElement {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Inria/IRISA Diverse Team";
+
+	/**
 	 * Returns the value of the '<em><b>Opposite</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>

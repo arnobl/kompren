@@ -23,6 +23,13 @@ import org.eclipse.emf.ecore.EClass;
  */
 public interface SlicedClass extends SlicedElement {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Inria/IRISA Diverse Team";
+
+	/**
 	 * Returns the value of the '<em><b>Ctx</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>

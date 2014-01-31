@@ -14,6 +14,12 @@ import org.eclipse.emf.ecore.EFactory;
  */
 public interface KomprenFactory extends EFactory {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Inria/IRISA Diverse Team";
+	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

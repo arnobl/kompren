@@ -20,6 +20,13 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  */
 public class KomprenFactoryImpl extends EFactoryImpl implements KomprenFactory {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Inria/IRISA Diverse Team";
+
+	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

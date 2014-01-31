@@ -24,6 +24,12 @@ import org.eclipse.emf.ecore.util.Switch;
  */
 public class KomprenSwitch<T> extends Switch<T> {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Inria/IRISA Diverse Team";
+	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

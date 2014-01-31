@@ -24,6 +24,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Radius extends EObject {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Inria/IRISA Diverse Team";
+
+	/**
 	 * Returns the value of the '<em><b>Focused Classes</b></em>' reference list.
 	 * The list contents are of type {@link kompren.SlicedClass}.
 	 * <!-- begin-user-doc -->

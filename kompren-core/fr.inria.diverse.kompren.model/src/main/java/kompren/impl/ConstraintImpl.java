@@ -28,6 +28,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class ConstraintImpl extends MinimalEObjectImpl.Container implements Constraint {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Inria/IRISA Diverse Team";
+
+	/**
 	 * The default value of the '{@link #getExpression() <em>Expression</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

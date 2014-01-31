@@ -33,6 +33,13 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public static final String copyright = "Inria/IRISA Diverse Team";
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass slicerEClass = null;
 
 	/**
