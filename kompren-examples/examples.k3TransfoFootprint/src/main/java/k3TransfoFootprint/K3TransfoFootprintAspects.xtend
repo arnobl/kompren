@@ -1,59 +1,15 @@
 package k3TransfoFootprint
+import org.eclipse.xtext.xbase.annotations.xAnnotations.*
+import org.eclipse.xtext.xtype.*
+import org.eclipse.xtext.xbase.*
+import org.eclipse.xtext.common.types.*
 
+import static extension k3TransfoFootprint.__SlicerAspect__.*
 import fr.inria.triskell.k3.Aspect
 import fr.inria.triskell.k3.OverrideAspectMethod
+import java.util.List
+import java.util.ArrayList
 import org.eclipse.emf.ecore.EObject
-import org.eclipse.xtext.common.types.JvmAnnotationAnnotationValue
-import org.eclipse.xtext.common.types.JvmAnnotationReference
-import org.eclipse.xtext.common.types.JvmAnnotationTarget
-import org.eclipse.xtext.common.types.JvmAnnotationType
-import org.eclipse.xtext.common.types.JvmAnnotationValue
-import org.eclipse.xtext.common.types.JvmAnyTypeReference
-import org.eclipse.xtext.common.types.JvmArrayType
-import org.eclipse.xtext.common.types.JvmBooleanAnnotationValue
-import org.eclipse.xtext.common.types.JvmByteAnnotationValue
-import org.eclipse.xtext.common.types.JvmCharAnnotationValue
-import org.eclipse.xtext.common.types.JvmComponentType
-import org.eclipse.xtext.common.types.JvmCompoundTypeReference
-import org.eclipse.xtext.common.types.JvmConstraintOwner
-import org.eclipse.xtext.common.types.JvmConstructor
-import org.eclipse.xtext.common.types.JvmCustomAnnotationValue
-import org.eclipse.xtext.common.types.JvmDeclaredType
-import org.eclipse.xtext.common.types.JvmDelegateTypeReference
-import org.eclipse.xtext.common.types.JvmDoubleAnnotationValue
-import org.eclipse.xtext.common.types.JvmEnumAnnotationValue
-import org.eclipse.xtext.common.types.JvmEnumerationLiteral
-import org.eclipse.xtext.common.types.JvmEnumerationType
-import org.eclipse.xtext.common.types.JvmExecutable
-import org.eclipse.xtext.common.types.JvmFeature
-import org.eclipse.xtext.common.types.JvmField
-import org.eclipse.xtext.common.types.JvmFloatAnnotationValue
-import org.eclipse.xtext.common.types.JvmFormalParameter
-import org.eclipse.xtext.common.types.JvmGenericArrayTypeReference
-import org.eclipse.xtext.common.types.JvmGenericType
-import org.eclipse.xtext.common.types.JvmIdentifiableElement
-import org.eclipse.xtext.common.types.JvmIntAnnotationValue
-import org.eclipse.xtext.common.types.JvmLongAnnotationValue
-import org.eclipse.xtext.common.types.JvmLowerBound
-import org.eclipse.xtext.common.types.JvmMember
-import org.eclipse.xtext.common.types.JvmMultiTypeReference
-import org.eclipse.xtext.common.types.JvmOperation
-import org.eclipse.xtext.common.types.JvmParameterizedTypeReference
-import org.eclipse.xtext.common.types.JvmPrimitiveType
-import org.eclipse.xtext.common.types.JvmShortAnnotationValue
-import org.eclipse.xtext.common.types.JvmSpecializedTypeReference
-import org.eclipse.xtext.common.types.JvmStringAnnotationValue
-import org.eclipse.xtext.common.types.JvmSynonymTypeReference
-import org.eclipse.xtext.common.types.JvmType
-import org.eclipse.xtext.common.types.JvmTypeAnnotationValue
-import org.eclipse.xtext.common.types.JvmTypeConstraint
-import org.eclipse.xtext.common.types.JvmTypeParameter
-import org.eclipse.xtext.common.types.JvmTypeParameterDeclarator
-import org.eclipse.xtext.common.types.JvmTypeReference
-import org.eclipse.xtext.common.types.JvmUnknownTypeReference
-import org.eclipse.xtext.common.types.JvmUpperBound
-import org.eclipse.xtext.common.types.JvmVoid
-import org.eclipse.xtext.common.types.JvmWildcardTypeReference
 
 @Aspect(className=typeof(Object))
 abstract class __SlicerAspect__ {

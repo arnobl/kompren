@@ -1,11 +1,13 @@
 package k3TransfoFootprint
-
-import java.util.List
-import org.eclipse.xtext.common.types.JvmFormalParameter
-import org.eclipse.xtext.common.types.JvmTypeReference
-import org.eclipse.xtext.xbase.XExpression
+import org.eclipse.xtext.xbase.annotations.xAnnotations.*
+import org.eclipse.xtext.xtype.*
+import org.eclipse.xtext.xbase.*
+import org.eclipse.xtext.common.types.*
 
 import static extension k3TransfoFootprint.__SlicerAspect__.*
+
+import static extension k3TransfoFootprint.__SlicerAspect__.*
+import java.util.List
 
 class K3TransfoFootprint{
 	val List<JvmFormalParameter> inputJvmFormalParameter
