@@ -56,17 +56,18 @@ class SlicerMainGenerator extends SlicerGenerator {
 	private def StringBuilder generateOnAdded() {
 		val buf = new StringBuilder
 		slicer.slicedClasses.forEach[cl |
+			val exp = if(cl.expression==null) "" else cl.expression
 			buf.append("\tdef void on").append(cl.domain.name).append("Sliced(").
-				append(cl.ctx.type.name).append(' ').append(cl.ctx.varName).append("){\n")
-			buf.append("\t\t").append(cl.expression).append('\n')
-			buf.append("\t}\n")
+				append(cl.ctx.type.name).append(' ').append(cl.ctx.varName).append("){\n").
+				append("\t\t").append(exp).append('\n').append("\t}\n")
 		]
 		slicer.slicedProps.filter[expression!=null && expression.length>0 && src!=null && tgt!=null].forEach[prop|
 			val name = if(prop.opposite==null) prop.domain.name else prop.opposite.name
+			val exp = if(prop.expression==null) "" else prop.expression
 			buf.append("\tdef void on").append(name).append("Sliced(").
 				append(prop.src.type.name).append(' ').append(prop.src.varName).append(", ").
 				append(prop.tgt.type.name).append(' ').append(prop.tgt.varName).append("){\n")
-			buf.append("\t\t").append(prop.expression).append('\n')
+			buf.append("\t\t").append(exp).append('\n')
 			buf.append("\t}\n")
 		]
 		return buf
