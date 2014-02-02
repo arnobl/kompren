@@ -7,6 +7,7 @@ import java.util.ArrayList
 import java.util.Collections
 import java.util.HashSet
 import java.util.List
+import java.util.Set
 import kompren.SlicedClass
 import kompren.SlicedProperty
 import kompren.Slicer
@@ -23,13 +24,13 @@ import org.eclipse.emf.ecore.impl.EcoreFactoryImpl
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 
 import static extension fr.inria.diverse.kompren.compiler.EClassAspect.*
 import static extension fr.inria.diverse.kompren.compiler.EPackageAspect.*
 import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
-import org.eclipse.emf.ecore.util.EcoreUtil
 
 class SlicerCompiler {
 	val String slicerName
@@ -77,7 +78,7 @@ class SlicerCompiler {
 
 		produceImports
 		metamodel = getEcoreModel(slicer)
-		getAllClasses(metamodelClasses, metamodel)
+		getAllClasses(metamodel)
 		pkgName = slicer.name.split("\\.").last
 		slicerName = Character.toUpperCase(pkgName.charAt(0)).toString+pkgName.substring(1)
 		aspectGenerator = new SlicerAspectGenerator(metamodel, slicerName, slicer, pkgName, metamodelClasses, imports)
@@ -92,7 +93,6 @@ class SlicerCompiler {
 			_produceImports(gen.genPackages)
 			_produceImports(gen.usedGenPackages)
 		]
-		println(imports)
 	}
 	
 	private def void _produceImports(Iterable<GenPackage> pkgs) {
@@ -108,9 +108,9 @@ class SlicerCompiler {
 	}
 
 
-	private def void getAllClasses(List<EClass> set, List<EPackage> pkgs) {
-		set.addAll(pkgs.map[EClassifiers].flatten.filter(EClass))
-		pkgs.forEach[pkg | getAllClasses(set, pkg.ESubpackages)]
+	private def void getAllClasses(List<EPackage> pkgs) {
+		metamodelClasses.addAll(pkgs.map[EClassifiers].flatten.filter(EClass))
+		pkgs.forEach[pkg | getAllClasses(pkg.ESubpackages)]
 	}
 
 
@@ -180,20 +180,24 @@ class SlicerCompiler {
 	
 	
 	protected def List<EPackage> getEcoreModel(Slicer slicer) {
-		val mm = new ArrayList<EPackage>()
-		if(!slicer.slicedElements.empty) {
-			val elt = slicer.slicedElements.head
+		val List<EPackage> mm = new ArrayList
+		val Set<EPackage> pkgsVisited = new HashSet
+		
+		slicer.slicedElements.forEach[elt |
 			var EPackage pkg = switch(elt) {
 				SlicedClass: elt.domain.EPackage
 				SlicedProperty: elt.domain.EContainingClass.EPackage
 				default: null
 			}
-			if(pkg!=null) {
-				while(pkg.ESuperPackage!=null)
+			if(pkg!=null && !pkgsVisited.contains(pkg)) {
+				pkgsVisited.add(pkg)
+				while(pkg.ESuperPackage!=null) {
 					pkg = pkg.ESuperPackage
+					pkgsVisited.add(pkg)
+				}
 				mm.add(pkg)		
-			}
-		}
+			}	
+		]
 		return mm
 	}
 	
