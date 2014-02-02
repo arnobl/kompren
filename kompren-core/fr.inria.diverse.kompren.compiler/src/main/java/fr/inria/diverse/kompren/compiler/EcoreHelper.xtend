@@ -122,9 +122,9 @@ import org.eclipse.emf.ecore.EStructuralFeature
 			if(sp.opposite.name==null || sp.opposite.name.length==0)
 				sp.opposite.name = "opposite"+sp.domain.name
 			if(sp.domain.upperBound==1)
-				_self.oppositeAttr.append("\tvar ").append(sp.domain.EType.name).append(' ').append(sp.opposite.name).append("\n\n")
+				_self.oppositeAttr.append("\tvar ").append(sp.domain.EType.name).append(' ^').append(sp.opposite.name).append("\n\n")
 			else
-				_self.oppositeAttr.append("\tvar List<").append(sp.domain.EType.name).append("> ").append(sp.opposite.name).append(" = new ArrayList\n\n")
+				_self.oppositeAttr.append("\tvar List<").append(sp.domain.EType.name).append("> ^").append(sp.opposite.name).append(" = new ArrayList\n\n")
 		}	
 	}	
 
@@ -132,9 +132,9 @@ import org.eclipse.emf.ecore.EStructuralFeature
 	def void generateFeedOppositeCodeVisitor() {
 		_self.EReferences.filter[containment].forEach[ref|
 			if(ref.upperBound>1 || ref.upperBound<0)
-				_self.oppositeFeed.append("_self.").append(ref.xtendName).append(".forEach[feedOpposites]\n")
+				_self.oppositeFeed.append("_self.^").append(ref.xtendName).append(".forEach[feedOpposites]\n")
 			else
-				_self.oppositeFeed.append("_self.").append(ref.xtendName).append("?.feedOpposites\n")
+				_self.oppositeFeed.append("_self.^").append(ref.xtendName).append("?.feedOpposites\n")
 		]
 	}
 
@@ -144,9 +144,9 @@ import org.eclipse.emf.ecore.EStructuralFeature
 
 		if(sp.opposite!=null){
 			if(elt.upperBound==1)
-				_self.oppositeFeed.append("_self.").append(elt.xtendName).append('.').append(sp.opposite.name).append(" = ").append("_self\n")
+				_self.oppositeFeed.append("_self.^").append(elt.xtendName).append('.^').append(sp.opposite.name).append(" = ").append("_self\n")
 			else
-				_self.oppositeFeed.append("_self.").append(elt.xtendName).append(".forEach[").append(sp.opposite.name).append(".add(_self)]\n")
+				_self.oppositeFeed.append("_self.^").append(elt.xtendName).append(".forEach[^").append(sp.opposite.name).append(".add(_self)]\n")
 		}
 	}
 
@@ -173,9 +173,9 @@ import org.eclipse.emf.ecore.EStructuralFeature
 			val name = if(sp.opposite==null) elt.xtendName else sp.opposite.name
 	
 			if(elt.upperBound>1 || elt.upperBound<0)
-				_self.codeVisit.append("\t\t_self.").append(name).append(".forEach[visitToAddClasses(theSlicer)]\n")
+				_self.codeVisit.append("\t\t_self.^").append(name).append(".forEach[visitToAddClasses(theSlicer)]\n")
 			else
-				_self.codeVisit.append("\t\t_self.").append(name).append("?.visitToAddClasses(theSlicer)\n")
+				_self.codeVisit.append("\t\t_self.^").append(name).append("?.visitToAddClasses(theSlicer)\n")
 		}
 	}
 
@@ -195,26 +195,26 @@ import org.eclipse.emf.ecore.EStructuralFeature
 		val isPrim = sp.domain.EType.isPrimitiveType
 		if(!isPrim) {
 			if(sp.domain.lowerBound==0)
-				_self.relationCode.append("\t\tif(_self.").append(name).append("!=null){\n")
-			_self.relationCode.append("\t\t_self.").append(name).append(".visitToAddRelations(theSlicer)\n")
+				_self.relationCode.append("\t\tif(_self.^").append(name).append("!=null){\n")
+			_self.relationCode.append("\t\t_self.^").append(name).append(".visitToAddRelations(theSlicer)\n")
 		}
 		if(okSlice && !sp.domain.derived) {
 			val hasOpposite = sp.domain instanceof EReference && ((sp.domain) as EReference).EOpposite!=null
 			
 			_self.relationCode.append("\n\t\tif(_self.sliced")
-			if(!isPrim) _self.relationCode.append(" && _self.").append(name).append(".sliced")
+			if(!isPrim) _self.relationCode.append(" && _self.^").append(name).append(".sliced")
 			_self.relationCode.append(") ")
 			if(slicer.strict)
 				if(isPrim)
-					_self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").").append(name).append(" = _self.").append(name).append('\n')
+					_self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").^").append(name).append(" = _self.^").append(name).append('\n')
 				else
 					if(!sp.domain.changeable && hasOpposite)
 						_self.generateCodeForReadOnlyRefWithOpposite(sp)
 					else
-						_self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").").append(name).
-						append(" = _self.").append(name).append(".clonedElt as ").append(sp.domain.EType.name).append('\n')
+						_self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").^").append(name).
+						append(" = _self.^").append(name).append(".clonedElt as ").append(sp.domain.EType.name).append('\n')
 			else
-				_self.relationCode.append("\t\ttheSlicer.on").append(name).append("Sliced(_self").append(", _self.").append(name).append(")\n")
+				_self.relationCode.append("\t\ttheSlicer.on").append(name).append("Sliced(_self").append(", _self.^").append(name).append(")\n")
 		}
 		if(!isPrim && sp.domain.lowerBound==0) _self.relationCode.append("}\n")
 	}
@@ -222,7 +222,7 @@ import org.eclipse.emf.ecore.EStructuralFeature
 	
 	
 	private def void generateVisitToAddRelations4MultiCard(SlicedProperty sp, Slicer slicer, String name, boolean okSlice) {
-		_self.relationCode.append("\t\t_self.").append(name).append(".forEach[_elt| _elt.visitToAddRelations(theSlicer)")
+		_self.relationCode.append("\t\t_self.^").append(name).append(".forEach[_elt| _elt.visitToAddRelations(theSlicer)")
 		val hasOpposite = sp.domain instanceof EReference && ((sp.domain) as EReference).EOpposite!=null
 		if(okSlice  && !sp.domain.derived && (sp.domain.changeable || hasOpposite)){
 			val isPrim = sp.domain.EType.isPrimitiveType
@@ -231,11 +231,11 @@ import org.eclipse.emf.ecore.EStructuralFeature
 			_self.relationCode.append(") ")
 			if(slicer.strict)
 				if(isPrim)
-					_self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").").append(name).append(".add( _elt)\n")
+					_self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").^").append(name).append(".add( _elt)\n")
 				else {
 					if(!sp.domain.changeable && hasOpposite)
 						_self.generateCodeForReadOnlyRefWithOpposite(sp)
-					else _self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").").append(name).
+					else _self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").^").append(name).
 					append(".add( _elt.clonedElt as ").append(sp.domain.EType.name).append(")\n")
 				}
 			else
@@ -247,7 +247,7 @@ import org.eclipse.emf.ecore.EStructuralFeature
 	
 	private def void generateCodeForReadOnlyRefWithOpposite(SlicedProperty sp) {
 		val refOpp = (sp.domain as EReference).EOpposite
-		_self.relationCode.append("(_self.").append(sp.domain.xtendName).append(".clonedElt as ").append(sp.domain.EType.name).append(").").append(refOpp.xtendName)
+		_self.relationCode.append("(_self.").append(sp.domain.xtendName).append(".clonedElt as ").append(sp.domain.EType.name).append(").^").append(refOpp.xtendName)
 		if(refOpp.upperBound<0 || refOpp.upperBound>1)
 			_self.relationCode.append(".add(_self.clonedElt as ").append(refOpp.EType.name).append(")\n")
 		else
