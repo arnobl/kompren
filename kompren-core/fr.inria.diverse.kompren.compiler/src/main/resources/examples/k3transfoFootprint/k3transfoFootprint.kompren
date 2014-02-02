@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="ASCII"?>
+<kompren:Slicer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:kompren="http://kompren/fr.inria.diverse.kompren" name="examples.k3TransfoFootprint" helper="" onStart="" onEnd="">
+  <uriMetamodel>Xbase.genmodel</uriMetamodel>
+  <uriMetamodel>JavaVMTypes.genmodel</uriMetamodel>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmFormalParameter/parameterType"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedClass" expression="println(type.getQualifiedName)&#xA;">
+    <ctx varName="type">
+      <type href="JavaVMTypes.ecore#//JvmTypeReference"/>
+    </ctx>
+    <domain href="JavaVMTypes.ecore#//JvmTypeReference"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedClass" expression="println(ident.getQualifiedName)">
+    <ctx varName="ident">
+      <type href="JavaVMTypes.ecore#//JvmIdentifiableElement"/>
+    </ctx>
+    <domain href="JavaVMTypes.ecore#//JvmIdentifiableElement"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XIfExpression/if"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XIfExpression/then"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XIfExpression/else"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XSwitchExpression/switch"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XSwitchExpression/cases"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XSwitchExpression/default"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XCasePart/case"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XCasePart/then"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XCasePart/typeGuard"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XBlockExpression/expressions"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XVariableDeclaration/type"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XVariableDeclaration/right"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XAbstractFeatureCall/feature"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XAbstractFeatureCall/typeArguments"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XAbstractFeatureCall/implicitReceiver"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XAbstractFeatureCall/implicitFirstArgument"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XMemberFeatureCall/memberCallTarget"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XMemberFeatureCall/memberCallArguments"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XFeatureCall/featureCallArguments"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XConstructorCall/constructor"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XConstructorCall/arguments"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XCollectionLiteral/elements"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmExecutable/parameters"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmExecutable/exceptions"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XClosure/declaredFormalParameters"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XClosure/expression"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XClosure/implicitParameter"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XCastedExpression/type"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XCastedExpression/target"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XBinaryOperation/leftOperand"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XBinaryOperation/rightOperand"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XUnaryOperation/operand"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XForLoopExpression/forExpression"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XForLoopExpression/eachExpression"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XForLoopExpression/declaredParam"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XAbstractWhileExpression/predicate"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XAbstractWhileExpression/body"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XTypeLiteral/type"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XInstanceOfExpression/type"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XInstanceOfExpression/expression"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XThrowExpression/expression"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XTryCatchFinallyExpression/expression"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XTryCatchFinallyExpression/finallyExpression"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XTryCatchFinallyExpression/catchClauses"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XCatchClause/expression"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XCatchClause/declaredParam"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XAssignment/assignable"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XAssignment/value"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XReturnExpression/expression"/>
+  </slicedElements>
+  <inputClasses href="JavaVMTypes.ecore#//JvmFormalParameter"/>
+  <inputClasses href="JavaVMTypes.ecore#//JvmTypeReference"/>
+  <inputClasses href="Xbase.ecore#//XExpression"/>
+</kompren:Slicer>

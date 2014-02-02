@@ -31,6 +31,13 @@ class K3TransfoFootprint{
 		onEnd
 	}
 
+	def void onJvmTypeReferenceSliced(JvmTypeReference type){
+		println(type.getQualifiedName)
+
+	}
+	def void onJvmIdentifiableElementSliced(JvmIdentifiableElement ident){
+		println(ident.getQualifiedName)
+	}
 
 	protected def void onStart(){
 	}
