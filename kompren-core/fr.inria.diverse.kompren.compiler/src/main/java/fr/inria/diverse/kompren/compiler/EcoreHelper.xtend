@@ -158,8 +158,7 @@ import org.eclipse.emf.ecore.EStructuralFeature
 		if(slicer.strict) {
 			if(!_self.abstract)
 				_self.codeAction.append("\t\tif(_self.clonedElt==null){\n\t\t\t_self.clonedElt = ").append(_self.EPackage.factoryName).
-				append(".eINSTANCE.create").append(_self.name).append(" as ").append(_self.name).
-				append("\n\t\t\ttheSlicer.objectCloned(_self.clonedElt)\n\t\t}\n")
+				append(".eINSTANCE.create").append(_self.name).append("\n\t\t\ttheSlicer.objectCloned(_self.clonedElt)\n\t\t}\n")
 		}
 		else _self.codeAction.append("\t\ttheSlicer.on").append(_self.name).append("Sliced(_self)\n")
 		if(optionName!=null)
