@@ -65,21 +65,21 @@ public interface VarDecl extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' reference.
-	 * @see #setType(EClass)
+	 * @see #isSetType()
 	 * @see kompren.KomprenPackage#getVarDecl_Type()
-	 * @model required="true"
+	 * @model unsettable="true" required="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	EClass getType();
 
 	/**
-	 * Sets the value of the '{@link kompren.VarDecl#getType <em>Type</em>}' reference.
+	 * Returns whether the value of the '{@link kompren.VarDecl#getType <em>Type</em>}' reference is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' reference.
+	 * @return whether the value of the '<em>Type</em>' reference is set.
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(EClass value);
+	boolean isSetType();
 
 } // VarDecl

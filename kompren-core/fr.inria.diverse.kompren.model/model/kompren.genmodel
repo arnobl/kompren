@@ -46,7 +46,8 @@
     </genClasses>
     <genClasses ecoreClass="kompren.ecore#//VarDecl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kompren.ecore#//VarDecl/varName"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kompren.ecore#//VarDecl/type"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory=""
+          propertySortChoices="true" ecoreFeature="ecore:EReference kompren.ecore#//VarDecl/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

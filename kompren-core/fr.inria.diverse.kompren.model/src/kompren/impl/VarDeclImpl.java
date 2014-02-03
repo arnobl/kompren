@@ -3,13 +3,14 @@
 package kompren.impl;
 
 import kompren.KomprenPackage;
+import kompren.SlicedClass;
+import kompren.SlicedElement;
+import kompren.SlicedProperty;
 import kompren.VarDecl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -54,16 +55,6 @@ public class VarDeclImpl extends MinimalEObjectImpl.Container implements VarDecl
 	 * @ordered
 	 */
 	protected String varName = VAR_NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected EClass type;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -111,36 +102,34 @@ public class VarDeclImpl extends MinimalEObjectImpl.Container implements VarDecl
 	 * @generated
 	 */
 	public EClass getType() {
-		if (type != null && type.eIsProxy()) {
-			InternalEObject oldType = (InternalEObject)type;
-			type = (EClass)eResolveProxy(oldType);
-			if (type != oldType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, KomprenPackage.VAR_DECL__TYPE, oldType, type));
-			}
-		}
-		return type;
+		EClass type = basicGetType();
+		return type != null && type.eIsProxy() ? (EClass)eResolveProxy((InternalEObject)type) : type;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EClass basicGetType() {
-		return type;
+		if(eContainer instanceof SlicedClass)
+			return ((SlicedClass)eContainer).getDomain();
+		if(eContainer instanceof SlicedProperty) {
+			SlicedProperty prop = (SlicedProperty) eContainer;
+			if(this==prop.getSrc())
+				return prop.getDomain().getEContainingClass();
+			if(this==prop.getTgt() && prop.getDomain().getEType() instanceof EClass)
+				return (EClass) prop.getDomain().getEType();
+			return null;
+		}
+		return null;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public void setType(EClass newType) {
-		EClass oldType = type;
-		type = newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, KomprenPackage.VAR_DECL__TYPE, oldType, type));
+	public boolean isSetType() {
+		return eContainer instanceof SlicedElement<?>;
 	}
 
 	/**
@@ -171,9 +160,6 @@ public class VarDeclImpl extends MinimalEObjectImpl.Container implements VarDecl
 			case KomprenPackage.VAR_DECL__VAR_NAME:
 				setVarName((String)newValue);
 				return;
-			case KomprenPackage.VAR_DECL__TYPE:
-				setType((EClass)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -188,9 +174,6 @@ public class VarDeclImpl extends MinimalEObjectImpl.Container implements VarDecl
 		switch (featureID) {
 			case KomprenPackage.VAR_DECL__VAR_NAME:
 				setVarName(VAR_NAME_EDEFAULT);
-				return;
-			case KomprenPackage.VAR_DECL__TYPE:
-				setType((EClass)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -207,7 +190,7 @@ public class VarDeclImpl extends MinimalEObjectImpl.Container implements VarDecl
 			case KomprenPackage.VAR_DECL__VAR_NAME:
 				return VAR_NAME_EDEFAULT == null ? varName != null : !VAR_NAME_EDEFAULT.equals(varName);
 			case KomprenPackage.VAR_DECL__TYPE:
-				return type != null;
+				return isSetType();
 		}
 		return super.eIsSet(featureID);
 	}

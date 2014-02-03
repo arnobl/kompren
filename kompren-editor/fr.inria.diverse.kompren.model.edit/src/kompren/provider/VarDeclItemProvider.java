@@ -109,7 +109,7 @@ public class VarDeclItemProvider
 				 getString("_UI_VarDecl_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_VarDecl_type_feature", "_UI_VarDecl_type"),
 				 KomprenPackage.Literals.VAR_DECL__TYPE,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,

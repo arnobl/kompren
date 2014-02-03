@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kompren:Slicer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:kompren="http://kompren/fr.inria.diverse.kompren" name="example.UnusedVarDetector" uriMetamodel="platform:/resource/org.kermeta.kompren.slicer.compiler/examples/unusedVar/kermeta.ecore" helper="&#x9;reference varDecls : VariableDecl[0..*]&#xA;&#x9;&#xA;&#x9;reference params : Parameter[0..*]" onEnd="&#x9;&#x9;varDecls.each{varD | stdio.writeln(&quot;Variable unused: &quot; + varD.identifier) }&#xA;&#x9;&#x9;params.each{param | stdio.writeln(&quot;Parameter unused: &quot; + param.name) }">
   <slicedElements xsi:type="kompren:SlicedClass" expression="&#x9;&#x9;varDecls.add(varDecl)">
-    <ctx varName="varDecl">
-      <type href="kermeta.ecore#//kermeta/language/behavior/VariableDecl"/>
-    </ctx>
+    <ctx varName="varDecl"/>
     <domain xsi:type="ecore:EClass" href="kermeta.ecore#//kermeta/language/behavior/VariableDecl"/>
   </slicedElements>
   <slicedElements xsi:type="kompren:SlicedClass" expression="&#x9;&#x9;if(not callVar.staticType.isVoid) then&#xA;&#x9;&#x9;&#x9;var varDecl : VariableDecl init varDecls.detect{varD |&#xA;&#x9;&#x9;&#x9;&#x9;varD.containedType.contains(callVar.staticType)&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;if(varDecl.isVoid) then&#xA;&#x9;&#x9;&#x9;&#x9;var varParam : Parameter init params.detect{param | param.type==callVar.staticType }&#xA;&#x9;&#x9;&#x9;&#x9;if(not varParam.isVoid) then&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;params.remove(varParam)&#xA;&#x9;&#x9;&#x9;&#x9;end&#xA;&#x9;&#x9;&#x9;else&#xA;&#x9;&#x9;&#x9;&#x9;varDecls.remove(varDecl)&#xA;&#x9;&#x9;&#x9;end&#xA;&#x9;&#x9;end">
-    <ctx varName="callVar">
-      <type href="kermeta.ecore#//kermeta/language/behavior/CallVariable"/>
-    </ctx>
+    <ctx varName="callVar"/>
     <domain xsi:type="ecore:EClass" href="kermeta.ecore#//kermeta/language/behavior/CallVariable"/>
   </slicedElements>
   <slicedElements xsi:type="kompren:SlicedClass" expression="params.add(param)">
-    <ctx varName="param">
-      <type href="kermeta.ecore#//kermeta/language/structure/Parameter"/>
-    </ctx>
+    <ctx varName="param"/>
     <domain xsi:type="ecore:EClass" href="kermeta.ecore#//kermeta/language/structure/Parameter"/>
   </slicedElements>
   <slicedElements xsi:type="kompren:SlicedProperty">

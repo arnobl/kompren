@@ -6,15 +6,11 @@
     <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmFormalParameter/parameterType"/>
   </slicedElements>
   <slicedElements xsi:type="kompren:SlicedClass" expression="footprint.add(type.getQualifiedName)&#xA;">
-    <ctx varName="type">
-      <type href="JavaVMTypes.ecore#//JvmTypeReference"/>
-    </ctx>
+    <ctx varName="type"/>
     <domain xsi:type="ecore:EClass" href="JavaVMTypes.ecore#//JvmTypeReference"/>
   </slicedElements>
   <slicedElements xsi:type="kompren:SlicedClass" expression="footprint.add(ident.getQualifiedName)">
-    <ctx varName="ident">
-      <type href="JavaVMTypes.ecore#//JvmIdentifiableElement"/>
-    </ctx>
+    <ctx varName="ident"/>
     <domain xsi:type="ecore:EClass" href="JavaVMTypes.ecore#//JvmIdentifiableElement"/>
   </slicedElements>
   <slicedElements xsi:type="kompren:SlicedProperty">
