@@ -7,13 +7,8 @@
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="fooA" lowerBound="1"
           eType="#/1/EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fooo" eType="#/1/EChar"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#/0/C"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="B" abstract="true" eSuperTypes="#/0/J">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="EAttribute0" eType="#/1/EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="f" eType="#/0/F" containment="true"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="B" abstract="true" eSuperTypes="#/0/J"/>
     <eClassifiers xsi:type="ecore:EClass" name="J"/>
     <eClassifiers xsi:type="ecore:EClass" name="C" eSuperTypes="#/0/B">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="EAttribute1" lowerBound="1"
@@ -24,12 +19,9 @@
           eType="#/0/E" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="E"/>
-    <eClassifiers xsi:type="ecore:EClass" name="F" eSuperTypes="#/0/I"/>
-    <eClassifiers xsi:type="ecore:EClass" name="I"/>
   </ecore:EPackage>
   <ecore:EPackage name="ecore" nsURI="http://www.eclipse.org/emf/2002/Ecore" nsPrefix="ecore">
     <eClassifiers xsi:type="ecore:EDataType" name="EDouble" instanceClassName="double"/>
     <eClassifiers xsi:type="ecore:EDataType" name="EBoolean" instanceClassName="boolean"/>
-    <eClassifiers xsi:type="ecore:EDataType" name="EChar" instanceClassName="char"/>
   </ecore:EPackage>
 </xmi:XMI>

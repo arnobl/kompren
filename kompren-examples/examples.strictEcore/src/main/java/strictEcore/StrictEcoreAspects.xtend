@@ -124,7 +124,7 @@ _self.^EGenericSuperTypes.forEach[feedOpposites]
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^ESuperTypes.forEach[visitToAddClasses(theSlicer)]
 		_self.^subClasses.forEach[visitToAddClasses(theSlicer)]
-		_self.^EStructuralFeatures.forEach[visitToAddClasses(theSlicer)]
+		_self.^EStructuralFeatures.filter[lowerBound>0].forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
@@ -136,7 +136,7 @@ _self.^EGenericSuperTypes.forEach[feedOpposites]
 		_self.^subClasses.forEach[_elt| _elt.visitToAddRelations(theSlicer)
 			if(_self.sliced && _elt.sliced) (_self.clonedElt as EClass).^subClasses.add( _elt.clonedElt as EClass)
 		]
-		_self.^EStructuralFeatures.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+		_self.^EStructuralFeatures.filter[lowerBound>0].forEach[_elt| _elt.visitToAddRelations(theSlicer)
 			if(_self.sliced && _elt.sliced) (_self.clonedElt as EClass).^EStructuralFeatures.add( _elt.clonedElt as EStructuralFeature)
 		]
 
@@ -388,7 +388,7 @@ _self.^ESubpackages.forEach[feedOpposites]
 			theSlicer.objectCloned(_self.clonedElt)
 		}
 		_self.super__visitToAddClasses(theSlicer)
-		_self.^EFactoryInstance?.visitToAddClasses(theSlicer)
+//		_self.^EFactoryInstance?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
@@ -398,9 +398,9 @@ _self.^ESubpackages.forEach[feedOpposites]
 		if(_self.sliced) (_self.clonedElt as EPackage).^nsPrefix = _self.^nsPrefix
 
 		if(_self.sliced) (_self.clonedElt as EPackage).^nsURI = _self.^nsURI
-		_self.^EFactoryInstance.visitToAddRelations(theSlicer)
+//		_self.^EFactoryInstance.visitToAddRelations(theSlicer)
 
-		if(_self.sliced && _self.^EFactoryInstance.sliced) (_self.clonedElt as EPackage).^EFactoryInstance = _self.^EFactoryInstance.clonedElt as EFactory
+//		if(_self.sliced && _self.^EFactoryInstance.sliced) (_self.clonedElt as EPackage).^EFactoryInstance = _self.^EFactoryInstance.clonedElt as EFactory
 
 	}
 }
