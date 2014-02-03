@@ -8,16 +8,16 @@ import scala.collection.JavaConversions.seqAsJavaList
 
 import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.common.util.URI
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
-import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.emf.ecore.resource.ResourceSet
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EClassifier
 import org.eclipse.emf.ecore.ENamedElement
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EPackage
 import org.eclipse.emf.ecore.EStructuralFeature
+import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.emf.ecore.resource.ResourceSet
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 
 import kompren.SlicedClass
 import kompren.SlicedProperty
@@ -25,12 +25,13 @@ import kompren.Slicer
 
 object SlicerResolver {
 	def resolve(slicer : Slicer, uriSlicerTxtModel : String) {
-	  val metamodel = resolveMetamodel(slicer.getUriMetamodel, uriSlicerTxtModel)
-	  
-	  resolveSlicedClasses(slicer, metamodel)
-	  resolveSlicedProperties(slicer, metamodel)
-	  resolveRadiuses(slicer)
-	  resolveInputs(slicer, metamodel)
+	  slicer.getUriMetamodel.foreach{uri => 
+	     val metamodel = resolveMetamodel(uri, uriSlicerTxtModel)
+     	  resolveSlicedClasses(slicer, metamodel)
+		  resolveSlicedProperties(slicer, metamodel)
+		  resolveRadiuses(slicer)
+		  resolveInputs(slicer, metamodel)
+	  }
 	}
 	
 	
@@ -99,13 +100,7 @@ object SlicerResolver {
 		    val className = names.last
 		    
 		  	val res = metamodel.get(0).eAllContents.find{_ match {
-		  	  case eref : EStructuralFeature if(isMatchingStructuralFeature(names, eref)) => 
-	    			sp.setDomain(eref)
-	    			if(sp.getSrc!=null)
-	    			  sp.getSrc.setType(eref.getEContainingClass)
-	    			if(sp.getTgt!=null)
-	    			  sp.getTgt.setType(eref.getEType.asInstanceOf[EClass])//FIXME un-safe cast
-	    			  
+		  	  case eref : EStructuralFeature if(isMatchingStructuralFeature(names, eref)) => sp.setDomain(eref)
 	    			 true
 		  	  case _ => false
 		  	}}
@@ -147,10 +142,7 @@ object SlicerResolver {
 	  slicer.getSlicedElements.foreach{_ match {
 	    case sc : SlicedClass =>
 	    	getResolvedEClass(metamodel, sc.getDomain.getName) match {
-	    		case Some(value) =>
-	    			sc.setDomain(value)
-	    			if(sc.getCtx!=null)
-  	    				sc.getCtx.setType(value)
+	    		case Some(value) => sc.setDomain(value)
 	    		case None => println("SLICED CLASS NOT RESOLVED: " + sc.getDomain.getName)
 	    	}
 	    case _ =>

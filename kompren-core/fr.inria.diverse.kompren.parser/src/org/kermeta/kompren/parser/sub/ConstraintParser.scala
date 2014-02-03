@@ -1,4 +1,5 @@
 package org.kermeta.kompren.parser.sub
+
 import kompren.Constraint
 import kompren.KomprenFactory
 

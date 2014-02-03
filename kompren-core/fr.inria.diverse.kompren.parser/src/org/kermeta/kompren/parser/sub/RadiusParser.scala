@@ -1,11 +1,12 @@
 package org.kermeta.kompren.parser.sub
 
+import scala.collection.JavaConversions.seqAsJavaList
+
 import org.eclipse.emf.ecore.EcoreFactory
-import org.eclipse.emf.ecore.EClass
+
+import kompren.KomprenFactory
 import kompren.Radius
 import kompren.SlicedClass
-import kompren.KomprenFactory
-import scala.collection.JavaConversions._
 
 trait RadiusParser extends KomprenAbstractParser {
 	def parseRadius : Parser[Radius] = "radius" ~ ":" ~ rep1sep((pointedIdent | ident), ",") ^^ {

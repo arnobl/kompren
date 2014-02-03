@@ -1,10 +1,10 @@
 package org.kermeta.kompren.parser.sub
 
-import org.eclipse.emf.ecore.EcoreFactory
 import org.eclipse.emf.ecore.EClass
-import kompren.SlicedClass
-import kompren.VarDecl
+import org.eclipse.emf.ecore.EcoreFactory
+
 import kompren.KomprenFactory
+import kompren.SlicedClass
 
 trait SlicedClassParser extends KomprenAbstractParser {
 	def parseSlicedClass : Parser[SlicedClass] = "slicedClass" ~ ":" ~ (pointedIdent | ident) ~ opt("option") ~ opt(ident) ~ opt(blockCode) ^^ {
@@ -19,7 +19,6 @@ trait SlicedClassParser extends KomprenAbstractParser {
 
 	    if(nameVar.isDefined) {
 	      val ctx = KomprenFactory.eINSTANCE.createVarDecl
-	      ctx.setType(clazz)
 	      ctx.setVarName(nameVar.get)
 	      slicedClass.setCtx(ctx)
 	    }

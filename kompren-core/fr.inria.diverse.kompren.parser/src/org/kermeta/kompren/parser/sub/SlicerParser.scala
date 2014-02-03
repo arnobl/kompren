@@ -1,23 +1,24 @@
 package org.kermeta.kompren.parser.sub
 
+import scala.collection.JavaConversions.seqAsJavaList
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EcoreFactory
-import kompren.Slicer
-import kompren.SlicedElement
 import kompren.KomprenFactory
-import scala.collection.JavaConversions._
+import kompren.SlicedElement
+import kompren.Slicer
+import org.eclipse.emf.ecore.ENamedElement
 
 trait SlicerParser extends KomprenAbstractParser 
 with RadiusParser 
 with ConstraintParser 
 with SlicedClassParser 
 with SlicedPropertyParser {
-  def parseSlicer : Parser[Slicer] = "slicer" ~ opt("strict") ~ opt("active") ~ ident ~ "{" ~ parseDomain ~ parseInput ~ 
+  def parseSlicer : Parser[Slicer] = "slicer" ~ opt("strict") ~ opt("active") ~ ident ~ "{" ~ rep1(parseDomain) ~ parseInput ~ 
 		  			opt(parseRadius) ~ (parseConstraints*) ~ (parseSlicedClass*) ~ (parseSlicedProperty*) ~ opt(parseOnStart) ~ 
 		  			opt(parseOnEnd) ~ opt(parseHelper) ~ "}" ^^ { 
     case _ ~ soft ~ active ~ name ~ _ ~ domain ~ inputs ~ radius ~ constraints ~ slicedClasses ~ slicedProps ~ onStart ~ onEnd ~ helper ~ _ =>
     val slicer = KomprenFactory.eINSTANCE.createSlicer
-    var slicedElements : List[SlicedElement] = slicedClasses ++ slicedProps
+    var slicedElements : List[SlicedElement[_ <: ENamedElement]] = slicedClasses ++ slicedProps
     
     soft match {
 	    case Some(_) => slicer.setStrict(true)
@@ -26,7 +27,7 @@ with SlicedPropertyParser {
     
     slicer.setName(name)
     slicer.setActive(active.isDefined)
-    slicer.setUriMetamodel(domain)
+    slicer.getUriMetamodel.addAll(domain)
     slicer.setHelper(if(helper.isDefined) helper.get else null)
     slicer.setOnEnd(if(onEnd.isDefined) onEnd.get else null)
     slicer.setOnStart(if(onStart.isDefined) onStart.get else null)

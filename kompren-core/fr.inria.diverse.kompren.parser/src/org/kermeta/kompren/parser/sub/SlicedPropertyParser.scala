@@ -1,13 +1,12 @@
 package org.kermeta.kompren.parser.sub
 
 import org.eclipse.emf.ecore.EClass
-import org.eclipse.emf.ecore.EcoreFactory
 import org.eclipse.emf.ecore.EReference
-import kompren.SlicedProperty
-import kompren.OppositeCreation
-import kompren.VarDecl
-import kompren.KomprenFactory
+import org.eclipse.emf.ecore.EcoreFactory
 
+import kompren.KomprenFactory
+import kompren.OppositeCreation
+import kompren.SlicedProperty
 
 trait SlicedPropertyParser extends KomprenAbstractParser {
 	def parseSlicedProperty : Parser[SlicedProperty] = "slicedProperty" ~ ":" ~ (pointedIdent | ident) ~ opt("option") ~ opt(parserOpposite) ~ 
@@ -26,7 +25,6 @@ trait SlicedPropertyParser extends KomprenAbstractParser {
 	      val src = KomprenFactory.eINSTANCE.createVarDecl
 	      val clazz : EClass = EcoreFactory.eINSTANCE.createEClass
 	      clazz.setName(name)
-	      src.setType(clazz)
 	      src.setVarName(nameVar1.get)
 	      slicedProp.setSrc(src)
 	    }
@@ -35,7 +33,6 @@ trait SlicedPropertyParser extends KomprenAbstractParser {
   	      val tgt = KomprenFactory.eINSTANCE.createVarDecl
 	      val clazz : EClass = EcoreFactory.eINSTANCE.createEClass
 	      clazz.setName("#RESOLVE_OPPOSITE:" + name)
-	      tgt.setType(clazz)
 	      tgt.setVarName(nameVar2.get)
 	      slicedProp.setTgt(tgt)
   	    }
