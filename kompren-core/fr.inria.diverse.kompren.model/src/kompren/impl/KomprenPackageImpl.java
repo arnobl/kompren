@@ -15,9 +15,11 @@ import kompren.VarDecl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -331,15 +333,6 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSlicedClass_Domain() {
-		return (EReference)slicedClassEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getSlicedProperty() {
 		return slicedPropertyEClass;
 	}
@@ -369,15 +362,6 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 	 */
 	public EReference getSlicedProperty_Tgt() {
 		return (EReference)slicedPropertyEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSlicedProperty_Domain() {
-		return (EReference)slicedPropertyEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -423,6 +407,15 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 	 */
 	public EAttribute getSlicedElement_Expression() {
 		return (EAttribute)slicedElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSlicedElement_Domain() {
+		return (EReference)slicedElementEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -502,13 +495,11 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 
 		slicedClassEClass = createEClass(SLICED_CLASS);
 		createEReference(slicedClassEClass, SLICED_CLASS__CTX);
-		createEReference(slicedClassEClass, SLICED_CLASS__DOMAIN);
 
 		slicedPropertyEClass = createEClass(SLICED_PROPERTY);
 		createEReference(slicedPropertyEClass, SLICED_PROPERTY__OPPOSITE);
 		createEReference(slicedPropertyEClass, SLICED_PROPERTY__SRC);
 		createEReference(slicedPropertyEClass, SLICED_PROPERTY__TGT);
-		createEReference(slicedPropertyEClass, SLICED_PROPERTY__DOMAIN);
 
 		oppositeCreationEClass = createEClass(OPPOSITE_CREATION);
 		createEAttribute(oppositeCreationEClass, OPPOSITE_CREATION__NAME);
@@ -516,6 +507,7 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 		slicedElementEClass = createEClass(SLICED_ELEMENT);
 		createEAttribute(slicedElementEClass, SLICED_ELEMENT__IS_OPTION);
 		createEAttribute(slicedElementEClass, SLICED_ELEMENT__EXPRESSION);
+		createEReference(slicedElementEClass, SLICED_ELEMENT__DOMAIN);
 
 		varDeclEClass = createEClass(VAR_DECL);
 		createEAttribute(varDeclEClass, VAR_DECL__VAR_NAME);
@@ -549,12 +541,21 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
+		ETypeParameter slicedElementEClass_T = addETypeParameter(slicedElementEClass, "T");
 
 		// Set bounds for type parameters
+		EGenericType g1 = createEGenericType(theEcorePackage.getENamedElement());
+		slicedElementEClass_T.getEBounds().add(g1);
 
 		// Add supertypes to classes
-		slicedClassEClass.getESuperTypes().add(this.getSlicedElement());
-		slicedPropertyEClass.getESuperTypes().add(this.getSlicedElement());
+		g1 = createEGenericType(this.getSlicedElement());
+		EGenericType g2 = createEGenericType(theEcorePackage.getEClass());
+		g1.getETypeArguments().add(g2);
+		slicedClassEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getSlicedElement());
+		g2 = createEGenericType(theEcorePackage.getEStructuralFeature());
+		g1.getETypeArguments().add(g2);
+		slicedPropertyEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(slicerEClass, Slicer.class, "Slicer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -567,7 +568,10 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 		initEAttribute(getSlicer_OnEnd(), ecorePackage.getEString(), "onEnd", null, 0, 1, Slicer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSlicer_Constraints(), this.getConstraint(), null, "constraints", null, 0, -1, Slicer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSlicer_Radius(), this.getRadius(), null, "radius", null, 0, 1, Slicer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSlicer_SlicedElements(), this.getSlicedElement(), null, "slicedElements", null, 0, -1, Slicer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getSlicedElement());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEReference(getSlicer_SlicedElements(), g1, null, "slicedElements", null, 0, -1, Slicer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSlicer_InputClasses(), theEcorePackage.getEClass(), null, "inputClasses", null, 1, -1, Slicer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(constraintEClass, Constraint.class, "Constraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -579,13 +583,11 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 
 		initEClass(slicedClassEClass, SlicedClass.class, "SlicedClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSlicedClass_Ctx(), this.getVarDecl(), null, "ctx", null, 0, 1, SlicedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSlicedClass_Domain(), theEcorePackage.getEClass(), null, "domain", null, 1, 1, SlicedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(slicedPropertyEClass, SlicedProperty.class, "SlicedProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSlicedProperty_Opposite(), this.getOppositeCreation(), null, "opposite", null, 0, 1, SlicedProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSlicedProperty_Src(), this.getVarDecl(), null, "src", null, 0, 1, SlicedProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSlicedProperty_Tgt(), this.getVarDecl(), null, "tgt", null, 0, 1, SlicedProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSlicedProperty_Domain(), theEcorePackage.getEStructuralFeature(), null, "domain", null, 1, 1, SlicedProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(oppositeCreationEClass, OppositeCreation.class, "OppositeCreation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOppositeCreation_Name(), ecorePackage.getEString(), "name", null, 1, 1, OppositeCreation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -593,6 +595,8 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 		initEClass(slicedElementEClass, SlicedElement.class, "SlicedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSlicedElement_IsOption(), ecorePackage.getEBoolean(), "isOption", null, 0, 1, SlicedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSlicedElement_Expression(), ecorePackage.getEString(), "expression", null, 0, 1, SlicedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(slicedElementEClass_T);
+		initEReference(getSlicedElement_Domain(), g1, null, "domain", null, 1, 1, SlicedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(varDeclEClass, VarDecl.class, "VarDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVarDecl_VarName(), ecorePackage.getEString(), "varName", null, 1, 1, VarDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

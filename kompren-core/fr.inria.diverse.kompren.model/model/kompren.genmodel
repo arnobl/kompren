@@ -29,20 +29,20 @@
     </genClasses>
     <genClasses ecoreClass="kompren.ecore#//SlicedClass">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kompren.ecore#//SlicedClass/ctx"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kompren.ecore#//SlicedClass/domain"/>
     </genClasses>
     <genClasses ecoreClass="kompren.ecore#//SlicedProperty">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kompren.ecore#//SlicedProperty/opposite"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kompren.ecore#//SlicedProperty/src"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kompren.ecore#//SlicedProperty/tgt"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kompren.ecore#//SlicedProperty/domain"/>
     </genClasses>
     <genClasses ecoreClass="kompren.ecore#//OppositeCreation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kompren.ecore#//OppositeCreation/name"/>
     </genClasses>
     <genClasses image="false" ecoreClass="kompren.ecore#//SlicedElement">
+      <genTypeParameters ecoreTypeParameter="kompren.ecore#//SlicedElement/T"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kompren.ecore#//SlicedElement/isOption"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute kompren.ecore#//SlicedElement/expression"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kompren.ecore#//SlicedElement/domain"/>
     </genClasses>
     <genClasses ecoreClass="kompren.ecore#//VarDecl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kompren.ecore#//VarDecl/varName"/>

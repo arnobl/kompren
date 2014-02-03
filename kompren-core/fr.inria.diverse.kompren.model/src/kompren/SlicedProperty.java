@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  *   <li>{@link kompren.SlicedProperty#getOpposite <em>Opposite</em>}</li>
  *   <li>{@link kompren.SlicedProperty#getSrc <em>Src</em>}</li>
  *   <li>{@link kompren.SlicedProperty#getTgt <em>Tgt</em>}</li>
- *   <li>{@link kompren.SlicedProperty#getDomain <em>Domain</em>}</li>
  * </ul>
  * </p>
  *
@@ -23,7 +22,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  * @model
  * @generated
  */
-public interface SlicedProperty extends SlicedElement {
+public interface SlicedProperty extends SlicedElement<EStructuralFeature> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -108,31 +107,5 @@ public interface SlicedProperty extends SlicedElement {
 	 * @generated
 	 */
 	void setTgt(VarDecl value);
-
-	/**
-	 * Returns the value of the '<em><b>Domain</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Domain</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Domain</em>' reference.
-	 * @see #setDomain(EStructuralFeature)
-	 * @see kompren.KomprenPackage#getSlicedProperty_Domain()
-	 * @model required="true"
-	 * @generated
-	 */
-	EStructuralFeature getDomain();
-
-	/**
-	 * Sets the value of the '{@link kompren.SlicedProperty#getDomain <em>Domain</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Domain</em>' reference.
-	 * @see #getDomain()
-	 * @generated
-	 */
-	void setDomain(EStructuralFeature value);
 
 } // SlicedProperty

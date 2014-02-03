@@ -9,13 +9,13 @@
     <ctx varName="type">
       <type href="JavaVMTypes.ecore#//JvmTypeReference"/>
     </ctx>
-    <domain href="JavaVMTypes.ecore#//JvmTypeReference"/>
+    <domain xsi:type="ecore:EClass" href="JavaVMTypes.ecore#//JvmTypeReference"/>
   </slicedElements>
   <slicedElements xsi:type="kompren:SlicedClass" expression="footprint.add(ident.getQualifiedName)">
     <ctx varName="ident">
       <type href="JavaVMTypes.ecore#//JvmIdentifiableElement"/>
     </ctx>
-    <domain href="JavaVMTypes.ecore#//JvmIdentifiableElement"/>
+    <domain xsi:type="ecore:EClass" href="JavaVMTypes.ecore#//JvmIdentifiableElement"/>
   </slicedElements>
   <slicedElements xsi:type="kompren:SlicedProperty">
     <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XIfExpression/if"/>

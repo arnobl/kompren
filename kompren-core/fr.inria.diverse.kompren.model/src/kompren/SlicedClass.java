@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EClass;
  * The following features are supported:
  * <ul>
  *   <li>{@link kompren.SlicedClass#getCtx <em>Ctx</em>}</li>
- *   <li>{@link kompren.SlicedClass#getDomain <em>Domain</em>}</li>
  * </ul>
  * </p>
  *
@@ -21,7 +20,7 @@ import org.eclipse.emf.ecore.EClass;
  * @model
  * @generated
  */
-public interface SlicedClass extends SlicedElement {
+public interface SlicedClass extends SlicedElement<EClass> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -54,31 +53,5 @@ public interface SlicedClass extends SlicedElement {
 	 * @generated
 	 */
 	void setCtx(VarDecl value);
-
-	/**
-	 * Returns the value of the '<em><b>Domain</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Domain</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Domain</em>' reference.
-	 * @see #setDomain(EClass)
-	 * @see kompren.KomprenPackage#getSlicedClass_Domain()
-	 * @model required="true"
-	 * @generated
-	 */
-	EClass getDomain();
-
-	/**
-	 * Sets the value of the '{@link kompren.SlicedClass#getDomain <em>Domain</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Domain</em>' reference.
-	 * @see #getDomain()
-	 * @generated
-	 */
-	void setDomain(EClass value);
 
 } // SlicedClass

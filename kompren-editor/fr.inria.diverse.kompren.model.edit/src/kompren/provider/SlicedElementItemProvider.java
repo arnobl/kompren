@@ -69,6 +69,7 @@ public class SlicedElementItemProvider
 
 			addIsOptionPropertyDescriptor(object);
 			addExpressionPropertyDescriptor(object);
+			addDomainPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -118,6 +119,28 @@ public class SlicedElementItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Domain feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDomainPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SlicedElement_domain_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SlicedElement_domain_feature", "_UI_SlicedElement_type"),
+				 KomprenPackage.Literals.SLICED_ELEMENT__DOMAIN,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -125,7 +148,7 @@ public class SlicedElementItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		SlicedElement slicedElement = (SlicedElement)object;
+		SlicedElement<?> slicedElement = (SlicedElement<?>)object;
 		return getString("_UI_SlicedElement_type") + " " + slicedElement.isIsOption();
 	}
 

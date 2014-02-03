@@ -22,13 +22,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link kompren.impl.SlicedClassImpl#getCtx <em>Ctx</em>}</li>
- *   <li>{@link kompren.impl.SlicedClassImpl#getDomain <em>Domain</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class SlicedClassImpl extends SlicedElementImpl implements SlicedClass {
+public class SlicedClassImpl extends SlicedElementImpl<EClass> implements SlicedClass {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -45,16 +44,6 @@ public class SlicedClassImpl extends SlicedElementImpl implements SlicedClass {
 	 * @ordered
 	 */
 	protected VarDecl ctx;
-
-	/**
-	 * The cached value of the '{@link #getDomain() <em>Domain</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDomain()
-	 * @generated
-	 * @ordered
-	 */
-	protected EClass domain;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,39 +110,12 @@ public class SlicedClassImpl extends SlicedElementImpl implements SlicedClass {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific type known in this context.
 	 * @generated
 	 */
-	public EClass getDomain() {
-		if (domain != null && domain.eIsProxy()) {
-			InternalEObject oldDomain = (InternalEObject)domain;
-			domain = (EClass)eResolveProxy(oldDomain);
-			if (domain != oldDomain) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, KomprenPackage.SLICED_CLASS__DOMAIN, oldDomain, domain));
-			}
-		}
-		return domain;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass basicGetDomain() {
-		return domain;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@Override
 	public void setDomain(EClass newDomain) {
-		EClass oldDomain = domain;
-		domain = newDomain;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, KomprenPackage.SLICED_CLASS__DOMAIN, oldDomain, domain));
+		super.setDomain(newDomain);
 	}
 
 	/**
@@ -180,9 +142,6 @@ public class SlicedClassImpl extends SlicedElementImpl implements SlicedClass {
 		switch (featureID) {
 			case KomprenPackage.SLICED_CLASS__CTX:
 				return getCtx();
-			case KomprenPackage.SLICED_CLASS__DOMAIN:
-				if (resolve) return getDomain();
-				return basicGetDomain();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -197,9 +156,6 @@ public class SlicedClassImpl extends SlicedElementImpl implements SlicedClass {
 		switch (featureID) {
 			case KomprenPackage.SLICED_CLASS__CTX:
 				setCtx((VarDecl)newValue);
-				return;
-			case KomprenPackage.SLICED_CLASS__DOMAIN:
-				setDomain((EClass)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -216,9 +172,6 @@ public class SlicedClassImpl extends SlicedElementImpl implements SlicedClass {
 			case KomprenPackage.SLICED_CLASS__CTX:
 				setCtx((VarDecl)null);
 				return;
-			case KomprenPackage.SLICED_CLASS__DOMAIN:
-				setDomain((EClass)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -233,8 +186,6 @@ public class SlicedClassImpl extends SlicedElementImpl implements SlicedClass {
 		switch (featureID) {
 			case KomprenPackage.SLICED_CLASS__CTX:
 				return ctx != null;
-			case KomprenPackage.SLICED_CLASS__DOMAIN:
-				return domain != null;
 		}
 		return super.eIsSet(featureID);
 	}

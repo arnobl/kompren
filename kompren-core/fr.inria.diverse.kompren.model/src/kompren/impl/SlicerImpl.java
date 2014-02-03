@@ -215,7 +215,7 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SlicedElement> slicedElements;
+	protected EList<SlicedElement<?>> slicedElements;
 
 	/**
 	 * The cached value of the '{@link #getInputClasses() <em>Input Classes</em>}' reference list.
@@ -444,9 +444,9 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SlicedElement> getSlicedElements() {
+	public EList<SlicedElement<?>> getSlicedElements() {
 		if (slicedElements == null) {
-			slicedElements = new EObjectContainmentEList<SlicedElement>(SlicedElement.class, this, KomprenPackage.SLICER__SLICED_ELEMENTS);
+			slicedElements = new EObjectContainmentEList<SlicedElement<?>>(SlicedElement.class, this, KomprenPackage.SLICER__SLICED_ELEMENTS);
 		}
 		return slicedElements;
 	}
@@ -555,7 +555,7 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 				return;
 			case KomprenPackage.SLICER__SLICED_ELEMENTS:
 				getSlicedElements().clear();
-				getSlicedElements().addAll((Collection<? extends SlicedElement>)newValue);
+				getSlicedElements().addAll((Collection<? extends SlicedElement<?>>)newValue);
 				return;
 			case KomprenPackage.SLICER__INPUT_CLASSES:
 				getInputClasses().clear();

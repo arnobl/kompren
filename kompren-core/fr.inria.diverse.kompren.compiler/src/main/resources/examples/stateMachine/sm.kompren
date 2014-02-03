@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kompren:Slicer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:kompren="http://kompren/fr.inria.diverse.kompren" name="examples.stateMachineSlicer" uriMetamodel="src/main/resources/examples/stateMachine/StateMachine.ecore" strict="true">
   <slicedElements xsi:type="kompren:SlicedClass">
-    <domain href="StateMachine.ecore#//stateMachine/Transition"/>
+    <domain xsi:type="ecore:EClass" href="StateMachine.ecore#//stateMachine/Transition"/>
   </slicedElements>
   <slicedElements xsi:type="kompren:SlicedProperty">
     <domain xsi:type="ecore:EReference" href="StateMachine.ecore#//stateMachine/OutputState/outgoingTransitions"/>

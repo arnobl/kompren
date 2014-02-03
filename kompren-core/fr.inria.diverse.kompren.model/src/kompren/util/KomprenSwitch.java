@@ -4,6 +4,7 @@ package kompren.util;
 
 import kompren.*;
 
+import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -22,7 +23,7 @@ import org.eclipse.emf.ecore.util.Switch;
  * @see kompren.KomprenPackage
  * @generated
  */
-public class KomprenSwitch<T> extends Switch<T> {
+public class KomprenSwitch<T1> extends Switch<T1> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -70,55 +71,55 @@ public class KomprenSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	@Override
-	protected T doSwitch(int classifierID, EObject theEObject) {
+	protected T1 doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case KomprenPackage.SLICER: {
 				Slicer slicer = (Slicer)theEObject;
-				T result = caseSlicer(slicer);
+				T1 result = caseSlicer(slicer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case KomprenPackage.CONSTRAINT: {
 				Constraint constraint = (Constraint)theEObject;
-				T result = caseConstraint(constraint);
+				T1 result = caseConstraint(constraint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case KomprenPackage.RADIUS: {
 				Radius radius = (Radius)theEObject;
-				T result = caseRadius(radius);
+				T1 result = caseRadius(radius);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case KomprenPackage.SLICED_CLASS: {
 				SlicedClass slicedClass = (SlicedClass)theEObject;
-				T result = caseSlicedClass(slicedClass);
+				T1 result = caseSlicedClass(slicedClass);
 				if (result == null) result = caseSlicedElement(slicedClass);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case KomprenPackage.SLICED_PROPERTY: {
 				SlicedProperty slicedProperty = (SlicedProperty)theEObject;
-				T result = caseSlicedProperty(slicedProperty);
+				T1 result = caseSlicedProperty(slicedProperty);
 				if (result == null) result = caseSlicedElement(slicedProperty);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case KomprenPackage.OPPOSITE_CREATION: {
 				OppositeCreation oppositeCreation = (OppositeCreation)theEObject;
-				T result = caseOppositeCreation(oppositeCreation);
+				T1 result = caseOppositeCreation(oppositeCreation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case KomprenPackage.SLICED_ELEMENT: {
-				SlicedElement slicedElement = (SlicedElement)theEObject;
-				T result = caseSlicedElement(slicedElement);
+				SlicedElement<?> slicedElement = (SlicedElement<?>)theEObject;
+				T1 result = caseSlicedElement(slicedElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case KomprenPackage.VAR_DECL: {
 				VarDecl varDecl = (VarDecl)theEObject;
-				T result = caseVarDecl(varDecl);
+				T1 result = caseVarDecl(varDecl);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -137,7 +138,7 @@ public class KomprenSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSlicer(Slicer object) {
+	public T1 caseSlicer(Slicer object) {
 		return null;
 	}
 
@@ -152,7 +153,7 @@ public class KomprenSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseConstraint(Constraint object) {
+	public T1 caseConstraint(Constraint object) {
 		return null;
 	}
 
@@ -167,7 +168,7 @@ public class KomprenSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRadius(Radius object) {
+	public T1 caseRadius(Radius object) {
 		return null;
 	}
 
@@ -182,7 +183,7 @@ public class KomprenSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSlicedClass(SlicedClass object) {
+	public T1 caseSlicedClass(SlicedClass object) {
 		return null;
 	}
 
@@ -197,7 +198,7 @@ public class KomprenSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSlicedProperty(SlicedProperty object) {
+	public T1 caseSlicedProperty(SlicedProperty object) {
 		return null;
 	}
 
@@ -212,7 +213,7 @@ public class KomprenSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseOppositeCreation(OppositeCreation object) {
+	public T1 caseOppositeCreation(OppositeCreation object) {
 		return null;
 	}
 
@@ -227,7 +228,7 @@ public class KomprenSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSlicedElement(SlicedElement object) {
+	public <T extends ENamedElement> T1 caseSlicedElement(SlicedElement<T> object) {
 		return null;
 	}
 
@@ -242,7 +243,7 @@ public class KomprenSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseVarDecl(VarDecl object) {
+	public T1 caseVarDecl(VarDecl object) {
 		return null;
 	}
 
@@ -258,7 +259,7 @@ public class KomprenSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	@Override
-	public T defaultCase(EObject object) {
+	public T1 defaultCase(EObject object) {
 		return null;
 	}
 

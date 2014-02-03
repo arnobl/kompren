@@ -19,9 +19,7 @@ class SlicerAspect {
 	
 	private def void initOptionsMap() {
 		_self._options = new HashMap<ENamedElement, String>()
-		val listOptions = _self.slicedElements.filter[isOption]
-		listOptions.filter(SlicedClass).forEach[opt | _self._options.put(opt.domain, "option"+opt.domain.name)]
-		listOptions.filter(SlicedProperty).forEach[opt | _self._options.put(opt.domain, "option"+opt.domain.name)]
+		_self.slicedElements.filter[isOption].forEach[opt | _self._options.put(opt.domain, "option"+opt.domain.name)]
 	}
 	
 	def String getOptionName(ENamedElement elt) {

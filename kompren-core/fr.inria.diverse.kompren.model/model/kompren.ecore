@@ -15,7 +15,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="radius" eType="#//Radius"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="slicedElements" upperBound="-1"
-        eType="#//SlicedElement" containment="true"/>
+        containment="true">
+      <eGenericType eClassifier="#//SlicedElement">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputClasses" lowerBound="1"
         upperBound="-1" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
   </eClassifiers>
@@ -28,28 +32,36 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="focusedClasses" upperBound="-1"
         eType="#//SlicedClass"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlicedClass" eSuperTypes="#//SlicedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="SlicedClass">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ctx" eType="#//VarDecl"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="domain" lowerBound="1"
-        eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
+    <eGenericSuperTypes eClassifier="#//SlicedElement">
+      <eTypeArguments eClassifier="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
+    </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SlicedProperty" eSuperTypes="#//SlicedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="SlicedProperty">
     <eStructuralFeatures xsi:type="ecore:EReference" name="opposite" eType="#//OppositeCreation"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="src" eType="#//VarDecl"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tgt" eType="#//VarDecl"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="domain" lowerBound="1"
-        eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EStructuralFeature"/>
+    <eGenericSuperTypes eClassifier="#//SlicedElement">
+      <eTypeArguments eClassifier="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EStructuralFeature"/>
+    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OppositeCreation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlicedElement" abstract="true">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//ENamedElement"/>
+    </eTypeParameters>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isOption" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domain" lowerBound="1">
+      <eGenericType eTypeParameter="#//SlicedElement/T"/>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VarDecl">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="varName" lowerBound="1"

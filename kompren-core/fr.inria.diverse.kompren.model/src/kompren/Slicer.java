@@ -3,8 +3,8 @@
 package kompren;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -257,7 +257,7 @@ public interface Slicer extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Sliced Elements</b></em>' containment reference list.
-	 * The list contents are of type {@link kompren.SlicedElement}.
+	 * The list contents are of type {@link kompren.SlicedElement}&lt;?>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sliced Elements</em>' containment reference list isn't clear,
@@ -267,9 +267,8 @@ public interface Slicer extends EObject {
 	 * @return the value of the '<em>Sliced Elements</em>' containment reference list.
 	 * @see kompren.KomprenPackage#getSlicer_SlicedElements()
 	 * @model containment="true"
-	 * @generated
 	 */
-	EList<SlicedElement> getSlicedElements();
+	EList<SlicedElement<? extends ENamedElement>> getSlicedElements();
 
 	/**
 	 * Returns the value of the '<em><b>Input Classes</b></em>' reference list.

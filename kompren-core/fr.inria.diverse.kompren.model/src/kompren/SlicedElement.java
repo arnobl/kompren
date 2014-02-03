@@ -2,6 +2,7 @@
  */
 package kompren;
 
+import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link kompren.SlicedElement#isIsOption <em>Is Option</em>}</li>
  *   <li>{@link kompren.SlicedElement#getExpression <em>Expression</em>}</li>
+ *   <li>{@link kompren.SlicedElement#getDomain <em>Domain</em>}</li>
  * </ul>
  * </p>
  *
@@ -21,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface SlicedElement extends EObject {
+public interface SlicedElement<T extends ENamedElement> extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -80,5 +82,31 @@ public interface SlicedElement extends EObject {
 	 * @generated
 	 */
 	void setExpression(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Domain</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Domain</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Domain</em>' reference.
+	 * @see #setDomain(ENamedElement)
+	 * @see kompren.KomprenPackage#getSlicedElement_Domain()
+	 * @model required="true"
+	 * @generated
+	 */
+	T getDomain();
+
+	/**
+	 * Sets the value of the '{@link kompren.SlicedElement#getDomain <em>Domain</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Domain</em>' reference.
+	 * @see #getDomain()
+	 * @generated
+	 */
+	void setDomain(T value);
 
 } // SlicedElement

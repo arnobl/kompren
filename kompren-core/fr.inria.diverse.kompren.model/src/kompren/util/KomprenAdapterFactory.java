@@ -9,6 +9,7 @@ import org.eclipse.emf.common.notify.Notifier;
 
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
+import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -98,7 +99,7 @@ public class KomprenAdapterFactory extends AdapterFactoryImpl {
 				return createOppositeCreationAdapter();
 			}
 			@Override
-			public Adapter caseSlicedElement(SlicedElement object) {
+			public <T extends ENamedElement> Adapter caseSlicedElement(SlicedElement<T> object) {
 				return createSlicedElementAdapter();
 			}
 			@Override

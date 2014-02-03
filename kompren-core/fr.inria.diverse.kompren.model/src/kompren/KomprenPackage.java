@@ -302,13 +302,22 @@ public interface KomprenPackage extends EPackage {
 	int SLICED_ELEMENT__EXPRESSION = 1;
 
 	/**
+	 * The feature id for the '<em><b>Domain</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLICED_ELEMENT__DOMAIN = 2;
+
+	/**
 	 * The number of structural features of the '<em>Sliced Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLICED_ELEMENT_FEATURE_COUNT = 2;
+	int SLICED_ELEMENT_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Sliced Element</em>' class.
@@ -348,6 +357,15 @@ public interface KomprenPackage extends EPackage {
 	int SLICED_CLASS__EXPRESSION = SLICED_ELEMENT__EXPRESSION;
 
 	/**
+	 * The feature id for the '<em><b>Domain</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLICED_CLASS__DOMAIN = SLICED_ELEMENT__DOMAIN;
+
+	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -357,22 +375,13 @@ public interface KomprenPackage extends EPackage {
 	int SLICED_CLASS__CTX = SLICED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Domain</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLICED_CLASS__DOMAIN = SLICED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Sliced Class</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLICED_CLASS_FEATURE_COUNT = SLICED_ELEMENT_FEATURE_COUNT + 2;
+	int SLICED_CLASS_FEATURE_COUNT = SLICED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Sliced Class</em>' class.
@@ -412,6 +421,15 @@ public interface KomprenPackage extends EPackage {
 	int SLICED_PROPERTY__EXPRESSION = SLICED_ELEMENT__EXPRESSION;
 
 	/**
+	 * The feature id for the '<em><b>Domain</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLICED_PROPERTY__DOMAIN = SLICED_ELEMENT__DOMAIN;
+
+	/**
 	 * The feature id for the '<em><b>Opposite</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -439,22 +457,13 @@ public interface KomprenPackage extends EPackage {
 	int SLICED_PROPERTY__TGT = SLICED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Domain</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLICED_PROPERTY__DOMAIN = SLICED_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
 	 * The number of structural features of the '<em>Sliced Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLICED_PROPERTY_FEATURE_COUNT = SLICED_ELEMENT_FEATURE_COUNT + 4;
+	int SLICED_PROPERTY_FEATURE_COUNT = SLICED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Sliced Property</em>' class.
@@ -755,17 +764,6 @@ public interface KomprenPackage extends EPackage {
 	EReference getSlicedClass_Ctx();
 
 	/**
-	 * Returns the meta object for the reference '{@link kompren.SlicedClass#getDomain <em>Domain</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Domain</em>'.
-	 * @see kompren.SlicedClass#getDomain()
-	 * @see #getSlicedClass()
-	 * @generated
-	 */
-	EReference getSlicedClass_Domain();
-
-	/**
 	 * Returns the meta object for class '{@link kompren.SlicedProperty <em>Sliced Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -807,17 +805,6 @@ public interface KomprenPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSlicedProperty_Tgt();
-
-	/**
-	 * Returns the meta object for the reference '{@link kompren.SlicedProperty#getDomain <em>Domain</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Domain</em>'.
-	 * @see kompren.SlicedProperty#getDomain()
-	 * @see #getSlicedProperty()
-	 * @generated
-	 */
-	EReference getSlicedProperty_Domain();
 
 	/**
 	 * Returns the meta object for class '{@link kompren.OppositeCreation <em>Opposite Creation</em>}'.
@@ -871,6 +858,17 @@ public interface KomprenPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSlicedElement_Expression();
+
+	/**
+	 * Returns the meta object for the reference '{@link kompren.SlicedElement#getDomain <em>Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Domain</em>'.
+	 * @see kompren.SlicedElement#getDomain()
+	 * @see #getSlicedElement()
+	 * @generated
+	 */
+	EReference getSlicedElement_Domain();
 
 	/**
 	 * Returns the meta object for class '{@link kompren.VarDecl <em>Var Decl</em>}'.
@@ -1088,14 +1086,6 @@ public interface KomprenPackage extends EPackage {
 		EReference SLICED_CLASS__CTX = eINSTANCE.getSlicedClass_Ctx();
 
 		/**
-		 * The meta object literal for the '<em><b>Domain</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SLICED_CLASS__DOMAIN = eINSTANCE.getSlicedClass_Domain();
-
-		/**
 		 * The meta object literal for the '{@link kompren.impl.SlicedPropertyImpl <em>Sliced Property</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1128,14 +1118,6 @@ public interface KomprenPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SLICED_PROPERTY__TGT = eINSTANCE.getSlicedProperty_Tgt();
-
-		/**
-		 * The meta object literal for the '<em><b>Domain</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SLICED_PROPERTY__DOMAIN = eINSTANCE.getSlicedProperty_Domain();
 
 		/**
 		 * The meta object literal for the '{@link kompren.impl.OppositeCreationImpl <em>Opposite Creation</em>}' class.
@@ -1180,6 +1162,14 @@ public interface KomprenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SLICED_ELEMENT__EXPRESSION = eINSTANCE.getSlicedElement_Expression();
+
+		/**
+		 * The meta object literal for the '<em><b>Domain</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SLICED_ELEMENT__DOMAIN = eINSTANCE.getSlicedElement_Domain();
 
 		/**
 		 * The meta object literal for the '{@link kompren.impl.VarDeclImpl <em>Var Decl</em>}' class.

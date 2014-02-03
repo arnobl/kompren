@@ -26,13 +26,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link kompren.impl.SlicedPropertyImpl#getOpposite <em>Opposite</em>}</li>
  *   <li>{@link kompren.impl.SlicedPropertyImpl#getSrc <em>Src</em>}</li>
  *   <li>{@link kompren.impl.SlicedPropertyImpl#getTgt <em>Tgt</em>}</li>
- *   <li>{@link kompren.impl.SlicedPropertyImpl#getDomain <em>Domain</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class SlicedPropertyImpl extends SlicedElementImpl implements SlicedProperty {
+public class SlicedPropertyImpl extends SlicedElementImpl<EStructuralFeature> implements SlicedProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,16 +68,6 @@ public class SlicedPropertyImpl extends SlicedElementImpl implements SlicedPrope
 	 * @ordered
 	 */
 	protected VarDecl tgt;
-
-	/**
-	 * The cached value of the '{@link #getDomain() <em>Domain</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDomain()
-	 * @generated
-	 * @ordered
-	 */
-	protected EStructuralFeature domain;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -231,39 +220,12 @@ public class SlicedPropertyImpl extends SlicedElementImpl implements SlicedPrope
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific type known in this context.
 	 * @generated
 	 */
-	public EStructuralFeature getDomain() {
-		if (domain != null && domain.eIsProxy()) {
-			InternalEObject oldDomain = (InternalEObject)domain;
-			domain = (EStructuralFeature)eResolveProxy(oldDomain);
-			if (domain != oldDomain) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, KomprenPackage.SLICED_PROPERTY__DOMAIN, oldDomain, domain));
-			}
-		}
-		return domain;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EStructuralFeature basicGetDomain() {
-		return domain;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@Override
 	public void setDomain(EStructuralFeature newDomain) {
-		EStructuralFeature oldDomain = domain;
-		domain = newDomain;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, KomprenPackage.SLICED_PROPERTY__DOMAIN, oldDomain, domain));
+		super.setDomain(newDomain);
 	}
 
 	/**
@@ -298,9 +260,6 @@ public class SlicedPropertyImpl extends SlicedElementImpl implements SlicedPrope
 				return getSrc();
 			case KomprenPackage.SLICED_PROPERTY__TGT:
 				return getTgt();
-			case KomprenPackage.SLICED_PROPERTY__DOMAIN:
-				if (resolve) return getDomain();
-				return basicGetDomain();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -321,9 +280,6 @@ public class SlicedPropertyImpl extends SlicedElementImpl implements SlicedPrope
 				return;
 			case KomprenPackage.SLICED_PROPERTY__TGT:
 				setTgt((VarDecl)newValue);
-				return;
-			case KomprenPackage.SLICED_PROPERTY__DOMAIN:
-				setDomain((EStructuralFeature)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -346,9 +302,6 @@ public class SlicedPropertyImpl extends SlicedElementImpl implements SlicedPrope
 			case KomprenPackage.SLICED_PROPERTY__TGT:
 				setTgt((VarDecl)null);
 				return;
-			case KomprenPackage.SLICED_PROPERTY__DOMAIN:
-				setDomain((EStructuralFeature)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -367,8 +320,6 @@ public class SlicedPropertyImpl extends SlicedElementImpl implements SlicedPrope
 				return src != null;
 			case KomprenPackage.SLICED_PROPERTY__TGT:
 				return tgt != null;
-			case KomprenPackage.SLICED_PROPERTY__DOMAIN:
-				return domain != null;
 		}
 		return super.eIsSet(featureID);
 	}

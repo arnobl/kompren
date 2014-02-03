@@ -9,6 +9,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.ENamedElement;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -21,12 +23,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link kompren.impl.SlicedElementImpl#isIsOption <em>Is Option</em>}</li>
  *   <li>{@link kompren.impl.SlicedElementImpl#getExpression <em>Expression</em>}</li>
+ *   <li>{@link kompren.impl.SlicedElementImpl#getDomain <em>Domain</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class SlicedElementImpl extends MinimalEObjectImpl.Container implements SlicedElement {
+public abstract class SlicedElementImpl<T extends ENamedElement> extends MinimalEObjectImpl.Container implements SlicedElement<T> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -73,6 +76,16 @@ public abstract class SlicedElementImpl extends MinimalEObjectImpl.Container imp
 	 * @ordered
 	 */
 	protected String expression = EXPRESSION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDomain() <em>Domain</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDomain()
+	 * @generated
+	 * @ordered
+	 */
+	protected T domain;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,6 +153,45 @@ public abstract class SlicedElementImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	public T getDomain() {
+		if (domain != null && domain.eIsProxy()) {
+			InternalEObject oldDomain = (InternalEObject)domain;
+			domain = (T)eResolveProxy(oldDomain);
+			if (domain != oldDomain) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, KomprenPackage.SLICED_ELEMENT__DOMAIN, oldDomain, domain));
+			}
+		}
+		return domain;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public T basicGetDomain() {
+		return domain;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDomain(T newDomain) {
+		T oldDomain = domain;
+		domain = newDomain;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, KomprenPackage.SLICED_ELEMENT__DOMAIN, oldDomain, domain));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -147,6 +199,9 @@ public abstract class SlicedElementImpl extends MinimalEObjectImpl.Container imp
 				return isIsOption();
 			case KomprenPackage.SLICED_ELEMENT__EXPRESSION:
 				return getExpression();
+			case KomprenPackage.SLICED_ELEMENT__DOMAIN:
+				if (resolve) return getDomain();
+				return basicGetDomain();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -156,6 +211,7 @@ public abstract class SlicedElementImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -164,6 +220,9 @@ public abstract class SlicedElementImpl extends MinimalEObjectImpl.Container imp
 				return;
 			case KomprenPackage.SLICED_ELEMENT__EXPRESSION:
 				setExpression((String)newValue);
+				return;
+			case KomprenPackage.SLICED_ELEMENT__DOMAIN:
+				setDomain((T)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -183,6 +242,9 @@ public abstract class SlicedElementImpl extends MinimalEObjectImpl.Container imp
 			case KomprenPackage.SLICED_ELEMENT__EXPRESSION:
 				setExpression(EXPRESSION_EDEFAULT);
 				return;
+			case KomprenPackage.SLICED_ELEMENT__DOMAIN:
+				setDomain((T)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -199,6 +261,8 @@ public abstract class SlicedElementImpl extends MinimalEObjectImpl.Container imp
 				return isOption != IS_OPTION_EDEFAULT;
 			case KomprenPackage.SLICED_ELEMENT__EXPRESSION:
 				return EXPRESSION_EDEFAULT == null ? expression != null : !EXPRESSION_EDEFAULT.equals(expression);
+			case KomprenPackage.SLICED_ELEMENT__DOMAIN:
+				return domain != null;
 		}
 		return super.eIsSet(featureID);
 	}

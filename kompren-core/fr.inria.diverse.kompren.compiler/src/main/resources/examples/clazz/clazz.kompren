@@ -4,7 +4,7 @@
     <ctx varName="clazz">
       <type href="ClassModel.ecore#//classModel/Clazz"/>
     </ctx>
-    <domain href="ClassModel.ecore#//classModel/Clazz"/>
+    <domain xsi:type="ecore:EClass" href="ClassModel.ecore#//classModel/Clazz"/>
   </slicedElements>
   <slicedElements xsi:type="kompren:SlicedProperty" expression="println(&quot;Inheritance: &quot; + srcClass.name + &quot; &quot; + tgtClass.name)&#xA;buf.append(srcClass.name).append(' ').append(tgtClass.name).append(' ')">
     <src varName="srcClass">
