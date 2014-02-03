@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.impl.EcoreFactoryImpl
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
-import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 
@@ -45,8 +44,10 @@ class SlicerCompiler {
 	val StringBuilder imports = new StringBuilder
 	
 	def static void main(String[] args) {
-		var slicerCompiler = new SlicerCompiler("k3transfoFootprint.kompren", "", "/media/data/dev/kompren/kompren-examples/")
+		var slicerCompiler = new SlicerCompiler("strictEcore.kompren", "", "/media/data/dev/kompren/kompren-examples/")
 		slicerCompiler.compile
+//		var slicerCompiler = new SlicerCompiler("k3transfoFootprint.kompren", "", "/media/data/dev/kompren/kompren-examples/")
+//		slicerCompiler.compile
 //		slicerCompiler = new SlicerCompiler("sm.kompren", "", "/media/data/dev/kompren/kompren-examples/")
 //		slicerCompiler.compile
 //		slicerCompiler = new SlicerCompiler("classInverted.kompren", "", "/media/data/dev/kompren/kompren-examples/")
@@ -97,12 +98,16 @@ class SlicerCompiler {
 	
 	private def void _produceImports(Iterable<GenPackage> pkgs) {
 		pkgs.filter[getEcorePackage!=null].forEach[pkg |
-			EcoreUtil.resolveAll(pkg)
 			imports.append("import ")
 			val base = pkg.basePackage
-			if(base!=null && base.length>0)
-				imports.append(base).append('.') 
-			imports.append(pkg.packageName).append(".*\n")
+			val suffix = pkg.classPackageSuffix
+			val str = if(base!=null && base.length>0) base + '.' else ""
+			
+			imports.append(str).append(pkg.packageName).append(".*\n")
+
+			if(suffix!=null && suffix.length>0)
+				imports.append("import ").append(str).append(pkg.packageName).append('.').append(suffix).append(".*\n")
+
 			_produceImports(pkg.nestedGenPackages)
 		]
 	}
