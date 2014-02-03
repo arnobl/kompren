@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="ASCII"?>
-<kompren:Slicer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:kompren="http://kompren/fr.inria.diverse.kompren" name="examples.k3TransfoFootprint" helper="" onStart="" onEnd="">
+<kompren:Slicer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:kompren="http://kompren/fr.inria.diverse.kompren" name="examples.k3TransfoFootprint" helper="val java.util.Set&lt;String> footprint = new java.util.HashSet" onStart="" onEnd="">
   <uriMetamodel>Xbase.genmodel</uriMetamodel>
   <uriMetamodel>JavaVMTypes.genmodel</uriMetamodel>
   <slicedElements xsi:type="kompren:SlicedProperty">
     <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmFormalParameter/parameterType"/>
   </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedClass" expression="println(type.getQualifiedName)&#xA;">
+  <slicedElements xsi:type="kompren:SlicedClass" expression="footprint.add(type.getQualifiedName)&#xA;">
     <ctx varName="type">
       <type href="JavaVMTypes.ecore#//JvmTypeReference"/>
     </ctx>
     <domain href="JavaVMTypes.ecore#//JvmTypeReference"/>
   </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedClass" expression="println(ident.getQualifiedName)">
+  <slicedElements xsi:type="kompren:SlicedClass" expression="footprint.add(ident.getQualifiedName)">
     <ctx varName="ident">
       <type href="JavaVMTypes.ecore#//JvmIdentifiableElement"/>
     </ctx>
@@ -163,6 +163,99 @@
   </slicedElements>
   <slicedElements xsi:type="kompren:SlicedProperty">
     <domain xsi:type="ecore:EReference" href="Xbase.ecore#//XReturnExpression/expression"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmComponentType/arrayType"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmArrayType/componentType"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmDeclaredType/superTypes"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmDeclaredType/members"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmTypeParameter/declarator"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmTypeParameterDeclarator/typeParameters"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmConstraintOwner/constraints"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmTypeConstraint/typeReference"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmTypeConstraint/owner"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmEnumerationType/literals"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmParameterizedTypeReference/arguments"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmParameterizedTypeReference/type"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmGenericArrayTypeReference/componentType"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmAnyTypeReference/type"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmMember/declaringType"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmField/type"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmExecutable/parameters"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmExecutable/exceptions"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmOperation/returnType"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmOperation/defaultValue"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmAnnotationTarget/annotations"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmAnnotationReference/annotation"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmAnnotationReference/values"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmAnnotationValue/operation"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmTypeAnnotationValue/values"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmAnnotationAnnotationValue/values"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmEnumAnnotationValue/values"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmDelegateTypeReference/delegate"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmSpecializedTypeReference/equivalent"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmCompoundTypeReference/type"/>
+  </slicedElements>
+  <slicedElements xsi:type="kompren:SlicedProperty">
+    <domain xsi:type="ecore:EReference" href="JavaVMTypes.ecore#//JvmCompoundTypeReference/references"/>
   </slicedElements>
   <inputClasses href="JavaVMTypes.ecore#//JvmFormalParameter"/>
   <inputClasses href="JavaVMTypes.ecore#//JvmTypeReference"/>

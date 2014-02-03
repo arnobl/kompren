@@ -1,15 +1,91 @@
 package k3TransfoFootprint
-import org.eclipse.xtext.xbase.annotations.xAnnotations.*
-import org.eclipse.xtext.xtype.*
-import org.eclipse.xtext.xbase.*
-import org.eclipse.xtext.common.types.*
 
-import static extension k3TransfoFootprint.__SlicerAspect__.*
 import fr.inria.triskell.k3.Aspect
 import fr.inria.triskell.k3.OverrideAspectMethod
-import java.util.List
-import java.util.ArrayList
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.common.types.JvmAnnotationAnnotationValue
+import org.eclipse.xtext.common.types.JvmAnnotationReference
+import org.eclipse.xtext.common.types.JvmAnnotationTarget
+import org.eclipse.xtext.common.types.JvmAnnotationType
+import org.eclipse.xtext.common.types.JvmAnnotationValue
+import org.eclipse.xtext.common.types.JvmAnyTypeReference
+import org.eclipse.xtext.common.types.JvmArrayType
+import org.eclipse.xtext.common.types.JvmBooleanAnnotationValue
+import org.eclipse.xtext.common.types.JvmByteAnnotationValue
+import org.eclipse.xtext.common.types.JvmCharAnnotationValue
+import org.eclipse.xtext.common.types.JvmComponentType
+import org.eclipse.xtext.common.types.JvmCompoundTypeReference
+import org.eclipse.xtext.common.types.JvmConstraintOwner
+import org.eclipse.xtext.common.types.JvmConstructor
+import org.eclipse.xtext.common.types.JvmCustomAnnotationValue
+import org.eclipse.xtext.common.types.JvmDeclaredType
+import org.eclipse.xtext.common.types.JvmDelegateTypeReference
+import org.eclipse.xtext.common.types.JvmDoubleAnnotationValue
+import org.eclipse.xtext.common.types.JvmEnumAnnotationValue
+import org.eclipse.xtext.common.types.JvmEnumerationLiteral
+import org.eclipse.xtext.common.types.JvmEnumerationType
+import org.eclipse.xtext.common.types.JvmExecutable
+import org.eclipse.xtext.common.types.JvmFeature
+import org.eclipse.xtext.common.types.JvmField
+import org.eclipse.xtext.common.types.JvmFloatAnnotationValue
+import org.eclipse.xtext.common.types.JvmFormalParameter
+import org.eclipse.xtext.common.types.JvmGenericArrayTypeReference
+import org.eclipse.xtext.common.types.JvmGenericType
+import org.eclipse.xtext.common.types.JvmIdentifiableElement
+import org.eclipse.xtext.common.types.JvmIntAnnotationValue
+import org.eclipse.xtext.common.types.JvmLongAnnotationValue
+import org.eclipse.xtext.common.types.JvmLowerBound
+import org.eclipse.xtext.common.types.JvmMember
+import org.eclipse.xtext.common.types.JvmMultiTypeReference
+import org.eclipse.xtext.common.types.JvmOperation
+import org.eclipse.xtext.common.types.JvmParameterizedTypeReference
+import org.eclipse.xtext.common.types.JvmPrimitiveType
+import org.eclipse.xtext.common.types.JvmShortAnnotationValue
+import org.eclipse.xtext.common.types.JvmSpecializedTypeReference
+import org.eclipse.xtext.common.types.JvmStringAnnotationValue
+import org.eclipse.xtext.common.types.JvmSynonymTypeReference
+import org.eclipse.xtext.common.types.JvmType
+import org.eclipse.xtext.common.types.JvmTypeAnnotationValue
+import org.eclipse.xtext.common.types.JvmTypeConstraint
+import org.eclipse.xtext.common.types.JvmTypeParameter
+import org.eclipse.xtext.common.types.JvmTypeParameterDeclarator
+import org.eclipse.xtext.common.types.JvmTypeReference
+import org.eclipse.xtext.common.types.JvmUnknownTypeReference
+import org.eclipse.xtext.common.types.JvmUpperBound
+import org.eclipse.xtext.common.types.JvmVoid
+import org.eclipse.xtext.common.types.JvmWildcardTypeReference
+import org.eclipse.xtext.xbase.XAbstractFeatureCall
+import org.eclipse.xtext.xbase.XAbstractWhileExpression
+import org.eclipse.xtext.xbase.XAssignment
+import org.eclipse.xtext.xbase.XBinaryOperation
+import org.eclipse.xtext.xbase.XBlockExpression
+import org.eclipse.xtext.xbase.XBooleanLiteral
+import org.eclipse.xtext.xbase.XCasePart
+import org.eclipse.xtext.xbase.XCastedExpression
+import org.eclipse.xtext.xbase.XCatchClause
+import org.eclipse.xtext.xbase.XClosure
+import org.eclipse.xtext.xbase.XCollectionLiteral
+import org.eclipse.xtext.xbase.XConstructorCall
+import org.eclipse.xtext.xbase.XDoWhileExpression
+import org.eclipse.xtext.xbase.XExpression
+import org.eclipse.xtext.xbase.XFeatureCall
+import org.eclipse.xtext.xbase.XForLoopExpression
+import org.eclipse.xtext.xbase.XIfExpression
+import org.eclipse.xtext.xbase.XInstanceOfExpression
+import org.eclipse.xtext.xbase.XListLiteral
+import org.eclipse.xtext.xbase.XMemberFeatureCall
+import org.eclipse.xtext.xbase.XNullLiteral
+import org.eclipse.xtext.xbase.XNumberLiteral
+import org.eclipse.xtext.xbase.XReturnExpression
+import org.eclipse.xtext.xbase.XSetLiteral
+import org.eclipse.xtext.xbase.XStringLiteral
+import org.eclipse.xtext.xbase.XSwitchExpression
+import org.eclipse.xtext.xbase.XThrowExpression
+import org.eclipse.xtext.xbase.XTryCatchFinallyExpression
+import org.eclipse.xtext.xbase.XTypeLiteral
+import org.eclipse.xtext.xbase.XUnaryOperation
+import org.eclipse.xtext.xbase.XVariableDeclaration
+import org.eclipse.xtext.xbase.XWhileExpression
 
 @Aspect(className=typeof(Object))
 abstract class __SlicerAspect__ {
@@ -86,11 +162,15 @@ abstract class JvmComponentTypeAspect extends JvmTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^arrayType?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		if(_self.^arrayType!=null){
+		_self.^arrayType.visitToAddRelations(theSlicer)
+}
 
 	}
 }
@@ -114,11 +194,15 @@ class JvmArrayTypeAspect extends JvmComponentTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^componentType?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		if(_self.^componentType!=null){
+		_self.^componentType.visitToAddRelations(theSlicer)
+}
 
 	}
 }
@@ -128,11 +212,15 @@ abstract class JvmDeclaredTypeAspect extends JvmMemberAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^superTypes.forEach[visitToAddClasses(theSlicer)]
+		_self.^members.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		_self.^superTypes.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
+		_self.^members.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
 	}
 }
@@ -142,11 +230,15 @@ class JvmTypeParameterAspect extends JvmComponentTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^declarator?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		if(_self.^declarator!=null){
+		_self.^declarator.visitToAddRelations(theSlicer)
+}
 
 	}
 }
@@ -156,11 +248,13 @@ abstract class JvmTypeParameterDeclaratorAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^typeParameters.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		_self.^typeParameters.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
 	}
 }
@@ -170,11 +264,13 @@ abstract class JvmConstraintOwnerAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^constraints.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		_self.^constraints.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
 	}
 }
@@ -184,11 +280,19 @@ abstract class JvmTypeConstraintAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^typeReference?.visitToAddClasses(theSlicer)
+		_self.^owner?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		if(_self.^typeReference!=null){
+		_self.^typeReference.visitToAddRelations(theSlicer)
+}
+		if(_self.^owner!=null){
+		_self.^owner.visitToAddRelations(theSlicer)
+}
 
 	}
 }
@@ -240,11 +344,13 @@ class JvmEnumerationTypeAspect extends JvmDeclaredTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^literals.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		_self.^literals.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
 	}
 }
@@ -297,11 +403,17 @@ class JvmParameterizedTypeReferenceAspect extends JvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^arguments.forEach[visitToAddClasses(theSlicer)]
+		_self.^type?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		_self.^arguments.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
+		if(_self.^type!=null){
+		_self.^type.visitToAddRelations(theSlicer)
+}
 
 	}
 }
@@ -311,11 +423,15 @@ class JvmGenericArrayTypeReferenceAspect extends JvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^componentType?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		if(_self.^componentType!=null){
+		_self.^componentType.visitToAddRelations(theSlicer)
+}
 
 	}
 }
@@ -339,11 +455,15 @@ class JvmAnyTypeReferenceAspect extends JvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^type?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		if(_self.^type!=null){
+		_self.^type.visitToAddRelations(theSlicer)
+}
 
 	}
 }
@@ -367,11 +487,15 @@ abstract class JvmMemberAspect extends JvmAnnotationTargetAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^declaringType?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		if(_self.^declaringType!=null){
+		_self.^declaringType.visitToAddRelations(theSlicer)
+}
 
 	}
 }
@@ -395,11 +519,15 @@ class JvmFieldAspect extends JvmFeatureAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^type?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		if(_self.^type!=null){
+		_self.^type.visitToAddRelations(theSlicer)
+}
 
 	}
 }
@@ -411,11 +539,15 @@ abstract class JvmExecutableAspect extends JvmFeatureAspect{
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^parameters.forEach[visitToAddClasses(theSlicer)]
 		_self.^exceptions.forEach[visitToAddClasses(theSlicer)]
+		_self.^parameters.forEach[visitToAddClasses(theSlicer)]
+		_self.^exceptions.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		_self.^parameters.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
+		_self.^exceptions.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 		_self.^parameters.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 		_self.^exceptions.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
@@ -441,11 +573,19 @@ class JvmOperationAspect extends JvmExecutableAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^returnType?.visitToAddClasses(theSlicer)
+		_self.^defaultValue?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		if(_self.^returnType!=null){
+		_self.^returnType.visitToAddRelations(theSlicer)
+}
+		if(_self.^defaultValue!=null){
+		_self.^defaultValue.visitToAddRelations(theSlicer)
+}
 
 	}
 }
@@ -473,11 +613,13 @@ abstract class JvmAnnotationTargetAspect extends JvmIdentifiableElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^annotations.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		_self.^annotations.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
 	}
 }
@@ -487,11 +629,17 @@ class JvmAnnotationReferenceAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^annotation?.visitToAddClasses(theSlicer)
+		_self.^values.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		if(_self.^annotation!=null){
+		_self.^annotation.visitToAddRelations(theSlicer)
+}
+		_self.^values.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
 	}
 }
@@ -501,11 +649,15 @@ abstract class JvmAnnotationValueAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^operation?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		if(_self.^operation!=null){
+		_self.^operation.visitToAddRelations(theSlicer)
+}
 
 	}
 }
@@ -641,11 +793,13 @@ class JvmTypeAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^values.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		_self.^values.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
 	}
 }
@@ -655,11 +809,13 @@ class JvmAnnotationAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^values.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		_self.^values.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
 	}
 }
@@ -669,11 +825,13 @@ class JvmEnumAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^values.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		_self.^values.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
 	}
 }
@@ -683,11 +841,15 @@ class JvmDelegateTypeReferenceAspect extends JvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^delegate?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		if(_self.^delegate!=null){
+		_self.^delegate.visitToAddRelations(theSlicer)
+}
 
 	}
 }
@@ -697,11 +859,15 @@ abstract class JvmSpecializedTypeReferenceAspect extends JvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^equivalent?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		if(_self.^equivalent!=null){
+		_self.^equivalent.visitToAddRelations(theSlicer)
+}
 
 	}
 }
@@ -739,11 +905,17 @@ abstract class JvmCompoundTypeReferenceAspect extends JvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^type?.visitToAddClasses(theSlicer)
+		_self.^references.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		if(_self.^type!=null){
+		_self.^type.visitToAddRelations(theSlicer)
+}
+		_self.^references.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
 	}
 }
