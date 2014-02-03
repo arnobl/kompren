@@ -198,10 +198,10 @@
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_ibhXMEGcEeOsucYDrZa3PA" type="3002" source="_KLgYQEFBEeOSps8U2VZbAw" target="_MEO0cEFBEeOSps8U2VZbAw">
     <children xmi:type="notation:Node" xmi:id="_ibhXNEGcEeOsucYDrZa3PA" type="4011">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_ibhXNUGcEeOsucYDrZa3PA" x="-10" y="-10"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_ibhXNUGcEeOsucYDrZa3PA" x="-18" y="-21"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_ibhXNkGcEeOsucYDrZa3PA" type="4012">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_ibhXN0GcEeOsucYDrZa3PA" x="10" y="10"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_ibhXN0GcEeOsucYDrZa3PA" x="-23" y="16"/>
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_ibhXMUGcEeOsucYDrZa3PA" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_ibhXMkGcEeOsucYDrZa3PA" fontColor="4210752" fontName="Ubuntu" fontHeight="10"/>
