@@ -10,13 +10,12 @@ import org.eclipse.emf.ecore.ENamedElement
 
 trait SlicerParser extends KomprenAbstractParser 
 with RadiusParser 
-with ConstraintParser 
 with SlicedClassParser 
 with SlicedPropertyParser {
   def parseSlicer : Parser[Slicer] = "slicer" ~ opt("strict") ~ opt("active") ~ ident ~ "{" ~ rep1(parseDomain) ~ parseInput ~ 
-		  			opt(parseRadius) ~ (parseConstraints*) ~ (parseSlicedClass*) ~ (parseSlicedProperty*) ~ opt(parseOnStart) ~ 
+		  			opt(parseRadius) ~ (parseSlicedClass*) ~ (parseSlicedProperty*) ~ opt(parseOnStart) ~ 
 		  			opt(parseOnEnd) ~ opt(parseHelper) ~ "}" ^^ { 
-    case _ ~ soft ~ active ~ name ~ _ ~ domain ~ inputs ~ radius ~ constraints ~ slicedClasses ~ slicedProps ~ onStart ~ onEnd ~ helper ~ _ =>
+    case _ ~ soft ~ active ~ name ~ _ ~ domain ~ inputs ~ radius ~ slicedClasses ~ slicedProps ~ onStart ~ onEnd ~ helper ~ _ =>
     val slicer = KomprenFactory.eINSTANCE.createSlicer
     var slicedElements : List[SlicedElement[_ <: ENamedElement]] = slicedClasses ++ slicedProps
     
@@ -32,7 +31,6 @@ with SlicedPropertyParser {
     slicer.setOnEnd(if(onEnd.isDefined) onEnd.get else null)
     slicer.setOnStart(if(onStart.isDefined) onStart.get else null)
     slicer.setRadius(if(radius.isDefined) radius.get else null)
-    slicer.getConstraints.addAll(constraints)
     slicer.getSlicedElements.addAll(slicedElements)
     slicer.getInputClasses.addAll(inputs)
     
