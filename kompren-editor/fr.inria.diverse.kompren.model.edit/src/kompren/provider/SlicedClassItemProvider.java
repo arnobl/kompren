@@ -5,11 +5,14 @@ package kompren.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import kompren.KomprenFactory;
 import kompren.KomprenPackage;
 import kompren.SlicedClass;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -110,12 +113,16 @@ public class SlicedClassItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
 		SlicedClass slicedClass = (SlicedClass)object;
-		return getString("_UI_SlicedClass_type") + " " + slicedClass.isIsOption();
+		String msg;
+		EClass cl = slicedClass.getDomain();
+		if(cl==null) msg = "";
+		else msg = cl.getName()==null ? "" : " " + cl.getName();
+		
+		return getString("_UI_SlicedClass_type") + msg;
 	}
 
 	/**
