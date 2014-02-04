@@ -2,6 +2,7 @@
  */
 package kompren;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
 
@@ -16,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kompren.SlicedElement#isIsOption <em>Is Option</em>}</li>
  *   <li>{@link kompren.SlicedElement#getExpression <em>Expression</em>}</li>
  *   <li>{@link kompren.SlicedElement#getDomain <em>Domain</em>}</li>
+ *   <li>{@link kompren.SlicedElement#getConstraints <em>Constraints</em>}</li>
  * </ul>
  * </p>
  *
@@ -108,5 +110,21 @@ public interface SlicedElement<T extends ENamedElement> extends EObject {
 	 * @generated
 	 */
 	void setDomain(T value);
+
+	/**
+	 * Returns the value of the '<em><b>Constraints</b></em>' containment reference list.
+	 * The list contents are of type {@link kompren.Constraint}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Constraints</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Constraints</em>' containment reference list.
+	 * @see kompren.KomprenPackage#getSlicedElement_Constraints()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Constraint> getConstraints();
 
 } // SlicedElement

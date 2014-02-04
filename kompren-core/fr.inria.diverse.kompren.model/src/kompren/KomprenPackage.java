@@ -137,22 +137,13 @@ public interface KomprenPackage extends EPackage {
 	int SLICER__ON_END = 6;
 
 	/**
-	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLICER__CONSTRAINTS = 7;
-
-	/**
 	 * The feature id for the '<em><b>Radius</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLICER__RADIUS = 8;
+	int SLICER__RADIUS = 7;
 
 	/**
 	 * The feature id for the '<em><b>Sliced Elements</b></em>' containment reference list.
@@ -161,7 +152,7 @@ public interface KomprenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICER__SLICED_ELEMENTS = 9;
+	int SLICER__SLICED_ELEMENTS = 8;
 
 	/**
 	 * The feature id for the '<em><b>Input Classes</b></em>' reference list.
@@ -170,7 +161,7 @@ public interface KomprenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICER__INPUT_CLASSES = 10;
+	int SLICER__INPUT_CLASSES = 9;
 
 	/**
 	 * The number of structural features of the '<em>Slicer</em>' class.
@@ -179,7 +170,7 @@ public interface KomprenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICER_FEATURE_COUNT = 11;
+	int SLICER_FEATURE_COUNT = 10;
 
 	/**
 	 * The number of operations of the '<em>Slicer</em>' class.
@@ -311,13 +302,22 @@ public interface KomprenPackage extends EPackage {
 	int SLICED_ELEMENT__DOMAIN = 2;
 
 	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLICED_ELEMENT__CONSTRAINTS = 3;
+
+	/**
 	 * The number of structural features of the '<em>Sliced Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLICED_ELEMENT_FEATURE_COUNT = 3;
+	int SLICED_ELEMENT_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Sliced Element</em>' class.
@@ -364,6 +364,15 @@ public interface KomprenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SLICED_CLASS__DOMAIN = SLICED_ELEMENT__DOMAIN;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLICED_CLASS__CONSTRAINTS = SLICED_ELEMENT__CONSTRAINTS;
 
 	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' containment reference.
@@ -428,6 +437,15 @@ public interface KomprenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SLICED_PROPERTY__DOMAIN = SLICED_ELEMENT__DOMAIN;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLICED_PROPERTY__CONSTRAINTS = SLICED_ELEMENT__CONSTRAINTS;
 
 	/**
 	 * The feature id for the '<em><b>Opposite</b></em>' containment reference.
@@ -646,17 +664,6 @@ public interface KomprenPackage extends EPackage {
 	EAttribute getSlicer_OnEnd();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link kompren.Slicer#getConstraints <em>Constraints</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Constraints</em>'.
-	 * @see kompren.Slicer#getConstraints()
-	 * @see #getSlicer()
-	 * @generated
-	 */
-	EReference getSlicer_Constraints();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link kompren.Slicer#getRadius <em>Radius</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -871,6 +878,17 @@ public interface KomprenPackage extends EPackage {
 	EReference getSlicedElement_Domain();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link kompren.SlicedElement#getConstraints <em>Constraints</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Constraints</em>'.
+	 * @see kompren.SlicedElement#getConstraints()
+	 * @see #getSlicedElement()
+	 * @generated
+	 */
+	EReference getSlicedElement_Constraints();
+
+	/**
 	 * Returns the meta object for class '{@link kompren.VarDecl <em>Var Decl</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -990,14 +1008,6 @@ public interface KomprenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SLICER__ON_END = eINSTANCE.getSlicer_OnEnd();
-
-		/**
-		 * The meta object literal for the '<em><b>Constraints</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SLICER__CONSTRAINTS = eINSTANCE.getSlicer_Constraints();
 
 		/**
 		 * The meta object literal for the '<em><b>Radius</b></em>' containment reference feature.
@@ -1170,6 +1180,14 @@ public interface KomprenPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SLICED_ELEMENT__DOMAIN = eINSTANCE.getSlicedElement_Domain();
+
+		/**
+		 * The meta object literal for the '<em><b>Constraints</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SLICED_ELEMENT__CONSTRAINTS = eINSTANCE.getSlicedElement_Constraints();
 
 		/**
 		 * The meta object literal for the '{@link kompren.impl.VarDeclImpl <em>Var Decl</em>}' class.

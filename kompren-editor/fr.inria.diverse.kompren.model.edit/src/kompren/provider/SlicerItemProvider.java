@@ -270,7 +270,6 @@ public class SlicerItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(KomprenPackage.Literals.SLICER__CONSTRAINTS);
 			childrenFeatures.add(KomprenPackage.Literals.SLICER__RADIUS);
 			childrenFeatures.add(KomprenPackage.Literals.SLICER__SLICED_ELEMENTS);
 		}
@@ -336,7 +335,6 @@ public class SlicerItemProvider
 			case KomprenPackage.SLICER__ON_END:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case KomprenPackage.SLICER__CONSTRAINTS:
 			case KomprenPackage.SLICER__RADIUS:
 			case KomprenPackage.SLICER__SLICED_ELEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -355,11 +353,6 @@ public class SlicerItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KomprenPackage.Literals.SLICER__CONSTRAINTS,
-				 KomprenFactory.eINSTANCE.createConstraint()));
 
 		newChildDescriptors.add
 			(createChildParameter

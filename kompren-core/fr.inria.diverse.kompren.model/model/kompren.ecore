@@ -10,8 +10,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="helper" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="onStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="onEnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
-        eType="#//Constraint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="radius" eType="#//Radius"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="slicedElements" upperBound="-1"
@@ -62,6 +60,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="domain" lowerBound="1">
       <eGenericType eTypeParameter="#//SlicedElement/T"/>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
+        eType="#//Constraint" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VarDecl">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="varName" lowerBound="1"

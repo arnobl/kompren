@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kompren.Slicer#getHelper <em>Helper</em>}</li>
  *   <li>{@link kompren.Slicer#getOnStart <em>On Start</em>}</li>
  *   <li>{@link kompren.Slicer#getOnEnd <em>On End</em>}</li>
- *   <li>{@link kompren.Slicer#getConstraints <em>Constraints</em>}</li>
  *   <li>{@link kompren.Slicer#getRadius <em>Radius</em>}</li>
  *   <li>{@link kompren.Slicer#getSlicedElements <em>Sliced Elements</em>}</li>
  *   <li>{@link kompren.Slicer#getInputClasses <em>Input Classes</em>}</li>
@@ -212,22 +211,6 @@ public interface Slicer extends EObject {
 	 * @generated
 	 */
 	void setOnEnd(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Constraints</b></em>' containment reference list.
-	 * The list contents are of type {@link kompren.Constraint}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Constraints</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Constraints</em>' containment reference list.
-	 * @see kompren.KomprenPackage#getSlicer_Constraints()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Constraint> getConstraints();
 
 	/**
 	 * Returns the value of the '<em><b>Radius</b></em>' containment reference.

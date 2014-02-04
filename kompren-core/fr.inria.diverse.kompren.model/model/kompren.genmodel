@@ -15,7 +15,6 @@
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute kompren.ecore#//Slicer/helper"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute kompren.ecore#//Slicer/onStart"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute kompren.ecore#//Slicer/onEnd"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kompren.ecore#//Slicer/constraints"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kompren.ecore#//Slicer/radius"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kompren.ecore#//Slicer/slicedElements"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kompren.ecore#//Slicer/inputClasses"/>
@@ -43,6 +42,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kompren.ecore#//SlicedElement/isOption"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute kompren.ecore#//SlicedElement/expression"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kompren.ecore#//SlicedElement/domain"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kompren.ecore#//SlicedElement/constraints"/>
     </genClasses>
     <genClasses ecoreClass="kompren.ecore#//VarDecl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kompren.ecore#//VarDecl/varName"/>

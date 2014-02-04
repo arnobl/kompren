@@ -3,24 +3,17 @@
 package kompren.impl;
 
 import java.util.Collection;
-
-import kompren.Constraint;
 import kompren.KomprenPackage;
 import kompren.Radius;
 import kompren.SlicedElement;
 import kompren.Slicer;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
@@ -40,7 +33,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link kompren.impl.SlicerImpl#getHelper <em>Helper</em>}</li>
  *   <li>{@link kompren.impl.SlicerImpl#getOnStart <em>On Start</em>}</li>
  *   <li>{@link kompren.impl.SlicerImpl#getOnEnd <em>On End</em>}</li>
- *   <li>{@link kompren.impl.SlicerImpl#getConstraints <em>Constraints</em>}</li>
  *   <li>{@link kompren.impl.SlicerImpl#getRadius <em>Radius</em>}</li>
  *   <li>{@link kompren.impl.SlicerImpl#getSlicedElements <em>Sliced Elements</em>}</li>
  *   <li>{@link kompren.impl.SlicerImpl#getInputClasses <em>Input Classes</em>}</li>
@@ -186,16 +178,6 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 	 * @ordered
 	 */
 	protected String onEnd = ON_END_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getConstraints()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Constraint> constraints;
 
 	/**
 	 * The cached value of the '{@link #getRadius() <em>Radius</em>}' containment reference.
@@ -389,18 +371,6 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Constraint> getConstraints() {
-		if (constraints == null) {
-			constraints = new EObjectContainmentEList<Constraint>(Constraint.class, this, KomprenPackage.SLICER__CONSTRAINTS);
-		}
-		return constraints;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Radius getRadius() {
 		return radius;
 	}
@@ -471,8 +441,6 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case KomprenPackage.SLICER__CONSTRAINTS:
-				return ((InternalEList<?>)getConstraints()).basicRemove(otherEnd, msgs);
 			case KomprenPackage.SLICER__RADIUS:
 				return basicSetRadius(null, msgs);
 			case KomprenPackage.SLICER__SLICED_ELEMENTS:
@@ -503,8 +471,6 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 				return getOnStart();
 			case KomprenPackage.SLICER__ON_END:
 				return getOnEnd();
-			case KomprenPackage.SLICER__CONSTRAINTS:
-				return getConstraints();
 			case KomprenPackage.SLICER__RADIUS:
 				return getRadius();
 			case KomprenPackage.SLICER__SLICED_ELEMENTS:
@@ -545,10 +511,6 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 				return;
 			case KomprenPackage.SLICER__ON_END:
 				setOnEnd((String)newValue);
-				return;
-			case KomprenPackage.SLICER__CONSTRAINTS:
-				getConstraints().clear();
-				getConstraints().addAll((Collection<? extends Constraint>)newValue);
 				return;
 			case KomprenPackage.SLICER__RADIUS:
 				setRadius((Radius)newValue);
@@ -594,9 +556,6 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 			case KomprenPackage.SLICER__ON_END:
 				setOnEnd(ON_END_EDEFAULT);
 				return;
-			case KomprenPackage.SLICER__CONSTRAINTS:
-				getConstraints().clear();
-				return;
 			case KomprenPackage.SLICER__RADIUS:
 				setRadius((Radius)null);
 				return;
@@ -632,8 +591,6 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 				return ON_START_EDEFAULT == null ? onStart != null : !ON_START_EDEFAULT.equals(onStart);
 			case KomprenPackage.SLICER__ON_END:
 				return ON_END_EDEFAULT == null ? onEnd != null : !ON_END_EDEFAULT.equals(onEnd);
-			case KomprenPackage.SLICER__CONSTRAINTS:
-				return constraints != null && !constraints.isEmpty();
 			case KomprenPackage.SLICER__RADIUS:
 				return radius != null;
 			case KomprenPackage.SLICER__SLICED_ELEMENTS:
