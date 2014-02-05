@@ -11,9 +11,9 @@
     <name>fr.inria.diverse.kompren.edit :: Kompren edit</name>
     
     <parent>
-        <groupId>fr.inria.diverse</groupId>
+        <groupId>fr.inria.diverse.kompren</groupId>
         <artifactId>fr.inria.diverse.kompren.root</artifactId>
-        <version>3.0-SNAPSHOT</version>
+        <version>3.0.0-SNAPSHOT</version>
     </parent>
     
     <build>
