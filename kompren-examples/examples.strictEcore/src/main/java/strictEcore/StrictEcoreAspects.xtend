@@ -25,6 +25,9 @@ import org.eclipse.emf.ecore.ETypeParameter
 import org.eclipse.emf.ecore.ETypedElement
 import org.eclipse.emf.ecore.impl.EcoreFactoryImpl
 
+import static extension strictEcore.EStructuralFeatureAspect.*
+import static extension strictEcore.ETypedElementAspect.*
+
 @Aspect(className=typeof(Object))
 abstract class __SlicerAspect__ {
 	var boolean visitedForRelations = false
@@ -72,7 +75,9 @@ class EAttributeAspect extends EStructuralFeatureAspect{
 	@OverrideAspectMethod
 	def void _visitToAddRelations(StrictEcore theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		if(_self.^EAttributeType!=null){
 		_self.^EAttributeType.visitToAddRelations(theSlicer)
+		}
 
 	}
 }
@@ -124,7 +129,7 @@ _self.^EGenericSuperTypes.forEach[feedOpposites]
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^ESuperTypes.forEach[visitToAddClasses(theSlicer)]
 		_self.^subClasses.forEach[visitToAddClasses(theSlicer)]
-		_self.^EStructuralFeatures.filter[lowerBound>0].forEach[visitToAddClasses(theSlicer)]
+		_self.^EStructuralFeatures.filter[checkCard1(_self)].forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
@@ -136,7 +141,7 @@ _self.^EGenericSuperTypes.forEach[feedOpposites]
 		_self.^subClasses.forEach[_elt| _elt.visitToAddRelations(theSlicer)
 			if(_self.sliced && _elt.sliced) (_self.clonedElt as EClass).^subClasses.add( _elt.clonedElt as EClass)
 		]
-		_self.^EStructuralFeatures.filter[lowerBound>0].forEach[_elt| _elt.visitToAddRelations(theSlicer)
+		_self.^EStructuralFeatures.filter[checkCard1(_self)].forEach[_elt| _elt.visitToAddRelations(theSlicer)
 			if(_self.sliced && _elt.sliced) (_self.clonedElt as EClass).^EStructuralFeatures.add( _elt.clonedElt as EStructuralFeature)
 		]
 
@@ -168,7 +173,7 @@ _self.^ETypeParameters.forEach[feedOpposites]
 		_self.^EPackage.visitToAddRelations(theSlicer)
 
 		if(_self.sliced && _self.^EPackage.sliced) (_self.EPackage.clonedElt as EPackage).^EClassifiers.add(_self.clonedElt as EClassifier)
-}
+		}
 
 		if(_self.sliced) (_self.clonedElt as EClassifier).^instanceTypeName = _self.^instanceTypeName
 
@@ -277,9 +282,11 @@ class EFactoryAspect extends EModelElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddRelations(StrictEcore theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		if(_self.^EPackage!=null){
 		_self.^EPackage.visitToAddRelations(theSlicer)
 
 		if(_self.sliced && _self.^EPackage.sliced) (_self.clonedElt as EFactory).^EPackage = _self.^EPackage.clonedElt as EPackage
+		}
 
 	}
 }
@@ -313,9 +320,7 @@ abstract class ENamedElementAspect extends EModelElementAspect{
 
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
-		if(theSlicer.optionENamedElement){
 		_self.super__visitToAddClasses(theSlicer)
-		}
 
 	}
 	@OverrideAspectMethod
@@ -398,9 +403,11 @@ _self.^ESubpackages.forEach[feedOpposites]
 		if(_self.sliced) (_self.clonedElt as EPackage).^nsPrefix = _self.^nsPrefix
 
 		if(_self.sliced) (_self.clonedElt as EPackage).^nsURI = _self.^nsURI
+//		if(_self.^EFactoryInstance!=null){
 //		_self.^EFactoryInstance.visitToAddRelations(theSlicer)
 
 //		if(_self.sliced && _self.^EFactoryInstance.sliced) (_self.clonedElt as EPackage).^EFactoryInstance = _self.^EFactoryInstance.clonedElt as EFactory
+//		}
 
 	}
 }
@@ -452,7 +459,9 @@ class EReferenceAspect extends EStructuralFeatureAspect{
 		if(_self.sliced) (_self.clonedElt as EReference).^containment = _self.^containment
 
 		if(_self.sliced) (_self.clonedElt as EReference).^resolveProxies = _self.^resolveProxies
+		if(_self.^EReferenceType!=null){
 		_self.^EReferenceType.visitToAddRelations(theSlicer)
+		}
 
 	}
 }
@@ -486,6 +495,10 @@ abstract class EStructuralFeatureAspect extends ETypedElementAspect{
 		if(_self.sliced) (_self.clonedElt as EStructuralFeature).^derived = _self.^derived
 
 	}
+	def boolean checkCard1(EClass src){
+		val tgt = _self
+		tgt.lowerBound>0
+	}
 }
 
 @Aspect(className=typeof(ETypedElement))
@@ -509,7 +522,7 @@ _self.^EGenericType?.feedOpposites
 		_self.^EType.visitToAddRelations(theSlicer)
 
 		if(_self.sliced && _self.^EType.sliced) (_self.clonedElt as ETypedElement).^EType = _self.^EType.clonedElt as EClassifier
-}
+		}
 
 		if(_self.sliced) (_self.clonedElt as ETypedElement).^ordered = _self.^ordered
 
