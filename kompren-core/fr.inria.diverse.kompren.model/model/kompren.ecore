@@ -67,6 +67,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="varName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"
-        changeable="false" volatile="true" unsettable="true" derived="true"/>
+        changeable="false" volatile="true" transient="true" unsettable="true" derived="true"/>
   </eClassifiers>
 </ecore:EPackage>
