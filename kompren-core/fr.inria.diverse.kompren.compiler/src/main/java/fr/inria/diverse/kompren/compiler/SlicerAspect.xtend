@@ -19,7 +19,7 @@ class SlicerAspect {
 	
 	
 	private def void initOptionsMap() {
-		_self._options = new HashMap<ENamedElement, String>()
+		_self._options = new HashMap
 		_self.slicedElements.filter[isOption].forEach[opt | _self._options.put(opt.domain, "option"+opt.domain.name)]
 	}
 	
@@ -53,14 +53,37 @@ class SlicerAspect {
 //	}
 //}
 
+@Aspect(className=typeof(Constraint))
+class ConstraintAspect {
+	var boolean cloned = false
+}
+
+
 @Aspect(className=typeof(SlicedClass))
-class SlicedClassAspect {// extends SlicedElementAspect {
+class SlicedClassAspect {
+	var boolean addedToBeSliced = false
+	
 	def boolean isEcore() { _self.domain.ecore }
 	
 	def String constraintsInXtend(String cstPrefix) {
 		_self.constraints.map[cstPrefix+expression].join(" && ")
 	}
+
+
+	def StringBuilder generateConstraintCode(Constraint cst) {
+		new StringBuilder().
+			append("\tdef boolean check").append(cst.name).append("(){\n")
+			.append("\t\tval ").append(_self.ctx.varName).append(" = _self\n")
+			.append("\t\t").append(cst.expression).append('\n').append("\t}\n")
+	}
+	
+
+	def String constraintsInXtend() {
+		val prefix = "_self.check"
+		_self.constraints.map[prefix+name].join(" && ")
+	}
 }
+
 
 @Aspect(className=typeof(SlicedProperty))
 class SlicedPropertyAspect {

@@ -8,6 +8,8 @@ import org.eclipse.emf.ecore.EPackage
 import static extension fr.inria.diverse.kompren.compiler.EClassAspect.*
 import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 import static extension fr.inria.diverse.kompren.compiler.SlicedPropertyAspect.*
+import static extension fr.inria.diverse.kompren.compiler.SlicedClassAspect.*
+import static extension fr.inria.diverse.kompren.compiler.ConstraintAspect.*
 
 class SlicerAspectGenerator extends SlicerGenerator {
 	val String aspectVisitor = "import fr.inria.triskell.k3.Aspect
@@ -66,6 +68,8 @@ abstract class __SlicerAspect__ {
 
 		metamodelClasses.filter[name!="EStringToStringMapEntry"].forEach[cl |
 			val superName = if(cl.ESuperTypes.empty) "__SlicerAspect__" else cl.ESuperTypes.head.name+"Aspect"
+			val slicedCl = slicer.slicedClasses.findFirst[domain==cl]
+
 			if(opposite) cl.generateFeedOppositeCodeVisitor
 			buf.append("@Aspect(className=typeof(").append(cl.name).append("))\n")
 			if(cl.abstract) buf.append("abstract ")
@@ -75,19 +79,28 @@ abstract class __SlicerAspect__ {
 				buf.append("\t@OverrideAspectMethod\n\tdef void feedOpposites(){\n").append(cl.oppositeFeed).append("\n\t}\n\n")
 			buf.append("\t@OverrideAspectMethod\n")
 			buf.append("\tdef void _visitToAddClasses(").append(slicerName).append(" theSlicer){\n")
+			if(slicedCl!=null && !slicedCl.constraints.empty)
+				buf.append("\t\tif(").append(slicedCl.constraintsInXtend).append("){\n")
 			buf.append(cl.codeAction)
 			buf.append("\t\t_self.super__visitToAddClasses(theSlicer)\n")
 			buf.append(cl.codeVisit).append('\n')
+			if(slicedCl!=null && !slicedCl.constraints.empty) buf.append("\t\t}\n")
 			buf.append("\t}\n\t@OverrideAspectMethod\n")
 			buf.append("\tdef void _visitToAddRelations(").append(slicerName).append(" theSlicer){\n")
+			if(slicedCl!=null && !slicedCl.constraints.empty)
+				buf.append("\t\tif(").append(slicedCl.constraintsInXtend).append("){\n")
 			buf.append("\t\t_self.super__visitToAddRelations(theSlicer)\n")
 			buf.append(cl.relationCode).append('\n')
+			if(slicedCl!=null && !slicedCl.constraints.empty) buf.append("\t\t}\n")
 			buf.append("\t}\n")
 			
 			slicer.slicedProps.filter[domain.EType==cl].forEach[prop |
-				prop.constraints.forEach[constraint | buf.append(prop.generateConstraintCode(constraint))]
+				prop.constraints.filter[!cloned].forEach[constraint | buf.append(prop.generateConstraintCode(constraint))]
 			]
 			
+			if(slicedCl!=null)
+				slicedCl.constraints.filter[!cloned].forEach[constraint | buf.append(slicedCl.generateConstraintCode(constraint))]
+
 			buf.append("}\n\n")
 		]
 	}

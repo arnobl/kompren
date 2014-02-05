@@ -19,7 +19,6 @@ import org.eclipse.emf.codegen.ecore.genmodel.GenPackage
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EPackage
-import org.eclipse.emf.ecore.EStructuralFeature
 import org.eclipse.emf.ecore.impl.EcoreFactoryImpl
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.ResourceSet
@@ -30,6 +29,8 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import static extension fr.inria.diverse.kompren.compiler.EClassAspect.*
 import static extension fr.inria.diverse.kompren.compiler.EPackageAspect.*
 import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
+import static extension fr.inria.diverse.kompren.compiler.SlicedClassAspect.*
+import static extension fr.inria.diverse.kompren.compiler.ConstraintAspect.*
 
 class SlicerCompiler {
 	val String slicerName
@@ -124,6 +125,8 @@ class SlicerCompiler {
 			metamodel.forEach[feedSubClassesRelations]
 			identifyAllElementsToSlice
 		}
+		slicer.slicedClasses.forEach[slicedCl | slicedCl.domain.slicedClass=slicedCl]
+		completeConstraintsToSubClasses
 		aspectGenerator.generate
 		mainGenerator.generate
 //		println(aspectGenerator.code)
@@ -132,11 +135,34 @@ class SlicerCompiler {
 	}
 	
 	
+	protected def void completeConstraintsToSubClasses() {
+		slicer.slicedClasses.filter[!constraints.empty && !addedToBeSliced].forEach[slicedCl |
+			_completeConstraintsToSubClasses(slicedCl.domain.lowerClasses, slicedCl)
+		]
+	}
+	
+	
+	private def void _completeConstraintsToSubClasses(List<EClass> classes, SlicedClass slicedCl) {
+		val subClasses = new ArrayList<EClass>()
+		classes.forEach[cl |
+			subClasses.addAll(cl.lowerClasses)
+			slicedCl.constraints.filter[!cloned].forEach[cst |
+				val cstDup = KomprenFactoryImpl.eINSTANCE.createConstraint
+				cstDup.cloned = true
+				cstDup.expression = cst.expression
+				cstDup.name = cst.name
+				cl.slicedClass.constraints += cstDup
+			]
+		]
+		if(!subClasses.empty)
+			_completeConstraintsToSubClasses(subClasses, slicedCl)
+	}
+	
+	
 	protected def void identifyAllElementsToSlice() {
 		val set = new HashSet<EClass>()
-		val setSlicedClasses = new HashSet<EClass>()
+		val setSlicedClasses = slicer.slicedClasses.map[domain].toSet
 		var EClass clazz
-		setSlicedClasses.addAll(slicer.slicedClasses.map[domain])
 		set.addAll(setSlicedClasses)
 
 		while(!set.empty) {
@@ -147,14 +173,14 @@ class SlicerCompiler {
 			if(!setSlicedClasses.contains(clazz)) {
 				val slicedClass = KomprenFactoryImpl.eINSTANCE.createSlicedClass
 				slicedClass.domain = clazz
+				slicedClass.addedToBeSliced = true
 				slicer.slicedElements+=slicedClass
 				setSlicedClasses.add(clazz)
 			}
 			set.remove(clazz)
 		}		
 
-		val setSlicedRefs = new HashSet<EStructuralFeature>()
-		setSlicedRefs.addAll(slicer.slicedProps.map[domain])
+		val setSlicedRefs = slicer.slicedProps.map[domain].toSet
 		// Adding sliced properties
 		setSlicedClasses.map[EStructuralFeatures].flatten.filter[ref | ref.lowerBound>0 && !setSlicedRefs.contains(ref)].forEach[ref |
 			val prop = KomprenFactoryImpl.eINSTANCE.createSlicedProperty
@@ -169,7 +195,6 @@ class SlicerCompiler {
 
 	protected def void saveCode() {
 		val p = targetDir+slicer.name+"/src/main/java/"+pkgName+"/"
-//		println(">>>" + p)
 		val path = Paths.get(p)
 		if(!Files.exists(path))
 			Files.createDirectories(path)

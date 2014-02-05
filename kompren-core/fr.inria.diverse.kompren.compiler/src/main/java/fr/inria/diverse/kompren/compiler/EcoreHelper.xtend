@@ -104,6 +104,7 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 	val StringBuilder oppositeAttr = new StringBuilder
 	val StringBuilder oppositeFeed = new StringBuilder
 	var List<EClass> lowerClasses
+	var SlicedClass slicedClass
 	
 	@OverrideAspectMethod
 	def void feedSubClassesRelations() {
