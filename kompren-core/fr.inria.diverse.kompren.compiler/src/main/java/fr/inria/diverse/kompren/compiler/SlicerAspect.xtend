@@ -4,6 +4,7 @@ import fr.inria.triskell.k3.Aspect
 import java.util.HashMap
 import java.util.List
 import java.util.Map
+import kompren.Constraint
 import kompren.SlicedClass
 import kompren.SlicedProperty
 import kompren.Slicer
@@ -45,12 +46,42 @@ class SlicerAspect {
 	}
 }
 
+//@Aspect(className=typeof(SlicedElement))
+//abstract class SlicedElementAspect {
+//	def String constraintsInXtend() {
+//		_self.constraints.map[getExpression].join(" && ")
+//	}
+//}
+
 @Aspect(className=typeof(SlicedClass))
-class SlicedClassAspect {
+class SlicedClassAspect {// extends SlicedElementAspect {
 	def boolean isEcore() { _self.domain.ecore }
+	
+	def String constraintsInXtend(String cstPrefix) {
+		_self.constraints.map[cstPrefix+expression].join(" && ")
+	}
 }
 
 @Aspect(className=typeof(SlicedProperty))
 class SlicedPropertyAspect {
+	def String getXtendNameOrOppositeOne() {
+		if(_self.opposite==null) _self.domain.xtendName else _self.opposite.name
+	}
+	
+	def StringBuilder generateConstraintCode(Constraint cst) {
+		new StringBuilder().
+			append("\tdef boolean check").append(cst.name).append('(').append(_self.domain.EContainingClass.name).append(' ').append(_self.src.varName).append("){\n")
+			.append("\t\tval ").append(_self.tgt.varName).append(" = _self\n")
+			.append("\t\t").append(cst.expression).append('\n')
+			.append("\t}\n")
+	}
+	
+	
 	def boolean isEcore() { _self.domain.ecore }
+
+
+	def String constraintsInXtend() {
+		val prefix = if(_self.domain.upperBound>1 || _self.domain.upperBound<0) "" else "_self.^"+_self.getXtendNameOrOppositeOne+"."
+		_self.constraints.map[prefix+"check"+name+"(_self)"].join(" && ")
+	}
 }

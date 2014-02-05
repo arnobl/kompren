@@ -9,6 +9,7 @@ package fr.inria.diverse.kompren.compiler
 import fr.inria.triskell.k3.Aspect
 import fr.inria.triskell.k3.OverrideAspectMethod
 import java.util.ArrayList
+import java.util.HashSet
 import java.util.List
 import java.util.Set
 import kompren.SlicedClass
@@ -17,14 +18,14 @@ import kompren.Slicer
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EClassifier
 import org.eclipse.emf.ecore.EPackage
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.emf.ecore.EStructuralFeature
 
 import static extension fr.inria.diverse.kompren.compiler.EClassifierAspect.*
 import static extension fr.inria.diverse.kompren.compiler.EPackageAspect.*
-import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 import static extension fr.inria.diverse.kompren.compiler.EStructuralFeatureAspect.*
-import java.util.HashSet
-import org.eclipse.emf.ecore.EReference
-import org.eclipse.emf.ecore.EStructuralFeature
+import static extension fr.inria.diverse.kompren.compiler.SlicedPropertyAspect.*
+import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 
 @Aspect(className=typeof(EClassifier)) class EClassifierAspect{
 	private var Set<String> primitiveTypes
@@ -169,19 +170,27 @@ import org.eclipse.emf.ecore.EStructuralFeature
 	def void generateVisitToAddClasses(SlicedProperty sp) {
 		val elt = sp.domain
 		if(!elt.EType.primitiveType) {		
-			val name = if(sp.opposite==null) elt.xtendName else sp.opposite.name
-	
-			if(elt.upperBound>1 || elt.upperBound<0)
-				_self.codeVisit.append("\t\t_self.^").append(name).append(".forEach[visitToAddClasses(theSlicer)]\n")
-			else
-				_self.codeVisit.append("\t\t_self.^").append(name).append("?.visitToAddClasses(theSlicer)\n")
+			val name = sp.getXtendNameOrOppositeOne
+			val constraints = sp.constraintsInXtend
+			
+			if(elt.upperBound>1 || elt.upperBound<0) {
+				_self.codeVisit.append("\t\t_self.^").append(name)
+				if(!sp.constraints.empty) _self.codeVisit.append(".filter[").append(constraints).append("]")
+				_self.codeVisit.append(".forEach[visitToAddClasses(theSlicer)]\n")
+			}
+			else {
+				_self.codeVisit.append("\t\t")
+				if(!sp.constraints.empty) 
+					_self.codeVisit.append("if(_self.^").append(name).append("!=null && ").append(constraints).append(") ")
+				_self.codeVisit.append("_self.^").append(name).append("?.visitToAddClasses(theSlicer)\n")
+			}
 		}
 	}
 
 
 	def void generateVisitToAddRelations(SlicedProperty sp, Slicer slicer) {
 		val okSlice = slicer.strict || (sp.expression!=null && sp.expression.length>0 && sp.tgt!=null && sp.src!=null)
-		val name = if(sp.opposite==null) sp.domain.xtendName else sp.opposite.name
+		val name = sp.getXtendNameOrOppositeOne
 		
 		if(sp.domain.upperBound>1 || sp.domain.upperBound<0)
 			_self.generateVisitToAddRelations4MultiCard(sp, slicer, name, okSlice)
@@ -193,9 +202,10 @@ import org.eclipse.emf.ecore.EStructuralFeature
 	private def void generateVisitToAddRelations4OneCard(SlicedProperty sp, Slicer slicer, String name, boolean okSlice) {
 		val isPrim = sp.domain.EType.isPrimitiveType
 		if(!isPrim) {
-			if(sp.domain.lowerBound==0)
-				_self.relationCode.append("\t\tif(_self.^").append(name).append("!=null){\n")
-			_self.relationCode.append("\t\t_self.^").append(name).append(".visitToAddRelations(theSlicer)\n")
+			_self.relationCode.append("\t\tif(_self.^").append(name).append("!=null")
+			if(!sp.constraints.empty)
+				_self.relationCode.append(" && ").append(sp.constraintsInXtend)
+			_self.relationCode.append("){\n\t\t_self.^").append(name).append(".visitToAddRelations(theSlicer)\n")
 		}
 		if(okSlice && !sp.domain.derived) {
 			val hasOpposite = sp.domain instanceof EReference && ((sp.domain) as EReference).EOpposite!=null
@@ -215,13 +225,16 @@ import org.eclipse.emf.ecore.EStructuralFeature
 			else
 				_self.relationCode.append("\t\ttheSlicer.on").append(name).append("Sliced(_self").append(", _self.^").append(name).append(")\n")
 		}
-		if(!isPrim && sp.domain.lowerBound==0) _self.relationCode.append("}\n")
+		if(!isPrim) _self.relationCode.append("\t\t}\n")
 	}
 	
 	
 	
 	private def void generateVisitToAddRelations4MultiCard(SlicedProperty sp, Slicer slicer, String name, boolean okSlice) {
-		_self.relationCode.append("\t\t_self.^").append(name).append(".forEach[_elt| _elt.visitToAddRelations(theSlicer)")
+		_self.relationCode.append("\t\t_self.^").append(name)
+			if(!sp.constraints.empty) _self.relationCode.append(".filter[").append(sp.constraintsInXtend).append("]")
+		_self.relationCode.append(".forEach[_elt| _elt.visitToAddRelations(theSlicer)")
+
 		val hasOpposite = sp.domain instanceof EReference && ((sp.domain) as EReference).EOpposite!=null
 		if(okSlice  && !sp.domain.derived && (sp.domain.changeable || hasOpposite)){
 			val isPrim = sp.domain.EType.isPrimitiveType

@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EPackage
 
 import static extension fr.inria.diverse.kompren.compiler.EClassAspect.*
 import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
+import static extension fr.inria.diverse.kompren.compiler.SlicedPropertyAspect.*
 
 class SlicerAspectGenerator extends SlicerGenerator {
 	val String aspectVisitor = "import fr.inria.triskell.k3.Aspect
@@ -81,7 +82,13 @@ abstract class __SlicerAspect__ {
 			buf.append("\tdef void _visitToAddRelations(").append(slicerName).append(" theSlicer){\n")
 			buf.append("\t\t_self.super__visitToAddRelations(theSlicer)\n")
 			buf.append(cl.relationCode).append('\n')
-			buf.append("\t}\n}\n\n")
+			buf.append("\t}\n")
+			
+			slicer.slicedProps.filter[domain.EType==cl].forEach[prop |
+				prop.constraints.forEach[constraint | buf.append(prop.generateConstraintCode(constraint))]
+			]
+			
+			buf.append("}\n\n")
 		]
 	}
 
