@@ -3,6 +3,7 @@ package fr.inria.diverse.kompren.compiler
 import java.util.List
 import kompren.Slicer
 import org.eclipse.emf.ecore.EPackage
+import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 
 abstract class SlicerGenerator {
 	protected val List<EPackage> metamodel
@@ -26,7 +27,11 @@ abstract class SlicerGenerator {
 	def StringBuilder code() { buf }
 	
 	protected def String getMMPackagesImports() {
-		imports.append("\nimport static extension " + pkgName + ".__SlicerAspect__.*\n").toString
+		imports.append("\nimport static extension " + pkgName + ".__SlicerAspect__.*\n")
+		slicer.slicedClasses.forEach[slicedClass |
+			imports.append("import static extension ").append(pkgName).append('.').append(slicedClass.domain.name).append("Aspect.*\n")
+		]
+		imports.toString
 	}
 	
 	private def StringBuilder getMMPackageImport(String qname, EPackage pkg) {
