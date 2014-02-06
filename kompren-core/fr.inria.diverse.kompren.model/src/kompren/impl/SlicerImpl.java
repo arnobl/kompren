@@ -36,6 +36,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link kompren.impl.SlicerImpl#getRadius <em>Radius</em>}</li>
  *   <li>{@link kompren.impl.SlicerImpl#getSlicedElements <em>Sliced Elements</em>}</li>
  *   <li>{@link kompren.impl.SlicerImpl#getInputClasses <em>Input Classes</em>}</li>
+ *   <li>{@link kompren.impl.SlicerImpl#getLogVisitClass <em>Log Visit Class</em>}</li>
+ *   <li>{@link kompren.impl.SlicerImpl#getLogVisitRelation <em>Log Visit Relation</em>}</li>
  * </ul>
  * </p>
  *
@@ -208,6 +210,46 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 	 * @ordered
 	 */
 	protected EList<EClass> inputClasses;
+
+	/**
+	 * The default value of the '{@link #getLogVisitClass() <em>Log Visit Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLogVisitClass()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LOG_VISIT_CLASS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLogVisitClass() <em>Log Visit Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLogVisitClass()
+	 * @generated
+	 * @ordered
+	 */
+	protected String logVisitClass = LOG_VISIT_CLASS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLogVisitRelation() <em>Log Visit Relation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLogVisitRelation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LOG_VISIT_RELATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLogVisitRelation() <em>Log Visit Relation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLogVisitRelation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String logVisitRelation = LOG_VISIT_RELATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -438,6 +480,48 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getLogVisitClass() {
+		return logVisitClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLogVisitClass(String newLogVisitClass) {
+		String oldLogVisitClass = logVisitClass;
+		logVisitClass = newLogVisitClass;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, KomprenPackage.SLICER__LOG_VISIT_CLASS, oldLogVisitClass, logVisitClass));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getLogVisitRelation() {
+		return logVisitRelation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLogVisitRelation(String newLogVisitRelation) {
+		String oldLogVisitRelation = logVisitRelation;
+		logVisitRelation = newLogVisitRelation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, KomprenPackage.SLICER__LOG_VISIT_RELATION, oldLogVisitRelation, logVisitRelation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -477,6 +561,10 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 				return getSlicedElements();
 			case KomprenPackage.SLICER__INPUT_CLASSES:
 				return getInputClasses();
+			case KomprenPackage.SLICER__LOG_VISIT_CLASS:
+				return getLogVisitClass();
+			case KomprenPackage.SLICER__LOG_VISIT_RELATION:
+				return getLogVisitRelation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -523,6 +611,12 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 				getInputClasses().clear();
 				getInputClasses().addAll((Collection<? extends EClass>)newValue);
 				return;
+			case KomprenPackage.SLICER__LOG_VISIT_CLASS:
+				setLogVisitClass((String)newValue);
+				return;
+			case KomprenPackage.SLICER__LOG_VISIT_RELATION:
+				setLogVisitRelation((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -565,6 +659,12 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 			case KomprenPackage.SLICER__INPUT_CLASSES:
 				getInputClasses().clear();
 				return;
+			case KomprenPackage.SLICER__LOG_VISIT_CLASS:
+				setLogVisitClass(LOG_VISIT_CLASS_EDEFAULT);
+				return;
+			case KomprenPackage.SLICER__LOG_VISIT_RELATION:
+				setLogVisitRelation(LOG_VISIT_RELATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -597,6 +697,10 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 				return slicedElements != null && !slicedElements.isEmpty();
 			case KomprenPackage.SLICER__INPUT_CLASSES:
 				return inputClasses != null && !inputClasses.isEmpty();
+			case KomprenPackage.SLICER__LOG_VISIT_CLASS:
+				return LOG_VISIT_CLASS_EDEFAULT == null ? logVisitClass != null : !LOG_VISIT_CLASS_EDEFAULT.equals(logVisitClass);
+			case KomprenPackage.SLICER__LOG_VISIT_RELATION:
+				return LOG_VISIT_RELATION_EDEFAULT == null ? logVisitRelation != null : !LOG_VISIT_RELATION_EDEFAULT.equals(logVisitRelation);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -625,6 +729,10 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 		result.append(onStart);
 		result.append(", onEnd: ");
 		result.append(onEnd);
+		result.append(", logVisitClass: ");
+		result.append(logVisitClass);
+		result.append(", logVisitRelation: ");
+		result.append(logVisitRelation);
 		result.append(')');
 		return result.toString();
 	}

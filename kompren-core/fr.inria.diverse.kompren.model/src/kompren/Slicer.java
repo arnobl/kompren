@@ -25,6 +25,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kompren.Slicer#getRadius <em>Radius</em>}</li>
  *   <li>{@link kompren.Slicer#getSlicedElements <em>Sliced Elements</em>}</li>
  *   <li>{@link kompren.Slicer#getInputClasses <em>Input Classes</em>}</li>
+ *   <li>{@link kompren.Slicer#getLogVisitClass <em>Log Visit Class</em>}</li>
+ *   <li>{@link kompren.Slicer#getLogVisitRelation <em>Log Visit Relation</em>}</li>
  * </ul>
  * </p>
  *
@@ -268,5 +270,57 @@ public interface Slicer extends EObject {
 	 * @generated
 	 */
 	EList<EClass> getInputClasses();
+
+	/**
+	 * Returns the value of the '<em><b>Log Visit Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Log Visit Class</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Log Visit Class</em>' attribute.
+	 * @see #setLogVisitClass(String)
+	 * @see kompren.KomprenPackage#getSlicer_LogVisitClass()
+	 * @model
+	 * @generated
+	 */
+	String getLogVisitClass();
+
+	/**
+	 * Sets the value of the '{@link kompren.Slicer#getLogVisitClass <em>Log Visit Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Log Visit Class</em>' attribute.
+	 * @see #getLogVisitClass()
+	 * @generated
+	 */
+	void setLogVisitClass(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Log Visit Relation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Log Visit Relation</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Log Visit Relation</em>' attribute.
+	 * @see #setLogVisitRelation(String)
+	 * @see kompren.KomprenPackage#getSlicer_LogVisitRelation()
+	 * @model
+	 * @generated
+	 */
+	String getLogVisitRelation();
+
+	/**
+	 * Sets the value of the '{@link kompren.Slicer#getLogVisitRelation <em>Log Visit Relation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Log Visit Relation</em>' attribute.
+	 * @see #getLogVisitRelation()
+	 * @generated
+	 */
+	void setLogVisitRelation(String value);
 
 } // Slicer

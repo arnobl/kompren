@@ -164,13 +164,31 @@ public interface KomprenPackage extends EPackage {
 	int SLICER__INPUT_CLASSES = 9;
 
 	/**
+	 * The feature id for the '<em><b>Log Visit Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLICER__LOG_VISIT_CLASS = 10;
+
+	/**
+	 * The feature id for the '<em><b>Log Visit Relation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLICER__LOG_VISIT_RELATION = 11;
+
+	/**
 	 * The number of structural features of the '<em>Slicer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLICER_FEATURE_COUNT = 10;
+	int SLICER_FEATURE_COUNT = 12;
 
 	/**
 	 * The number of operations of the '<em>Slicer</em>' class.
@@ -697,6 +715,28 @@ public interface KomprenPackage extends EPackage {
 	EReference getSlicer_InputClasses();
 
 	/**
+	 * Returns the meta object for the attribute '{@link kompren.Slicer#getLogVisitClass <em>Log Visit Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Log Visit Class</em>'.
+	 * @see kompren.Slicer#getLogVisitClass()
+	 * @see #getSlicer()
+	 * @generated
+	 */
+	EAttribute getSlicer_LogVisitClass();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kompren.Slicer#getLogVisitRelation <em>Log Visit Relation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Log Visit Relation</em>'.
+	 * @see kompren.Slicer#getLogVisitRelation()
+	 * @see #getSlicer()
+	 * @generated
+	 */
+	EAttribute getSlicer_LogVisitRelation();
+
+	/**
 	 * Returns the meta object for class '{@link kompren.Constraint <em>Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1032,6 +1072,22 @@ public interface KomprenPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SLICER__INPUT_CLASSES = eINSTANCE.getSlicer_InputClasses();
+
+		/**
+		 * The meta object literal for the '<em><b>Log Visit Class</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SLICER__LOG_VISIT_CLASS = eINSTANCE.getSlicer_LogVisitClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Log Visit Relation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SLICER__LOG_VISIT_RELATION = eINSTANCE.getSlicer_LogVisitRelation();
 
 		/**
 		 * The meta object literal for the '{@link kompren.impl.ConstraintImpl <em>Constraint</em>}' class.

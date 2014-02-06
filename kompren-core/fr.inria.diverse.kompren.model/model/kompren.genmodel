@@ -18,6 +18,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kompren.ecore#//Slicer/radius"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kompren.ecore#//Slicer/slicedElements"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kompren.ecore#//Slicer/inputClasses"/>
+      <genFeatures createChild="false" propertyDescription="Xtend code executed when a class is visited."
+          propertyMultiLine="true" ecoreFeature="ecore:EAttribute kompren.ecore#//Slicer/logVisitClass"/>
+      <genFeatures createChild="false" propertyDescription="Xtend code executed when a relation is visited."
+          propertyMultiLine="true" ecoreFeature="ecore:EAttribute kompren.ecore#//Slicer/logVisitRelation"/>
     </genClasses>
     <genClasses ecoreClass="kompren.ecore#//Constraint">
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute kompren.ecore#//Constraint/expression"/>

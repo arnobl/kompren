@@ -78,6 +78,8 @@ public class SlicerItemProvider
 			addOnStartPropertyDescriptor(object);
 			addOnEndPropertyDescriptor(object);
 			addInputClassesPropertyDescriptor(object);
+			addLogVisitClassPropertyDescriptor(object);
+			addLogVisitRelationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -259,6 +261,50 @@ public class SlicerItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Log Visit Class feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLogVisitClassPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Slicer_logVisitClass_feature"),
+				 getString("_UI_Slicer_logVisitClass_description"),
+				 KomprenPackage.Literals.SLICER__LOG_VISIT_CLASS,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Log Visit Relation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLogVisitRelationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Slicer_logVisitRelation_feature"),
+				 getString("_UI_Slicer_logVisitRelation_description"),
+				 KomprenPackage.Literals.SLICER__LOG_VISIT_RELATION,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -333,6 +379,8 @@ public class SlicerItemProvider
 			case KomprenPackage.SLICER__HELPER:
 			case KomprenPackage.SLICER__ON_START:
 			case KomprenPackage.SLICER__ON_END:
+			case KomprenPackage.SLICER__LOG_VISIT_CLASS:
+			case KomprenPackage.SLICER__LOG_VISIT_RELATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case KomprenPackage.SLICER__RADIUS:

@@ -261,6 +261,24 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSlicer_LogVisitClass() {
+		return (EAttribute)slicerEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSlicer_LogVisitRelation() {
+		return (EAttribute)slicerEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getConstraint() {
 		return constraintEClass;
 	}
@@ -484,6 +502,8 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 		createEReference(slicerEClass, SLICER__RADIUS);
 		createEReference(slicerEClass, SLICER__SLICED_ELEMENTS);
 		createEReference(slicerEClass, SLICER__INPUT_CLASSES);
+		createEAttribute(slicerEClass, SLICER__LOG_VISIT_CLASS);
+		createEAttribute(slicerEClass, SLICER__LOG_VISIT_RELATION);
 
 		constraintEClass = createEClass(CONSTRAINT);
 		createEAttribute(constraintEClass, CONSTRAINT__EXPRESSION);
@@ -572,6 +592,8 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 		g1.getETypeArguments().add(g2);
 		initEReference(getSlicer_SlicedElements(), g1, null, "slicedElements", null, 0, -1, Slicer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSlicer_InputClasses(), theEcorePackage.getEClass(), null, "inputClasses", null, 1, -1, Slicer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSlicer_LogVisitClass(), ecorePackage.getEString(), "logVisitClass", null, 0, 1, Slicer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSlicer_LogVisitRelation(), ecorePackage.getEString(), "logVisitRelation", null, 0, 1, Slicer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(constraintEClass, Constraint.class, "Constraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConstraint_Expression(), ecorePackage.getEString(), "expression", null, 1, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
