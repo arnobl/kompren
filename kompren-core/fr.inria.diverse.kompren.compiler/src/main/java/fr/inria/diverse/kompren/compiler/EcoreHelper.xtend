@@ -126,7 +126,7 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 			if(sp.domain.upperBound==1)
 				_self.oppositeAttr.append("\tvar ").append(sp.domain.EType.name).append(' ^').append(sp.opposite.name).append("\n\n")
 			else
-				_self.oppositeAttr.append("\tvar List<").append(sp.domain.EType.name).append("> ^").append(sp.opposite.name).append(" = new ArrayList\n\n")
+				_self.oppositeAttr.append("\tval List<").append(sp.domain.EType.name).append("> ^").append(sp.opposite.name).append(" = new ArrayList\n\n")
 		}	
 	}	
 
