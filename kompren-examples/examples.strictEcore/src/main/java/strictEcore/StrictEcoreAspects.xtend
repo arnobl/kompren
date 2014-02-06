@@ -25,8 +25,13 @@ import org.eclipse.emf.ecore.ETypeParameter
 import org.eclipse.emf.ecore.ETypedElement
 import org.eclipse.emf.ecore.impl.EcoreFactoryImpl
 
+import static extension strictEcore.EAnnotationAspect.*
+import static extension strictEcore.EClassifierAspect.*
+import static extension strictEcore.EEnumLiteralAspect.*
+import static extension strictEcore.EOperationAspect.*
+import static extension strictEcore.EParameterAspect.*
 import static extension strictEcore.EStructuralFeatureAspect.*
-import static extension strictEcore.ETypedElementAspect.*
+import static extension strictEcore.ETypeParameterAspect.*
 
 @Aspect(className=typeof(Object))
 abstract class __SlicerAspect__ {
@@ -109,7 +114,7 @@ _self.^contents.forEach[feedOpposites]
 
 @Aspect(className=typeof(EClass))
 class EClassAspect extends EClassifierAspect{
-	var List<EClass> ^subClasses = new ArrayList
+	val List<EClass> ^subClasses = new ArrayList
 
 	@OverrideAspectMethod
 	def void feedOpposites(){
