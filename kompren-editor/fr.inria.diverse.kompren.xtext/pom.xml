@@ -11,48 +11,103 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.eclipse.xtend</groupId>
-				<artifactId>xtend-maven-plugin</artifactId>
-				<version>${xtend.version}</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>compile</goal>
-							<goal>testCompile</goal>
-							<goal>xtend-install-debug-info</goal>
-							<goal>xtend-test-install-debug-info</goal>
-						</goals>
-                        <configuration>
-                                <outputDirectory>${xtendGenDirectory}</outputDirectory>
-								<testOutputDirectory>${xtendGenDirectory}-test</testOutputDirectory>
-                        </configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.5</version>
 				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
+					<filesets>
+						<fileset>
+							<directory>${basedir}/src-gen</directory>
+						</fileset>
+						<fileset>
+							<directory>${basedir}/xtend-gen</directory>
+						</fileset>
+						<!-- clean ui plugin as well -->
+						<fileset>
+							<directory>${basedir}/../${project.artifactId}.ui/src-gen</directory>
+						</fileset>
+						<fileset>
+							<directory>${basedir}/../${project.artifactId}.ui/xtend-gen</directory>
+						</fileset>
+						<!-- clean test fragment as well -->
+						<fileset>
+							<directory>${basedir}/../${project.artifactId}.tests/src-gen</directory>
+						</fileset>
+						<fileset>
+							<directory>${basedir}/../${project.artifactId}.tests/xtend-gen</directory>
+						</fileset>
+					</filesets>
 				</configuration>
 			</plugin>
-		</plugins>
-	</build>
-  
-  
+			
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<includeProjectDependencies>false</includeProjectDependencies>
+					<includePluginDependencies>true</includePluginDependencies>
+					<mainClass>org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher</mainClass>
+					<arguments>
+						<argument>file://${project.basedir}/src/fr/inria/diverse/kompren/GenerateKompren.mwe2</argument>
+						<argument>
+							-p
+						</argument>
+						<argument>
+							runtimeProject=/${project.basedir}
+						</argument>
+					</arguments>
+				</configuration>
     <dependencies>
+		<dependency>
+			<groupId>org.eclipse.xtext</groupId>
+			<artifactId>org.eclipse.xtext.xtext</artifactId>
+			<version>${xtend.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.xtext</groupId>
+			<artifactId>org.eclipse.xtext.xbase</artifactId>
+			<version>${xtend.version}</version>
+		</dependency>
   		<dependency>
 			<groupId>fr.inria.diverse.kompren</groupId>
 			<artifactId>fr.inria.diverse.kompren.model</artifactId>
 			<version>${project.version}</version>
   		</dependency>
+  	</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.xtend</groupId>
+				<artifactId>xtend-maven-plugin</artifactId>
+			</plugin>		
+		</plugins>
+	</build>
+  
+  
+    <dependencies>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
+			<groupId>org.eclipse.xtext</groupId>
+			<artifactId>org.eclipse.xtext.xtext</artifactId>
+			<version>${xtend.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.eclipse.xtext</groupId>
+			<artifactId>org.eclipse.xtext.xbase</artifactId>
+			<version>${xtend.version}</version>
+		</dependency>
+  		<dependency>
+			<groupId>fr.inria.diverse.kompren</groupId>
+			<artifactId>fr.inria.diverse.kompren.model</artifactId>
+			<version>${project.version}</version>
+  		</dependency>
   	</dependencies>
 </project>
 
