@@ -239,3 +239,16 @@
 /.XWhileExpressionAspectXWhileExpressionAspectProperties.java._trace
 /.__SlicerAspect__ObjectAspectContext.java._trace
 /.__SlicerAspect__ObjectAspectProperties.java._trace
+/.XInstanceOfExpressionAspect.java._trace
+/.XReturnExpressionAspect.java._trace
+/.XThrowExpressionAspect.java._trace
+/.XTryCatchFinallyExpressionAspect.java._trace
+/.XInstanceOfExpressionAspectXInstanceOfExpressionAspectContext.java._trace
+/.XInstanceOfExpressionAspectXInstanceOfExpressionAspectProperties.java._trace
+/.XReturnExpressionAspectXReturnExpressionAspectContext.java._trace
+/.XReturnExpressionAspectXReturnExpressionAspectProperties.java._trace
+/.XThrowExpressionAspectXThrowExpressionAspectContext.java._trace
+/.XThrowExpressionAspectXThrowExpressionAspectProperties.java._trace
+/.XTryCatchFinallyExpressionAspectXTryCatchFinallyExpressionAspectContext.java._trace
+/.XTryCatchFinallyExpressionAspectXTryCatchFinallyExpressionAspectProperties.java._trace
+/JvmIdentifiableElementAspectJvmIdentifiableElementAspectProperties.java

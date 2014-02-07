@@ -24,12 +24,8 @@ public abstract class XExpressionAspect extends __SlicerAspect__ {
     			     _self_ = selfProp.get(_self);
     			        if (_self instanceof org.eclipse.xtext.xbase.XIfExpression){
     			     							 k3TransfoFootprint.XIfExpressionAspect.priv_visitToAddClasses((org.eclipse.xtext.xbase.XIfExpression)_self,theSlicer);
-    			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XSwitchExpression){
-    			     							 k3TransfoFootprint.XSwitchExpressionAspect.priv_visitToAddClasses((org.eclipse.xtext.xbase.XSwitchExpression)_self,theSlicer);
     			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XBlockExpression){
     			     							 k3TransfoFootprint.XBlockExpressionAspect.priv_visitToAddClasses((org.eclipse.xtext.xbase.XBlockExpression)_self,theSlicer);
-    			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XVariableDeclaration){
-    			     							 k3TransfoFootprint.XVariableDeclarationAspect.priv_visitToAddClasses((org.eclipse.xtext.xbase.XVariableDeclaration)_self,theSlicer);
     			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XMemberFeatureCall){
     			     							 k3TransfoFootprint.XMemberFeatureCallAspect.priv_visitToAddClasses((org.eclipse.xtext.xbase.XMemberFeatureCall)_self,theSlicer);
     			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XFeatureCall){
@@ -68,10 +64,18 @@ public abstract class XExpressionAspect extends __SlicerAspect__ {
     			     							 k3TransfoFootprint.XWhileExpressionAspect.priv_visitToAddClasses((org.eclipse.xtext.xbase.XWhileExpression)_self,theSlicer);
     			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XAbstractWhileExpression){
     			     							 k3TransfoFootprint.XAbstractWhileExpressionAspect.priv_visitToAddClasses((org.eclipse.xtext.xbase.XAbstractWhileExpression)_self,theSlicer);
-    			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XTypeLiteral){
-    			     							 k3TransfoFootprint.XTypeLiteralAspect.priv_visitToAddClasses((org.eclipse.xtext.xbase.XTypeLiteral)_self,theSlicer);
+    			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XInstanceOfExpression){
+    			     							 k3TransfoFootprint.XInstanceOfExpressionAspect.priv_visitToAddClasses((org.eclipse.xtext.xbase.XInstanceOfExpression)_self,theSlicer);
+    			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XThrowExpression){
+    			     							 k3TransfoFootprint.XThrowExpressionAspect.priv_visitToAddClasses((org.eclipse.xtext.xbase.XThrowExpression)_self,theSlicer);
+    			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XTryCatchFinallyExpression){
+    			     							 k3TransfoFootprint.XTryCatchFinallyExpressionAspect.priv_visitToAddClasses((org.eclipse.xtext.xbase.XTryCatchFinallyExpression)_self,theSlicer);
     			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XAssignment){
     			     							 k3TransfoFootprint.XAssignmentAspect.priv_visitToAddClasses((org.eclipse.xtext.xbase.XAssignment)_self,theSlicer);
+    			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XReturnExpression){
+    			     							 k3TransfoFootprint.XReturnExpressionAspect.priv_visitToAddClasses((org.eclipse.xtext.xbase.XReturnExpression)_self,theSlicer);
+    			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XTypeLiteral){
+    			     							 k3TransfoFootprint.XTypeLiteralAspect.priv_visitToAddClasses((org.eclipse.xtext.xbase.XTypeLiteral)_self,theSlicer);
     			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XExpression){
     			     							 k3TransfoFootprint.XExpressionAspect.priv_visitToAddClasses((org.eclipse.xtext.xbase.XExpression)_self,theSlicer);
     			     							} else    if (_self instanceof java.lang.Object){
@@ -96,12 +100,8 @@ public abstract class XExpressionAspect extends __SlicerAspect__ {
     			     _self_ = selfProp.get(_self);
     			        if (_self instanceof org.eclipse.xtext.xbase.XIfExpression){
     			     							 k3TransfoFootprint.XIfExpressionAspect.priv_visitToAddRelations((org.eclipse.xtext.xbase.XIfExpression)_self,theSlicer);
-    			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XSwitchExpression){
-    			     							 k3TransfoFootprint.XSwitchExpressionAspect.priv_visitToAddRelations((org.eclipse.xtext.xbase.XSwitchExpression)_self,theSlicer);
     			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XBlockExpression){
     			     							 k3TransfoFootprint.XBlockExpressionAspect.priv_visitToAddRelations((org.eclipse.xtext.xbase.XBlockExpression)_self,theSlicer);
-    			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XVariableDeclaration){
-    			     							 k3TransfoFootprint.XVariableDeclarationAspect.priv_visitToAddRelations((org.eclipse.xtext.xbase.XVariableDeclaration)_self,theSlicer);
     			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XMemberFeatureCall){
     			     							 k3TransfoFootprint.XMemberFeatureCallAspect.priv_visitToAddRelations((org.eclipse.xtext.xbase.XMemberFeatureCall)_self,theSlicer);
     			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XFeatureCall){
@@ -140,10 +140,18 @@ public abstract class XExpressionAspect extends __SlicerAspect__ {
     			     							 k3TransfoFootprint.XWhileExpressionAspect.priv_visitToAddRelations((org.eclipse.xtext.xbase.XWhileExpression)_self,theSlicer);
     			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XAbstractWhileExpression){
     			     							 k3TransfoFootprint.XAbstractWhileExpressionAspect.priv_visitToAddRelations((org.eclipse.xtext.xbase.XAbstractWhileExpression)_self,theSlicer);
-    			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XTypeLiteral){
-    			     							 k3TransfoFootprint.XTypeLiteralAspect.priv_visitToAddRelations((org.eclipse.xtext.xbase.XTypeLiteral)_self,theSlicer);
+    			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XInstanceOfExpression){
+    			     							 k3TransfoFootprint.XInstanceOfExpressionAspect.priv_visitToAddRelations((org.eclipse.xtext.xbase.XInstanceOfExpression)_self,theSlicer);
+    			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XThrowExpression){
+    			     							 k3TransfoFootprint.XThrowExpressionAspect.priv_visitToAddRelations((org.eclipse.xtext.xbase.XThrowExpression)_self,theSlicer);
+    			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XTryCatchFinallyExpression){
+    			     							 k3TransfoFootprint.XTryCatchFinallyExpressionAspect.priv_visitToAddRelations((org.eclipse.xtext.xbase.XTryCatchFinallyExpression)_self,theSlicer);
     			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XAssignment){
     			     							 k3TransfoFootprint.XAssignmentAspect.priv_visitToAddRelations((org.eclipse.xtext.xbase.XAssignment)_self,theSlicer);
+    			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XReturnExpression){
+    			     							 k3TransfoFootprint.XReturnExpressionAspect.priv_visitToAddRelations((org.eclipse.xtext.xbase.XReturnExpression)_self,theSlicer);
+    			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XTypeLiteral){
+    			     							 k3TransfoFootprint.XTypeLiteralAspect.priv_visitToAddRelations((org.eclipse.xtext.xbase.XTypeLiteral)_self,theSlicer);
     			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XExpression){
     			     							 k3TransfoFootprint.XExpressionAspect.priv_visitToAddRelations((org.eclipse.xtext.xbase.XExpression)_self,theSlicer);
     			     							} else    if (_self instanceof java.lang.Object){

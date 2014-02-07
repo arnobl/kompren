@@ -60,6 +60,10 @@ public abstract class JvmIdentifiableElementAspect extends __SlicerAspect__ {
     			     							 k3TransfoFootprint.JvmFormalParameterAspect.priv_visitToAddClasses((org.eclipse.xtext.common.types.JvmFormalParameter)_self,theSlicer);
     			     							} else    if (_self instanceof org.eclipse.xtext.common.types.JvmAnnotationTarget){
     			     							 k3TransfoFootprint.JvmAnnotationTargetAspect.priv_visitToAddClasses((org.eclipse.xtext.common.types.JvmAnnotationTarget)_self,theSlicer);
+    			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XSwitchExpression){
+    			     							 k3TransfoFootprint.XSwitchExpressionAspect.priv_visitToAddClasses((org.eclipse.xtext.xbase.XSwitchExpression)_self,theSlicer);
+    			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XVariableDeclaration){
+    			     							 k3TransfoFootprint.XVariableDeclarationAspect.priv_visitToAddClasses((org.eclipse.xtext.xbase.XVariableDeclaration)_self,theSlicer);
     			     							} else    if (_self instanceof org.eclipse.xtext.common.types.JvmIdentifiableElement){
     			     							 k3TransfoFootprint.JvmIdentifiableElementAspect.priv_visitToAddClasses((org.eclipse.xtext.common.types.JvmIdentifiableElement)_self,theSlicer);
     			     							} else    if (_self instanceof java.lang.Object){
@@ -120,6 +124,10 @@ public abstract class JvmIdentifiableElementAspect extends __SlicerAspect__ {
     			     							 k3TransfoFootprint.JvmFormalParameterAspect.priv_visitToAddRelations((org.eclipse.xtext.common.types.JvmFormalParameter)_self,theSlicer);
     			     							} else    if (_self instanceof org.eclipse.xtext.common.types.JvmAnnotationTarget){
     			     							 k3TransfoFootprint.JvmAnnotationTargetAspect.priv_visitToAddRelations((org.eclipse.xtext.common.types.JvmAnnotationTarget)_self,theSlicer);
+    			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XSwitchExpression){
+    			     							 k3TransfoFootprint.XSwitchExpressionAspect.priv_visitToAddRelations((org.eclipse.xtext.xbase.XSwitchExpression)_self,theSlicer);
+    			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XVariableDeclaration){
+    			     							 k3TransfoFootprint.XVariableDeclarationAspect.priv_visitToAddRelations((org.eclipse.xtext.xbase.XVariableDeclaration)_self,theSlicer);
     			     							} else    if (_self instanceof org.eclipse.xtext.common.types.JvmIdentifiableElement){
     			     							 k3TransfoFootprint.JvmIdentifiableElementAspect.priv_visitToAddRelations((org.eclipse.xtext.common.types.JvmIdentifiableElement)_self,theSlicer);
     			     							} else    if (_self instanceof java.lang.Object){

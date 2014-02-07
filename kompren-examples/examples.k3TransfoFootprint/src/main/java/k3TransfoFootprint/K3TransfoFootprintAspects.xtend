@@ -118,12 +118,14 @@ abstract class __SlicerAspect__ {
 abstract class JvmIdentifiableElementAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmIdentifiableElement")
 		theSlicer.onJvmIdentifiableElementSliced(_self)
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmIdentifiableElement")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -133,11 +135,13 @@ abstract class JvmIdentifiableElementAspect extends __SlicerAspect__{
 abstract class JvmTypeAspect extends JvmIdentifiableElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmType")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmType")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -147,11 +151,13 @@ abstract class JvmTypeAspect extends JvmIdentifiableElementAspect{
 class JvmVoidAspect extends JvmTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmVoid")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmVoid")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -161,16 +167,18 @@ class JvmVoidAspect extends JvmTypeAspect{
 abstract class JvmComponentTypeAspect extends JvmTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmComponentType")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^arrayType?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmComponentType")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^arrayType!=null){
 		_self.^arrayType.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -179,11 +187,13 @@ abstract class JvmComponentTypeAspect extends JvmTypeAspect{
 class JvmPrimitiveTypeAspect extends JvmComponentTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmPrimitiveType")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmPrimitiveType")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -193,16 +203,18 @@ class JvmPrimitiveTypeAspect extends JvmComponentTypeAspect{
 class JvmArrayTypeAspect extends JvmComponentTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmArrayType")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^componentType?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmArrayType")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^componentType!=null){
 		_self.^componentType.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -211,6 +223,7 @@ class JvmArrayTypeAspect extends JvmComponentTypeAspect{
 abstract class JvmDeclaredTypeAspect extends JvmMemberAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmDeclaredType")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^superTypes.forEach[visitToAddClasses(theSlicer)]
 		_self.^members.forEach[visitToAddClasses(theSlicer)]
@@ -218,6 +231,7 @@ abstract class JvmDeclaredTypeAspect extends JvmMemberAspect{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmDeclaredType")
 		_self.super__visitToAddRelations(theSlicer)
 		_self.^superTypes.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 		_self.^members.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
@@ -229,16 +243,18 @@ abstract class JvmDeclaredTypeAspect extends JvmMemberAspect{
 class JvmTypeParameterAspect extends JvmComponentTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmTypeParameter")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^declarator?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmTypeParameter")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^declarator!=null){
 		_self.^declarator.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -247,12 +263,14 @@ class JvmTypeParameterAspect extends JvmComponentTypeAspect{
 abstract class JvmTypeParameterDeclaratorAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmTypeParameterDeclarator")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^typeParameters.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmTypeParameterDeclarator")
 		_self.super__visitToAddRelations(theSlicer)
 		_self.^typeParameters.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
@@ -263,12 +281,14 @@ abstract class JvmTypeParameterDeclaratorAspect extends __SlicerAspect__{
 abstract class JvmConstraintOwnerAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmConstraintOwner")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^constraints.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmConstraintOwner")
 		_self.super__visitToAddRelations(theSlicer)
 		_self.^constraints.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
@@ -279,6 +299,7 @@ abstract class JvmConstraintOwnerAspect extends __SlicerAspect__{
 abstract class JvmTypeConstraintAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmTypeConstraint")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^typeReference?.visitToAddClasses(theSlicer)
 		_self.^owner?.visitToAddClasses(theSlicer)
@@ -286,13 +307,14 @@ abstract class JvmTypeConstraintAspect extends __SlicerAspect__{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmTypeConstraint")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^typeReference!=null){
 		_self.^typeReference.visitToAddRelations(theSlicer)
-}
+		}
 		if(_self.^owner!=null){
 		_self.^owner.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -301,11 +323,13 @@ abstract class JvmTypeConstraintAspect extends __SlicerAspect__{
 class JvmUpperBoundAspect extends JvmTypeConstraintAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmUpperBound")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmUpperBound")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -315,11 +339,13 @@ class JvmUpperBoundAspect extends JvmTypeConstraintAspect{
 class JvmLowerBoundAspect extends JvmTypeConstraintAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmLowerBound")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmLowerBound")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -329,11 +355,13 @@ class JvmLowerBoundAspect extends JvmTypeConstraintAspect{
 class JvmAnnotationTypeAspect extends JvmDeclaredTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmAnnotationType")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmAnnotationType")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -343,12 +371,14 @@ class JvmAnnotationTypeAspect extends JvmDeclaredTypeAspect{
 class JvmEnumerationTypeAspect extends JvmDeclaredTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmEnumerationType")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^literals.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmEnumerationType")
 		_self.super__visitToAddRelations(theSlicer)
 		_self.^literals.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
@@ -359,11 +389,13 @@ class JvmEnumerationTypeAspect extends JvmDeclaredTypeAspect{
 class JvmEnumerationLiteralAspect extends JvmFieldAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmEnumerationLiteral")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmEnumerationLiteral")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -373,11 +405,13 @@ class JvmEnumerationLiteralAspect extends JvmFieldAspect{
 class JvmGenericTypeAspect extends JvmDeclaredTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmGenericType")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmGenericType")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -387,12 +421,14 @@ class JvmGenericTypeAspect extends JvmDeclaredTypeAspect{
 abstract class JvmTypeReferenceAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmTypeReference")
 		theSlicer.onJvmTypeReferenceSliced(_self)
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmTypeReference")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -402,6 +438,7 @@ abstract class JvmTypeReferenceAspect extends __SlicerAspect__{
 class JvmParameterizedTypeReferenceAspect extends JvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmParameterizedTypeReference")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^arguments.forEach[visitToAddClasses(theSlicer)]
 		_self.^type?.visitToAddClasses(theSlicer)
@@ -409,11 +446,12 @@ class JvmParameterizedTypeReferenceAspect extends JvmTypeReferenceAspect{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmParameterizedTypeReference")
 		_self.super__visitToAddRelations(theSlicer)
 		_self.^arguments.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 		if(_self.^type!=null){
 		_self.^type.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -422,16 +460,18 @@ class JvmParameterizedTypeReferenceAspect extends JvmTypeReferenceAspect{
 class JvmGenericArrayTypeReferenceAspect extends JvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmGenericArrayTypeReference")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^componentType?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmGenericArrayTypeReference")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^componentType!=null){
 		_self.^componentType.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -440,11 +480,13 @@ class JvmGenericArrayTypeReferenceAspect extends JvmTypeReferenceAspect{
 class JvmWildcardTypeReferenceAspect extends JvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmWildcardTypeReference")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmWildcardTypeReference")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -454,16 +496,18 @@ class JvmWildcardTypeReferenceAspect extends JvmTypeReferenceAspect{
 class JvmAnyTypeReferenceAspect extends JvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmAnyTypeReference")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^type?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmAnyTypeReference")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^type!=null){
 		_self.^type.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -472,11 +516,13 @@ class JvmAnyTypeReferenceAspect extends JvmTypeReferenceAspect{
 class JvmMultiTypeReferenceAspect extends JvmCompoundTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmMultiTypeReference")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmMultiTypeReference")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -486,16 +532,18 @@ class JvmMultiTypeReferenceAspect extends JvmCompoundTypeReferenceAspect{
 abstract class JvmMemberAspect extends JvmAnnotationTargetAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmMember")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^declaringType?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmMember")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^declaringType!=null){
 		_self.^declaringType.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -504,11 +552,13 @@ abstract class JvmMemberAspect extends JvmAnnotationTargetAspect{
 abstract class JvmFeatureAspect extends JvmMemberAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmFeature")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmFeature")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -518,16 +568,18 @@ abstract class JvmFeatureAspect extends JvmMemberAspect{
 class JvmFieldAspect extends JvmFeatureAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmField")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^type?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmField")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^type!=null){
 		_self.^type.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -536,6 +588,7 @@ class JvmFieldAspect extends JvmFeatureAspect{
 abstract class JvmExecutableAspect extends JvmFeatureAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmExecutable")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^parameters.forEach[visitToAddClasses(theSlicer)]
 		_self.^exceptions.forEach[visitToAddClasses(theSlicer)]
@@ -545,6 +598,7 @@ abstract class JvmExecutableAspect extends JvmFeatureAspect{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmExecutable")
 		_self.super__visitToAddRelations(theSlicer)
 		_self.^parameters.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 		_self.^exceptions.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
@@ -558,11 +612,13 @@ abstract class JvmExecutableAspect extends JvmFeatureAspect{
 class JvmConstructorAspect extends JvmExecutableAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmConstructor")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmConstructor")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -572,6 +628,7 @@ class JvmConstructorAspect extends JvmExecutableAspect{
 class JvmOperationAspect extends JvmExecutableAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmOperation")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^returnType?.visitToAddClasses(theSlicer)
 		_self.^defaultValue?.visitToAddClasses(theSlicer)
@@ -579,13 +636,14 @@ class JvmOperationAspect extends JvmExecutableAspect{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmOperation")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^returnType!=null){
 		_self.^returnType.visitToAddRelations(theSlicer)
-}
+		}
 		if(_self.^defaultValue!=null){
 		_self.^defaultValue.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -594,16 +652,18 @@ class JvmOperationAspect extends JvmExecutableAspect{
 class JvmFormalParameterAspect extends JvmAnnotationTargetAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmFormalParameter")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^parameterType?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmFormalParameter")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^parameterType!=null){
 		_self.^parameterType.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -612,12 +672,14 @@ class JvmFormalParameterAspect extends JvmAnnotationTargetAspect{
 abstract class JvmAnnotationTargetAspect extends JvmIdentifiableElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmAnnotationTarget")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^annotations.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmAnnotationTarget")
 		_self.super__visitToAddRelations(theSlicer)
 		_self.^annotations.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
@@ -628,18 +690,20 @@ abstract class JvmAnnotationTargetAspect extends JvmIdentifiableElementAspect{
 class JvmAnnotationReferenceAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmAnnotationReference")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^annotation?.visitToAddClasses(theSlicer)
-		_self.^values.forEach[visitToAddClasses(theSlicer)]
+		_self.^explicitValues.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmAnnotationReference")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^annotation!=null){
 		_self.^annotation.visitToAddRelations(theSlicer)
-}
-		_self.^values.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
+		}
+		_self.^explicitValues.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
 	}
 }
@@ -648,16 +712,18 @@ class JvmAnnotationReferenceAspect extends __SlicerAspect__{
 abstract class JvmAnnotationValueAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmAnnotationValue")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^operation?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmAnnotationValue")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^operation!=null){
 		_self.^operation.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -666,11 +732,13 @@ abstract class JvmAnnotationValueAspect extends __SlicerAspect__{
 class JvmIntAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmIntAnnotationValue")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmIntAnnotationValue")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -680,11 +748,13 @@ class JvmIntAnnotationValueAspect extends JvmAnnotationValueAspect{
 class JvmBooleanAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmBooleanAnnotationValue")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmBooleanAnnotationValue")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -694,11 +764,13 @@ class JvmBooleanAnnotationValueAspect extends JvmAnnotationValueAspect{
 class JvmByteAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmByteAnnotationValue")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmByteAnnotationValue")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -708,11 +780,13 @@ class JvmByteAnnotationValueAspect extends JvmAnnotationValueAspect{
 class JvmShortAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmShortAnnotationValue")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmShortAnnotationValue")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -722,11 +796,13 @@ class JvmShortAnnotationValueAspect extends JvmAnnotationValueAspect{
 class JvmLongAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmLongAnnotationValue")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmLongAnnotationValue")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -736,11 +812,13 @@ class JvmLongAnnotationValueAspect extends JvmAnnotationValueAspect{
 class JvmDoubleAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmDoubleAnnotationValue")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmDoubleAnnotationValue")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -750,11 +828,13 @@ class JvmDoubleAnnotationValueAspect extends JvmAnnotationValueAspect{
 class JvmFloatAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmFloatAnnotationValue")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmFloatAnnotationValue")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -764,11 +844,13 @@ class JvmFloatAnnotationValueAspect extends JvmAnnotationValueAspect{
 class JvmCharAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmCharAnnotationValue")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmCharAnnotationValue")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -778,11 +860,13 @@ class JvmCharAnnotationValueAspect extends JvmAnnotationValueAspect{
 class JvmStringAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmStringAnnotationValue")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmStringAnnotationValue")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -792,12 +876,14 @@ class JvmStringAnnotationValueAspect extends JvmAnnotationValueAspect{
 class JvmTypeAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmTypeAnnotationValue")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^values.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmTypeAnnotationValue")
 		_self.super__visitToAddRelations(theSlicer)
 		_self.^values.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
@@ -808,12 +894,14 @@ class JvmTypeAnnotationValueAspect extends JvmAnnotationValueAspect{
 class JvmAnnotationAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmAnnotationAnnotationValue")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^values.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmAnnotationAnnotationValue")
 		_self.super__visitToAddRelations(theSlicer)
 		_self.^values.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
@@ -824,12 +912,14 @@ class JvmAnnotationAnnotationValueAspect extends JvmAnnotationValueAspect{
 class JvmEnumAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmEnumAnnotationValue")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^values.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmEnumAnnotationValue")
 		_self.super__visitToAddRelations(theSlicer)
 		_self.^values.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
@@ -840,16 +930,18 @@ class JvmEnumAnnotationValueAspect extends JvmAnnotationValueAspect{
 class JvmDelegateTypeReferenceAspect extends JvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmDelegateTypeReference")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^delegate?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmDelegateTypeReference")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^delegate!=null){
 		_self.^delegate.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -858,16 +950,18 @@ class JvmDelegateTypeReferenceAspect extends JvmTypeReferenceAspect{
 abstract class JvmSpecializedTypeReferenceAspect extends JvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmSpecializedTypeReference")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^equivalent?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmSpecializedTypeReference")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^equivalent!=null){
 		_self.^equivalent.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -876,11 +970,13 @@ abstract class JvmSpecializedTypeReferenceAspect extends JvmTypeReferenceAspect{
 class JvmSynonymTypeReferenceAspect extends JvmCompoundTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmSynonymTypeReference")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmSynonymTypeReference")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -890,11 +986,13 @@ class JvmSynonymTypeReferenceAspect extends JvmCompoundTypeReferenceAspect{
 class JvmUnknownTypeReferenceAspect extends JvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmUnknownTypeReference")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmUnknownTypeReference")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -904,6 +1002,7 @@ class JvmUnknownTypeReferenceAspect extends JvmTypeReferenceAspect{
 abstract class JvmCompoundTypeReferenceAspect extends JvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmCompoundTypeReference")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^type?.visitToAddClasses(theSlicer)
 		_self.^references.forEach[visitToAddClasses(theSlicer)]
@@ -911,10 +1010,11 @@ abstract class JvmCompoundTypeReferenceAspect extends JvmTypeReferenceAspect{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmCompoundTypeReference")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^type!=null){
 		_self.^type.visitToAddRelations(theSlicer)
-}
+		}
 		_self.^references.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
 	}
@@ -924,11 +1024,13 @@ abstract class JvmCompoundTypeReferenceAspect extends JvmTypeReferenceAspect{
 class JvmCustomAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in JvmCustomAnnotationValue")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in JvmCustomAnnotationValue")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -938,11 +1040,13 @@ class JvmCustomAnnotationValueAspect extends JvmAnnotationValueAspect{
 abstract class XExpressionAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XExpression")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XExpression")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -952,6 +1056,7 @@ abstract class XExpressionAspect extends __SlicerAspect__{
 class XIfExpressionAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XIfExpression")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^if?.visitToAddClasses(theSlicer)
 		_self.^then?.visitToAddClasses(theSlicer)
@@ -960,24 +1065,26 @@ class XIfExpressionAspect extends XExpressionAspect{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XIfExpression")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^if!=null){
 		_self.^if.visitToAddRelations(theSlicer)
-}
+		}
 		if(_self.^then!=null){
 		_self.^then.visitToAddRelations(theSlicer)
-}
+		}
 		if(_self.^else!=null){
 		_self.^else.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
 
 @Aspect(className=typeof(XSwitchExpression))
-class XSwitchExpressionAspect extends XExpressionAspect{
+class XSwitchExpressionAspect extends JvmIdentifiableElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XSwitchExpression")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^switch?.visitToAddClasses(theSlicer)
 		_self.^cases.forEach[visitToAddClasses(theSlicer)]
@@ -986,14 +1093,15 @@ class XSwitchExpressionAspect extends XExpressionAspect{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XSwitchExpression")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^switch!=null){
 		_self.^switch.visitToAddRelations(theSlicer)
-}
+		}
 		_self.^cases.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 		if(_self.^default!=null){
 		_self.^default.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -1002,6 +1110,7 @@ class XSwitchExpressionAspect extends XExpressionAspect{
 class XCasePartAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XCasePart")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^case?.visitToAddClasses(theSlicer)
 		_self.^then?.visitToAddClasses(theSlicer)
@@ -1010,16 +1119,17 @@ class XCasePartAspect extends __SlicerAspect__{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XCasePart")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^case!=null){
 		_self.^case.visitToAddRelations(theSlicer)
-}
+		}
 		if(_self.^then!=null){
 		_self.^then.visitToAddRelations(theSlicer)
-}
+		}
 		if(_self.^typeGuard!=null){
 		_self.^typeGuard.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -1028,12 +1138,14 @@ class XCasePartAspect extends __SlicerAspect__{
 class XBlockExpressionAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XBlockExpression")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^expressions.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XBlockExpression")
 		_self.super__visitToAddRelations(theSlicer)
 		_self.^expressions.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
@@ -1041,9 +1153,10 @@ class XBlockExpressionAspect extends XExpressionAspect{
 }
 
 @Aspect(className=typeof(XVariableDeclaration))
-class XVariableDeclarationAspect extends XExpressionAspect{
+class XVariableDeclarationAspect extends JvmIdentifiableElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XVariableDeclaration")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^type?.visitToAddClasses(theSlicer)
 		_self.^right?.visitToAddClasses(theSlicer)
@@ -1051,13 +1164,14 @@ class XVariableDeclarationAspect extends XExpressionAspect{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XVariableDeclaration")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^type!=null){
 		_self.^type.visitToAddRelations(theSlicer)
-}
+		}
 		if(_self.^right!=null){
 		_self.^right.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -1066,6 +1180,7 @@ class XVariableDeclarationAspect extends XExpressionAspect{
 abstract class XAbstractFeatureCallAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XAbstractFeatureCall")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^feature?.visitToAddClasses(theSlicer)
 		_self.^typeArguments.forEach[visitToAddClasses(theSlicer)]
@@ -1075,17 +1190,18 @@ abstract class XAbstractFeatureCallAspect extends XExpressionAspect{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XAbstractFeatureCall")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^feature!=null){
 		_self.^feature.visitToAddRelations(theSlicer)
-}
+		}
 		_self.^typeArguments.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 		if(_self.^implicitReceiver!=null){
 		_self.^implicitReceiver.visitToAddRelations(theSlicer)
-}
+		}
 		if(_self.^implicitFirstArgument!=null){
 		_self.^implicitFirstArgument.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -1094,6 +1210,7 @@ abstract class XAbstractFeatureCallAspect extends XExpressionAspect{
 class XMemberFeatureCallAspect extends XAbstractFeatureCallAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XMemberFeatureCall")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^memberCallTarget?.visitToAddClasses(theSlicer)
 		_self.^memberCallArguments.forEach[visitToAddClasses(theSlicer)]
@@ -1101,10 +1218,11 @@ class XMemberFeatureCallAspect extends XAbstractFeatureCallAspect{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XMemberFeatureCall")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^memberCallTarget!=null){
 		_self.^memberCallTarget.visitToAddRelations(theSlicer)
-}
+		}
 		_self.^memberCallArguments.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
 	}
@@ -1114,12 +1232,14 @@ class XMemberFeatureCallAspect extends XAbstractFeatureCallAspect{
 class XFeatureCallAspect extends XAbstractFeatureCallAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XFeatureCall")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^featureCallArguments.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XFeatureCall")
 		_self.super__visitToAddRelations(theSlicer)
 		_self.^featureCallArguments.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
@@ -1130,6 +1250,7 @@ class XFeatureCallAspect extends XAbstractFeatureCallAspect{
 class XConstructorCallAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XConstructorCall")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^constructor?.visitToAddClasses(theSlicer)
 		_self.^arguments.forEach[visitToAddClasses(theSlicer)]
@@ -1137,10 +1258,11 @@ class XConstructorCallAspect extends XExpressionAspect{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XConstructorCall")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^constructor!=null){
 		_self.^constructor.visitToAddRelations(theSlicer)
-}
+		}
 		_self.^arguments.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
 	}
@@ -1150,11 +1272,13 @@ class XConstructorCallAspect extends XExpressionAspect{
 class XBooleanLiteralAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XBooleanLiteral")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XBooleanLiteral")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -1164,11 +1288,13 @@ class XBooleanLiteralAspect extends XExpressionAspect{
 class XNullLiteralAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XNullLiteral")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XNullLiteral")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -1178,11 +1304,13 @@ class XNullLiteralAspect extends XExpressionAspect{
 class XNumberLiteralAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XNumberLiteral")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XNumberLiteral")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -1192,11 +1320,13 @@ class XNumberLiteralAspect extends XExpressionAspect{
 class XStringLiteralAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XStringLiteral")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XStringLiteral")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -1206,12 +1336,14 @@ class XStringLiteralAspect extends XExpressionAspect{
 abstract class XCollectionLiteralAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XCollectionLiteral")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^elements.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XCollectionLiteral")
 		_self.super__visitToAddRelations(theSlicer)
 		_self.^elements.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
@@ -1222,11 +1354,13 @@ abstract class XCollectionLiteralAspect extends XExpressionAspect{
 class XListLiteralAspect extends XCollectionLiteralAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XListLiteral")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XListLiteral")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -1236,11 +1370,13 @@ class XListLiteralAspect extends XCollectionLiteralAspect{
 class XSetLiteralAspect extends XCollectionLiteralAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XSetLiteral")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XSetLiteral")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -1250,6 +1386,7 @@ class XSetLiteralAspect extends XCollectionLiteralAspect{
 class XClosureAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XClosure")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^declaredFormalParameters.forEach[visitToAddClasses(theSlicer)]
 		_self.^expression?.visitToAddClasses(theSlicer)
@@ -1258,14 +1395,15 @@ class XClosureAspect extends XExpressionAspect{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XClosure")
 		_self.super__visitToAddRelations(theSlicer)
 		_self.^declaredFormalParameters.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 		if(_self.^expression!=null){
 		_self.^expression.visitToAddRelations(theSlicer)
-}
+		}
 		if(_self.^implicitParameter!=null){
 		_self.^implicitParameter.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -1274,6 +1412,7 @@ class XClosureAspect extends XExpressionAspect{
 class XCastedExpressionAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XCastedExpression")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^type?.visitToAddClasses(theSlicer)
 		_self.^target?.visitToAddClasses(theSlicer)
@@ -1281,13 +1420,14 @@ class XCastedExpressionAspect extends XExpressionAspect{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XCastedExpression")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^type!=null){
 		_self.^type.visitToAddRelations(theSlicer)
-}
+		}
 		if(_self.^target!=null){
 		_self.^target.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -1296,6 +1436,7 @@ class XCastedExpressionAspect extends XExpressionAspect{
 class XBinaryOperationAspect extends XAbstractFeatureCallAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XBinaryOperation")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^leftOperand?.visitToAddClasses(theSlicer)
 		_self.^rightOperand?.visitToAddClasses(theSlicer)
@@ -1303,13 +1444,14 @@ class XBinaryOperationAspect extends XAbstractFeatureCallAspect{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XBinaryOperation")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^leftOperand!=null){
 		_self.^leftOperand.visitToAddRelations(theSlicer)
-}
+		}
 		if(_self.^rightOperand!=null){
 		_self.^rightOperand.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -1318,16 +1460,18 @@ class XBinaryOperationAspect extends XAbstractFeatureCallAspect{
 class XUnaryOperationAspect extends XAbstractFeatureCallAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XUnaryOperation")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^operand?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XUnaryOperation")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^operand!=null){
 		_self.^operand.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -1336,6 +1480,7 @@ class XUnaryOperationAspect extends XAbstractFeatureCallAspect{
 class XForLoopExpressionAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XForLoopExpression")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^forExpression?.visitToAddClasses(theSlicer)
 		_self.^eachExpression?.visitToAddClasses(theSlicer)
@@ -1344,16 +1489,17 @@ class XForLoopExpressionAspect extends XExpressionAspect{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XForLoopExpression")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^forExpression!=null){
 		_self.^forExpression.visitToAddRelations(theSlicer)
-}
+		}
 		if(_self.^eachExpression!=null){
 		_self.^eachExpression.visitToAddRelations(theSlicer)
-}
+		}
 		if(_self.^declaredParam!=null){
 		_self.^declaredParam.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -1362,6 +1508,7 @@ class XForLoopExpressionAspect extends XExpressionAspect{
 abstract class XAbstractWhileExpressionAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XAbstractWhileExpression")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^predicate?.visitToAddClasses(theSlicer)
 		_self.^body?.visitToAddClasses(theSlicer)
@@ -1369,13 +1516,14 @@ abstract class XAbstractWhileExpressionAspect extends XExpressionAspect{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XAbstractWhileExpression")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^predicate!=null){
 		_self.^predicate.visitToAddRelations(theSlicer)
-}
+		}
 		if(_self.^body!=null){
 		_self.^body.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -1384,11 +1532,13 @@ abstract class XAbstractWhileExpressionAspect extends XExpressionAspect{
 class XDoWhileExpressionAspect extends XAbstractWhileExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XDoWhileExpression")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XDoWhileExpression")
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -1398,28 +1548,14 @@ class XDoWhileExpressionAspect extends XAbstractWhileExpressionAspect{
 class XWhileExpressionAspect extends XAbstractWhileExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XWhileExpression")
 		_self.super__visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XWhileExpression")
 		_self.super__visitToAddRelations(theSlicer)
-
-	}
-}
-
-@Aspect(className=typeof(XTypeLiteral))
-class XTypeLiteralAspect extends XExpressionAspect{
-	@OverrideAspectMethod
-	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
-		_self.super__visitToAddClasses(theSlicer)
-		_self.^type?.visitToAddClasses(theSlicer)
-
-	}
-	@OverrideAspectMethod
-	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
-		_self.super__visitToAddRelations(theSlicer)
-		_self.^type.visitToAddRelations(theSlicer)
 
 	}
 }
@@ -1428,6 +1564,7 @@ class XTypeLiteralAspect extends XExpressionAspect{
 class XInstanceOfExpressionAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XInstanceOfExpression")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^type?.visitToAddClasses(theSlicer)
 		_self.^expression?.visitToAddClasses(theSlicer)
@@ -1435,9 +1572,14 @@ class XInstanceOfExpressionAspect extends XExpressionAspect{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XInstanceOfExpression")
 		_self.super__visitToAddRelations(theSlicer)
+		if(_self.^type!=null){
 		_self.^type.visitToAddRelations(theSlicer)
+		}
+		if(_self.^expression!=null){
 		_self.^expression.visitToAddRelations(theSlicer)
+		}
 
 	}
 }
@@ -1446,16 +1588,18 @@ class XInstanceOfExpressionAspect extends XExpressionAspect{
 class XThrowExpressionAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XThrowExpression")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^expression?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XThrowExpression")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^expression!=null){
 		_self.^expression.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -1464,6 +1608,7 @@ class XThrowExpressionAspect extends XExpressionAspect{
 class XTryCatchFinallyExpressionAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XTryCatchFinallyExpression")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^expression?.visitToAddClasses(theSlicer)
 		_self.^finallyExpression?.visitToAddClasses(theSlicer)
@@ -1472,13 +1617,14 @@ class XTryCatchFinallyExpressionAspect extends XExpressionAspect{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XTryCatchFinallyExpression")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^expression!=null){
 		_self.^expression.visitToAddRelations(theSlicer)
-}
+		}
 		if(_self.^finallyExpression!=null){
 		_self.^finallyExpression.visitToAddRelations(theSlicer)
-}
+		}
 		_self.^catchClauses.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
 	}
@@ -1488,6 +1634,7 @@ class XTryCatchFinallyExpressionAspect extends XExpressionAspect{
 class XCatchClauseAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XCatchClause")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^expression?.visitToAddClasses(theSlicer)
 		_self.^declaredParam?.visitToAddClasses(theSlicer)
@@ -1495,13 +1642,14 @@ class XCatchClauseAspect extends __SlicerAspect__{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XCatchClause")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^expression!=null){
 		_self.^expression.visitToAddRelations(theSlicer)
-}
+		}
 		if(_self.^declaredParam!=null){
 		_self.^declaredParam.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -1510,6 +1658,7 @@ class XCatchClauseAspect extends __SlicerAspect__{
 class XAssignmentAspect extends XAbstractFeatureCallAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XAssignment")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^assignable?.visitToAddClasses(theSlicer)
 		_self.^value?.visitToAddClasses(theSlicer)
@@ -1517,13 +1666,14 @@ class XAssignmentAspect extends XAbstractFeatureCallAspect{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XAssignment")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^assignable!=null){
 		_self.^assignable.visitToAddRelations(theSlicer)
-}
+		}
 		if(_self.^value!=null){
 		_self.^value.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
@@ -1532,18 +1682,38 @@ class XAssignmentAspect extends XAbstractFeatureCallAspect{
 class XReturnExpressionAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XReturnExpression")
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^expression?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XReturnExpression")
 		_self.super__visitToAddRelations(theSlicer)
 		if(_self.^expression!=null){
 		_self.^expression.visitToAddRelations(theSlicer)
-}
+		}
 
 	}
 }
 
+@Aspect(className=typeof(XTypeLiteral))
+class XTypeLiteralAspect extends XExpressionAspect{
+	@OverrideAspectMethod
+	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+println("class: " + _self.class + " in XTypeLiteral")
+		_self.super__visitToAddClasses(theSlicer)
+		_self.^type?.visitToAddClasses(theSlicer)
 
+	}
+	@OverrideAspectMethod
+	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+println("relation: " + _self.class + " in XTypeLiteral")
+		_self.super__visitToAddRelations(theSlicer)
+		if(_self.^type!=null){
+		_self.^type.visitToAddRelations(theSlicer)
+		}
+
+	}
+}

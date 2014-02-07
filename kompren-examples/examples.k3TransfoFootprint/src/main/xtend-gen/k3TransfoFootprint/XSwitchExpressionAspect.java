@@ -3,8 +3,8 @@ package k3TransfoFootprint;
 import com.google.common.base.Objects;
 import fr.inria.triskell.k3.Aspect;
 import fr.inria.triskell.k3.OverrideAspectMethod;
+import k3TransfoFootprint.JvmIdentifiableElementAspect;
 import k3TransfoFootprint.K3TransfoFootprint;
-import k3TransfoFootprint.XExpressionAspect;
 import k3TransfoFootprint.XSwitchExpressionAspectXSwitchExpressionAspectProperties;
 import k3TransfoFootprint.__SlicerAspect__;
 import org.eclipse.emf.common.util.EList;
@@ -17,7 +17,7 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 @Aspect(className = XSwitchExpression.class)
 @SuppressWarnings("all")
-public class XSwitchExpressionAspect extends XExpressionAspect {
+public class XSwitchExpressionAspect extends JvmIdentifiableElementAspect {
   @OverrideAspectMethod
   public static void _visitToAddClasses(final XSwitchExpression _self, final K3TransfoFootprint theSlicer) {
     k3TransfoFootprint.XSwitchExpressionAspectXSwitchExpressionAspectContext _instance = k3TransfoFootprint.XSwitchExpressionAspectXSwitchExpressionAspectContext.getInstance();
@@ -31,8 +31,8 @@ public class XSwitchExpressionAspect extends XExpressionAspect {
     			     _self_ = selfProp.get(_self);
     			        if (_self instanceof org.eclipse.xtext.xbase.XSwitchExpression){
     			     							 k3TransfoFootprint.XSwitchExpressionAspect.priv_visitToAddClasses((org.eclipse.xtext.xbase.XSwitchExpression)_self,theSlicer);
-    			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XExpression){
-    			     							 k3TransfoFootprint.XExpressionAspect.priv_visitToAddClasses((org.eclipse.xtext.xbase.XExpression)_self,theSlicer);
+    			     							} else    if (_self instanceof org.eclipse.xtext.common.types.JvmIdentifiableElement){
+    			     							 k3TransfoFootprint.JvmIdentifiableElementAspect.priv_visitToAddClasses((org.eclipse.xtext.common.types.JvmIdentifiableElement)_self,theSlicer);
     			     							} else    if (_self instanceof java.lang.Object){
     			     							 k3TransfoFootprint.__SlicerAspect__.priv_visitToAddClasses((java.lang.Object)_self,theSlicer);
     			     							} else 
@@ -55,8 +55,8 @@ public class XSwitchExpressionAspect extends XExpressionAspect {
     			     _self_ = selfProp.get(_self);
     			        if (_self instanceof org.eclipse.xtext.xbase.XSwitchExpression){
     			     							 k3TransfoFootprint.XSwitchExpressionAspect.priv_visitToAddRelations((org.eclipse.xtext.xbase.XSwitchExpression)_self,theSlicer);
-    			     							} else    if (_self instanceof org.eclipse.xtext.xbase.XExpression){
-    			     							 k3TransfoFootprint.XExpressionAspect.priv_visitToAddRelations((org.eclipse.xtext.xbase.XExpression)_self,theSlicer);
+    			     							} else    if (_self instanceof org.eclipse.xtext.common.types.JvmIdentifiableElement){
+    			     							 k3TransfoFootprint.JvmIdentifiableElementAspect.priv_visitToAddRelations((org.eclipse.xtext.common.types.JvmIdentifiableElement)_self,theSlicer);
     			     							} else    if (_self instanceof java.lang.Object){
     			     							 k3TransfoFootprint.__SlicerAspect__.priv_visitToAddRelations((java.lang.Object)_self,theSlicer);
     			     							} else 
@@ -69,7 +69,7 @@ public class XSwitchExpressionAspect extends XExpressionAspect {
   public static XSwitchExpressionAspectXSwitchExpressionAspectProperties _self_;
   
   private static void super__visitToAddClasses(final XSwitchExpression _self, final K3TransfoFootprint theSlicer) {
-      k3TransfoFootprint.XExpressionAspect.priv_visitToAddClasses(_self,theSlicer);  
+      k3TransfoFootprint.JvmIdentifiableElementAspect.priv_visitToAddClasses(_self,theSlicer);  
   }
   
   protected static void priv_visitToAddClasses(final XSwitchExpression _self, final K3TransfoFootprint theSlicer) {
@@ -96,7 +96,7 @@ public class XSwitchExpressionAspect extends XExpressionAspect {
   }
   
   private static void super__visitToAddRelations(final XSwitchExpression _self, final K3TransfoFootprint theSlicer) {
-      k3TransfoFootprint.XExpressionAspect.priv_visitToAddRelations(_self,theSlicer);  
+      k3TransfoFootprint.JvmIdentifiableElementAspect.priv_visitToAddRelations(_self,theSlicer);  
   }
   
   protected static void priv_visitToAddRelations(final XSwitchExpression _self, final K3TransfoFootprint theSlicer) {
