@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalKomprenParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'slicer'", "'active'", "'strict'", "'{'", "'domain'", "':'", "'input'", "','", "'radius'", "'constraint'", "'slicedClass'", "'slicedProperty'", "'onStart'", "'[['", "']]'", "'onEnd'", "'helper'", "'}'", "'.'", "'option'", "'opposite'", "'('", "')'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'slicer'", "'active'", "'strict'", "'{'", "'domain'", "':'", "'input'", "','", "'radius'", "'slicedClass'", "'slicedProperty'", "'onStart'", "'[['", "']]'", "'onEnd'", "'helper'", "'}'", "'.'", "'option'", "'constraint'", "'opposite'", "'('", "')'"
     };
     public static final int RULE_ID=5;
     public static final int T__29=29;
@@ -130,7 +130,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSlicer"
-    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:76:1: ruleSlicer returns [EObject current=null] : (otherlv_0= 'slicer' ( (lv_active_1_0= 'active' ) )? ( (lv_strict_2_0= 'strict' ) )? ( (lv_name_3_0= ruleQName ) ) otherlv_4= '{' otherlv_5= 'domain' otherlv_6= ':' ( (lv_uriMetamodel_7_0= ruleEString ) ) otherlv_8= 'input' otherlv_9= ':' ( ( ruleQName ) ) (otherlv_11= ',' ( ( ruleQName ) ) )* (otherlv_13= 'radius' otherlv_14= ':' ( (lv_radius_15_0= ruleRadius ) ) )? (otherlv_16= 'constraint' otherlv_17= ':' ( (lv_constraints_18_0= ruleConstraint ) ) )* (otherlv_19= 'slicedClass' otherlv_20= ':' ( (lv_slicedElements_21_0= ruleSlicedClass ) ) )* (otherlv_22= 'slicedProperty' otherlv_23= ':' ( (lv_slicedElements_24_0= ruleSlicedProperty ) ) )* (otherlv_25= 'onStart' otherlv_26= '[[' ( (lv_onStart_27_0= ruleEString ) ) otherlv_28= ']]' )? (otherlv_29= 'onEnd' otherlv_30= '[[' ( (lv_onEnd_31_0= ruleEString ) ) otherlv_32= ']]' )? (otherlv_33= 'helper' otherlv_34= '[[' ( (lv_helper_35_0= ruleEString ) ) otherlv_36= ']]' )? otherlv_37= '}' ) ;
+    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:76:1: ruleSlicer returns [EObject current=null] : (otherlv_0= 'slicer' ( (lv_active_1_0= 'active' ) )? ( (lv_strict_2_0= 'strict' ) )? ( (lv_name_3_0= ruleQName ) ) otherlv_4= '{' (otherlv_5= 'domain' otherlv_6= ':' ( (lv_uriMetamodel_7_0= ruleEString ) ) )+ otherlv_8= 'input' otherlv_9= ':' ( ( ruleQName ) ) (otherlv_11= ',' ( ( ruleQName ) ) )* (otherlv_13= 'radius' otherlv_14= ':' ( (lv_radius_15_0= ruleRadius ) ) )? (otherlv_16= 'slicedClass' otherlv_17= ':' ( (lv_slicedElements_18_0= ruleSlicedClass ) ) )* (otherlv_19= 'slicedProperty' otherlv_20= ':' ( (lv_slicedElements_21_0= ruleSlicedProperty ) ) )* (otherlv_22= 'onStart' otherlv_23= '[[' ( (lv_onStart_24_0= ruleEString ) ) otherlv_25= ']]' )? (otherlv_26= 'onEnd' otherlv_27= '[[' ( (lv_onEnd_28_0= ruleEString ) ) otherlv_29= ']]' )? (otherlv_30= 'helper' otherlv_31= '[[' ( (lv_helper_32_0= ruleEString ) ) otherlv_33= ']]' )? otherlv_34= '}' ) ;
     public final EObject ruleSlicer() throws RecognitionException {
         EObject current = null;
 
@@ -153,41 +153,37 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
         Token otherlv_23=null;
         Token otherlv_25=null;
         Token otherlv_26=null;
-        Token otherlv_28=null;
+        Token otherlv_27=null;
         Token otherlv_29=null;
         Token otherlv_30=null;
-        Token otherlv_32=null;
+        Token otherlv_31=null;
         Token otherlv_33=null;
         Token otherlv_34=null;
-        Token otherlv_36=null;
-        Token otherlv_37=null;
         AntlrDatatypeRuleToken lv_name_3_0 = null;
 
         AntlrDatatypeRuleToken lv_uriMetamodel_7_0 = null;
 
         EObject lv_radius_15_0 = null;
 
-        EObject lv_constraints_18_0 = null;
+        EObject lv_slicedElements_18_0 = null;
 
         EObject lv_slicedElements_21_0 = null;
 
-        EObject lv_slicedElements_24_0 = null;
+        AntlrDatatypeRuleToken lv_onStart_24_0 = null;
 
-        AntlrDatatypeRuleToken lv_onStart_27_0 = null;
+        AntlrDatatypeRuleToken lv_onEnd_28_0 = null;
 
-        AntlrDatatypeRuleToken lv_onEnd_31_0 = null;
-
-        AntlrDatatypeRuleToken lv_helper_35_0 = null;
+        AntlrDatatypeRuleToken lv_helper_32_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:79:28: ( (otherlv_0= 'slicer' ( (lv_active_1_0= 'active' ) )? ( (lv_strict_2_0= 'strict' ) )? ( (lv_name_3_0= ruleQName ) ) otherlv_4= '{' otherlv_5= 'domain' otherlv_6= ':' ( (lv_uriMetamodel_7_0= ruleEString ) ) otherlv_8= 'input' otherlv_9= ':' ( ( ruleQName ) ) (otherlv_11= ',' ( ( ruleQName ) ) )* (otherlv_13= 'radius' otherlv_14= ':' ( (lv_radius_15_0= ruleRadius ) ) )? (otherlv_16= 'constraint' otherlv_17= ':' ( (lv_constraints_18_0= ruleConstraint ) ) )* (otherlv_19= 'slicedClass' otherlv_20= ':' ( (lv_slicedElements_21_0= ruleSlicedClass ) ) )* (otherlv_22= 'slicedProperty' otherlv_23= ':' ( (lv_slicedElements_24_0= ruleSlicedProperty ) ) )* (otherlv_25= 'onStart' otherlv_26= '[[' ( (lv_onStart_27_0= ruleEString ) ) otherlv_28= ']]' )? (otherlv_29= 'onEnd' otherlv_30= '[[' ( (lv_onEnd_31_0= ruleEString ) ) otherlv_32= ']]' )? (otherlv_33= 'helper' otherlv_34= '[[' ( (lv_helper_35_0= ruleEString ) ) otherlv_36= ']]' )? otherlv_37= '}' ) )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:80:1: (otherlv_0= 'slicer' ( (lv_active_1_0= 'active' ) )? ( (lv_strict_2_0= 'strict' ) )? ( (lv_name_3_0= ruleQName ) ) otherlv_4= '{' otherlv_5= 'domain' otherlv_6= ':' ( (lv_uriMetamodel_7_0= ruleEString ) ) otherlv_8= 'input' otherlv_9= ':' ( ( ruleQName ) ) (otherlv_11= ',' ( ( ruleQName ) ) )* (otherlv_13= 'radius' otherlv_14= ':' ( (lv_radius_15_0= ruleRadius ) ) )? (otherlv_16= 'constraint' otherlv_17= ':' ( (lv_constraints_18_0= ruleConstraint ) ) )* (otherlv_19= 'slicedClass' otherlv_20= ':' ( (lv_slicedElements_21_0= ruleSlicedClass ) ) )* (otherlv_22= 'slicedProperty' otherlv_23= ':' ( (lv_slicedElements_24_0= ruleSlicedProperty ) ) )* (otherlv_25= 'onStart' otherlv_26= '[[' ( (lv_onStart_27_0= ruleEString ) ) otherlv_28= ']]' )? (otherlv_29= 'onEnd' otherlv_30= '[[' ( (lv_onEnd_31_0= ruleEString ) ) otherlv_32= ']]' )? (otherlv_33= 'helper' otherlv_34= '[[' ( (lv_helper_35_0= ruleEString ) ) otherlv_36= ']]' )? otherlv_37= '}' )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:79:28: ( (otherlv_0= 'slicer' ( (lv_active_1_0= 'active' ) )? ( (lv_strict_2_0= 'strict' ) )? ( (lv_name_3_0= ruleQName ) ) otherlv_4= '{' (otherlv_5= 'domain' otherlv_6= ':' ( (lv_uriMetamodel_7_0= ruleEString ) ) )+ otherlv_8= 'input' otherlv_9= ':' ( ( ruleQName ) ) (otherlv_11= ',' ( ( ruleQName ) ) )* (otherlv_13= 'radius' otherlv_14= ':' ( (lv_radius_15_0= ruleRadius ) ) )? (otherlv_16= 'slicedClass' otherlv_17= ':' ( (lv_slicedElements_18_0= ruleSlicedClass ) ) )* (otherlv_19= 'slicedProperty' otherlv_20= ':' ( (lv_slicedElements_21_0= ruleSlicedProperty ) ) )* (otherlv_22= 'onStart' otherlv_23= '[[' ( (lv_onStart_24_0= ruleEString ) ) otherlv_25= ']]' )? (otherlv_26= 'onEnd' otherlv_27= '[[' ( (lv_onEnd_28_0= ruleEString ) ) otherlv_29= ']]' )? (otherlv_30= 'helper' otherlv_31= '[[' ( (lv_helper_32_0= ruleEString ) ) otherlv_33= ']]' )? otherlv_34= '}' ) )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:80:1: (otherlv_0= 'slicer' ( (lv_active_1_0= 'active' ) )? ( (lv_strict_2_0= 'strict' ) )? ( (lv_name_3_0= ruleQName ) ) otherlv_4= '{' (otherlv_5= 'domain' otherlv_6= ':' ( (lv_uriMetamodel_7_0= ruleEString ) ) )+ otherlv_8= 'input' otherlv_9= ':' ( ( ruleQName ) ) (otherlv_11= ',' ( ( ruleQName ) ) )* (otherlv_13= 'radius' otherlv_14= ':' ( (lv_radius_15_0= ruleRadius ) ) )? (otherlv_16= 'slicedClass' otherlv_17= ':' ( (lv_slicedElements_18_0= ruleSlicedClass ) ) )* (otherlv_19= 'slicedProperty' otherlv_20= ':' ( (lv_slicedElements_21_0= ruleSlicedProperty ) ) )* (otherlv_22= 'onStart' otherlv_23= '[[' ( (lv_onStart_24_0= ruleEString ) ) otherlv_25= ']]' )? (otherlv_26= 'onEnd' otherlv_27= '[[' ( (lv_onEnd_28_0= ruleEString ) ) otherlv_29= ']]' )? (otherlv_30= 'helper' otherlv_31= '[[' ( (lv_helper_32_0= ruleEString ) ) otherlv_33= ']]' )? otherlv_34= '}' )
             {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:80:1: (otherlv_0= 'slicer' ( (lv_active_1_0= 'active' ) )? ( (lv_strict_2_0= 'strict' ) )? ( (lv_name_3_0= ruleQName ) ) otherlv_4= '{' otherlv_5= 'domain' otherlv_6= ':' ( (lv_uriMetamodel_7_0= ruleEString ) ) otherlv_8= 'input' otherlv_9= ':' ( ( ruleQName ) ) (otherlv_11= ',' ( ( ruleQName ) ) )* (otherlv_13= 'radius' otherlv_14= ':' ( (lv_radius_15_0= ruleRadius ) ) )? (otherlv_16= 'constraint' otherlv_17= ':' ( (lv_constraints_18_0= ruleConstraint ) ) )* (otherlv_19= 'slicedClass' otherlv_20= ':' ( (lv_slicedElements_21_0= ruleSlicedClass ) ) )* (otherlv_22= 'slicedProperty' otherlv_23= ':' ( (lv_slicedElements_24_0= ruleSlicedProperty ) ) )* (otherlv_25= 'onStart' otherlv_26= '[[' ( (lv_onStart_27_0= ruleEString ) ) otherlv_28= ']]' )? (otherlv_29= 'onEnd' otherlv_30= '[[' ( (lv_onEnd_31_0= ruleEString ) ) otherlv_32= ']]' )? (otherlv_33= 'helper' otherlv_34= '[[' ( (lv_helper_35_0= ruleEString ) ) otherlv_36= ']]' )? otherlv_37= '}' )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:80:3: otherlv_0= 'slicer' ( (lv_active_1_0= 'active' ) )? ( (lv_strict_2_0= 'strict' ) )? ( (lv_name_3_0= ruleQName ) ) otherlv_4= '{' otherlv_5= 'domain' otherlv_6= ':' ( (lv_uriMetamodel_7_0= ruleEString ) ) otherlv_8= 'input' otherlv_9= ':' ( ( ruleQName ) ) (otherlv_11= ',' ( ( ruleQName ) ) )* (otherlv_13= 'radius' otherlv_14= ':' ( (lv_radius_15_0= ruleRadius ) ) )? (otherlv_16= 'constraint' otherlv_17= ':' ( (lv_constraints_18_0= ruleConstraint ) ) )* (otherlv_19= 'slicedClass' otherlv_20= ':' ( (lv_slicedElements_21_0= ruleSlicedClass ) ) )* (otherlv_22= 'slicedProperty' otherlv_23= ':' ( (lv_slicedElements_24_0= ruleSlicedProperty ) ) )* (otherlv_25= 'onStart' otherlv_26= '[[' ( (lv_onStart_27_0= ruleEString ) ) otherlv_28= ']]' )? (otherlv_29= 'onEnd' otherlv_30= '[[' ( (lv_onEnd_31_0= ruleEString ) ) otherlv_32= ']]' )? (otherlv_33= 'helper' otherlv_34= '[[' ( (lv_helper_35_0= ruleEString ) ) otherlv_36= ']]' )? otherlv_37= '}'
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:80:1: (otherlv_0= 'slicer' ( (lv_active_1_0= 'active' ) )? ( (lv_strict_2_0= 'strict' ) )? ( (lv_name_3_0= ruleQName ) ) otherlv_4= '{' (otherlv_5= 'domain' otherlv_6= ':' ( (lv_uriMetamodel_7_0= ruleEString ) ) )+ otherlv_8= 'input' otherlv_9= ':' ( ( ruleQName ) ) (otherlv_11= ',' ( ( ruleQName ) ) )* (otherlv_13= 'radius' otherlv_14= ':' ( (lv_radius_15_0= ruleRadius ) ) )? (otherlv_16= 'slicedClass' otherlv_17= ':' ( (lv_slicedElements_18_0= ruleSlicedClass ) ) )* (otherlv_19= 'slicedProperty' otherlv_20= ':' ( (lv_slicedElements_21_0= ruleSlicedProperty ) ) )* (otherlv_22= 'onStart' otherlv_23= '[[' ( (lv_onStart_24_0= ruleEString ) ) otherlv_25= ']]' )? (otherlv_26= 'onEnd' otherlv_27= '[[' ( (lv_onEnd_28_0= ruleEString ) ) otherlv_29= ']]' )? (otherlv_30= 'helper' otherlv_31= '[[' ( (lv_helper_32_0= ruleEString ) ) otherlv_33= ']]' )? otherlv_34= '}' )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:80:3: otherlv_0= 'slicer' ( (lv_active_1_0= 'active' ) )? ( (lv_strict_2_0= 'strict' ) )? ( (lv_name_3_0= ruleQName ) ) otherlv_4= '{' (otherlv_5= 'domain' otherlv_6= ':' ( (lv_uriMetamodel_7_0= ruleEString ) ) )+ otherlv_8= 'input' otherlv_9= ':' ( ( ruleQName ) ) (otherlv_11= ',' ( ( ruleQName ) ) )* (otherlv_13= 'radius' otherlv_14= ':' ( (lv_radius_15_0= ruleRadius ) ) )? (otherlv_16= 'slicedClass' otherlv_17= ':' ( (lv_slicedElements_18_0= ruleSlicedClass ) ) )* (otherlv_19= 'slicedProperty' otherlv_20= ':' ( (lv_slicedElements_21_0= ruleSlicedProperty ) ) )* (otherlv_22= 'onStart' otherlv_23= '[[' ( (lv_onStart_24_0= ruleEString ) ) otherlv_25= ']]' )? (otherlv_26= 'onEnd' otherlv_27= '[[' ( (lv_onEnd_28_0= ruleEString ) ) otherlv_29= ']]' )? (otherlv_30= 'helper' otherlv_31= '[[' ( (lv_helper_32_0= ruleEString ) ) otherlv_33= ']]' )? otherlv_34= '}'
             {
             otherlv_0=(Token)match(input,11,FollowSets000.FOLLOW_11_in_ruleSlicer122); 
 
@@ -294,52 +290,81 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
                 	newLeafNode(otherlv_4, grammarAccess.getSlicerAccess().getLeftCurlyBracketKeyword_4());
                 
-            otherlv_5=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleSlicer231); 
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:136:1: (otherlv_5= 'domain' otherlv_6= ':' ( (lv_uriMetamodel_7_0= ruleEString ) ) )+
+            int cnt3=0;
+            loop3:
+            do {
+                int alt3=2;
+                int LA3_0 = input.LA(1);
 
-                	newLeafNode(otherlv_5, grammarAccess.getSlicerAccess().getDomainKeyword_5());
+                if ( (LA3_0==15) ) {
+                    alt3=1;
+                }
+
+
+                switch (alt3) {
+            	case 1 :
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:136:3: otherlv_5= 'domain' otherlv_6= ':' ( (lv_uriMetamodel_7_0= ruleEString ) )
+            	    {
+            	    otherlv_5=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleSlicer232); 
+
+            	        	newLeafNode(otherlv_5, grammarAccess.getSlicerAccess().getDomainKeyword_5_0());
+            	        
+            	    otherlv_6=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleSlicer244); 
+
+            	        	newLeafNode(otherlv_6, grammarAccess.getSlicerAccess().getColonKeyword_5_1());
+            	        
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:144:1: ( (lv_uriMetamodel_7_0= ruleEString ) )
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:145:1: (lv_uriMetamodel_7_0= ruleEString )
+            	    {
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:145:1: (lv_uriMetamodel_7_0= ruleEString )
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:146:3: lv_uriMetamodel_7_0= ruleEString
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getSlicerAccess().getUriMetamodelEStringParserRuleCall_5_2_0()); 
+            	    	    
+            	    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleSlicer265);
+            	    lv_uriMetamodel_7_0=ruleEString();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getSlicerRule());
+            	    	        }
+            	           		add(
+            	           			current, 
+            	           			"uriMetamodel",
+            	            		lv_uriMetamodel_7_0, 
+            	            		"EString");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt3 >= 1 ) break loop3;
+                        EarlyExitException eee =
+                            new EarlyExitException(3, input);
+                        throw eee;
+                }
+                cnt3++;
+            } while (true);
+
+            otherlv_8=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleSlicer279); 
+
+                	newLeafNode(otherlv_8, grammarAccess.getSlicerAccess().getInputKeyword_6());
                 
-            otherlv_6=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleSlicer243); 
+            otherlv_9=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleSlicer291); 
 
-                	newLeafNode(otherlv_6, grammarAccess.getSlicerAccess().getColonKeyword_6());
-                
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:144:1: ( (lv_uriMetamodel_7_0= ruleEString ) )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:145:1: (lv_uriMetamodel_7_0= ruleEString )
-            {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:145:1: (lv_uriMetamodel_7_0= ruleEString )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:146:3: lv_uriMetamodel_7_0= ruleEString
-            {
-             
-            	        newCompositeNode(grammarAccess.getSlicerAccess().getUriMetamodelEStringParserRuleCall_7_0()); 
-            	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleSlicer264);
-            lv_uriMetamodel_7_0=ruleEString();
-
-            state._fsp--;
-
-
-            	        if (current==null) {
-            	            current = createModelElementForParent(grammarAccess.getSlicerRule());
-            	        }
-                   		set(
-                   			current, 
-                   			"uriMetamodel",
-                    		lv_uriMetamodel_7_0, 
-                    		"EString");
-            	        afterParserOrEnumRuleCall();
-            	    
-
-            }
-
-
-            }
-
-            otherlv_8=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleSlicer276); 
-
-                	newLeafNode(otherlv_8, grammarAccess.getSlicerAccess().getInputKeyword_8());
-                
-            otherlv_9=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleSlicer288); 
-
-                	newLeafNode(otherlv_9, grammarAccess.getSlicerAccess().getColonKeyword_9());
+                	newLeafNode(otherlv_9, grammarAccess.getSlicerAccess().getColonKeyword_7());
                 
             // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:170:1: ( ( ruleQName ) )
             // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:171:1: ( ruleQName )
@@ -353,9 +378,9 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
             	        }
                     
              
-            	        newCompositeNode(grammarAccess.getSlicerAccess().getInputClassesEClassCrossReference_10_0()); 
+            	        newCompositeNode(grammarAccess.getSlicerAccess().getInputClassesEClassCrossReference_8_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleQName_in_ruleSlicer311);
+            pushFollow(FollowSets000.FOLLOW_ruleQName_in_ruleSlicer314);
             ruleQName();
 
             state._fsp--;
@@ -370,23 +395,23 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
             }
 
             // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:185:2: (otherlv_11= ',' ( ( ruleQName ) ) )*
-            loop3:
+            loop4:
             do {
-                int alt3=2;
-                int LA3_0 = input.LA(1);
+                int alt4=2;
+                int LA4_0 = input.LA(1);
 
-                if ( (LA3_0==18) ) {
-                    alt3=1;
+                if ( (LA4_0==18) ) {
+                    alt4=1;
                 }
 
 
-                switch (alt3) {
+                switch (alt4) {
             	case 1 :
             	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:185:4: otherlv_11= ',' ( ( ruleQName ) )
             	    {
-            	    otherlv_11=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleSlicer324); 
+            	    otherlv_11=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleSlicer327); 
 
-            	        	newLeafNode(otherlv_11, grammarAccess.getSlicerAccess().getCommaKeyword_11_0());
+            	        	newLeafNode(otherlv_11, grammarAccess.getSlicerAccess().getCommaKeyword_9_0());
             	        
             	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:189:1: ( ( ruleQName ) )
             	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:190:1: ( ruleQName )
@@ -400,9 +425,9 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
             	    	        }
             	            
             	     
-            	    	        newCompositeNode(grammarAccess.getSlicerAccess().getInputClassesEClassCrossReference_11_1_0()); 
+            	    	        newCompositeNode(grammarAccess.getSlicerAccess().getInputClassesEClassCrossReference_9_1_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleQName_in_ruleSlicer347);
+            	    pushFollow(FollowSets000.FOLLOW_ruleQName_in_ruleSlicer350);
             	    ruleQName();
 
             	    state._fsp--;
@@ -421,28 +446,28 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop3;
+            	    break loop4;
                 }
             } while (true);
 
             // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:204:4: (otherlv_13= 'radius' otherlv_14= ':' ( (lv_radius_15_0= ruleRadius ) ) )?
-            int alt4=2;
-            int LA4_0 = input.LA(1);
+            int alt5=2;
+            int LA5_0 = input.LA(1);
 
-            if ( (LA4_0==19) ) {
-                alt4=1;
+            if ( (LA5_0==19) ) {
+                alt5=1;
             }
-            switch (alt4) {
+            switch (alt5) {
                 case 1 :
                     // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:204:6: otherlv_13= 'radius' otherlv_14= ':' ( (lv_radius_15_0= ruleRadius ) )
                     {
-                    otherlv_13=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleSlicer362); 
+                    otherlv_13=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleSlicer365); 
 
-                        	newLeafNode(otherlv_13, grammarAccess.getSlicerAccess().getRadiusKeyword_12_0());
+                        	newLeafNode(otherlv_13, grammarAccess.getSlicerAccess().getRadiusKeyword_10_0());
                         
-                    otherlv_14=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleSlicer374); 
+                    otherlv_14=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleSlicer377); 
 
-                        	newLeafNode(otherlv_14, grammarAccess.getSlicerAccess().getColonKeyword_12_1());
+                        	newLeafNode(otherlv_14, grammarAccess.getSlicerAccess().getColonKeyword_10_1());
                         
                     // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:212:1: ( (lv_radius_15_0= ruleRadius ) )
                     // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:213:1: (lv_radius_15_0= ruleRadius )
@@ -451,9 +476,9 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:214:3: lv_radius_15_0= ruleRadius
                     {
                      
-                    	        newCompositeNode(grammarAccess.getSlicerAccess().getRadiusRadiusParserRuleCall_12_2_0()); 
+                    	        newCompositeNode(grammarAccess.getSlicerAccess().getRadiusRadiusParserRuleCall_10_2_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleRadius_in_ruleSlicer395);
+                    pushFollow(FollowSets000.FOLLOW_ruleRadius_in_ruleSlicer398);
                     lv_radius_15_0=ruleRadius();
 
                     state._fsp--;
@@ -481,103 +506,40 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:230:4: (otherlv_16= 'constraint' otherlv_17= ':' ( (lv_constraints_18_0= ruleConstraint ) ) )*
-            loop5:
-            do {
-                int alt5=2;
-                int LA5_0 = input.LA(1);
-
-                if ( (LA5_0==20) ) {
-                    alt5=1;
-                }
-
-
-                switch (alt5) {
-            	case 1 :
-            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:230:6: otherlv_16= 'constraint' otherlv_17= ':' ( (lv_constraints_18_0= ruleConstraint ) )
-            	    {
-            	    otherlv_16=(Token)match(input,20,FollowSets000.FOLLOW_20_in_ruleSlicer410); 
-
-            	        	newLeafNode(otherlv_16, grammarAccess.getSlicerAccess().getConstraintKeyword_13_0());
-            	        
-            	    otherlv_17=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleSlicer422); 
-
-            	        	newLeafNode(otherlv_17, grammarAccess.getSlicerAccess().getColonKeyword_13_1());
-            	        
-            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:238:1: ( (lv_constraints_18_0= ruleConstraint ) )
-            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:239:1: (lv_constraints_18_0= ruleConstraint )
-            	    {
-            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:239:1: (lv_constraints_18_0= ruleConstraint )
-            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:240:3: lv_constraints_18_0= ruleConstraint
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getSlicerAccess().getConstraintsConstraintParserRuleCall_13_2_0()); 
-            	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleConstraint_in_ruleSlicer443);
-            	    lv_constraints_18_0=ruleConstraint();
-
-            	    state._fsp--;
-
-
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getSlicerRule());
-            	    	        }
-            	           		add(
-            	           			current, 
-            	           			"constraints",
-            	            		lv_constraints_18_0, 
-            	            		"Constraint");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop5;
-                }
-            } while (true);
-
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:256:4: (otherlv_19= 'slicedClass' otherlv_20= ':' ( (lv_slicedElements_21_0= ruleSlicedClass ) ) )*
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:230:4: (otherlv_16= 'slicedClass' otherlv_17= ':' ( (lv_slicedElements_18_0= ruleSlicedClass ) ) )*
             loop6:
             do {
                 int alt6=2;
                 int LA6_0 = input.LA(1);
 
-                if ( (LA6_0==21) ) {
+                if ( (LA6_0==20) ) {
                     alt6=1;
                 }
 
 
                 switch (alt6) {
             	case 1 :
-            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:256:6: otherlv_19= 'slicedClass' otherlv_20= ':' ( (lv_slicedElements_21_0= ruleSlicedClass ) )
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:230:6: otherlv_16= 'slicedClass' otherlv_17= ':' ( (lv_slicedElements_18_0= ruleSlicedClass ) )
             	    {
-            	    otherlv_19=(Token)match(input,21,FollowSets000.FOLLOW_21_in_ruleSlicer458); 
+            	    otherlv_16=(Token)match(input,20,FollowSets000.FOLLOW_20_in_ruleSlicer413); 
 
-            	        	newLeafNode(otherlv_19, grammarAccess.getSlicerAccess().getSlicedClassKeyword_14_0());
+            	        	newLeafNode(otherlv_16, grammarAccess.getSlicerAccess().getSlicedClassKeyword_11_0());
             	        
-            	    otherlv_20=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleSlicer470); 
+            	    otherlv_17=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleSlicer425); 
 
-            	        	newLeafNode(otherlv_20, grammarAccess.getSlicerAccess().getColonKeyword_14_1());
+            	        	newLeafNode(otherlv_17, grammarAccess.getSlicerAccess().getColonKeyword_11_1());
             	        
-            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:264:1: ( (lv_slicedElements_21_0= ruleSlicedClass ) )
-            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:265:1: (lv_slicedElements_21_0= ruleSlicedClass )
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:238:1: ( (lv_slicedElements_18_0= ruleSlicedClass ) )
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:239:1: (lv_slicedElements_18_0= ruleSlicedClass )
             	    {
-            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:265:1: (lv_slicedElements_21_0= ruleSlicedClass )
-            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:266:3: lv_slicedElements_21_0= ruleSlicedClass
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:239:1: (lv_slicedElements_18_0= ruleSlicedClass )
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:240:3: lv_slicedElements_18_0= ruleSlicedClass
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getSlicerAccess().getSlicedElementsSlicedClassParserRuleCall_14_2_0()); 
+            	    	        newCompositeNode(grammarAccess.getSlicerAccess().getSlicedElementsSlicedClassParserRuleCall_11_2_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleSlicedClass_in_ruleSlicer491);
-            	    lv_slicedElements_21_0=ruleSlicedClass();
+            	    pushFollow(FollowSets000.FOLLOW_ruleSlicedClass_in_ruleSlicer446);
+            	    lv_slicedElements_18_0=ruleSlicedClass();
 
             	    state._fsp--;
 
@@ -588,7 +550,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
             	           		add(
             	           			current, 
             	           			"slicedElements",
-            	            		lv_slicedElements_21_0, 
+            	            		lv_slicedElements_18_0, 
             	            		"SlicedClass");
             	    	        afterParserOrEnumRuleCall();
             	    	    
@@ -607,40 +569,40 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:282:4: (otherlv_22= 'slicedProperty' otherlv_23= ':' ( (lv_slicedElements_24_0= ruleSlicedProperty ) ) )*
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:256:4: (otherlv_19= 'slicedProperty' otherlv_20= ':' ( (lv_slicedElements_21_0= ruleSlicedProperty ) ) )*
             loop7:
             do {
                 int alt7=2;
                 int LA7_0 = input.LA(1);
 
-                if ( (LA7_0==22) ) {
+                if ( (LA7_0==21) ) {
                     alt7=1;
                 }
 
 
                 switch (alt7) {
             	case 1 :
-            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:282:6: otherlv_22= 'slicedProperty' otherlv_23= ':' ( (lv_slicedElements_24_0= ruleSlicedProperty ) )
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:256:6: otherlv_19= 'slicedProperty' otherlv_20= ':' ( (lv_slicedElements_21_0= ruleSlicedProperty ) )
             	    {
-            	    otherlv_22=(Token)match(input,22,FollowSets000.FOLLOW_22_in_ruleSlicer506); 
+            	    otherlv_19=(Token)match(input,21,FollowSets000.FOLLOW_21_in_ruleSlicer461); 
 
-            	        	newLeafNode(otherlv_22, grammarAccess.getSlicerAccess().getSlicedPropertyKeyword_15_0());
+            	        	newLeafNode(otherlv_19, grammarAccess.getSlicerAccess().getSlicedPropertyKeyword_12_0());
             	        
-            	    otherlv_23=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleSlicer518); 
+            	    otherlv_20=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleSlicer473); 
 
-            	        	newLeafNode(otherlv_23, grammarAccess.getSlicerAccess().getColonKeyword_15_1());
+            	        	newLeafNode(otherlv_20, grammarAccess.getSlicerAccess().getColonKeyword_12_1());
             	        
-            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:290:1: ( (lv_slicedElements_24_0= ruleSlicedProperty ) )
-            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:291:1: (lv_slicedElements_24_0= ruleSlicedProperty )
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:264:1: ( (lv_slicedElements_21_0= ruleSlicedProperty ) )
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:265:1: (lv_slicedElements_21_0= ruleSlicedProperty )
             	    {
-            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:291:1: (lv_slicedElements_24_0= ruleSlicedProperty )
-            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:292:3: lv_slicedElements_24_0= ruleSlicedProperty
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:265:1: (lv_slicedElements_21_0= ruleSlicedProperty )
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:266:3: lv_slicedElements_21_0= ruleSlicedProperty
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getSlicerAccess().getSlicedElementsSlicedPropertyParserRuleCall_15_2_0()); 
+            	    	        newCompositeNode(grammarAccess.getSlicerAccess().getSlicedElementsSlicedPropertyParserRuleCall_12_2_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleSlicedProperty_in_ruleSlicer539);
-            	    lv_slicedElements_24_0=ruleSlicedProperty();
+            	    pushFollow(FollowSets000.FOLLOW_ruleSlicedProperty_in_ruleSlicer494);
+            	    lv_slicedElements_21_0=ruleSlicedProperty();
 
             	    state._fsp--;
 
@@ -651,7 +613,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
             	           		add(
             	           			current, 
             	           			"slicedElements",
-            	            		lv_slicedElements_24_0, 
+            	            		lv_slicedElements_21_0, 
             	            		"SlicedProperty");
             	    	        afterParserOrEnumRuleCall();
             	    	    
@@ -670,36 +632,36 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:308:4: (otherlv_25= 'onStart' otherlv_26= '[[' ( (lv_onStart_27_0= ruleEString ) ) otherlv_28= ']]' )?
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:282:4: (otherlv_22= 'onStart' otherlv_23= '[[' ( (lv_onStart_24_0= ruleEString ) ) otherlv_25= ']]' )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( (LA8_0==23) ) {
+            if ( (LA8_0==22) ) {
                 alt8=1;
             }
             switch (alt8) {
                 case 1 :
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:308:6: otherlv_25= 'onStart' otherlv_26= '[[' ( (lv_onStart_27_0= ruleEString ) ) otherlv_28= ']]'
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:282:6: otherlv_22= 'onStart' otherlv_23= '[[' ( (lv_onStart_24_0= ruleEString ) ) otherlv_25= ']]'
                     {
-                    otherlv_25=(Token)match(input,23,FollowSets000.FOLLOW_23_in_ruleSlicer554); 
+                    otherlv_22=(Token)match(input,22,FollowSets000.FOLLOW_22_in_ruleSlicer509); 
 
-                        	newLeafNode(otherlv_25, grammarAccess.getSlicerAccess().getOnStartKeyword_16_0());
+                        	newLeafNode(otherlv_22, grammarAccess.getSlicerAccess().getOnStartKeyword_13_0());
                         
-                    otherlv_26=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleSlicer566); 
+                    otherlv_23=(Token)match(input,23,FollowSets000.FOLLOW_23_in_ruleSlicer521); 
 
-                        	newLeafNode(otherlv_26, grammarAccess.getSlicerAccess().getLeftSquareBracketLeftSquareBracketKeyword_16_1());
+                        	newLeafNode(otherlv_23, grammarAccess.getSlicerAccess().getLeftSquareBracketLeftSquareBracketKeyword_13_1());
                         
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:316:1: ( (lv_onStart_27_0= ruleEString ) )
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:317:1: (lv_onStart_27_0= ruleEString )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:290:1: ( (lv_onStart_24_0= ruleEString ) )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:291:1: (lv_onStart_24_0= ruleEString )
                     {
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:317:1: (lv_onStart_27_0= ruleEString )
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:318:3: lv_onStart_27_0= ruleEString
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:291:1: (lv_onStart_24_0= ruleEString )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:292:3: lv_onStart_24_0= ruleEString
                     {
                      
-                    	        newCompositeNode(grammarAccess.getSlicerAccess().getOnStartEStringParserRuleCall_16_2_0()); 
+                    	        newCompositeNode(grammarAccess.getSlicerAccess().getOnStartEStringParserRuleCall_13_2_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleSlicer587);
-                    lv_onStart_27_0=ruleEString();
+                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleSlicer542);
+                    lv_onStart_24_0=ruleEString();
 
                     state._fsp--;
 
@@ -710,7 +672,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
                            		set(
                            			current, 
                            			"onStart",
-                            		lv_onStart_27_0, 
+                            		lv_onStart_24_0, 
                             		"EString");
                     	        afterParserOrEnumRuleCall();
                     	    
@@ -720,9 +682,9 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_28=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleSlicer599); 
+                    otherlv_25=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleSlicer554); 
 
-                        	newLeafNode(otherlv_28, grammarAccess.getSlicerAccess().getRightSquareBracketRightSquareBracketKeyword_16_3());
+                        	newLeafNode(otherlv_25, grammarAccess.getSlicerAccess().getRightSquareBracketRightSquareBracketKeyword_13_3());
                         
 
                     }
@@ -730,36 +692,36 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:338:3: (otherlv_29= 'onEnd' otherlv_30= '[[' ( (lv_onEnd_31_0= ruleEString ) ) otherlv_32= ']]' )?
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:312:3: (otherlv_26= 'onEnd' otherlv_27= '[[' ( (lv_onEnd_28_0= ruleEString ) ) otherlv_29= ']]' )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==26) ) {
+            if ( (LA9_0==25) ) {
                 alt9=1;
             }
             switch (alt9) {
                 case 1 :
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:338:5: otherlv_29= 'onEnd' otherlv_30= '[[' ( (lv_onEnd_31_0= ruleEString ) ) otherlv_32= ']]'
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:312:5: otherlv_26= 'onEnd' otherlv_27= '[[' ( (lv_onEnd_28_0= ruleEString ) ) otherlv_29= ']]'
                     {
-                    otherlv_29=(Token)match(input,26,FollowSets000.FOLLOW_26_in_ruleSlicer614); 
+                    otherlv_26=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleSlicer569); 
 
-                        	newLeafNode(otherlv_29, grammarAccess.getSlicerAccess().getOnEndKeyword_17_0());
+                        	newLeafNode(otherlv_26, grammarAccess.getSlicerAccess().getOnEndKeyword_14_0());
                         
-                    otherlv_30=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleSlicer626); 
+                    otherlv_27=(Token)match(input,23,FollowSets000.FOLLOW_23_in_ruleSlicer581); 
 
-                        	newLeafNode(otherlv_30, grammarAccess.getSlicerAccess().getLeftSquareBracketLeftSquareBracketKeyword_17_1());
+                        	newLeafNode(otherlv_27, grammarAccess.getSlicerAccess().getLeftSquareBracketLeftSquareBracketKeyword_14_1());
                         
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:346:1: ( (lv_onEnd_31_0= ruleEString ) )
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:347:1: (lv_onEnd_31_0= ruleEString )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:320:1: ( (lv_onEnd_28_0= ruleEString ) )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:321:1: (lv_onEnd_28_0= ruleEString )
                     {
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:347:1: (lv_onEnd_31_0= ruleEString )
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:348:3: lv_onEnd_31_0= ruleEString
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:321:1: (lv_onEnd_28_0= ruleEString )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:322:3: lv_onEnd_28_0= ruleEString
                     {
                      
-                    	        newCompositeNode(grammarAccess.getSlicerAccess().getOnEndEStringParserRuleCall_17_2_0()); 
+                    	        newCompositeNode(grammarAccess.getSlicerAccess().getOnEndEStringParserRuleCall_14_2_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleSlicer647);
-                    lv_onEnd_31_0=ruleEString();
+                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleSlicer602);
+                    lv_onEnd_28_0=ruleEString();
 
                     state._fsp--;
 
@@ -770,7 +732,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
                            		set(
                            			current, 
                            			"onEnd",
-                            		lv_onEnd_31_0, 
+                            		lv_onEnd_28_0, 
                             		"EString");
                     	        afterParserOrEnumRuleCall();
                     	    
@@ -780,9 +742,9 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_32=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleSlicer659); 
+                    otherlv_29=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleSlicer614); 
 
-                        	newLeafNode(otherlv_32, grammarAccess.getSlicerAccess().getRightSquareBracketRightSquareBracketKeyword_17_3());
+                        	newLeafNode(otherlv_29, grammarAccess.getSlicerAccess().getRightSquareBracketRightSquareBracketKeyword_14_3());
                         
 
                     }
@@ -790,36 +752,36 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:368:3: (otherlv_33= 'helper' otherlv_34= '[[' ( (lv_helper_35_0= ruleEString ) ) otherlv_36= ']]' )?
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:342:3: (otherlv_30= 'helper' otherlv_31= '[[' ( (lv_helper_32_0= ruleEString ) ) otherlv_33= ']]' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
-            if ( (LA10_0==27) ) {
+            if ( (LA10_0==26) ) {
                 alt10=1;
             }
             switch (alt10) {
                 case 1 :
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:368:5: otherlv_33= 'helper' otherlv_34= '[[' ( (lv_helper_35_0= ruleEString ) ) otherlv_36= ']]'
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:342:5: otherlv_30= 'helper' otherlv_31= '[[' ( (lv_helper_32_0= ruleEString ) ) otherlv_33= ']]'
                     {
-                    otherlv_33=(Token)match(input,27,FollowSets000.FOLLOW_27_in_ruleSlicer674); 
+                    otherlv_30=(Token)match(input,26,FollowSets000.FOLLOW_26_in_ruleSlicer629); 
 
-                        	newLeafNode(otherlv_33, grammarAccess.getSlicerAccess().getHelperKeyword_18_0());
+                        	newLeafNode(otherlv_30, grammarAccess.getSlicerAccess().getHelperKeyword_15_0());
                         
-                    otherlv_34=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleSlicer686); 
+                    otherlv_31=(Token)match(input,23,FollowSets000.FOLLOW_23_in_ruleSlicer641); 
 
-                        	newLeafNode(otherlv_34, grammarAccess.getSlicerAccess().getLeftSquareBracketLeftSquareBracketKeyword_18_1());
+                        	newLeafNode(otherlv_31, grammarAccess.getSlicerAccess().getLeftSquareBracketLeftSquareBracketKeyword_15_1());
                         
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:376:1: ( (lv_helper_35_0= ruleEString ) )
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:377:1: (lv_helper_35_0= ruleEString )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:350:1: ( (lv_helper_32_0= ruleEString ) )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:351:1: (lv_helper_32_0= ruleEString )
                     {
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:377:1: (lv_helper_35_0= ruleEString )
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:378:3: lv_helper_35_0= ruleEString
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:351:1: (lv_helper_32_0= ruleEString )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:352:3: lv_helper_32_0= ruleEString
                     {
                      
-                    	        newCompositeNode(grammarAccess.getSlicerAccess().getHelperEStringParserRuleCall_18_2_0()); 
+                    	        newCompositeNode(grammarAccess.getSlicerAccess().getHelperEStringParserRuleCall_15_2_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleSlicer707);
-                    lv_helper_35_0=ruleEString();
+                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleSlicer662);
+                    lv_helper_32_0=ruleEString();
 
                     state._fsp--;
 
@@ -830,7 +792,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
                            		set(
                            			current, 
                            			"helper",
-                            		lv_helper_35_0, 
+                            		lv_helper_32_0, 
                             		"EString");
                     	        afterParserOrEnumRuleCall();
                     	    
@@ -840,9 +802,9 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_36=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleSlicer719); 
+                    otherlv_33=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleSlicer674); 
 
-                        	newLeafNode(otherlv_36, grammarAccess.getSlicerAccess().getRightSquareBracketRightSquareBracketKeyword_18_3());
+                        	newLeafNode(otherlv_33, grammarAccess.getSlicerAccess().getRightSquareBracketRightSquareBracketKeyword_15_3());
                         
 
                     }
@@ -850,9 +812,9 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_37=(Token)match(input,28,FollowSets000.FOLLOW_28_in_ruleSlicer733); 
+            otherlv_34=(Token)match(input,27,FollowSets000.FOLLOW_27_in_ruleSlicer688); 
 
-                	newLeafNode(otherlv_37, grammarAccess.getSlicerAccess().getRightCurlyBracketKeyword_19());
+                	newLeafNode(otherlv_34, grammarAccess.getSlicerAccess().getRightCurlyBracketKeyword_16());
                 
 
             }
@@ -875,7 +837,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEString"
-    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:410:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
+    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:384:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
     public final String entryRuleEString() throws RecognitionException {
         String current = null;
 
@@ -883,17 +845,17 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:411:2: (iv_ruleEString= ruleEString EOF )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:412:2: iv_ruleEString= ruleEString EOF
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:385:2: (iv_ruleEString= ruleEString EOF )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:386:2: iv_ruleEString= ruleEString EOF
             {
              newCompositeNode(grammarAccess.getEStringRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_entryRuleEString770);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_entryRuleEString725);
             iv_ruleEString=ruleEString();
 
             state._fsp--;
 
              current =iv_ruleEString.getText(); 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleEString781); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleEString736); 
 
             }
 
@@ -911,7 +873,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEString"
-    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:419:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
+    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:393:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
     public final AntlrDatatypeRuleToken ruleEString() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -921,10 +883,10 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:422:28: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:423:1: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:396:28: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:397:1: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
             {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:423:1: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:397:1: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -942,9 +904,9 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
             }
             switch (alt11) {
                 case 1 :
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:423:6: this_STRING_0= RULE_STRING
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:397:6: this_STRING_0= RULE_STRING
                     {
-                    this_STRING_0=(Token)match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_ruleEString821); 
+                    this_STRING_0=(Token)match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_ruleEString776); 
 
                     		current.merge(this_STRING_0);
                         
@@ -955,9 +917,9 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:431:10: this_ID_1= RULE_ID
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:405:10: this_ID_1= RULE_ID
                     {
-                    this_ID_1=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleEString847); 
+                    this_ID_1=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleEString802); 
 
                     		current.merge(this_ID_1);
                         
@@ -988,7 +950,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleQName"
-    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:446:1: entryRuleQName returns [String current=null] : iv_ruleQName= ruleQName EOF ;
+    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:420:1: entryRuleQName returns [String current=null] : iv_ruleQName= ruleQName EOF ;
     public final String entryRuleQName() throws RecognitionException {
         String current = null;
 
@@ -996,17 +958,17 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:447:2: (iv_ruleQName= ruleQName EOF )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:448:2: iv_ruleQName= ruleQName EOF
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:421:2: (iv_ruleQName= ruleQName EOF )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:422:2: iv_ruleQName= ruleQName EOF
             {
              newCompositeNode(grammarAccess.getQNameRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleQName_in_entryRuleQName893);
+            pushFollow(FollowSets000.FOLLOW_ruleQName_in_entryRuleQName848);
             iv_ruleQName=ruleQName();
 
             state._fsp--;
 
              current =iv_ruleQName.getText(); 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleQName904); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleQName859); 
 
             }
 
@@ -1024,7 +986,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQName"
-    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:455:1: ruleQName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_EString_0= ruleEString (kw= '.' this_EString_2= ruleEString )* ) ;
+    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:429:1: ruleQName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_EString_0= ruleEString (kw= '.' this_EString_2= ruleEString )* ) ;
     public final AntlrDatatypeRuleToken ruleQName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1037,16 +999,16 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:458:28: ( (this_EString_0= ruleEString (kw= '.' this_EString_2= ruleEString )* ) )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:459:1: (this_EString_0= ruleEString (kw= '.' this_EString_2= ruleEString )* )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:432:28: ( (this_EString_0= ruleEString (kw= '.' this_EString_2= ruleEString )* ) )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:433:1: (this_EString_0= ruleEString (kw= '.' this_EString_2= ruleEString )* )
             {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:459:1: (this_EString_0= ruleEString (kw= '.' this_EString_2= ruleEString )* )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:460:5: this_EString_0= ruleEString (kw= '.' this_EString_2= ruleEString )*
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:433:1: (this_EString_0= ruleEString (kw= '.' this_EString_2= ruleEString )* )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:434:5: this_EString_0= ruleEString (kw= '.' this_EString_2= ruleEString )*
             {
              
                     newCompositeNode(grammarAccess.getQNameAccess().getEStringParserRuleCall_0()); 
                 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleQName951);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleQName906);
             this_EString_0=ruleEString();
 
             state._fsp--;
@@ -1057,22 +1019,22 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
              
                     afterParserOrEnumRuleCall();
                 
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:470:1: (kw= '.' this_EString_2= ruleEString )*
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:444:1: (kw= '.' this_EString_2= ruleEString )*
             loop12:
             do {
                 int alt12=2;
                 int LA12_0 = input.LA(1);
 
-                if ( (LA12_0==29) ) {
+                if ( (LA12_0==28) ) {
                     alt12=1;
                 }
 
 
                 switch (alt12) {
             	case 1 :
-            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:471:2: kw= '.' this_EString_2= ruleEString
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:445:2: kw= '.' this_EString_2= ruleEString
             	    {
-            	    kw=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleQName970); 
+            	    kw=(Token)match(input,28,FollowSets000.FOLLOW_28_in_ruleQName925); 
 
             	            current.merge(kw);
             	            newLeafNode(kw, grammarAccess.getQNameAccess().getFullStopKeyword_1_0()); 
@@ -1080,7 +1042,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
             	     
             	            newCompositeNode(grammarAccess.getQNameAccess().getEStringParserRuleCall_1_1()); 
             	        
-            	    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleQName992);
+            	    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleQName947);
             	    this_EString_2=ruleEString();
 
             	    state._fsp--;
@@ -1121,7 +1083,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleConstraint"
-    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:497:1: entryRuleConstraint returns [EObject current=null] : iv_ruleConstraint= ruleConstraint EOF ;
+    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:471:1: entryRuleConstraint returns [EObject current=null] : iv_ruleConstraint= ruleConstraint EOF ;
     public final EObject entryRuleConstraint() throws RecognitionException {
         EObject current = null;
 
@@ -1129,17 +1091,17 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:498:2: (iv_ruleConstraint= ruleConstraint EOF )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:499:2: iv_ruleConstraint= ruleConstraint EOF
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:472:2: (iv_ruleConstraint= ruleConstraint EOF )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:473:2: iv_ruleConstraint= ruleConstraint EOF
             {
              newCompositeNode(grammarAccess.getConstraintRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleConstraint_in_entryRuleConstraint1041);
+            pushFollow(FollowSets000.FOLLOW_ruleConstraint_in_entryRuleConstraint996);
             iv_ruleConstraint=ruleConstraint();
 
             state._fsp--;
 
              current =iv_ruleConstraint; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleConstraint1051); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleConstraint1006); 
 
             }
 
@@ -1157,7 +1119,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConstraint"
-    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:506:1: ruleConstraint returns [EObject current=null] : ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= '[[' ( (lv_expression_2_0= ruleEString ) ) otherlv_3= ']]' ) ;
+    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:480:1: ruleConstraint returns [EObject current=null] : ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= '[[' ( (lv_expression_2_0= ruleEString ) ) otherlv_3= ']]' ) ;
     public final EObject ruleConstraint() throws RecognitionException {
         EObject current = null;
 
@@ -1171,22 +1133,22 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:509:28: ( ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= '[[' ( (lv_expression_2_0= ruleEString ) ) otherlv_3= ']]' ) )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:510:1: ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= '[[' ( (lv_expression_2_0= ruleEString ) ) otherlv_3= ']]' )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:483:28: ( ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= '[[' ( (lv_expression_2_0= ruleEString ) ) otherlv_3= ']]' ) )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:484:1: ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= '[[' ( (lv_expression_2_0= ruleEString ) ) otherlv_3= ']]' )
             {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:510:1: ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= '[[' ( (lv_expression_2_0= ruleEString ) ) otherlv_3= ']]' )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:510:2: ( (lv_name_0_0= ruleEString ) ) otherlv_1= '[[' ( (lv_expression_2_0= ruleEString ) ) otherlv_3= ']]'
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:484:1: ( ( (lv_name_0_0= ruleEString ) ) otherlv_1= '[[' ( (lv_expression_2_0= ruleEString ) ) otherlv_3= ']]' )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:484:2: ( (lv_name_0_0= ruleEString ) ) otherlv_1= '[[' ( (lv_expression_2_0= ruleEString ) ) otherlv_3= ']]'
             {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:510:2: ( (lv_name_0_0= ruleEString ) )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:511:1: (lv_name_0_0= ruleEString )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:484:2: ( (lv_name_0_0= ruleEString ) )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:485:1: (lv_name_0_0= ruleEString )
             {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:511:1: (lv_name_0_0= ruleEString )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:512:3: lv_name_0_0= ruleEString
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:485:1: (lv_name_0_0= ruleEString )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:486:3: lv_name_0_0= ruleEString
             {
              
             	        newCompositeNode(grammarAccess.getConstraintAccess().getNameEStringParserRuleCall_0_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleConstraint1097);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleConstraint1052);
             lv_name_0_0=ruleEString();
 
             state._fsp--;
@@ -1208,20 +1170,20 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleConstraint1109); 
+            otherlv_1=(Token)match(input,23,FollowSets000.FOLLOW_23_in_ruleConstraint1064); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getConstraintAccess().getLeftSquareBracketLeftSquareBracketKeyword_1());
                 
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:532:1: ( (lv_expression_2_0= ruleEString ) )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:533:1: (lv_expression_2_0= ruleEString )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:506:1: ( (lv_expression_2_0= ruleEString ) )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:507:1: (lv_expression_2_0= ruleEString )
             {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:533:1: (lv_expression_2_0= ruleEString )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:534:3: lv_expression_2_0= ruleEString
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:507:1: (lv_expression_2_0= ruleEString )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:508:3: lv_expression_2_0= ruleEString
             {
              
             	        newCompositeNode(grammarAccess.getConstraintAccess().getExpressionEStringParserRuleCall_2_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleConstraint1130);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleConstraint1085);
             lv_expression_2_0=ruleEString();
 
             state._fsp--;
@@ -1243,7 +1205,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleConstraint1142); 
+            otherlv_3=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleConstraint1097); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getConstraintAccess().getRightSquareBracketRightSquareBracketKeyword_3());
                 
@@ -1268,7 +1230,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRadius"
-    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:562:1: entryRuleRadius returns [EObject current=null] : iv_ruleRadius= ruleRadius EOF ;
+    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:536:1: entryRuleRadius returns [EObject current=null] : iv_ruleRadius= ruleRadius EOF ;
     public final EObject entryRuleRadius() throws RecognitionException {
         EObject current = null;
 
@@ -1276,17 +1238,17 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:563:2: (iv_ruleRadius= ruleRadius EOF )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:564:2: iv_ruleRadius= ruleRadius EOF
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:537:2: (iv_ruleRadius= ruleRadius EOF )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:538:2: iv_ruleRadius= ruleRadius EOF
             {
              newCompositeNode(grammarAccess.getRadiusRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleRadius_in_entryRuleRadius1178);
+            pushFollow(FollowSets000.FOLLOW_ruleRadius_in_entryRuleRadius1133);
             iv_ruleRadius=ruleRadius();
 
             state._fsp--;
 
              current =iv_ruleRadius; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleRadius1188); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleRadius1143); 
 
             }
 
@@ -1304,7 +1266,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRadius"
-    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:571:1: ruleRadius returns [EObject current=null] : ( () ( ( ( ruleQName ) ) (otherlv_2= ',' ( ( ruleQName ) ) )* )? ) ;
+    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:545:1: ruleRadius returns [EObject current=null] : ( () ( ( ( ruleQName ) ) (otherlv_2= ',' ( ( ruleQName ) ) )* )? ) ;
     public final EObject ruleRadius() throws RecognitionException {
         EObject current = null;
 
@@ -1313,14 +1275,14 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:574:28: ( ( () ( ( ( ruleQName ) ) (otherlv_2= ',' ( ( ruleQName ) ) )* )? ) )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:575:1: ( () ( ( ( ruleQName ) ) (otherlv_2= ',' ( ( ruleQName ) ) )* )? )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:548:28: ( ( () ( ( ( ruleQName ) ) (otherlv_2= ',' ( ( ruleQName ) ) )* )? ) )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:549:1: ( () ( ( ( ruleQName ) ) (otherlv_2= ',' ( ( ruleQName ) ) )* )? )
             {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:575:1: ( () ( ( ( ruleQName ) ) (otherlv_2= ',' ( ( ruleQName ) ) )* )? )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:575:2: () ( ( ( ruleQName ) ) (otherlv_2= ',' ( ( ruleQName ) ) )* )?
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:549:1: ( () ( ( ( ruleQName ) ) (otherlv_2= ',' ( ( ruleQName ) ) )* )? )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:549:2: () ( ( ( ruleQName ) ) (otherlv_2= ',' ( ( ruleQName ) ) )* )?
             {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:575:2: ()
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:576:5: 
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:549:2: ()
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:550:5: 
             {
 
                     current = forceCreateModelElement(
@@ -1330,7 +1292,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:581:2: ( ( ( ruleQName ) ) (otherlv_2= ',' ( ( ruleQName ) ) )* )?
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:555:2: ( ( ( ruleQName ) ) (otherlv_2= ',' ( ( ruleQName ) ) )* )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -1339,13 +1301,13 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
             }
             switch (alt14) {
                 case 1 :
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:581:3: ( ( ruleQName ) ) (otherlv_2= ',' ( ( ruleQName ) ) )*
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:555:3: ( ( ruleQName ) ) (otherlv_2= ',' ( ( ruleQName ) ) )*
                     {
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:581:3: ( ( ruleQName ) )
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:582:1: ( ruleQName )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:555:3: ( ( ruleQName ) )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:556:1: ( ruleQName )
                     {
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:582:1: ( ruleQName )
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:583:3: ruleQName
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:556:1: ( ruleQName )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:557:3: ruleQName
                     {
 
                     			if (current==null) {
@@ -1355,7 +1317,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
                      
                     	        newCompositeNode(grammarAccess.getRadiusAccess().getFocusedClassesSlicedClassCrossReference_1_0_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleQName_in_ruleRadius1246);
+                    pushFollow(FollowSets000.FOLLOW_ruleQName_in_ruleRadius1201);
                     ruleQName();
 
                     state._fsp--;
@@ -1369,7 +1331,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:596:2: (otherlv_2= ',' ( ( ruleQName ) ) )*
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:570:2: (otherlv_2= ',' ( ( ruleQName ) ) )*
                     loop13:
                     do {
                         int alt13=2;
@@ -1382,17 +1344,17 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
                         switch (alt13) {
                     	case 1 :
-                    	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:596:4: otherlv_2= ',' ( ( ruleQName ) )
+                    	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:570:4: otherlv_2= ',' ( ( ruleQName ) )
                     	    {
-                    	    otherlv_2=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleRadius1259); 
+                    	    otherlv_2=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleRadius1214); 
 
                     	        	newLeafNode(otherlv_2, grammarAccess.getRadiusAccess().getCommaKeyword_1_1_0());
                     	        
-                    	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:600:1: ( ( ruleQName ) )
-                    	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:601:1: ( ruleQName )
+                    	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:574:1: ( ( ruleQName ) )
+                    	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:575:1: ( ruleQName )
                     	    {
-                    	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:601:1: ( ruleQName )
-                    	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:602:3: ruleQName
+                    	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:575:1: ( ruleQName )
+                    	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:576:3: ruleQName
                     	    {
 
                     	    			if (current==null) {
@@ -1402,7 +1364,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
                     	     
                     	    	        newCompositeNode(grammarAccess.getRadiusAccess().getFocusedClassesSlicedClassCrossReference_1_1_1_0()); 
                     	    	    
-                    	    pushFollow(FollowSets000.FOLLOW_ruleQName_in_ruleRadius1282);
+                    	    pushFollow(FollowSets000.FOLLOW_ruleQName_in_ruleRadius1237);
                     	    ruleQName();
 
                     	    state._fsp--;
@@ -1452,7 +1414,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSlicedClass"
-    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:623:1: entryRuleSlicedClass returns [EObject current=null] : iv_ruleSlicedClass= ruleSlicedClass EOF ;
+    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:597:1: entryRuleSlicedClass returns [EObject current=null] : iv_ruleSlicedClass= ruleSlicedClass EOF ;
     public final EObject entryRuleSlicedClass() throws RecognitionException {
         EObject current = null;
 
@@ -1460,17 +1422,17 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:624:2: (iv_ruleSlicedClass= ruleSlicedClass EOF )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:625:2: iv_ruleSlicedClass= ruleSlicedClass EOF
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:598:2: (iv_ruleSlicedClass= ruleSlicedClass EOF )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:599:2: iv_ruleSlicedClass= ruleSlicedClass EOF
             {
              newCompositeNode(grammarAccess.getSlicedClassRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleSlicedClass_in_entryRuleSlicedClass1322);
+            pushFollow(FollowSets000.FOLLOW_ruleSlicedClass_in_entryRuleSlicedClass1277);
             iv_ruleSlicedClass=ruleSlicedClass();
 
             state._fsp--;
 
              current =iv_ruleSlicedClass; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSlicedClass1332); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSlicedClass1287); 
 
             }
 
@@ -1488,32 +1450,36 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSlicedClass"
-    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:632:1: ruleSlicedClass returns [EObject current=null] : ( ( ( ruleQName ) ) ( (lv_isOption_1_0= 'option' ) )? ( (lv_ctx_2_0= ruleVarDecl ) )? (otherlv_3= '[[' ( (lv_expression_4_0= ruleEString ) ) otherlv_5= ']]' )? ) ;
+    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:606:1: ruleSlicedClass returns [EObject current=null] : ( ( ( ruleQName ) ) ( (lv_isOption_1_0= 'option' ) )? ( (lv_ctx_2_0= ruleVarDecl ) )? (otherlv_3= '[[' ( (lv_expression_4_0= ruleEString ) ) otherlv_5= ']]' )? (otherlv_6= 'constraint' otherlv_7= ':' ( (lv_constraints_8_0= ruleConstraint ) ) )* ) ;
     public final EObject ruleSlicedClass() throws RecognitionException {
         EObject current = null;
 
         Token lv_isOption_1_0=null;
         Token otherlv_3=null;
         Token otherlv_5=null;
+        Token otherlv_6=null;
+        Token otherlv_7=null;
         EObject lv_ctx_2_0 = null;
 
         AntlrDatatypeRuleToken lv_expression_4_0 = null;
+
+        EObject lv_constraints_8_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:635:28: ( ( ( ( ruleQName ) ) ( (lv_isOption_1_0= 'option' ) )? ( (lv_ctx_2_0= ruleVarDecl ) )? (otherlv_3= '[[' ( (lv_expression_4_0= ruleEString ) ) otherlv_5= ']]' )? ) )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:636:1: ( ( ( ruleQName ) ) ( (lv_isOption_1_0= 'option' ) )? ( (lv_ctx_2_0= ruleVarDecl ) )? (otherlv_3= '[[' ( (lv_expression_4_0= ruleEString ) ) otherlv_5= ']]' )? )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:609:28: ( ( ( ( ruleQName ) ) ( (lv_isOption_1_0= 'option' ) )? ( (lv_ctx_2_0= ruleVarDecl ) )? (otherlv_3= '[[' ( (lv_expression_4_0= ruleEString ) ) otherlv_5= ']]' )? (otherlv_6= 'constraint' otherlv_7= ':' ( (lv_constraints_8_0= ruleConstraint ) ) )* ) )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:610:1: ( ( ( ruleQName ) ) ( (lv_isOption_1_0= 'option' ) )? ( (lv_ctx_2_0= ruleVarDecl ) )? (otherlv_3= '[[' ( (lv_expression_4_0= ruleEString ) ) otherlv_5= ']]' )? (otherlv_6= 'constraint' otherlv_7= ':' ( (lv_constraints_8_0= ruleConstraint ) ) )* )
             {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:636:1: ( ( ( ruleQName ) ) ( (lv_isOption_1_0= 'option' ) )? ( (lv_ctx_2_0= ruleVarDecl ) )? (otherlv_3= '[[' ( (lv_expression_4_0= ruleEString ) ) otherlv_5= ']]' )? )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:636:2: ( ( ruleQName ) ) ( (lv_isOption_1_0= 'option' ) )? ( (lv_ctx_2_0= ruleVarDecl ) )? (otherlv_3= '[[' ( (lv_expression_4_0= ruleEString ) ) otherlv_5= ']]' )?
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:610:1: ( ( ( ruleQName ) ) ( (lv_isOption_1_0= 'option' ) )? ( (lv_ctx_2_0= ruleVarDecl ) )? (otherlv_3= '[[' ( (lv_expression_4_0= ruleEString ) ) otherlv_5= ']]' )? (otherlv_6= 'constraint' otherlv_7= ':' ( (lv_constraints_8_0= ruleConstraint ) ) )* )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:610:2: ( ( ruleQName ) ) ( (lv_isOption_1_0= 'option' ) )? ( (lv_ctx_2_0= ruleVarDecl ) )? (otherlv_3= '[[' ( (lv_expression_4_0= ruleEString ) ) otherlv_5= ']]' )? (otherlv_6= 'constraint' otherlv_7= ':' ( (lv_constraints_8_0= ruleConstraint ) ) )*
             {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:636:2: ( ( ruleQName ) )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:637:1: ( ruleQName )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:610:2: ( ( ruleQName ) )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:611:1: ( ruleQName )
             {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:637:1: ( ruleQName )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:638:3: ruleQName
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:611:1: ( ruleQName )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:612:3: ruleQName
             {
 
             			if (current==null) {
@@ -1523,7 +1489,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
              
             	        newCompositeNode(grammarAccess.getSlicedClassAccess().getDomainEClassCrossReference_0_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleQName_in_ruleSlicedClass1380);
+            pushFollow(FollowSets000.FOLLOW_ruleQName_in_ruleSlicedClass1335);
             ruleQName();
 
             state._fsp--;
@@ -1537,21 +1503,21 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:651:2: ( (lv_isOption_1_0= 'option' ) )?
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:625:2: ( (lv_isOption_1_0= 'option' ) )?
             int alt15=2;
             int LA15_0 = input.LA(1);
 
-            if ( (LA15_0==30) ) {
+            if ( (LA15_0==29) ) {
                 alt15=1;
             }
             switch (alt15) {
                 case 1 :
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:652:1: (lv_isOption_1_0= 'option' )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:626:1: (lv_isOption_1_0= 'option' )
                     {
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:652:1: (lv_isOption_1_0= 'option' )
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:653:3: lv_isOption_1_0= 'option'
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:626:1: (lv_isOption_1_0= 'option' )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:627:3: lv_isOption_1_0= 'option'
                     {
-                    lv_isOption_1_0=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleSlicedClass1398); 
+                    lv_isOption_1_0=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleSlicedClass1353); 
 
                             newLeafNode(lv_isOption_1_0, grammarAccess.getSlicedClassAccess().getIsOptionOptionKeyword_1_0());
                         
@@ -1570,7 +1536,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:666:3: ( (lv_ctx_2_0= ruleVarDecl ) )?
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:640:3: ( (lv_ctx_2_0= ruleVarDecl ) )?
             int alt16=2;
             int LA16_0 = input.LA(1);
 
@@ -1579,15 +1545,15 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
             }
             switch (alt16) {
                 case 1 :
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:667:1: (lv_ctx_2_0= ruleVarDecl )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:641:1: (lv_ctx_2_0= ruleVarDecl )
                     {
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:667:1: (lv_ctx_2_0= ruleVarDecl )
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:668:3: lv_ctx_2_0= ruleVarDecl
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:641:1: (lv_ctx_2_0= ruleVarDecl )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:642:3: lv_ctx_2_0= ruleVarDecl
                     {
                      
                     	        newCompositeNode(grammarAccess.getSlicedClassAccess().getCtxVarDeclParserRuleCall_2_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleVarDecl_in_ruleSlicedClass1433);
+                    pushFollow(FollowSets000.FOLLOW_ruleVarDecl_in_ruleSlicedClass1388);
                     lv_ctx_2_0=ruleVarDecl();
 
                     state._fsp--;
@@ -1612,31 +1578,31 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:684:3: (otherlv_3= '[[' ( (lv_expression_4_0= ruleEString ) ) otherlv_5= ']]' )?
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:658:3: (otherlv_3= '[[' ( (lv_expression_4_0= ruleEString ) ) otherlv_5= ']]' )?
             int alt17=2;
             int LA17_0 = input.LA(1);
 
-            if ( (LA17_0==24) ) {
+            if ( (LA17_0==23) ) {
                 alt17=1;
             }
             switch (alt17) {
                 case 1 :
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:684:5: otherlv_3= '[[' ( (lv_expression_4_0= ruleEString ) ) otherlv_5= ']]'
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:658:5: otherlv_3= '[[' ( (lv_expression_4_0= ruleEString ) ) otherlv_5= ']]'
                     {
-                    otherlv_3=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleSlicedClass1447); 
+                    otherlv_3=(Token)match(input,23,FollowSets000.FOLLOW_23_in_ruleSlicedClass1402); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getSlicedClassAccess().getLeftSquareBracketLeftSquareBracketKeyword_3_0());
                         
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:688:1: ( (lv_expression_4_0= ruleEString ) )
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:689:1: (lv_expression_4_0= ruleEString )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:662:1: ( (lv_expression_4_0= ruleEString ) )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:663:1: (lv_expression_4_0= ruleEString )
                     {
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:689:1: (lv_expression_4_0= ruleEString )
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:690:3: lv_expression_4_0= ruleEString
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:663:1: (lv_expression_4_0= ruleEString )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:664:3: lv_expression_4_0= ruleEString
                     {
                      
                     	        newCompositeNode(grammarAccess.getSlicedClassAccess().getExpressionEStringParserRuleCall_3_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleSlicedClass1468);
+                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleSlicedClass1423);
                     lv_expression_4_0=ruleEString();
 
                     state._fsp--;
@@ -1658,7 +1624,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_5=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleSlicedClass1480); 
+                    otherlv_5=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleSlicedClass1435); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getSlicedClassAccess().getRightSquareBracketRightSquareBracketKeyword_3_2());
                         
@@ -1667,6 +1633,69 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
                     break;
 
             }
+
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:684:3: (otherlv_6= 'constraint' otherlv_7= ':' ( (lv_constraints_8_0= ruleConstraint ) ) )*
+            loop18:
+            do {
+                int alt18=2;
+                int LA18_0 = input.LA(1);
+
+                if ( (LA18_0==30) ) {
+                    alt18=1;
+                }
+
+
+                switch (alt18) {
+            	case 1 :
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:684:5: otherlv_6= 'constraint' otherlv_7= ':' ( (lv_constraints_8_0= ruleConstraint ) )
+            	    {
+            	    otherlv_6=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleSlicedClass1450); 
+
+            	        	newLeafNode(otherlv_6, grammarAccess.getSlicedClassAccess().getConstraintKeyword_4_0());
+            	        
+            	    otherlv_7=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleSlicedClass1462); 
+
+            	        	newLeafNode(otherlv_7, grammarAccess.getSlicedClassAccess().getColonKeyword_4_1());
+            	        
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:692:1: ( (lv_constraints_8_0= ruleConstraint ) )
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:693:1: (lv_constraints_8_0= ruleConstraint )
+            	    {
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:693:1: (lv_constraints_8_0= ruleConstraint )
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:694:3: lv_constraints_8_0= ruleConstraint
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getSlicedClassAccess().getConstraintsConstraintParserRuleCall_4_2_0()); 
+            	    	    
+            	    pushFollow(FollowSets000.FOLLOW_ruleConstraint_in_ruleSlicedClass1483);
+            	    lv_constraints_8_0=ruleConstraint();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getSlicedClassRule());
+            	    	        }
+            	           		add(
+            	           			current, 
+            	           			"constraints",
+            	            		lv_constraints_8_0, 
+            	            		"Constraint");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop18;
+                }
+            } while (true);
 
 
             }
@@ -1701,13 +1730,13 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:720:2: iv_ruleVarDecl= ruleVarDecl EOF
             {
              newCompositeNode(grammarAccess.getVarDeclRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleVarDecl_in_entryRuleVarDecl1518);
+            pushFollow(FollowSets000.FOLLOW_ruleVarDecl_in_entryRuleVarDecl1521);
             iv_ruleVarDecl=ruleVarDecl();
 
             state._fsp--;
 
              current =iv_ruleVarDecl; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleVarDecl1528); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleVarDecl1531); 
 
             }
 
@@ -1747,7 +1776,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
              
             	        newCompositeNode(grammarAccess.getVarDeclAccess().getVarNameEStringParserRuleCall_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleVarDecl1573);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleVarDecl1576);
             lv_varName_0_0=ruleEString();
 
             state._fsp--;
@@ -1799,13 +1828,13 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
             // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:759:2: iv_ruleSlicedProperty= ruleSlicedProperty EOF
             {
              newCompositeNode(grammarAccess.getSlicedPropertyRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleSlicedProperty_in_entryRuleSlicedProperty1608);
+            pushFollow(FollowSets000.FOLLOW_ruleSlicedProperty_in_entryRuleSlicedProperty1611);
             iv_ruleSlicedProperty=ruleSlicedProperty();
 
             state._fsp--;
 
              current =iv_ruleSlicedProperty; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSlicedProperty1618); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSlicedProperty1621); 
 
             }
 
@@ -1823,30 +1852,34 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSlicedProperty"
-    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:766:1: ruleSlicedProperty returns [EObject current=null] : ( ( ( ruleQName ) ) ( (lv_isOption_1_0= 'option' ) )? ( (lv_src_2_0= ruleVarDecl ) )? ( (lv_tgt_3_0= ruleVarDecl ) )? ( (lv_opposite_4_0= ruleOppositeCreation ) )? (otherlv_5= '[[' ( (lv_expression_6_0= ruleEString ) ) otherlv_7= ']]' )? ) ;
+    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:766:1: ruleSlicedProperty returns [EObject current=null] : ( ( ( ruleQName ) ) ( (lv_isOption_1_0= 'option' ) )? ( (lv_opposite_2_0= ruleOppositeCreation ) )? ( (lv_src_3_0= ruleVarDecl ) )? ( (lv_tgt_4_0= ruleVarDecl ) )? (otherlv_5= '[[' ( (lv_expression_6_0= ruleEString ) ) otherlv_7= ']]' )? (otherlv_8= 'constraint' otherlv_9= ':' ( (lv_constraints_10_0= ruleConstraint ) ) )* ) ;
     public final EObject ruleSlicedProperty() throws RecognitionException {
         EObject current = null;
 
         Token lv_isOption_1_0=null;
         Token otherlv_5=null;
         Token otherlv_7=null;
-        EObject lv_src_2_0 = null;
+        Token otherlv_8=null;
+        Token otherlv_9=null;
+        EObject lv_opposite_2_0 = null;
 
-        EObject lv_tgt_3_0 = null;
+        EObject lv_src_3_0 = null;
 
-        EObject lv_opposite_4_0 = null;
+        EObject lv_tgt_4_0 = null;
 
         AntlrDatatypeRuleToken lv_expression_6_0 = null;
+
+        EObject lv_constraints_10_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:769:28: ( ( ( ( ruleQName ) ) ( (lv_isOption_1_0= 'option' ) )? ( (lv_src_2_0= ruleVarDecl ) )? ( (lv_tgt_3_0= ruleVarDecl ) )? ( (lv_opposite_4_0= ruleOppositeCreation ) )? (otherlv_5= '[[' ( (lv_expression_6_0= ruleEString ) ) otherlv_7= ']]' )? ) )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:770:1: ( ( ( ruleQName ) ) ( (lv_isOption_1_0= 'option' ) )? ( (lv_src_2_0= ruleVarDecl ) )? ( (lv_tgt_3_0= ruleVarDecl ) )? ( (lv_opposite_4_0= ruleOppositeCreation ) )? (otherlv_5= '[[' ( (lv_expression_6_0= ruleEString ) ) otherlv_7= ']]' )? )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:769:28: ( ( ( ( ruleQName ) ) ( (lv_isOption_1_0= 'option' ) )? ( (lv_opposite_2_0= ruleOppositeCreation ) )? ( (lv_src_3_0= ruleVarDecl ) )? ( (lv_tgt_4_0= ruleVarDecl ) )? (otherlv_5= '[[' ( (lv_expression_6_0= ruleEString ) ) otherlv_7= ']]' )? (otherlv_8= 'constraint' otherlv_9= ':' ( (lv_constraints_10_0= ruleConstraint ) ) )* ) )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:770:1: ( ( ( ruleQName ) ) ( (lv_isOption_1_0= 'option' ) )? ( (lv_opposite_2_0= ruleOppositeCreation ) )? ( (lv_src_3_0= ruleVarDecl ) )? ( (lv_tgt_4_0= ruleVarDecl ) )? (otherlv_5= '[[' ( (lv_expression_6_0= ruleEString ) ) otherlv_7= ']]' )? (otherlv_8= 'constraint' otherlv_9= ':' ( (lv_constraints_10_0= ruleConstraint ) ) )* )
             {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:770:1: ( ( ( ruleQName ) ) ( (lv_isOption_1_0= 'option' ) )? ( (lv_src_2_0= ruleVarDecl ) )? ( (lv_tgt_3_0= ruleVarDecl ) )? ( (lv_opposite_4_0= ruleOppositeCreation ) )? (otherlv_5= '[[' ( (lv_expression_6_0= ruleEString ) ) otherlv_7= ']]' )? )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:770:2: ( ( ruleQName ) ) ( (lv_isOption_1_0= 'option' ) )? ( (lv_src_2_0= ruleVarDecl ) )? ( (lv_tgt_3_0= ruleVarDecl ) )? ( (lv_opposite_4_0= ruleOppositeCreation ) )? (otherlv_5= '[[' ( (lv_expression_6_0= ruleEString ) ) otherlv_7= ']]' )?
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:770:1: ( ( ( ruleQName ) ) ( (lv_isOption_1_0= 'option' ) )? ( (lv_opposite_2_0= ruleOppositeCreation ) )? ( (lv_src_3_0= ruleVarDecl ) )? ( (lv_tgt_4_0= ruleVarDecl ) )? (otherlv_5= '[[' ( (lv_expression_6_0= ruleEString ) ) otherlv_7= ']]' )? (otherlv_8= 'constraint' otherlv_9= ':' ( (lv_constraints_10_0= ruleConstraint ) ) )* )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:770:2: ( ( ruleQName ) ) ( (lv_isOption_1_0= 'option' ) )? ( (lv_opposite_2_0= ruleOppositeCreation ) )? ( (lv_src_3_0= ruleVarDecl ) )? ( (lv_tgt_4_0= ruleVarDecl ) )? (otherlv_5= '[[' ( (lv_expression_6_0= ruleEString ) ) otherlv_7= ']]' )? (otherlv_8= 'constraint' otherlv_9= ':' ( (lv_constraints_10_0= ruleConstraint ) ) )*
             {
             // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:770:2: ( ( ruleQName ) )
             // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:771:1: ( ruleQName )
@@ -1862,7 +1895,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
              
             	        newCompositeNode(grammarAccess.getSlicedPropertyAccess().getDomainEStructuralFeatureCrossReference_0_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleQName_in_ruleSlicedProperty1666);
+            pushFollow(FollowSets000.FOLLOW_ruleQName_in_ruleSlicedProperty1669);
             ruleQName();
 
             state._fsp--;
@@ -1877,20 +1910,20 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
             }
 
             // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:785:2: ( (lv_isOption_1_0= 'option' ) )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            if ( (LA18_0==30) ) {
-                alt18=1;
+            if ( (LA19_0==29) ) {
+                alt19=1;
             }
-            switch (alt18) {
+            switch (alt19) {
                 case 1 :
                     // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:786:1: (lv_isOption_1_0= 'option' )
                     {
                     // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:786:1: (lv_isOption_1_0= 'option' )
                     // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:787:3: lv_isOption_1_0= 'option'
                     {
-                    lv_isOption_1_0=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleSlicedProperty1684); 
+                    lv_isOption_1_0=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleSlicedProperty1687); 
 
                             newLeafNode(lv_isOption_1_0, grammarAccess.getSlicedPropertyAccess().getIsOptionOptionKeyword_1_0());
                         
@@ -1909,112 +1942,25 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:800:3: ( (lv_src_2_0= ruleVarDecl ) )?
-            int alt19=2;
-            int LA19_0 = input.LA(1);
-
-            if ( (LA19_0==RULE_STRING) ) {
-                alt19=1;
-            }
-            else if ( (LA19_0==RULE_ID) ) {
-                alt19=1;
-            }
-            switch (alt19) {
-                case 1 :
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:801:1: (lv_src_2_0= ruleVarDecl )
-                    {
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:801:1: (lv_src_2_0= ruleVarDecl )
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:802:3: lv_src_2_0= ruleVarDecl
-                    {
-                     
-                    	        newCompositeNode(grammarAccess.getSlicedPropertyAccess().getSrcVarDeclParserRuleCall_2_0()); 
-                    	    
-                    pushFollow(FollowSets000.FOLLOW_ruleVarDecl_in_ruleSlicedProperty1719);
-                    lv_src_2_0=ruleVarDecl();
-
-                    state._fsp--;
-
-
-                    	        if (current==null) {
-                    	            current = createModelElementForParent(grammarAccess.getSlicedPropertyRule());
-                    	        }
-                           		set(
-                           			current, 
-                           			"src",
-                            		lv_src_2_0, 
-                            		"VarDecl");
-                    	        afterParserOrEnumRuleCall();
-                    	    
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:818:3: ( (lv_tgt_3_0= ruleVarDecl ) )?
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:800:3: ( (lv_opposite_2_0= ruleOppositeCreation ) )?
             int alt20=2;
             int LA20_0 = input.LA(1);
 
-            if ( ((LA20_0>=RULE_STRING && LA20_0<=RULE_ID)) ) {
+            if ( (LA20_0==31) ) {
                 alt20=1;
             }
             switch (alt20) {
                 case 1 :
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:819:1: (lv_tgt_3_0= ruleVarDecl )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:801:1: (lv_opposite_2_0= ruleOppositeCreation )
                     {
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:819:1: (lv_tgt_3_0= ruleVarDecl )
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:820:3: lv_tgt_3_0= ruleVarDecl
-                    {
-                     
-                    	        newCompositeNode(grammarAccess.getSlicedPropertyAccess().getTgtVarDeclParserRuleCall_3_0()); 
-                    	    
-                    pushFollow(FollowSets000.FOLLOW_ruleVarDecl_in_ruleSlicedProperty1741);
-                    lv_tgt_3_0=ruleVarDecl();
-
-                    state._fsp--;
-
-
-                    	        if (current==null) {
-                    	            current = createModelElementForParent(grammarAccess.getSlicedPropertyRule());
-                    	        }
-                           		set(
-                           			current, 
-                           			"tgt",
-                            		lv_tgt_3_0, 
-                            		"VarDecl");
-                    	        afterParserOrEnumRuleCall();
-                    	    
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:836:3: ( (lv_opposite_4_0= ruleOppositeCreation ) )?
-            int alt21=2;
-            int LA21_0 = input.LA(1);
-
-            if ( (LA21_0==31) ) {
-                alt21=1;
-            }
-            switch (alt21) {
-                case 1 :
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:837:1: (lv_opposite_4_0= ruleOppositeCreation )
-                    {
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:837:1: (lv_opposite_4_0= ruleOppositeCreation )
-                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:838:3: lv_opposite_4_0= ruleOppositeCreation
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:801:1: (lv_opposite_2_0= ruleOppositeCreation )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:802:3: lv_opposite_2_0= ruleOppositeCreation
                     {
                      
-                    	        newCompositeNode(grammarAccess.getSlicedPropertyAccess().getOppositeOppositeCreationParserRuleCall_4_0()); 
+                    	        newCompositeNode(grammarAccess.getSlicedPropertyAccess().getOppositeOppositeCreationParserRuleCall_2_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleOppositeCreation_in_ruleSlicedProperty1763);
-                    lv_opposite_4_0=ruleOppositeCreation();
+                    pushFollow(FollowSets000.FOLLOW_ruleOppositeCreation_in_ruleSlicedProperty1722);
+                    lv_opposite_2_0=ruleOppositeCreation();
 
                     state._fsp--;
 
@@ -2025,7 +1971,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
                            		set(
                            			current, 
                            			"opposite",
-                            		lv_opposite_4_0, 
+                            		lv_opposite_2_0, 
                             		"OppositeCreation");
                     	        afterParserOrEnumRuleCall();
                     	    
@@ -2038,18 +1984,105 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:854:3: (otherlv_5= '[[' ( (lv_expression_6_0= ruleEString ) ) otherlv_7= ']]' )?
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:818:3: ( (lv_src_3_0= ruleVarDecl ) )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
+
+            if ( (LA21_0==RULE_STRING) ) {
+                alt21=1;
+            }
+            else if ( (LA21_0==RULE_ID) ) {
+                alt21=1;
+            }
+            switch (alt21) {
+                case 1 :
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:819:1: (lv_src_3_0= ruleVarDecl )
+                    {
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:819:1: (lv_src_3_0= ruleVarDecl )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:820:3: lv_src_3_0= ruleVarDecl
+                    {
+                     
+                    	        newCompositeNode(grammarAccess.getSlicedPropertyAccess().getSrcVarDeclParserRuleCall_3_0()); 
+                    	    
+                    pushFollow(FollowSets000.FOLLOW_ruleVarDecl_in_ruleSlicedProperty1744);
+                    lv_src_3_0=ruleVarDecl();
+
+                    state._fsp--;
+
+
+                    	        if (current==null) {
+                    	            current = createModelElementForParent(grammarAccess.getSlicedPropertyRule());
+                    	        }
+                           		set(
+                           			current, 
+                           			"src",
+                            		lv_src_3_0, 
+                            		"VarDecl");
+                    	        afterParserOrEnumRuleCall();
+                    	    
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:836:3: ( (lv_tgt_4_0= ruleVarDecl ) )?
             int alt22=2;
             int LA22_0 = input.LA(1);
 
-            if ( (LA22_0==24) ) {
+            if ( ((LA22_0>=RULE_STRING && LA22_0<=RULE_ID)) ) {
                 alt22=1;
             }
             switch (alt22) {
                 case 1 :
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:837:1: (lv_tgt_4_0= ruleVarDecl )
+                    {
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:837:1: (lv_tgt_4_0= ruleVarDecl )
+                    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:838:3: lv_tgt_4_0= ruleVarDecl
+                    {
+                     
+                    	        newCompositeNode(grammarAccess.getSlicedPropertyAccess().getTgtVarDeclParserRuleCall_4_0()); 
+                    	    
+                    pushFollow(FollowSets000.FOLLOW_ruleVarDecl_in_ruleSlicedProperty1766);
+                    lv_tgt_4_0=ruleVarDecl();
+
+                    state._fsp--;
+
+
+                    	        if (current==null) {
+                    	            current = createModelElementForParent(grammarAccess.getSlicedPropertyRule());
+                    	        }
+                           		set(
+                           			current, 
+                           			"tgt",
+                            		lv_tgt_4_0, 
+                            		"VarDecl");
+                    	        afterParserOrEnumRuleCall();
+                    	    
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:854:3: (otherlv_5= '[[' ( (lv_expression_6_0= ruleEString ) ) otherlv_7= ']]' )?
+            int alt23=2;
+            int LA23_0 = input.LA(1);
+
+            if ( (LA23_0==23) ) {
+                alt23=1;
+            }
+            switch (alt23) {
+                case 1 :
                     // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:854:5: otherlv_5= '[[' ( (lv_expression_6_0= ruleEString ) ) otherlv_7= ']]'
                     {
-                    otherlv_5=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleSlicedProperty1777); 
+                    otherlv_5=(Token)match(input,23,FollowSets000.FOLLOW_23_in_ruleSlicedProperty1780); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getSlicedPropertyAccess().getLeftSquareBracketLeftSquareBracketKeyword_5_0());
                         
@@ -2062,7 +2095,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
                      
                     	        newCompositeNode(grammarAccess.getSlicedPropertyAccess().getExpressionEStringParserRuleCall_5_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleSlicedProperty1798);
+                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleSlicedProperty1801);
                     lv_expression_6_0=ruleEString();
 
                     state._fsp--;
@@ -2084,7 +2117,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_7=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleSlicedProperty1810); 
+                    otherlv_7=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleSlicedProperty1813); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getSlicedPropertyAccess().getRightSquareBracketRightSquareBracketKeyword_5_2());
                         
@@ -2093,6 +2126,69 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
                     break;
 
             }
+
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:880:3: (otherlv_8= 'constraint' otherlv_9= ':' ( (lv_constraints_10_0= ruleConstraint ) ) )*
+            loop24:
+            do {
+                int alt24=2;
+                int LA24_0 = input.LA(1);
+
+                if ( (LA24_0==30) ) {
+                    alt24=1;
+                }
+
+
+                switch (alt24) {
+            	case 1 :
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:880:5: otherlv_8= 'constraint' otherlv_9= ':' ( (lv_constraints_10_0= ruleConstraint ) )
+            	    {
+            	    otherlv_8=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleSlicedProperty1828); 
+
+            	        	newLeafNode(otherlv_8, grammarAccess.getSlicedPropertyAccess().getConstraintKeyword_6_0());
+            	        
+            	    otherlv_9=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleSlicedProperty1840); 
+
+            	        	newLeafNode(otherlv_9, grammarAccess.getSlicedPropertyAccess().getColonKeyword_6_1());
+            	        
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:888:1: ( (lv_constraints_10_0= ruleConstraint ) )
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:889:1: (lv_constraints_10_0= ruleConstraint )
+            	    {
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:889:1: (lv_constraints_10_0= ruleConstraint )
+            	    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:890:3: lv_constraints_10_0= ruleConstraint
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getSlicedPropertyAccess().getConstraintsConstraintParserRuleCall_6_2_0()); 
+            	    	    
+            	    pushFollow(FollowSets000.FOLLOW_ruleConstraint_in_ruleSlicedProperty1861);
+            	    lv_constraints_10_0=ruleConstraint();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getSlicedPropertyRule());
+            	    	        }
+            	           		add(
+            	           			current, 
+            	           			"constraints",
+            	            		lv_constraints_10_0, 
+            	            		"Constraint");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop24;
+                }
+            } while (true);
 
 
             }
@@ -2115,7 +2211,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOppositeCreation"
-    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:888:1: entryRuleOppositeCreation returns [EObject current=null] : iv_ruleOppositeCreation= ruleOppositeCreation EOF ;
+    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:914:1: entryRuleOppositeCreation returns [EObject current=null] : iv_ruleOppositeCreation= ruleOppositeCreation EOF ;
     public final EObject entryRuleOppositeCreation() throws RecognitionException {
         EObject current = null;
 
@@ -2123,17 +2219,17 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:889:2: (iv_ruleOppositeCreation= ruleOppositeCreation EOF )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:890:2: iv_ruleOppositeCreation= ruleOppositeCreation EOF
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:915:2: (iv_ruleOppositeCreation= ruleOppositeCreation EOF )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:916:2: iv_ruleOppositeCreation= ruleOppositeCreation EOF
             {
              newCompositeNode(grammarAccess.getOppositeCreationRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleOppositeCreation_in_entryRuleOppositeCreation1848);
+            pushFollow(FollowSets000.FOLLOW_ruleOppositeCreation_in_entryRuleOppositeCreation1899);
             iv_ruleOppositeCreation=ruleOppositeCreation();
 
             state._fsp--;
 
              current =iv_ruleOppositeCreation; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleOppositeCreation1858); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleOppositeCreation1909); 
 
             }
 
@@ -2151,7 +2247,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOppositeCreation"
-    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:897:1: ruleOppositeCreation returns [EObject current=null] : ( () otherlv_1= 'opposite' otherlv_2= '(' ( (lv_name_3_0= ruleEString ) ) otherlv_4= ')' ) ;
+    // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:923:1: ruleOppositeCreation returns [EObject current=null] : ( () otherlv_1= 'opposite' otherlv_2= '(' ( (lv_name_3_0= ruleEString ) ) otherlv_4= ')' ) ;
     public final EObject ruleOppositeCreation() throws RecognitionException {
         EObject current = null;
 
@@ -2164,14 +2260,14 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:900:28: ( ( () otherlv_1= 'opposite' otherlv_2= '(' ( (lv_name_3_0= ruleEString ) ) otherlv_4= ')' ) )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:901:1: ( () otherlv_1= 'opposite' otherlv_2= '(' ( (lv_name_3_0= ruleEString ) ) otherlv_4= ')' )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:926:28: ( ( () otherlv_1= 'opposite' otherlv_2= '(' ( (lv_name_3_0= ruleEString ) ) otherlv_4= ')' ) )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:927:1: ( () otherlv_1= 'opposite' otherlv_2= '(' ( (lv_name_3_0= ruleEString ) ) otherlv_4= ')' )
             {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:901:1: ( () otherlv_1= 'opposite' otherlv_2= '(' ( (lv_name_3_0= ruleEString ) ) otherlv_4= ')' )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:901:2: () otherlv_1= 'opposite' otherlv_2= '(' ( (lv_name_3_0= ruleEString ) ) otherlv_4= ')'
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:927:1: ( () otherlv_1= 'opposite' otherlv_2= '(' ( (lv_name_3_0= ruleEString ) ) otherlv_4= ')' )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:927:2: () otherlv_1= 'opposite' otherlv_2= '(' ( (lv_name_3_0= ruleEString ) ) otherlv_4= ')'
             {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:901:2: ()
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:902:5: 
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:927:2: ()
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:928:5: 
             {
 
                     current = forceCreateModelElement(
@@ -2181,24 +2277,24 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleOppositeCreation1904); 
+            otherlv_1=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleOppositeCreation1955); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getOppositeCreationAccess().getOppositeKeyword_1());
                 
-            otherlv_2=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleOppositeCreation1916); 
+            otherlv_2=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleOppositeCreation1967); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getOppositeCreationAccess().getLeftParenthesisKeyword_2());
                 
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:915:1: ( (lv_name_3_0= ruleEString ) )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:916:1: (lv_name_3_0= ruleEString )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:941:1: ( (lv_name_3_0= ruleEString ) )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:942:1: (lv_name_3_0= ruleEString )
             {
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:916:1: (lv_name_3_0= ruleEString )
-            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:917:3: lv_name_3_0= ruleEString
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:942:1: (lv_name_3_0= ruleEString )
+            // ../fr.inria.diverse.kompren.xtext/src-gen/fr/inria/diverse/kompren/parser/antlr/internal/InternalKompren.g:943:3: lv_name_3_0= ruleEString
             {
              
             	        newCompositeNode(grammarAccess.getOppositeCreationAccess().getNameEStringParserRuleCall_3_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleOppositeCreation1937);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleOppositeCreation1988);
             lv_name_3_0=ruleEString();
 
             state._fsp--;
@@ -2220,7 +2316,7 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleOppositeCreation1949); 
+            otherlv_4=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleOppositeCreation2000); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getOppositeCreationAccess().getRightParenthesisKeyword_4());
                 
@@ -2257,86 +2353,89 @@ public class InternalKomprenParser extends AbstractInternalAntlrParser {
         public static final BitSet FOLLOW_13_in_ruleSlicer172 = new BitSet(new long[]{0x0000000000003030L});
         public static final BitSet FOLLOW_ruleQName_in_ruleSlicer207 = new BitSet(new long[]{0x0000000000004000L});
         public static final BitSet FOLLOW_14_in_ruleSlicer219 = new BitSet(new long[]{0x0000000000008000L});
-        public static final BitSet FOLLOW_15_in_ruleSlicer231 = new BitSet(new long[]{0x0000000000010000L});
-        public static final BitSet FOLLOW_16_in_ruleSlicer243 = new BitSet(new long[]{0x0000000000003030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleSlicer264 = new BitSet(new long[]{0x0000000000020000L});
-        public static final BitSet FOLLOW_17_in_ruleSlicer276 = new BitSet(new long[]{0x0000000000010000L});
-        public static final BitSet FOLLOW_16_in_ruleSlicer288 = new BitSet(new long[]{0x0000000000003030L});
-        public static final BitSet FOLLOW_ruleQName_in_ruleSlicer311 = new BitSet(new long[]{0x000000001CFC0000L});
-        public static final BitSet FOLLOW_18_in_ruleSlicer324 = new BitSet(new long[]{0x0000000000003030L});
-        public static final BitSet FOLLOW_ruleQName_in_ruleSlicer347 = new BitSet(new long[]{0x000000001CFC0000L});
-        public static final BitSet FOLLOW_19_in_ruleSlicer362 = new BitSet(new long[]{0x0000000000010000L});
-        public static final BitSet FOLLOW_16_in_ruleSlicer374 = new BitSet(new long[]{0x000000001CF03030L});
-        public static final BitSet FOLLOW_ruleRadius_in_ruleSlicer395 = new BitSet(new long[]{0x000000001CF00000L});
-        public static final BitSet FOLLOW_20_in_ruleSlicer410 = new BitSet(new long[]{0x0000000000010000L});
-        public static final BitSet FOLLOW_16_in_ruleSlicer422 = new BitSet(new long[]{0x0000000000003030L});
-        public static final BitSet FOLLOW_ruleConstraint_in_ruleSlicer443 = new BitSet(new long[]{0x000000001CF00000L});
-        public static final BitSet FOLLOW_21_in_ruleSlicer458 = new BitSet(new long[]{0x0000000000010000L});
-        public static final BitSet FOLLOW_16_in_ruleSlicer470 = new BitSet(new long[]{0x0000000000003030L});
-        public static final BitSet FOLLOW_ruleSlicedClass_in_ruleSlicer491 = new BitSet(new long[]{0x000000001CE00000L});
-        public static final BitSet FOLLOW_22_in_ruleSlicer506 = new BitSet(new long[]{0x0000000000010000L});
-        public static final BitSet FOLLOW_16_in_ruleSlicer518 = new BitSet(new long[]{0x0000000000003030L});
-        public static final BitSet FOLLOW_ruleSlicedProperty_in_ruleSlicer539 = new BitSet(new long[]{0x000000001CC00000L});
-        public static final BitSet FOLLOW_23_in_ruleSlicer554 = new BitSet(new long[]{0x0000000001000000L});
-        public static final BitSet FOLLOW_24_in_ruleSlicer566 = new BitSet(new long[]{0x0000000000003030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleSlicer587 = new BitSet(new long[]{0x0000000002000000L});
-        public static final BitSet FOLLOW_25_in_ruleSlicer599 = new BitSet(new long[]{0x000000001C000000L});
-        public static final BitSet FOLLOW_26_in_ruleSlicer614 = new BitSet(new long[]{0x0000000001000000L});
-        public static final BitSet FOLLOW_24_in_ruleSlicer626 = new BitSet(new long[]{0x0000000000003030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleSlicer647 = new BitSet(new long[]{0x0000000002000000L});
-        public static final BitSet FOLLOW_25_in_ruleSlicer659 = new BitSet(new long[]{0x0000000018000000L});
-        public static final BitSet FOLLOW_27_in_ruleSlicer674 = new BitSet(new long[]{0x0000000001000000L});
-        public static final BitSet FOLLOW_24_in_ruleSlicer686 = new BitSet(new long[]{0x0000000000003030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleSlicer707 = new BitSet(new long[]{0x0000000002000000L});
-        public static final BitSet FOLLOW_25_in_ruleSlicer719 = new BitSet(new long[]{0x0000000010000000L});
-        public static final BitSet FOLLOW_28_in_ruleSlicer733 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_entryRuleEString770 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleEString781 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_STRING_in_ruleEString821 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleEString847 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleQName_in_entryRuleQName893 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleQName904 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleQName951 = new BitSet(new long[]{0x0000000020000002L});
-        public static final BitSet FOLLOW_29_in_ruleQName970 = new BitSet(new long[]{0x0000000000003030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleQName992 = new BitSet(new long[]{0x0000000020000002L});
-        public static final BitSet FOLLOW_ruleConstraint_in_entryRuleConstraint1041 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleConstraint1051 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleConstraint1097 = new BitSet(new long[]{0x0000000001000000L});
-        public static final BitSet FOLLOW_24_in_ruleConstraint1109 = new BitSet(new long[]{0x0000000000003030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleConstraint1130 = new BitSet(new long[]{0x0000000002000000L});
-        public static final BitSet FOLLOW_25_in_ruleConstraint1142 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleRadius_in_entryRuleRadius1178 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleRadius1188 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleQName_in_ruleRadius1246 = new BitSet(new long[]{0x0000000000040002L});
-        public static final BitSet FOLLOW_18_in_ruleRadius1259 = new BitSet(new long[]{0x0000000000003030L});
-        public static final BitSet FOLLOW_ruleQName_in_ruleRadius1282 = new BitSet(new long[]{0x0000000000040002L});
-        public static final BitSet FOLLOW_ruleSlicedClass_in_entryRuleSlicedClass1322 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleSlicedClass1332 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleQName_in_ruleSlicedClass1380 = new BitSet(new long[]{0x0000000041003032L});
-        public static final BitSet FOLLOW_30_in_ruleSlicedClass1398 = new BitSet(new long[]{0x0000000001003032L});
-        public static final BitSet FOLLOW_ruleVarDecl_in_ruleSlicedClass1433 = new BitSet(new long[]{0x0000000001000002L});
-        public static final BitSet FOLLOW_24_in_ruleSlicedClass1447 = new BitSet(new long[]{0x0000000000003030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleSlicedClass1468 = new BitSet(new long[]{0x0000000002000000L});
-        public static final BitSet FOLLOW_25_in_ruleSlicedClass1480 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleVarDecl_in_entryRuleVarDecl1518 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleVarDecl1528 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleVarDecl1573 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSlicedProperty_in_entryRuleSlicedProperty1608 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleSlicedProperty1618 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleQName_in_ruleSlicedProperty1666 = new BitSet(new long[]{0x00000000C1003032L});
-        public static final BitSet FOLLOW_30_in_ruleSlicedProperty1684 = new BitSet(new long[]{0x0000000081003032L});
-        public static final BitSet FOLLOW_ruleVarDecl_in_ruleSlicedProperty1719 = new BitSet(new long[]{0x0000000081003032L});
-        public static final BitSet FOLLOW_ruleVarDecl_in_ruleSlicedProperty1741 = new BitSet(new long[]{0x0000000081000002L});
-        public static final BitSet FOLLOW_ruleOppositeCreation_in_ruleSlicedProperty1763 = new BitSet(new long[]{0x0000000001000002L});
-        public static final BitSet FOLLOW_24_in_ruleSlicedProperty1777 = new BitSet(new long[]{0x0000000000003030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleSlicedProperty1798 = new BitSet(new long[]{0x0000000002000000L});
-        public static final BitSet FOLLOW_25_in_ruleSlicedProperty1810 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleOppositeCreation_in_entryRuleOppositeCreation1848 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleOppositeCreation1858 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_31_in_ruleOppositeCreation1904 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_ruleOppositeCreation1916 = new BitSet(new long[]{0x0000000000003030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleOppositeCreation1937 = new BitSet(new long[]{0x0000000200000000L});
-        public static final BitSet FOLLOW_33_in_ruleOppositeCreation1949 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_15_in_ruleSlicer232 = new BitSet(new long[]{0x0000000000010000L});
+        public static final BitSet FOLLOW_16_in_ruleSlicer244 = new BitSet(new long[]{0x0000000000003030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleSlicer265 = new BitSet(new long[]{0x0000000000028000L});
+        public static final BitSet FOLLOW_17_in_ruleSlicer279 = new BitSet(new long[]{0x0000000000010000L});
+        public static final BitSet FOLLOW_16_in_ruleSlicer291 = new BitSet(new long[]{0x0000000000003030L});
+        public static final BitSet FOLLOW_ruleQName_in_ruleSlicer314 = new BitSet(new long[]{0x000000000E7C0000L});
+        public static final BitSet FOLLOW_18_in_ruleSlicer327 = new BitSet(new long[]{0x0000000000003030L});
+        public static final BitSet FOLLOW_ruleQName_in_ruleSlicer350 = new BitSet(new long[]{0x000000000E7C0000L});
+        public static final BitSet FOLLOW_19_in_ruleSlicer365 = new BitSet(new long[]{0x0000000000010000L});
+        public static final BitSet FOLLOW_16_in_ruleSlicer377 = new BitSet(new long[]{0x000000000E703030L});
+        public static final BitSet FOLLOW_ruleRadius_in_ruleSlicer398 = new BitSet(new long[]{0x000000000E700000L});
+        public static final BitSet FOLLOW_20_in_ruleSlicer413 = new BitSet(new long[]{0x0000000000010000L});
+        public static final BitSet FOLLOW_16_in_ruleSlicer425 = new BitSet(new long[]{0x0000000000003030L});
+        public static final BitSet FOLLOW_ruleSlicedClass_in_ruleSlicer446 = new BitSet(new long[]{0x000000000E700000L});
+        public static final BitSet FOLLOW_21_in_ruleSlicer461 = new BitSet(new long[]{0x0000000000010000L});
+        public static final BitSet FOLLOW_16_in_ruleSlicer473 = new BitSet(new long[]{0x0000000000003030L});
+        public static final BitSet FOLLOW_ruleSlicedProperty_in_ruleSlicer494 = new BitSet(new long[]{0x000000000E600000L});
+        public static final BitSet FOLLOW_22_in_ruleSlicer509 = new BitSet(new long[]{0x0000000000800000L});
+        public static final BitSet FOLLOW_23_in_ruleSlicer521 = new BitSet(new long[]{0x0000000000003030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleSlicer542 = new BitSet(new long[]{0x0000000001000000L});
+        public static final BitSet FOLLOW_24_in_ruleSlicer554 = new BitSet(new long[]{0x000000000E000000L});
+        public static final BitSet FOLLOW_25_in_ruleSlicer569 = new BitSet(new long[]{0x0000000000800000L});
+        public static final BitSet FOLLOW_23_in_ruleSlicer581 = new BitSet(new long[]{0x0000000000003030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleSlicer602 = new BitSet(new long[]{0x0000000001000000L});
+        public static final BitSet FOLLOW_24_in_ruleSlicer614 = new BitSet(new long[]{0x000000000C000000L});
+        public static final BitSet FOLLOW_26_in_ruleSlicer629 = new BitSet(new long[]{0x0000000000800000L});
+        public static final BitSet FOLLOW_23_in_ruleSlicer641 = new BitSet(new long[]{0x0000000000003030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleSlicer662 = new BitSet(new long[]{0x0000000001000000L});
+        public static final BitSet FOLLOW_24_in_ruleSlicer674 = new BitSet(new long[]{0x0000000008000000L});
+        public static final BitSet FOLLOW_27_in_ruleSlicer688 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_entryRuleEString725 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleEString736 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_ruleEString776 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleEString802 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleQName_in_entryRuleQName848 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleQName859 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleQName906 = new BitSet(new long[]{0x0000000010000002L});
+        public static final BitSet FOLLOW_28_in_ruleQName925 = new BitSet(new long[]{0x0000000000003030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleQName947 = new BitSet(new long[]{0x0000000010000002L});
+        public static final BitSet FOLLOW_ruleConstraint_in_entryRuleConstraint996 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleConstraint1006 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleConstraint1052 = new BitSet(new long[]{0x0000000000800000L});
+        public static final BitSet FOLLOW_23_in_ruleConstraint1064 = new BitSet(new long[]{0x0000000000003030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleConstraint1085 = new BitSet(new long[]{0x0000000001000000L});
+        public static final BitSet FOLLOW_24_in_ruleConstraint1097 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleRadius_in_entryRuleRadius1133 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleRadius1143 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleQName_in_ruleRadius1201 = new BitSet(new long[]{0x0000000000040002L});
+        public static final BitSet FOLLOW_18_in_ruleRadius1214 = new BitSet(new long[]{0x0000000000003030L});
+        public static final BitSet FOLLOW_ruleQName_in_ruleRadius1237 = new BitSet(new long[]{0x0000000000040002L});
+        public static final BitSet FOLLOW_ruleSlicedClass_in_entryRuleSlicedClass1277 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleSlicedClass1287 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleQName_in_ruleSlicedClass1335 = new BitSet(new long[]{0x0000000060803032L});
+        public static final BitSet FOLLOW_29_in_ruleSlicedClass1353 = new BitSet(new long[]{0x0000000040803032L});
+        public static final BitSet FOLLOW_ruleVarDecl_in_ruleSlicedClass1388 = new BitSet(new long[]{0x0000000040800002L});
+        public static final BitSet FOLLOW_23_in_ruleSlicedClass1402 = new BitSet(new long[]{0x0000000000003030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleSlicedClass1423 = new BitSet(new long[]{0x0000000001000000L});
+        public static final BitSet FOLLOW_24_in_ruleSlicedClass1435 = new BitSet(new long[]{0x0000000040000002L});
+        public static final BitSet FOLLOW_30_in_ruleSlicedClass1450 = new BitSet(new long[]{0x0000000000010000L});
+        public static final BitSet FOLLOW_16_in_ruleSlicedClass1462 = new BitSet(new long[]{0x0000000000003030L});
+        public static final BitSet FOLLOW_ruleConstraint_in_ruleSlicedClass1483 = new BitSet(new long[]{0x0000000040000002L});
+        public static final BitSet FOLLOW_ruleVarDecl_in_entryRuleVarDecl1521 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleVarDecl1531 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleVarDecl1576 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSlicedProperty_in_entryRuleSlicedProperty1611 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleSlicedProperty1621 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleQName_in_ruleSlicedProperty1669 = new BitSet(new long[]{0x00000000E0803032L});
+        public static final BitSet FOLLOW_29_in_ruleSlicedProperty1687 = new BitSet(new long[]{0x00000000C0803032L});
+        public static final BitSet FOLLOW_ruleOppositeCreation_in_ruleSlicedProperty1722 = new BitSet(new long[]{0x0000000040803032L});
+        public static final BitSet FOLLOW_ruleVarDecl_in_ruleSlicedProperty1744 = new BitSet(new long[]{0x0000000040803032L});
+        public static final BitSet FOLLOW_ruleVarDecl_in_ruleSlicedProperty1766 = new BitSet(new long[]{0x0000000040800002L});
+        public static final BitSet FOLLOW_23_in_ruleSlicedProperty1780 = new BitSet(new long[]{0x0000000000003030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleSlicedProperty1801 = new BitSet(new long[]{0x0000000001000000L});
+        public static final BitSet FOLLOW_24_in_ruleSlicedProperty1813 = new BitSet(new long[]{0x0000000040000002L});
+        public static final BitSet FOLLOW_30_in_ruleSlicedProperty1828 = new BitSet(new long[]{0x0000000000010000L});
+        public static final BitSet FOLLOW_16_in_ruleSlicedProperty1840 = new BitSet(new long[]{0x0000000000003030L});
+        public static final BitSet FOLLOW_ruleConstraint_in_ruleSlicedProperty1861 = new BitSet(new long[]{0x0000000040000002L});
+        public static final BitSet FOLLOW_ruleOppositeCreation_in_entryRuleOppositeCreation1899 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleOppositeCreation1909 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_31_in_ruleOppositeCreation1955 = new BitSet(new long[]{0x0000000100000000L});
+        public static final BitSet FOLLOW_32_in_ruleOppositeCreation1967 = new BitSet(new long[]{0x0000000000003030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleOppositeCreation1988 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_ruleOppositeCreation2000 = new BitSet(new long[]{0x0000000000000002L});
     }
 
 

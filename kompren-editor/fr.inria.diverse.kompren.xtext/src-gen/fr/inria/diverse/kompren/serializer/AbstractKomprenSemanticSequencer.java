@@ -123,7 +123,7 @@ public abstract class AbstractKomprenSemanticSequencer extends AbstractDelegatin
 	
 	/**
 	 * Constraint:
-	 *     (domain=[EClass|QName] isOption?='option'? ctx=VarDecl? expression=EString?)
+	 *     (domain=[EClass|QName] isOption?='option'? ctx=VarDecl? expression=EString? constraints+=Constraint*)
 	 */
 	protected void sequence_SlicedClass(EObject context, SlicedClass semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -135,10 +135,11 @@ public abstract class AbstractKomprenSemanticSequencer extends AbstractDelegatin
 	 *     (
 	 *         domain=[EStructuralFeature|QName] 
 	 *         isOption?='option'? 
+	 *         opposite=OppositeCreation? 
 	 *         src=VarDecl? 
 	 *         tgt=VarDecl? 
-	 *         opposite=OppositeCreation? 
-	 *         expression=EString?
+	 *         expression=EString? 
+	 *         constraints+=Constraint*
 	 *     )
 	 */
 	protected void sequence_SlicedProperty(EObject context, SlicedProperty semanticObject) {
@@ -152,11 +153,10 @@ public abstract class AbstractKomprenSemanticSequencer extends AbstractDelegatin
 	 *         active?='active'? 
 	 *         strict?='strict'? 
 	 *         name=QName 
-	 *         uriMetamodel=EString 
+	 *         uriMetamodel+=EString+ 
 	 *         inputClasses+=[EClass|QName] 
 	 *         inputClasses+=[EClass|QName]* 
 	 *         radius=Radius? 
-	 *         constraints+=Constraint* 
 	 *         slicedElements+=SlicedClass* 
 	 *         slicedElements+=SlicedProperty* 
 	 *         onStart=EString? 

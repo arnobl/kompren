@@ -29,73 +29,67 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cNameQNameParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cDomainKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cColonKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cUriMetamodelAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cUriMetamodelEStringParserRuleCall_7_0 = (RuleCall)cUriMetamodelAssignment_7.eContents().get(0);
-		private final Keyword cInputKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Keyword cColonKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cInputClassesAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final CrossReference cInputClassesEClassCrossReference_10_0 = (CrossReference)cInputClassesAssignment_10.eContents().get(0);
-		private final RuleCall cInputClassesEClassQNameParserRuleCall_10_0_1 = (RuleCall)cInputClassesEClassCrossReference_10_0.eContents().get(1);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cDomainKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Keyword cColonKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Assignment cUriMetamodelAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
+		private final RuleCall cUriMetamodelEStringParserRuleCall_5_2_0 = (RuleCall)cUriMetamodelAssignment_5_2.eContents().get(0);
+		private final Keyword cInputKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cColonKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cInputClassesAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final CrossReference cInputClassesEClassCrossReference_8_0 = (CrossReference)cInputClassesAssignment_8.eContents().get(0);
+		private final RuleCall cInputClassesEClassQNameParserRuleCall_8_0_1 = (RuleCall)cInputClassesEClassCrossReference_8_0.eContents().get(1);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cCommaKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cInputClassesAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final CrossReference cInputClassesEClassCrossReference_9_1_0 = (CrossReference)cInputClassesAssignment_9_1.eContents().get(0);
+		private final RuleCall cInputClassesEClassQNameParserRuleCall_9_1_0_1 = (RuleCall)cInputClassesEClassCrossReference_9_1_0.eContents().get(1);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cRadiusKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Keyword cColonKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
+		private final Assignment cRadiusAssignment_10_2 = (Assignment)cGroup_10.eContents().get(2);
+		private final RuleCall cRadiusRadiusParserRuleCall_10_2_0 = (RuleCall)cRadiusAssignment_10_2.eContents().get(0);
 		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
-		private final Keyword cCommaKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
-		private final Assignment cInputClassesAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
-		private final CrossReference cInputClassesEClassCrossReference_11_1_0 = (CrossReference)cInputClassesAssignment_11_1.eContents().get(0);
-		private final RuleCall cInputClassesEClassQNameParserRuleCall_11_1_0_1 = (RuleCall)cInputClassesEClassCrossReference_11_1_0.eContents().get(1);
+		private final Keyword cSlicedClassKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
+		private final Keyword cColonKeyword_11_1 = (Keyword)cGroup_11.eContents().get(1);
+		private final Assignment cSlicedElementsAssignment_11_2 = (Assignment)cGroup_11.eContents().get(2);
+		private final RuleCall cSlicedElementsSlicedClassParserRuleCall_11_2_0 = (RuleCall)cSlicedElementsAssignment_11_2.eContents().get(0);
 		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
-		private final Keyword cRadiusKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
+		private final Keyword cSlicedPropertyKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
 		private final Keyword cColonKeyword_12_1 = (Keyword)cGroup_12.eContents().get(1);
-		private final Assignment cRadiusAssignment_12_2 = (Assignment)cGroup_12.eContents().get(2);
-		private final RuleCall cRadiusRadiusParserRuleCall_12_2_0 = (RuleCall)cRadiusAssignment_12_2.eContents().get(0);
+		private final Assignment cSlicedElementsAssignment_12_2 = (Assignment)cGroup_12.eContents().get(2);
+		private final RuleCall cSlicedElementsSlicedPropertyParserRuleCall_12_2_0 = (RuleCall)cSlicedElementsAssignment_12_2.eContents().get(0);
 		private final Group cGroup_13 = (Group)cGroup.eContents().get(13);
-		private final Keyword cConstraintKeyword_13_0 = (Keyword)cGroup_13.eContents().get(0);
-		private final Keyword cColonKeyword_13_1 = (Keyword)cGroup_13.eContents().get(1);
-		private final Assignment cConstraintsAssignment_13_2 = (Assignment)cGroup_13.eContents().get(2);
-		private final RuleCall cConstraintsConstraintParserRuleCall_13_2_0 = (RuleCall)cConstraintsAssignment_13_2.eContents().get(0);
+		private final Keyword cOnStartKeyword_13_0 = (Keyword)cGroup_13.eContents().get(0);
+		private final Keyword cLeftSquareBracketLeftSquareBracketKeyword_13_1 = (Keyword)cGroup_13.eContents().get(1);
+		private final Assignment cOnStartAssignment_13_2 = (Assignment)cGroup_13.eContents().get(2);
+		private final RuleCall cOnStartEStringParserRuleCall_13_2_0 = (RuleCall)cOnStartAssignment_13_2.eContents().get(0);
+		private final Keyword cRightSquareBracketRightSquareBracketKeyword_13_3 = (Keyword)cGroup_13.eContents().get(3);
 		private final Group cGroup_14 = (Group)cGroup.eContents().get(14);
-		private final Keyword cSlicedClassKeyword_14_0 = (Keyword)cGroup_14.eContents().get(0);
-		private final Keyword cColonKeyword_14_1 = (Keyword)cGroup_14.eContents().get(1);
-		private final Assignment cSlicedElementsAssignment_14_2 = (Assignment)cGroup_14.eContents().get(2);
-		private final RuleCall cSlicedElementsSlicedClassParserRuleCall_14_2_0 = (RuleCall)cSlicedElementsAssignment_14_2.eContents().get(0);
+		private final Keyword cOnEndKeyword_14_0 = (Keyword)cGroup_14.eContents().get(0);
+		private final Keyword cLeftSquareBracketLeftSquareBracketKeyword_14_1 = (Keyword)cGroup_14.eContents().get(1);
+		private final Assignment cOnEndAssignment_14_2 = (Assignment)cGroup_14.eContents().get(2);
+		private final RuleCall cOnEndEStringParserRuleCall_14_2_0 = (RuleCall)cOnEndAssignment_14_2.eContents().get(0);
+		private final Keyword cRightSquareBracketRightSquareBracketKeyword_14_3 = (Keyword)cGroup_14.eContents().get(3);
 		private final Group cGroup_15 = (Group)cGroup.eContents().get(15);
-		private final Keyword cSlicedPropertyKeyword_15_0 = (Keyword)cGroup_15.eContents().get(0);
-		private final Keyword cColonKeyword_15_1 = (Keyword)cGroup_15.eContents().get(1);
-		private final Assignment cSlicedElementsAssignment_15_2 = (Assignment)cGroup_15.eContents().get(2);
-		private final RuleCall cSlicedElementsSlicedPropertyParserRuleCall_15_2_0 = (RuleCall)cSlicedElementsAssignment_15_2.eContents().get(0);
-		private final Group cGroup_16 = (Group)cGroup.eContents().get(16);
-		private final Keyword cOnStartKeyword_16_0 = (Keyword)cGroup_16.eContents().get(0);
-		private final Keyword cLeftSquareBracketLeftSquareBracketKeyword_16_1 = (Keyword)cGroup_16.eContents().get(1);
-		private final Assignment cOnStartAssignment_16_2 = (Assignment)cGroup_16.eContents().get(2);
-		private final RuleCall cOnStartEStringParserRuleCall_16_2_0 = (RuleCall)cOnStartAssignment_16_2.eContents().get(0);
-		private final Keyword cRightSquareBracketRightSquareBracketKeyword_16_3 = (Keyword)cGroup_16.eContents().get(3);
-		private final Group cGroup_17 = (Group)cGroup.eContents().get(17);
-		private final Keyword cOnEndKeyword_17_0 = (Keyword)cGroup_17.eContents().get(0);
-		private final Keyword cLeftSquareBracketLeftSquareBracketKeyword_17_1 = (Keyword)cGroup_17.eContents().get(1);
-		private final Assignment cOnEndAssignment_17_2 = (Assignment)cGroup_17.eContents().get(2);
-		private final RuleCall cOnEndEStringParserRuleCall_17_2_0 = (RuleCall)cOnEndAssignment_17_2.eContents().get(0);
-		private final Keyword cRightSquareBracketRightSquareBracketKeyword_17_3 = (Keyword)cGroup_17.eContents().get(3);
-		private final Group cGroup_18 = (Group)cGroup.eContents().get(18);
-		private final Keyword cHelperKeyword_18_0 = (Keyword)cGroup_18.eContents().get(0);
-		private final Keyword cLeftSquareBracketLeftSquareBracketKeyword_18_1 = (Keyword)cGroup_18.eContents().get(1);
-		private final Assignment cHelperAssignment_18_2 = (Assignment)cGroup_18.eContents().get(2);
-		private final RuleCall cHelperEStringParserRuleCall_18_2_0 = (RuleCall)cHelperAssignment_18_2.eContents().get(0);
-		private final Keyword cRightSquareBracketRightSquareBracketKeyword_18_3 = (Keyword)cGroup_18.eContents().get(3);
-		private final Keyword cRightCurlyBracketKeyword_19 = (Keyword)cGroup.eContents().get(19);
+		private final Keyword cHelperKeyword_15_0 = (Keyword)cGroup_15.eContents().get(0);
+		private final Keyword cLeftSquareBracketLeftSquareBracketKeyword_15_1 = (Keyword)cGroup_15.eContents().get(1);
+		private final Assignment cHelperAssignment_15_2 = (Assignment)cGroup_15.eContents().get(2);
+		private final RuleCall cHelperEStringParserRuleCall_15_2_0 = (RuleCall)cHelperAssignment_15_2.eContents().get(0);
+		private final Keyword cRightSquareBracketRightSquareBracketKeyword_15_3 = (Keyword)cGroup_15.eContents().get(3);
+		private final Keyword cRightCurlyBracketKeyword_16 = (Keyword)cGroup.eContents().get(16);
 		
 		//Slicer:
-		//	"slicer" active?="active"? strict?="strict"? name=QName "{" "domain" ":" uriMetamodel=EString "input" ":"
+		//	"slicer" active?="active"? strict?="strict"? name=QName "{" ("domain" ":" uriMetamodel+=EString)+ "input" ":"
 		//	inputClasses+=[ecore::EClass|QName] ("," inputClasses+=[ecore::EClass|QName])* ("radius" ":" radius=Radius)?
-		//	("constraint" ":" constraints+=Constraint)* ("slicedClass" ":" slicedElements+=SlicedClass)* ("slicedProperty" ":"
-		//	slicedElements+=SlicedProperty)* ("onStart" "[[" onStart=EString "]]")? ("onEnd" "[[" onEnd=EString "]]")? ("helper"
-		//	"[[" helper=EString "]]")? "}";
+		//	("slicedClass" ":" slicedElements+=SlicedClass)* ("slicedProperty" ":" slicedElements+=SlicedProperty)* ("onStart"
+		//	"[[" onStart=EString "]]")? ("onEnd" "[[" onEnd=EString "]]")? ("helper" "[[" helper=EString "]]")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//"slicer" active?="active"? strict?="strict"? name=QName "{" "domain" ":" uriMetamodel=EString "input" ":"
+		//"slicer" active?="active"? strict?="strict"? name=QName "{" ("domain" ":" uriMetamodel+=EString)+ "input" ":"
 		//inputClasses+=[ecore::EClass|QName] ("," inputClasses+=[ecore::EClass|QName])* ("radius" ":" radius=Radius)?
-		//("constraint" ":" constraints+=Constraint)* ("slicedClass" ":" slicedElements+=SlicedClass)* ("slicedProperty" ":"
-		//slicedElements+=SlicedProperty)* ("onStart" "[[" onStart=EString "]]")? ("onEnd" "[[" onEnd=EString "]]")? ("helper"
-		//"[[" helper=EString "]]")? "}"
+		//("slicedClass" ":" slicedElements+=SlicedClass)* ("slicedProperty" ":" slicedElements+=SlicedProperty)* ("onStart" "[["
+		//onStart=EString "]]")? ("onEnd" "[[" onEnd=EString "]]")? ("helper" "[[" helper=EString "]]")? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"slicer"
@@ -122,164 +116,152 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
 
+		//("domain" ":" uriMetamodel+=EString)+
+		public Group getGroup_5() { return cGroup_5; }
+
 		//"domain"
-		public Keyword getDomainKeyword_5() { return cDomainKeyword_5; }
+		public Keyword getDomainKeyword_5_0() { return cDomainKeyword_5_0; }
 
 		//":"
-		public Keyword getColonKeyword_6() { return cColonKeyword_6; }
+		public Keyword getColonKeyword_5_1() { return cColonKeyword_5_1; }
 
-		//uriMetamodel=EString
-		public Assignment getUriMetamodelAssignment_7() { return cUriMetamodelAssignment_7; }
+		//uriMetamodel+=EString
+		public Assignment getUriMetamodelAssignment_5_2() { return cUriMetamodelAssignment_5_2; }
 
 		//EString
-		public RuleCall getUriMetamodelEStringParserRuleCall_7_0() { return cUriMetamodelEStringParserRuleCall_7_0; }
+		public RuleCall getUriMetamodelEStringParserRuleCall_5_2_0() { return cUriMetamodelEStringParserRuleCall_5_2_0; }
 
 		//"input"
-		public Keyword getInputKeyword_8() { return cInputKeyword_8; }
+		public Keyword getInputKeyword_6() { return cInputKeyword_6; }
 
 		//":"
-		public Keyword getColonKeyword_9() { return cColonKeyword_9; }
+		public Keyword getColonKeyword_7() { return cColonKeyword_7; }
 
 		//inputClasses+=[ecore::EClass|QName]
-		public Assignment getInputClassesAssignment_10() { return cInputClassesAssignment_10; }
+		public Assignment getInputClassesAssignment_8() { return cInputClassesAssignment_8; }
 
 		//[ecore::EClass|QName]
-		public CrossReference getInputClassesEClassCrossReference_10_0() { return cInputClassesEClassCrossReference_10_0; }
+		public CrossReference getInputClassesEClassCrossReference_8_0() { return cInputClassesEClassCrossReference_8_0; }
 
 		//QName
-		public RuleCall getInputClassesEClassQNameParserRuleCall_10_0_1() { return cInputClassesEClassQNameParserRuleCall_10_0_1; }
+		public RuleCall getInputClassesEClassQNameParserRuleCall_8_0_1() { return cInputClassesEClassQNameParserRuleCall_8_0_1; }
 
 		//("," inputClasses+=[ecore::EClass|QName])*
-		public Group getGroup_11() { return cGroup_11; }
+		public Group getGroup_9() { return cGroup_9; }
 
 		//","
-		public Keyword getCommaKeyword_11_0() { return cCommaKeyword_11_0; }
+		public Keyword getCommaKeyword_9_0() { return cCommaKeyword_9_0; }
 
 		//inputClasses+=[ecore::EClass|QName]
-		public Assignment getInputClassesAssignment_11_1() { return cInputClassesAssignment_11_1; }
+		public Assignment getInputClassesAssignment_9_1() { return cInputClassesAssignment_9_1; }
 
 		//[ecore::EClass|QName]
-		public CrossReference getInputClassesEClassCrossReference_11_1_0() { return cInputClassesEClassCrossReference_11_1_0; }
+		public CrossReference getInputClassesEClassCrossReference_9_1_0() { return cInputClassesEClassCrossReference_9_1_0; }
 
 		//QName
-		public RuleCall getInputClassesEClassQNameParserRuleCall_11_1_0_1() { return cInputClassesEClassQNameParserRuleCall_11_1_0_1; }
+		public RuleCall getInputClassesEClassQNameParserRuleCall_9_1_0_1() { return cInputClassesEClassQNameParserRuleCall_9_1_0_1; }
 
 		//("radius" ":" radius=Radius)?
-		public Group getGroup_12() { return cGroup_12; }
+		public Group getGroup_10() { return cGroup_10; }
 
 		//"radius"
-		public Keyword getRadiusKeyword_12_0() { return cRadiusKeyword_12_0; }
+		public Keyword getRadiusKeyword_10_0() { return cRadiusKeyword_10_0; }
+
+		//":"
+		public Keyword getColonKeyword_10_1() { return cColonKeyword_10_1; }
+
+		//radius=Radius
+		public Assignment getRadiusAssignment_10_2() { return cRadiusAssignment_10_2; }
+
+		//Radius
+		public RuleCall getRadiusRadiusParserRuleCall_10_2_0() { return cRadiusRadiusParserRuleCall_10_2_0; }
+
+		//("slicedClass" ":" slicedElements+=SlicedClass)*
+		public Group getGroup_11() { return cGroup_11; }
+
+		//"slicedClass"
+		public Keyword getSlicedClassKeyword_11_0() { return cSlicedClassKeyword_11_0; }
+
+		//":"
+		public Keyword getColonKeyword_11_1() { return cColonKeyword_11_1; }
+
+		//slicedElements+=SlicedClass
+		public Assignment getSlicedElementsAssignment_11_2() { return cSlicedElementsAssignment_11_2; }
+
+		//SlicedClass
+		public RuleCall getSlicedElementsSlicedClassParserRuleCall_11_2_0() { return cSlicedElementsSlicedClassParserRuleCall_11_2_0; }
+
+		//("slicedProperty" ":" slicedElements+=SlicedProperty)*
+		public Group getGroup_12() { return cGroup_12; }
+
+		//"slicedProperty"
+		public Keyword getSlicedPropertyKeyword_12_0() { return cSlicedPropertyKeyword_12_0; }
 
 		//":"
 		public Keyword getColonKeyword_12_1() { return cColonKeyword_12_1; }
 
-		//radius=Radius
-		public Assignment getRadiusAssignment_12_2() { return cRadiusAssignment_12_2; }
-
-		//Radius
-		public RuleCall getRadiusRadiusParserRuleCall_12_2_0() { return cRadiusRadiusParserRuleCall_12_2_0; }
-
-		//("constraint" ":" constraints+=Constraint)*
-		public Group getGroup_13() { return cGroup_13; }
-
-		//"constraint"
-		public Keyword getConstraintKeyword_13_0() { return cConstraintKeyword_13_0; }
-
-		//":"
-		public Keyword getColonKeyword_13_1() { return cColonKeyword_13_1; }
-
-		//constraints+=Constraint
-		public Assignment getConstraintsAssignment_13_2() { return cConstraintsAssignment_13_2; }
-
-		//Constraint
-		public RuleCall getConstraintsConstraintParserRuleCall_13_2_0() { return cConstraintsConstraintParserRuleCall_13_2_0; }
-
-		//("slicedClass" ":" slicedElements+=SlicedClass)*
-		public Group getGroup_14() { return cGroup_14; }
-
-		//"slicedClass"
-		public Keyword getSlicedClassKeyword_14_0() { return cSlicedClassKeyword_14_0; }
-
-		//":"
-		public Keyword getColonKeyword_14_1() { return cColonKeyword_14_1; }
-
-		//slicedElements+=SlicedClass
-		public Assignment getSlicedElementsAssignment_14_2() { return cSlicedElementsAssignment_14_2; }
-
-		//SlicedClass
-		public RuleCall getSlicedElementsSlicedClassParserRuleCall_14_2_0() { return cSlicedElementsSlicedClassParserRuleCall_14_2_0; }
-
-		//("slicedProperty" ":" slicedElements+=SlicedProperty)*
-		public Group getGroup_15() { return cGroup_15; }
-
-		//"slicedProperty"
-		public Keyword getSlicedPropertyKeyword_15_0() { return cSlicedPropertyKeyword_15_0; }
-
-		//":"
-		public Keyword getColonKeyword_15_1() { return cColonKeyword_15_1; }
-
 		//slicedElements+=SlicedProperty
-		public Assignment getSlicedElementsAssignment_15_2() { return cSlicedElementsAssignment_15_2; }
+		public Assignment getSlicedElementsAssignment_12_2() { return cSlicedElementsAssignment_12_2; }
 
 		//SlicedProperty
-		public RuleCall getSlicedElementsSlicedPropertyParserRuleCall_15_2_0() { return cSlicedElementsSlicedPropertyParserRuleCall_15_2_0; }
+		public RuleCall getSlicedElementsSlicedPropertyParserRuleCall_12_2_0() { return cSlicedElementsSlicedPropertyParserRuleCall_12_2_0; }
 
 		//("onStart" "[[" onStart=EString "]]")?
-		public Group getGroup_16() { return cGroup_16; }
+		public Group getGroup_13() { return cGroup_13; }
 
 		//"onStart"
-		public Keyword getOnStartKeyword_16_0() { return cOnStartKeyword_16_0; }
+		public Keyword getOnStartKeyword_13_0() { return cOnStartKeyword_13_0; }
 
 		//"[["
-		public Keyword getLeftSquareBracketLeftSquareBracketKeyword_16_1() { return cLeftSquareBracketLeftSquareBracketKeyword_16_1; }
+		public Keyword getLeftSquareBracketLeftSquareBracketKeyword_13_1() { return cLeftSquareBracketLeftSquareBracketKeyword_13_1; }
 
 		//onStart=EString
-		public Assignment getOnStartAssignment_16_2() { return cOnStartAssignment_16_2; }
+		public Assignment getOnStartAssignment_13_2() { return cOnStartAssignment_13_2; }
 
 		//EString
-		public RuleCall getOnStartEStringParserRuleCall_16_2_0() { return cOnStartEStringParserRuleCall_16_2_0; }
+		public RuleCall getOnStartEStringParserRuleCall_13_2_0() { return cOnStartEStringParserRuleCall_13_2_0; }
 
 		//"]]"
-		public Keyword getRightSquareBracketRightSquareBracketKeyword_16_3() { return cRightSquareBracketRightSquareBracketKeyword_16_3; }
+		public Keyword getRightSquareBracketRightSquareBracketKeyword_13_3() { return cRightSquareBracketRightSquareBracketKeyword_13_3; }
 
 		//("onEnd" "[[" onEnd=EString "]]")?
-		public Group getGroup_17() { return cGroup_17; }
+		public Group getGroup_14() { return cGroup_14; }
 
 		//"onEnd"
-		public Keyword getOnEndKeyword_17_0() { return cOnEndKeyword_17_0; }
+		public Keyword getOnEndKeyword_14_0() { return cOnEndKeyword_14_0; }
 
 		//"[["
-		public Keyword getLeftSquareBracketLeftSquareBracketKeyword_17_1() { return cLeftSquareBracketLeftSquareBracketKeyword_17_1; }
+		public Keyword getLeftSquareBracketLeftSquareBracketKeyword_14_1() { return cLeftSquareBracketLeftSquareBracketKeyword_14_1; }
 
 		//onEnd=EString
-		public Assignment getOnEndAssignment_17_2() { return cOnEndAssignment_17_2; }
+		public Assignment getOnEndAssignment_14_2() { return cOnEndAssignment_14_2; }
 
 		//EString
-		public RuleCall getOnEndEStringParserRuleCall_17_2_0() { return cOnEndEStringParserRuleCall_17_2_0; }
+		public RuleCall getOnEndEStringParserRuleCall_14_2_0() { return cOnEndEStringParserRuleCall_14_2_0; }
 
 		//"]]"
-		public Keyword getRightSquareBracketRightSquareBracketKeyword_17_3() { return cRightSquareBracketRightSquareBracketKeyword_17_3; }
+		public Keyword getRightSquareBracketRightSquareBracketKeyword_14_3() { return cRightSquareBracketRightSquareBracketKeyword_14_3; }
 
 		//("helper" "[[" helper=EString "]]")?
-		public Group getGroup_18() { return cGroup_18; }
+		public Group getGroup_15() { return cGroup_15; }
 
 		//"helper"
-		public Keyword getHelperKeyword_18_0() { return cHelperKeyword_18_0; }
+		public Keyword getHelperKeyword_15_0() { return cHelperKeyword_15_0; }
 
 		//"[["
-		public Keyword getLeftSquareBracketLeftSquareBracketKeyword_18_1() { return cLeftSquareBracketLeftSquareBracketKeyword_18_1; }
+		public Keyword getLeftSquareBracketLeftSquareBracketKeyword_15_1() { return cLeftSquareBracketLeftSquareBracketKeyword_15_1; }
 
 		//helper=EString
-		public Assignment getHelperAssignment_18_2() { return cHelperAssignment_18_2; }
+		public Assignment getHelperAssignment_15_2() { return cHelperAssignment_15_2; }
 
 		//EString
-		public RuleCall getHelperEStringParserRuleCall_18_2_0() { return cHelperEStringParserRuleCall_18_2_0; }
+		public RuleCall getHelperEStringParserRuleCall_15_2_0() { return cHelperEStringParserRuleCall_15_2_0; }
 
 		//"]]"
-		public Keyword getRightSquareBracketRightSquareBracketKeyword_18_3() { return cRightSquareBracketRightSquareBracketKeyword_18_3; }
+		public Keyword getRightSquareBracketRightSquareBracketKeyword_15_3() { return cRightSquareBracketRightSquareBracketKeyword_15_3; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_19() { return cRightCurlyBracketKeyword_19; }
+		public Keyword getRightCurlyBracketKeyword_16() { return cRightCurlyBracketKeyword_16; }
 	}
 
 	public class EStringElements extends AbstractParserRuleElementFinder {
@@ -453,12 +435,19 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExpressionAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cExpressionEStringParserRuleCall_3_1_0 = (RuleCall)cExpressionAssignment_3_1.eContents().get(0);
 		private final Keyword cRightSquareBracketRightSquareBracketKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cConstraintKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cColonKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Assignment cConstraintsAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final RuleCall cConstraintsConstraintParserRuleCall_4_2_0 = (RuleCall)cConstraintsAssignment_4_2.eContents().get(0);
 		
 		//SlicedClass:
-		//	domain=[ecore::EClass|QName] isOption?="option"? ctx=VarDecl? ("[[" expression=EString "]]")?;
+		//	domain=[ecore::EClass|QName] isOption?="option"? ctx=VarDecl? ("[[" expression=EString "]]")? ("constraint" ":"
+		//	constraints+=Constraint)*;
 		public ParserRule getRule() { return rule; }
 
-		//domain=[ecore::EClass|QName] isOption?="option"? ctx=VarDecl? ("[[" expression=EString "]]")?
+		//domain=[ecore::EClass|QName] isOption?="option"? ctx=VarDecl? ("[[" expression=EString "]]")? ("constraint" ":"
+		//constraints+=Constraint)*
 		public Group getGroup() { return cGroup; }
 
 		//domain=[ecore::EClass|QName]
@@ -496,6 +485,21 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"]]"
 		public Keyword getRightSquareBracketRightSquareBracketKeyword_3_2() { return cRightSquareBracketRightSquareBracketKeyword_3_2; }
+
+		//("constraint" ":" constraints+=Constraint)*
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"constraint"
+		public Keyword getConstraintKeyword_4_0() { return cConstraintKeyword_4_0; }
+
+		//":"
+		public Keyword getColonKeyword_4_1() { return cColonKeyword_4_1; }
+
+		//constraints+=Constraint
+		public Assignment getConstraintsAssignment_4_2() { return cConstraintsAssignment_4_2; }
+
+		//Constraint
+		public RuleCall getConstraintsConstraintParserRuleCall_4_2_0() { return cConstraintsConstraintParserRuleCall_4_2_0; }
 	}
 
 	public class VarDeclElements extends AbstractParserRuleElementFinder {
@@ -522,26 +526,31 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDomainEStructuralFeatureQNameParserRuleCall_0_0_1 = (RuleCall)cDomainEStructuralFeatureCrossReference_0_0.eContents().get(1);
 		private final Assignment cIsOptionAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final Keyword cIsOptionOptionKeyword_1_0 = (Keyword)cIsOptionAssignment_1.eContents().get(0);
-		private final Assignment cSrcAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cSrcVarDeclParserRuleCall_2_0 = (RuleCall)cSrcAssignment_2.eContents().get(0);
-		private final Assignment cTgtAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cTgtVarDeclParserRuleCall_3_0 = (RuleCall)cTgtAssignment_3.eContents().get(0);
-		private final Assignment cOppositeAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cOppositeOppositeCreationParserRuleCall_4_0 = (RuleCall)cOppositeAssignment_4.eContents().get(0);
+		private final Assignment cOppositeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cOppositeOppositeCreationParserRuleCall_2_0 = (RuleCall)cOppositeAssignment_2.eContents().get(0);
+		private final Assignment cSrcAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cSrcVarDeclParserRuleCall_3_0 = (RuleCall)cSrcAssignment_3.eContents().get(0);
+		private final Assignment cTgtAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTgtVarDeclParserRuleCall_4_0 = (RuleCall)cTgtAssignment_4.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cLeftSquareBracketLeftSquareBracketKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cExpressionAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
 		private final RuleCall cExpressionEStringParserRuleCall_5_1_0 = (RuleCall)cExpressionAssignment_5_1.eContents().get(0);
 		private final Keyword cRightSquareBracketRightSquareBracketKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cConstraintKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cColonKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Assignment cConstraintsAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
+		private final RuleCall cConstraintsConstraintParserRuleCall_6_2_0 = (RuleCall)cConstraintsAssignment_6_2.eContents().get(0);
 		
 		////		'type' type=[ecore::EClass]
 		//SlicedProperty:
-		//	domain=[ecore::EStructuralFeature|QName] isOption?="option"? src=VarDecl? tgt=VarDecl? opposite=OppositeCreation?
-		//	("[[" expression=EString "]]")?;
+		//	domain=[ecore::EStructuralFeature|QName] isOption?="option"? opposite=OppositeCreation? src=VarDecl? tgt=VarDecl?
+		//	("[[" expression=EString "]]")? ("constraint" ":" constraints+=Constraint)*;
 		public ParserRule getRule() { return rule; }
 
-		//domain=[ecore::EStructuralFeature|QName] isOption?="option"? src=VarDecl? tgt=VarDecl? opposite=OppositeCreation? ("[["
-		//expression=EString "]]")?
+		//domain=[ecore::EStructuralFeature|QName] isOption?="option"? opposite=OppositeCreation? src=VarDecl? tgt=VarDecl? ("[["
+		//expression=EString "]]")? ("constraint" ":" constraints+=Constraint)*
 		public Group getGroup() { return cGroup; }
 
 		//domain=[ecore::EStructuralFeature|QName]
@@ -559,23 +568,23 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 		//"option"
 		public Keyword getIsOptionOptionKeyword_1_0() { return cIsOptionOptionKeyword_1_0; }
 
-		//src=VarDecl?
-		public Assignment getSrcAssignment_2() { return cSrcAssignment_2; }
-
-		//VarDecl
-		public RuleCall getSrcVarDeclParserRuleCall_2_0() { return cSrcVarDeclParserRuleCall_2_0; }
-
-		//tgt=VarDecl?
-		public Assignment getTgtAssignment_3() { return cTgtAssignment_3; }
-
-		//VarDecl
-		public RuleCall getTgtVarDeclParserRuleCall_3_0() { return cTgtVarDeclParserRuleCall_3_0; }
-
 		//opposite=OppositeCreation?
-		public Assignment getOppositeAssignment_4() { return cOppositeAssignment_4; }
+		public Assignment getOppositeAssignment_2() { return cOppositeAssignment_2; }
 
 		//OppositeCreation
-		public RuleCall getOppositeOppositeCreationParserRuleCall_4_0() { return cOppositeOppositeCreationParserRuleCall_4_0; }
+		public RuleCall getOppositeOppositeCreationParserRuleCall_2_0() { return cOppositeOppositeCreationParserRuleCall_2_0; }
+
+		//src=VarDecl?
+		public Assignment getSrcAssignment_3() { return cSrcAssignment_3; }
+
+		//VarDecl
+		public RuleCall getSrcVarDeclParserRuleCall_3_0() { return cSrcVarDeclParserRuleCall_3_0; }
+
+		//tgt=VarDecl?
+		public Assignment getTgtAssignment_4() { return cTgtAssignment_4; }
+
+		//VarDecl
+		public RuleCall getTgtVarDeclParserRuleCall_4_0() { return cTgtVarDeclParserRuleCall_4_0; }
 
 		//("[[" expression=EString "]]")?
 		public Group getGroup_5() { return cGroup_5; }
@@ -591,6 +600,21 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"]]"
 		public Keyword getRightSquareBracketRightSquareBracketKeyword_5_2() { return cRightSquareBracketRightSquareBracketKeyword_5_2; }
+
+		//("constraint" ":" constraints+=Constraint)*
+		public Group getGroup_6() { return cGroup_6; }
+
+		//"constraint"
+		public Keyword getConstraintKeyword_6_0() { return cConstraintKeyword_6_0; }
+
+		//":"
+		public Keyword getColonKeyword_6_1() { return cColonKeyword_6_1; }
+
+		//constraints+=Constraint
+		public Assignment getConstraintsAssignment_6_2() { return cConstraintsAssignment_6_2; }
+
+		//Constraint
+		public RuleCall getConstraintsConstraintParserRuleCall_6_2_0() { return cConstraintsConstraintParserRuleCall_6_2_0; }
 	}
 
 	public class OppositeCreationElements extends AbstractParserRuleElementFinder {
@@ -680,11 +704,10 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Slicer:
-	//	"slicer" active?="active"? strict?="strict"? name=QName "{" "domain" ":" uriMetamodel=EString "input" ":"
+	//	"slicer" active?="active"? strict?="strict"? name=QName "{" ("domain" ":" uriMetamodel+=EString)+ "input" ":"
 	//	inputClasses+=[ecore::EClass|QName] ("," inputClasses+=[ecore::EClass|QName])* ("radius" ":" radius=Radius)?
-	//	("constraint" ":" constraints+=Constraint)* ("slicedClass" ":" slicedElements+=SlicedClass)* ("slicedProperty" ":"
-	//	slicedElements+=SlicedProperty)* ("onStart" "[[" onStart=EString "]]")? ("onEnd" "[[" onEnd=EString "]]")? ("helper"
-	//	"[[" helper=EString "]]")? "}";
+	//	("slicedClass" ":" slicedElements+=SlicedClass)* ("slicedProperty" ":" slicedElements+=SlicedProperty)* ("onStart"
+	//	"[[" onStart=EString "]]")? ("onEnd" "[[" onEnd=EString "]]")? ("helper" "[[" helper=EString "]]")? "}";
 	public SlicerElements getSlicerAccess() {
 		return (pSlicer != null) ? pSlicer : (pSlicer = new SlicerElements());
 	}
@@ -744,7 +767,8 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SlicedClass:
-	//	domain=[ecore::EClass|QName] isOption?="option"? ctx=VarDecl? ("[[" expression=EString "]]")?;
+	//	domain=[ecore::EClass|QName] isOption?="option"? ctx=VarDecl? ("[[" expression=EString "]]")? ("constraint" ":"
+	//	constraints+=Constraint)*;
 	public SlicedClassElements getSlicedClassAccess() {
 		return (pSlicedClass != null) ? pSlicedClass : (pSlicedClass = new SlicedClassElements());
 	}
@@ -765,8 +789,8 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 
 	////		'type' type=[ecore::EClass]
 	//SlicedProperty:
-	//	domain=[ecore::EStructuralFeature|QName] isOption?="option"? src=VarDecl? tgt=VarDecl? opposite=OppositeCreation?
-	//	("[[" expression=EString "]]")?;
+	//	domain=[ecore::EStructuralFeature|QName] isOption?="option"? opposite=OppositeCreation? src=VarDecl? tgt=VarDecl?
+	//	("[[" expression=EString "]]")? ("constraint" ":" constraints+=Constraint)*;
 	public SlicedPropertyElements getSlicedPropertyAccess() {
 		return (pSlicedProperty != null) ? pSlicedProperty : (pSlicedProperty = new SlicedPropertyElements());
 	}
