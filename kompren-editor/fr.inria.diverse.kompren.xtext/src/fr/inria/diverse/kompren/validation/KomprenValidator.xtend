@@ -9,6 +9,9 @@ import java.net.URL
 import kompren.KomprenPackage
 import kompren.Slicer
 import org.eclipse.xtext.validation.Check
+import kompren.Constraint
+import kompren.SlicedClass
+import kompren.SlicedProperty
 
 /**
  * Custom validation rules. 
@@ -16,10 +19,24 @@ import org.eclipse.xtext.validation.Check
  */
 class KomprenValidator extends AbstractKomprenValidator {
 
-  public static val INVALID_URI = 'invalidURI'
+	public static val INVALID_URI = 'invalidURI'
+	public static val NO_VARDECL = 'noVarDeclWhileRequired'
 
-	@Check
-	def checkURI(Slicer slicer) {
+	/** Checks that VarDecl instances are defined when constraints are specified. */
+	@Check def checkConstraintImpliesVariable(Constraint cst) {
+		val container = cst.eContainer
+		if(container instanceof SlicedClass) {
+			if(container.ctx==null)
+				error("Defining a constraint requires the definition of 'ctx' in the sliced class", KomprenPackage.Literals.CONSTRAINT__NAME, NO_VARDECL)
+		}
+		else if(container instanceof SlicedProperty)
+			if(container.src==null || container.tgt==null)
+					error("Defining a constraint requires the definition of both 'src' and 'tgt' in the sliced property", KomprenPackage.Literals.CONSTRAINT__NAME, NO_VARDECL)
+	}
+
+
+	/** Checks that the given URIs are existing files. */
+	@Check def checkURI(Slicer slicer) {
 		slicer.uriMetamodel.forEach[uri |
 			try {
 				val url = new URL(uri)
