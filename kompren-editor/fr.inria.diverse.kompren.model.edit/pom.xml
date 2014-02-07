@@ -71,7 +71,7 @@
 
     <dependencies>
 		<dependency>
-            <groupId>fr.inria.diverse</groupId>
+            <groupId>fr.inria.diverse.kompren</groupId>
             <artifactId>fr.inria.diverse.kompren.model</artifactId>
             <version>${kompren.version}</version>
         </dependency>
