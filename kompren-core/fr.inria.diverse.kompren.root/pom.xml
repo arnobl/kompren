@@ -25,6 +25,8 @@
     	<eclipse.repository.version>indigo</eclipse.repository.version>
     	<junit.version>4.11</junit.version>
     	<java.version>1.7</java.version>
+    	<eclipse.repository.version>kepler</eclipse.repository.version>
+   		<tycho.version>0.19.0</tycho.version>
 	</properties>
 
 	<build>
@@ -64,6 +66,11 @@
 			<id>${eclipse.repository.version}</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/releases/${eclipse.repository.version}/</url>
+		</repository>
+		<repository>
+			<id>Xtext Update Site</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</url>
 		</repository>
 	</repositories>
 	<distributionManagement>
