@@ -22,6 +22,21 @@ class KomprenValidator extends AbstractKomprenValidator {
 	public static val INVALID_URI = 'invalidURI'
 	public static val NO_VARDECL = 'noVarDeclWhileRequired'
 	public static val ONLY_GENMODEL = 'onlyGenmodel'
+	public static val NO_VARDECL4EXP = 'exprRequiresVarDecl'
+
+	/** Checks that VarDecl instances are defined when an expression is specified on a sliced class. */
+	@Check def checkSlicedClassExpressionImpliesVariable(SlicedClass sc) {
+		if(!sc.expression.nullOrEmpty && sc.ctx==null)
+				error("Defining an expression on a sliced class requires the definition of 'ctx'", KomprenPackage.Literals.SLICED_CLASS__CTX, NO_VARDECL4EXP)
+	}
+
+
+	/** Checks that VarDecl instances are defined when an expression is specified on a sliced property. */
+	@Check def checkSlicedPropertyExpressionImpliesVariable(SlicedProperty sc) {
+		if(!sc.expression.nullOrEmpty && (sc.src==null || sc.tgt==null))
+				error("Defining an expression on a sliced property requires the definition of both 'src' and 'tgt'", KomprenPackage.Literals.SLICED_PROPERTY__SRC, NO_VARDECL4EXP)
+	}
+	
 
 	/** Checks that VarDecl instances are defined when constraints are specified. */
 	@Check def checkConstraintImpliesVariable(Constraint cst) {
