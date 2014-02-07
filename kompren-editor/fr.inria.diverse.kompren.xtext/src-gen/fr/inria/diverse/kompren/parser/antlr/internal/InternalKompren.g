@@ -730,19 +730,19 @@ ruleVarDecl returns [EObject current=null]
     @after { leaveRule(); }:
 (
 (
-		{ 
-	        newCompositeNode(grammarAccess.getVarDeclAccess().getVarNameEStringParserRuleCall_0()); 
-	    }
-		lv_varName_0_0=ruleEString		{
+		lv_varName_0_0=RULE_ID
+		{
+			newLeafNode(lv_varName_0_0, grammarAccess.getVarDeclAccess().getVarNameIDTerminalRuleCall_0()); 
+		}
+		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getVarDeclRule());
+	            $current = createModelElement(grammarAccess.getVarDeclRule());
 	        }
-       		set(
+       		setWithLastConsumed(
        			$current, 
        			"varName",
         		lv_varName_0_0, 
-        		"EString");
-	        afterParserOrEnumRuleCall();
+        		"ID");
 	    }
 
 )
@@ -940,19 +940,19 @@ ruleOppositeCreation returns [EObject current=null]
     }
 (
 (
-		{ 
-	        newCompositeNode(grammarAccess.getOppositeCreationAccess().getNameEStringParserRuleCall_3_0()); 
-	    }
-		lv_name_3_0=ruleEString		{
+		lv_name_3_0=RULE_ID
+		{
+			newLeafNode(lv_name_3_0, grammarAccess.getOppositeCreationAccess().getNameIDTerminalRuleCall_3_0()); 
+		}
+		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getOppositeCreationRule());
+	            $current = createModelElement(grammarAccess.getOppositeCreationRule());
 	        }
-       		set(
+       		setWithLastConsumed(
        			$current, 
        			"name",
         		lv_name_3_0, 
-        		"EString");
-	        afterParserOrEnumRuleCall();
+        		"ID");
 	    }
 
 )

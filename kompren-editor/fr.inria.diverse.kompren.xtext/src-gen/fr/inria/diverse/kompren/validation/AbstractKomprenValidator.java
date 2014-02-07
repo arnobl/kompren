@@ -6,7 +6,9 @@ package fr.inria.diverse.kompren.validation;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.xtext.validation.ComposedChecks;
 
+@ComposedChecks(validators= {fr.inria.diverse.kompren.validation.KomprenValidator.class})
 public class AbstractKomprenValidator extends org.eclipse.xtext.validation.AbstractDeclarativeValidator {
 
 	@Override

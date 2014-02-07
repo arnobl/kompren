@@ -3433,8 +3433,8 @@ rule__VarDecl__VarNameAssignment
     }
 :
 (
-{ before(grammarAccess.getVarDeclAccess().getVarNameEStringParserRuleCall_0()); }
-	ruleEString{ after(grammarAccess.getVarDeclAccess().getVarNameEStringParserRuleCall_0()); }
+{ before(grammarAccess.getVarDeclAccess().getVarNameIDTerminalRuleCall_0()); }
+	RULE_ID{ after(grammarAccess.getVarDeclAccess().getVarNameIDTerminalRuleCall_0()); }
 )
 
 ;
@@ -3565,8 +3565,8 @@ rule__OppositeCreation__NameAssignment_3
     }
 :
 (
-{ before(grammarAccess.getOppositeCreationAccess().getNameEStringParserRuleCall_3_0()); }
-	ruleEString{ after(grammarAccess.getOppositeCreationAccess().getNameEStringParserRuleCall_3_0()); }
+{ before(grammarAccess.getOppositeCreationAccess().getNameIDTerminalRuleCall_3_0()); }
+	RULE_ID{ after(grammarAccess.getOppositeCreationAccess().getNameIDTerminalRuleCall_3_0()); }
 )
 
 ;

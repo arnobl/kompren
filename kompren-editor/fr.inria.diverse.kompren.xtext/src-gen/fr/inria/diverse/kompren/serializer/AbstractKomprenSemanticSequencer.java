@@ -98,7 +98,7 @@ public abstract class AbstractKomprenSemanticSequencer extends AbstractDelegatin
 	
 	/**
 	 * Constraint:
-	 *     name=EString
+	 *     name=ID
 	 */
 	protected void sequence_OppositeCreation(EObject context, OppositeCreation semanticObject) {
 		if(errorAcceptor != null) {
@@ -107,7 +107,7 @@ public abstract class AbstractKomprenSemanticSequencer extends AbstractDelegatin
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getOppositeCreationAccess().getNameEStringParserRuleCall_3_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getOppositeCreationAccess().getNameIDTerminalRuleCall_3_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -171,7 +171,7 @@ public abstract class AbstractKomprenSemanticSequencer extends AbstractDelegatin
 	
 	/**
 	 * Constraint:
-	 *     varName=EString
+	 *     varName=ID
 	 */
 	protected void sequence_VarDecl(EObject context, VarDecl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

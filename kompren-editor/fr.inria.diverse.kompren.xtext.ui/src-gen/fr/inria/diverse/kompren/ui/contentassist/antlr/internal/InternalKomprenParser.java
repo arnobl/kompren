@@ -5782,7 +5782,7 @@ public class InternalKomprenParser extends AbstractInternalContentAssistParser {
             int alt16=2;
             int LA16_0 = input.LA(1);
 
-            if ( ((LA16_0>=RULE_STRING && LA16_0<=RULE_ID)) ) {
+            if ( (LA16_0==RULE_ID) ) {
                 alt16=1;
             }
             switch (alt16) {
@@ -6809,10 +6809,7 @@ public class InternalKomprenParser extends AbstractInternalContentAssistParser {
             int alt21=2;
             int LA21_0 = input.LA(1);
 
-            if ( (LA21_0==RULE_STRING) ) {
-                alt21=1;
-            }
-            else if ( (LA21_0==RULE_ID) ) {
+            if ( (LA21_0==RULE_ID) ) {
                 alt21=1;
             }
             switch (alt21) {
@@ -6908,7 +6905,7 @@ public class InternalKomprenParser extends AbstractInternalContentAssistParser {
             int alt22=2;
             int LA22_0 = input.LA(1);
 
-            if ( ((LA22_0>=RULE_STRING && LA22_0<=RULE_ID)) ) {
+            if ( (LA22_0==RULE_ID) ) {
                 alt22=1;
             }
             switch (alt22) {
@@ -8896,25 +8893,21 @@ public class InternalKomprenParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VarDecl__VarNameAssignment"
-    // ../fr.inria.diverse.kompren.xtext.ui/src-gen/fr/inria/diverse/kompren/ui/contentassist/antlr/internal/InternalKompren.g:3430:1: rule__VarDecl__VarNameAssignment : ( ruleEString ) ;
+    // ../fr.inria.diverse.kompren.xtext.ui/src-gen/fr/inria/diverse/kompren/ui/contentassist/antlr/internal/InternalKompren.g:3430:1: rule__VarDecl__VarNameAssignment : ( RULE_ID ) ;
     public final void rule__VarDecl__VarNameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../fr.inria.diverse.kompren.xtext.ui/src-gen/fr/inria/diverse/kompren/ui/contentassist/antlr/internal/InternalKompren.g:3434:1: ( ( ruleEString ) )
-            // ../fr.inria.diverse.kompren.xtext.ui/src-gen/fr/inria/diverse/kompren/ui/contentassist/antlr/internal/InternalKompren.g:3435:1: ( ruleEString )
+            // ../fr.inria.diverse.kompren.xtext.ui/src-gen/fr/inria/diverse/kompren/ui/contentassist/antlr/internal/InternalKompren.g:3434:1: ( ( RULE_ID ) )
+            // ../fr.inria.diverse.kompren.xtext.ui/src-gen/fr/inria/diverse/kompren/ui/contentassist/antlr/internal/InternalKompren.g:3435:1: ( RULE_ID )
             {
-            // ../fr.inria.diverse.kompren.xtext.ui/src-gen/fr/inria/diverse/kompren/ui/contentassist/antlr/internal/InternalKompren.g:3435:1: ( ruleEString )
-            // ../fr.inria.diverse.kompren.xtext.ui/src-gen/fr/inria/diverse/kompren/ui/contentassist/antlr/internal/InternalKompren.g:3436:1: ruleEString
+            // ../fr.inria.diverse.kompren.xtext.ui/src-gen/fr/inria/diverse/kompren/ui/contentassist/antlr/internal/InternalKompren.g:3435:1: ( RULE_ID )
+            // ../fr.inria.diverse.kompren.xtext.ui/src-gen/fr/inria/diverse/kompren/ui/contentassist/antlr/internal/InternalKompren.g:3436:1: RULE_ID
             {
-             before(grammarAccess.getVarDeclAccess().getVarNameEStringParserRuleCall_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__VarDecl__VarNameAssignment6776);
-            ruleEString();
-
-            state._fsp--;
-
-             after(grammarAccess.getVarDeclAccess().getVarNameEStringParserRuleCall_0()); 
+             before(grammarAccess.getVarDeclAccess().getVarNameIDTerminalRuleCall_0()); 
+            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rule__VarDecl__VarNameAssignment6776); 
+             after(grammarAccess.getVarDeclAccess().getVarNameIDTerminalRuleCall_0()); 
 
             }
 
@@ -9236,25 +9229,21 @@ public class InternalKomprenParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OppositeCreation__NameAssignment_3"
-    // ../fr.inria.diverse.kompren.xtext.ui/src-gen/fr/inria/diverse/kompren/ui/contentassist/antlr/internal/InternalKompren.g:3562:1: rule__OppositeCreation__NameAssignment_3 : ( ruleEString ) ;
+    // ../fr.inria.diverse.kompren.xtext.ui/src-gen/fr/inria/diverse/kompren/ui/contentassist/antlr/internal/InternalKompren.g:3562:1: rule__OppositeCreation__NameAssignment_3 : ( RULE_ID ) ;
     public final void rule__OppositeCreation__NameAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../fr.inria.diverse.kompren.xtext.ui/src-gen/fr/inria/diverse/kompren/ui/contentassist/antlr/internal/InternalKompren.g:3566:1: ( ( ruleEString ) )
-            // ../fr.inria.diverse.kompren.xtext.ui/src-gen/fr/inria/diverse/kompren/ui/contentassist/antlr/internal/InternalKompren.g:3567:1: ( ruleEString )
+            // ../fr.inria.diverse.kompren.xtext.ui/src-gen/fr/inria/diverse/kompren/ui/contentassist/antlr/internal/InternalKompren.g:3566:1: ( ( RULE_ID ) )
+            // ../fr.inria.diverse.kompren.xtext.ui/src-gen/fr/inria/diverse/kompren/ui/contentassist/antlr/internal/InternalKompren.g:3567:1: ( RULE_ID )
             {
-            // ../fr.inria.diverse.kompren.xtext.ui/src-gen/fr/inria/diverse/kompren/ui/contentassist/antlr/internal/InternalKompren.g:3567:1: ( ruleEString )
-            // ../fr.inria.diverse.kompren.xtext.ui/src-gen/fr/inria/diverse/kompren/ui/contentassist/antlr/internal/InternalKompren.g:3568:1: ruleEString
+            // ../fr.inria.diverse.kompren.xtext.ui/src-gen/fr/inria/diverse/kompren/ui/contentassist/antlr/internal/InternalKompren.g:3567:1: ( RULE_ID )
+            // ../fr.inria.diverse.kompren.xtext.ui/src-gen/fr/inria/diverse/kompren/ui/contentassist/antlr/internal/InternalKompren.g:3568:1: RULE_ID
             {
-             before(grammarAccess.getOppositeCreationAccess().getNameEStringParserRuleCall_3_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__OppositeCreation__NameAssignment_37045);
-            ruleEString();
-
-            state._fsp--;
-
-             after(grammarAccess.getOppositeCreationAccess().getNameEStringParserRuleCall_3_0()); 
+             before(grammarAccess.getOppositeCreationAccess().getNameIDTerminalRuleCall_3_0()); 
+            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rule__OppositeCreation__NameAssignment_37045); 
+             after(grammarAccess.getOppositeCreationAccess().getNameIDTerminalRuleCall_3_0()); 
 
             }
 
@@ -9467,16 +9456,16 @@ public class InternalKomprenParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_17_in_rule__Radius__Group_1_1__0__Impl4139 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Radius__Group_1_1__1__Impl_in_rule__Radius__Group_1_1__14170 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Radius__FocusedClassesAssignment_1_1_1_in_rule__Radius__Group_1_1__1__Impl4197 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SlicedClass__Group__0__Impl_in_rule__SlicedClass__Group__04231 = new BitSet(new long[]{0x0000000388400030L});
+        public static final BitSet FOLLOW_rule__SlicedClass__Group__0__Impl_in_rule__SlicedClass__Group__04231 = new BitSet(new long[]{0x0000000208400020L});
         public static final BitSet FOLLOW_rule__SlicedClass__Group__1_in_rule__SlicedClass__Group__04234 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__SlicedClass__DomainAssignment_0_in_rule__SlicedClass__Group__0__Impl4261 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SlicedClass__Group__1__Impl_in_rule__SlicedClass__Group__14291 = new BitSet(new long[]{0x0000000388400030L});
+        public static final BitSet FOLLOW_rule__SlicedClass__Group__1__Impl_in_rule__SlicedClass__Group__14291 = new BitSet(new long[]{0x0000000208400020L});
         public static final BitSet FOLLOW_rule__SlicedClass__Group__2_in_rule__SlicedClass__Group__14294 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__SlicedClass__IsOptionAssignment_1_in_rule__SlicedClass__Group__1__Impl4321 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SlicedClass__Group__2__Impl_in_rule__SlicedClass__Group__24352 = new BitSet(new long[]{0x0000000388400030L});
+        public static final BitSet FOLLOW_rule__SlicedClass__Group__2__Impl_in_rule__SlicedClass__Group__24352 = new BitSet(new long[]{0x0000000208400020L});
         public static final BitSet FOLLOW_rule__SlicedClass__Group__3_in_rule__SlicedClass__Group__24355 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__SlicedClass__CtxAssignment_2_in_rule__SlicedClass__Group__2__Impl4382 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SlicedClass__Group__3__Impl_in_rule__SlicedClass__Group__34413 = new BitSet(new long[]{0x0000000388400030L});
+        public static final BitSet FOLLOW_rule__SlicedClass__Group__3__Impl_in_rule__SlicedClass__Group__34413 = new BitSet(new long[]{0x0000000208400020L});
         public static final BitSet FOLLOW_rule__SlicedClass__Group__4_in_rule__SlicedClass__Group__34416 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__SlicedClass__Group_3__0_in_rule__SlicedClass__Group__3__Impl4443 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__SlicedClass__Group__4__Impl_in_rule__SlicedClass__Group__44474 = new BitSet(new long[]{0x0000000000000002L});
@@ -9497,22 +9486,22 @@ public class InternalKomprenParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_14_in_rule__SlicedClass__Group_4__1__Impl4822 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__SlicedClass__Group_4__2__Impl_in_rule__SlicedClass__Group_4__24853 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__SlicedClass__ConstraintsAssignment_4_2_in_rule__SlicedClass__Group_4__2__Impl4880 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SlicedProperty__Group__0__Impl_in_rule__SlicedProperty__Group__04916 = new BitSet(new long[]{0x0000000398400030L});
+        public static final BitSet FOLLOW_rule__SlicedProperty__Group__0__Impl_in_rule__SlicedProperty__Group__04916 = new BitSet(new long[]{0x0000000218400020L});
         public static final BitSet FOLLOW_rule__SlicedProperty__Group__1_in_rule__SlicedProperty__Group__04919 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__SlicedProperty__DomainAssignment_0_in_rule__SlicedProperty__Group__0__Impl4946 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SlicedProperty__Group__1__Impl_in_rule__SlicedProperty__Group__14976 = new BitSet(new long[]{0x0000000398400030L});
+        public static final BitSet FOLLOW_rule__SlicedProperty__Group__1__Impl_in_rule__SlicedProperty__Group__14976 = new BitSet(new long[]{0x0000000218400020L});
         public static final BitSet FOLLOW_rule__SlicedProperty__Group__2_in_rule__SlicedProperty__Group__14979 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__SlicedProperty__IsOptionAssignment_1_in_rule__SlicedProperty__Group__1__Impl5006 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SlicedProperty__Group__2__Impl_in_rule__SlicedProperty__Group__25037 = new BitSet(new long[]{0x0000000398400030L});
+        public static final BitSet FOLLOW_rule__SlicedProperty__Group__2__Impl_in_rule__SlicedProperty__Group__25037 = new BitSet(new long[]{0x0000000218400020L});
         public static final BitSet FOLLOW_rule__SlicedProperty__Group__3_in_rule__SlicedProperty__Group__25040 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__SlicedProperty__OppositeAssignment_2_in_rule__SlicedProperty__Group__2__Impl5067 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SlicedProperty__Group__3__Impl_in_rule__SlicedProperty__Group__35098 = new BitSet(new long[]{0x0000000398400030L});
+        public static final BitSet FOLLOW_rule__SlicedProperty__Group__3__Impl_in_rule__SlicedProperty__Group__35098 = new BitSet(new long[]{0x0000000218400020L});
         public static final BitSet FOLLOW_rule__SlicedProperty__Group__4_in_rule__SlicedProperty__Group__35101 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__SlicedProperty__SrcAssignment_3_in_rule__SlicedProperty__Group__3__Impl5128 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SlicedProperty__Group__4__Impl_in_rule__SlicedProperty__Group__45159 = new BitSet(new long[]{0x0000000398400030L});
+        public static final BitSet FOLLOW_rule__SlicedProperty__Group__4__Impl_in_rule__SlicedProperty__Group__45159 = new BitSet(new long[]{0x0000000218400020L});
         public static final BitSet FOLLOW_rule__SlicedProperty__Group__5_in_rule__SlicedProperty__Group__45162 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__SlicedProperty__TgtAssignment_4_in_rule__SlicedProperty__Group__4__Impl5189 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SlicedProperty__Group__5__Impl_in_rule__SlicedProperty__Group__55220 = new BitSet(new long[]{0x0000000398400030L});
+        public static final BitSet FOLLOW_rule__SlicedProperty__Group__5__Impl_in_rule__SlicedProperty__Group__55220 = new BitSet(new long[]{0x0000000218400020L});
         public static final BitSet FOLLOW_rule__SlicedProperty__Group__6_in_rule__SlicedProperty__Group__55223 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__SlicedProperty__Group_5__0_in_rule__SlicedProperty__Group__5__Impl5250 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__SlicedProperty__Group__6__Impl_in_rule__SlicedProperty__Group__65281 = new BitSet(new long[]{0x0000000000000002L});
@@ -9538,7 +9527,7 @@ public class InternalKomprenParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__OppositeCreation__Group__1__Impl_in_rule__OppositeCreation__Group__15788 = new BitSet(new long[]{0x0000000020000000L});
         public static final BitSet FOLLOW_rule__OppositeCreation__Group__2_in_rule__OppositeCreation__Group__15791 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_28_in_rule__OppositeCreation__Group__1__Impl5819 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__OppositeCreation__Group__2__Impl_in_rule__OppositeCreation__Group__25850 = new BitSet(new long[]{0x0000000180000030L});
+        public static final BitSet FOLLOW_rule__OppositeCreation__Group__2__Impl_in_rule__OppositeCreation__Group__25850 = new BitSet(new long[]{0x0000000000000020L});
         public static final BitSet FOLLOW_rule__OppositeCreation__Group__3_in_rule__OppositeCreation__Group__25853 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_29_in_rule__OppositeCreation__Group__2__Impl5881 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__OppositeCreation__Group__3__Impl_in_rule__OppositeCreation__Group__35912 = new BitSet(new long[]{0x0000000040000000L});
@@ -9567,7 +9556,7 @@ public class InternalKomprenParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_ruleVarDecl_in_rule__SlicedClass__CtxAssignment_26683 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEString_in_rule__SlicedClass__ExpressionAssignment_3_16714 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleConstraint_in_rule__SlicedClass__ConstraintsAssignment_4_26745 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__VarDecl__VarNameAssignment6776 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_rule__VarDecl__VarNameAssignment6776 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleQName_in_rule__SlicedProperty__DomainAssignment_06811 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_33_in_rule__SlicedProperty__IsOptionAssignment_16851 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleOppositeCreation_in_rule__SlicedProperty__OppositeAssignment_26890 = new BitSet(new long[]{0x0000000000000002L});
@@ -9575,7 +9564,7 @@ public class InternalKomprenParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_ruleVarDecl_in_rule__SlicedProperty__TgtAssignment_46952 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEString_in_rule__SlicedProperty__ExpressionAssignment_5_16983 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleConstraint_in_rule__SlicedProperty__ConstraintsAssignment_6_27014 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__OppositeCreation__NameAssignment_37045 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_rule__OppositeCreation__NameAssignment_37045 = new BitSet(new long[]{0x0000000000000002L});
     }
 
 

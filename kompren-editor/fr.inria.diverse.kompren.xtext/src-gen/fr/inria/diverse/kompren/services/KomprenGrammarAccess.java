@@ -505,17 +505,17 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 	public class VarDeclElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "VarDecl");
 		private final Assignment cVarNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cVarNameEStringParserRuleCall_0 = (RuleCall)cVarNameAssignment.eContents().get(0);
+		private final RuleCall cVarNameIDTerminalRuleCall_0 = (RuleCall)cVarNameAssignment.eContents().get(0);
 		
 		//VarDecl:
-		//	varName=EString;
+		//	varName=ID;
 		public ParserRule getRule() { return rule; }
 
-		//varName=EString
+		//varName=ID
 		public Assignment getVarNameAssignment() { return cVarNameAssignment; }
 
-		//EString
-		public RuleCall getVarNameEStringParserRuleCall_0() { return cVarNameEStringParserRuleCall_0; }
+		//ID
+		public RuleCall getVarNameIDTerminalRuleCall_0() { return cVarNameIDTerminalRuleCall_0; }
 	}
 
 	public class SlicedPropertyElements extends AbstractParserRuleElementFinder {
@@ -543,7 +543,6 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cConstraintsAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
 		private final RuleCall cConstraintsConstraintParserRuleCall_6_2_0 = (RuleCall)cConstraintsAssignment_6_2.eContents().get(0);
 		
-		////		'type' type=[ecore::EClass]
 		//SlicedProperty:
 		//	domain=[ecore::EStructuralFeature|QName] isOption?="option"? opposite=OppositeCreation? src=VarDecl? tgt=VarDecl?
 		//	("[[" expression=EString "]]")? ("constraint" ":" constraints+=Constraint)*;
@@ -624,14 +623,14 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cOppositeKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//OppositeCreation:
-		//	{OppositeCreation} "opposite" "(" name=EString ")";
+		//	{OppositeCreation} "opposite" "(" name=ID ")";
 		public ParserRule getRule() { return rule; }
 
-		//{OppositeCreation} "opposite" "(" name=EString ")"
+		//{OppositeCreation} "opposite" "(" name=ID ")"
 		public Group getGroup() { return cGroup; }
 
 		//{OppositeCreation}
@@ -643,11 +642,11 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
 
-		//name=EString
+		//name=ID
 		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
@@ -778,7 +777,7 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//VarDecl:
-	//	varName=EString;
+	//	varName=ID;
 	public VarDeclElements getVarDeclAccess() {
 		return (pVarDecl != null) ? pVarDecl : (pVarDecl = new VarDeclElements());
 	}
@@ -787,7 +786,6 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 		return getVarDeclAccess().getRule();
 	}
 
-	////		'type' type=[ecore::EClass]
 	//SlicedProperty:
 	//	domain=[ecore::EStructuralFeature|QName] isOption?="option"? opposite=OppositeCreation? src=VarDecl? tgt=VarDecl?
 	//	("[[" expression=EString "]]")? ("constraint" ":" constraints+=Constraint)*;
@@ -800,7 +798,7 @@ public class KomprenGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//OppositeCreation:
-	//	{OppositeCreation} "opposite" "(" name=EString ")";
+	//	{OppositeCreation} "opposite" "(" name=ID ")";
 	public OppositeCreationElements getOppositeCreationAccess() {
 		return (pOppositeCreation != null) ? pOppositeCreation : (pOppositeCreation = new OppositeCreationElements());
 	}

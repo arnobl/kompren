@@ -15,8 +15,10 @@ Workflow {
 		scanClassPath  = true
 		platformUri = "${runtimeProject}/.."
 		registerGeneratedEPackage = "org.eclipse.emf.ecore.EcorePackage"
+//		registerGeneratedEPackage = "org.eclipse.xtext.xbase.XbasePackage"
 		registerGeneratedEPackage = "kompren.KomprenPackage"
 		registerGenModelFile = "platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel"
+//		registerGenModelFile = "platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel"
 	//	registerGenModelFile = "platform:/resource/fr.inria.diverse.kompren.xtext/src/fr/inria/diverse/kompren/kompren.genmodel"
 		registerGenModelFile = "platform:/resource/fr.inria.diverse.kompren.model/model/kompren.genmodel"
 	}
@@ -67,7 +69,7 @@ Workflow {
 
 			// Xtend-based API for validation 
 			fragment = validation.ValidatorFragment auto-inject {
-			// composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
+			 composedCheck = "fr.inria.diverse.kompren.validation.KomprenValidator"
 			// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
 			}
 
@@ -108,7 +110,7 @@ Workflow {
 			}
 			
 			// generates junit test support classes into Generator#pathTestProject
-			fragment = junit.Junit4Fragment auto-inject {}
+//			fragment = junit.Junit4Fragment auto-inject {}
 
 			// project wizard (optional) 
 			// fragment = projectWizard.SimpleProjectWizardFragment auto-inject {
