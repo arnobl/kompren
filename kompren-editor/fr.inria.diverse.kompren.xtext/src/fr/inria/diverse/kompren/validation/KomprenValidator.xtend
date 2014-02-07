@@ -6,12 +6,15 @@ package fr.inria.diverse.kompren.validation
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.URL
-import kompren.KomprenPackage
-import kompren.Slicer
-import org.eclipse.xtext.validation.Check
+import java.util.HashSet
+import java.util.Set
 import kompren.Constraint
+import kompren.KomprenPackage
 import kompren.SlicedClass
 import kompren.SlicedProperty
+import kompren.Slicer
+import org.eclipse.emf.ecore.ENamedElement
+import org.eclipse.xtext.validation.Check
 
 /**
  * Custom validation rules. 
@@ -23,6 +26,18 @@ class KomprenValidator extends AbstractKomprenValidator {
 	public static val NO_VARDECL = 'noVarDeclWhileRequired'
 	public static val ONLY_GENMODEL = 'onlyGenmodel'
 	public static val NO_VARDECL4EXP = 'exprRequiresVarDecl'
+
+	/** Checks that the sliced classes and properties are sliced only a single time. */
+	@Check def checkUniqueSlicedClassProperty(Slicer slicer) {
+		val Set<ENamedElement> set = new HashSet
+		slicer.slicedElements.forEach[se |
+			if(set.contains(se.domain))
+				error("A sliced element must be unique: " + se.domain.name, KomprenPackage.Literals.SLICER__NAME)
+			else
+				set.add(se.domain)
+		]
+	}
+
 
 	/** Checks that VarDecl instances are defined when an expression is specified on a sliced class. */
 	@Check def checkSlicedClassExpressionImpliesVariable(SlicedClass sc) {
@@ -51,13 +66,21 @@ class KomprenValidator extends AbstractKomprenValidator {
 	}
 
 
-	/** Checks that the given URIs are existing genmodel files. */
+	/** Checks that the given URIs are unique and existing genmodel files. */
 	@Check def checkURI(Slicer slicer) {
 		val suffix = '.genmodel'
+		val Set<String> set = new HashSet
+
 		slicer.uriMetamodel.forEach[uri |
 			try {
+				if(set.contains(uri))
+					error("An input domain can be defined only a single time.", KomprenPackage.Literals.SLICER__URI_METAMODEL)
+				else
+					set.add(uri)
+
 				if(!uri.endsWith(suffix))
 					error("Only genmodel can be used as input domain.", KomprenPackage.Literals.SLICER__URI_METAMODEL, ONLY_GENMODEL)
+
 				val url = new URL(uri)
 				val stream = url.openConnection.getInputStream
 				val in = new BufferedReader(new InputStreamReader(stream))
