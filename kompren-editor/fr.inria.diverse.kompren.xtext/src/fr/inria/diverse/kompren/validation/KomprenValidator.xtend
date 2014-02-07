@@ -21,6 +21,7 @@ class KomprenValidator extends AbstractKomprenValidator {
 
 	public static val INVALID_URI = 'invalidURI'
 	public static val NO_VARDECL = 'noVarDeclWhileRequired'
+	public static val ONLY_GENMODEL = 'onlyGenmodel'
 
 	/** Checks that VarDecl instances are defined when constraints are specified. */
 	@Check def checkConstraintImpliesVariable(Constraint cst) {
@@ -35,10 +36,13 @@ class KomprenValidator extends AbstractKomprenValidator {
 	}
 
 
-	/** Checks that the given URIs are existing files. */
+	/** Checks that the given URIs are existing genmodel files. */
 	@Check def checkURI(Slicer slicer) {
+		val suffix = '.genmodel'
 		slicer.uriMetamodel.forEach[uri |
 			try {
+				if(!uri.endsWith(suffix))
+					error("Only genmodel can be used as input domain.", KomprenPackage.Literals.SLICER__URI_METAMODEL, ONLY_GENMODEL)
 				val url = new URL(uri)
 				val stream = url.openConnection.getInputStream
 				val in = new BufferedReader(new InputStreamReader(stream))
