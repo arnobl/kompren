@@ -5,8 +5,8 @@ import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
 
 var projectName = "fr.inria.diverse.kompren.xtext"
-var grammarURI = "platform:/resource/${projectName}/src/fr/inria/diverse/kompren/Kompren.xtext"
-//var grammarURI = "classpath:/fr/inria/diverse/kompren/Kompren.xtext"
+//var grammarURI = "platform:/resource/${projectName}/src/fr/inria/diverse/kompren/Kompren.xtext"
+var grammarURI = "classpath:/fr/inria/diverse/kompren/Kompren.xtext"
 var fileExtensions = "komprent"
 var runtimeProject = "../${projectName}"
 var generateXtendStub = true
@@ -71,7 +71,6 @@ Workflow {
 			// Xtend-based API for validation 
 			fragment = validation.ValidatorFragment auto-inject {
 			 composedCheck = "fr.inria.diverse.kompren.validation.KomprenValidator"
-			// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
 			}
 
 			// old scoping and exporting API 
@@ -114,9 +113,9 @@ Workflow {
 //			fragment = junit.Junit4Fragment auto-inject {}
 
 			// project wizard (optional) 
-			// fragment = projectWizard.SimpleProjectWizardFragment auto-inject {
-			//		generatorProjectName = "${projectName}.generator" 
-			// }
+//			 fragment = projectWizard.SimpleProjectWizardFragment auto-inject {
+//					generatorProjectName = "${projectName}.generator"
+//			 }
 
 			// rename refactoring
 			fragment = refactoring.RefactorElementNameFragment auto-inject {}

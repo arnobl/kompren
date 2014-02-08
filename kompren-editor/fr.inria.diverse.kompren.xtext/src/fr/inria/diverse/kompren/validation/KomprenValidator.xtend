@@ -69,15 +69,9 @@ class KomprenValidator extends AbstractKomprenValidator {
 	/** Checks that the given URIs are unique and existing genmodel files. */
 	@Check def checkURI(Slicer slicer) {
 		val suffix = '.genmodel'
-		val Set<String> set = new HashSet
 
 		slicer.uriMetamodel.forEach[uri |
 			try {
-				if(set.contains(uri))
-					error("An input domain can be defined only a single time.", KomprenPackage.Literals.SLICER__URI_METAMODEL)
-				else
-					set.add(uri)
-
 				if(!uri.endsWith(suffix))
 					error("Only genmodel can be used as input domain.", KomprenPackage.Literals.SLICER__URI_METAMODEL, ONLY_GENMODEL)
 
