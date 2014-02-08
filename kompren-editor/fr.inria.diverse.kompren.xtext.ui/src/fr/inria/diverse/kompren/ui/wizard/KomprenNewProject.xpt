@@ -1,0 +1,14 @@
+«IMPORT fr::inria::diverse::kompren::ui::wizard»
+
+«DEFINE main FOR KomprenProjectInfo»
+«EXPAND model FOR this»
+«ENDDEFINE»
+
+«DEFINE model FOR KomprenProjectInfo»
+«FILE "src/model/Model.kompren"-»
+/*
+ * This is an example model
+ */
+Hello Xtext!
+«ENDFILE»
+«ENDDEFINE»
