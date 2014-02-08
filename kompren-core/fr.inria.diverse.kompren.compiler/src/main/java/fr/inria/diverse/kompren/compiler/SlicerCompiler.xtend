@@ -21,16 +21,15 @@ import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EPackage
 import org.eclipse.emf.ecore.impl.EcoreFactoryImpl
 import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 
+import static extension fr.inria.diverse.kompren.compiler.ConstraintAspect.*
 import static extension fr.inria.diverse.kompren.compiler.EClassAspect.*
 import static extension fr.inria.diverse.kompren.compiler.EPackageAspect.*
-import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 import static extension fr.inria.diverse.kompren.compiler.SlicedClassAspect.*
-import static extension fr.inria.diverse.kompren.compiler.ConstraintAspect.*
+import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 
 class SlicerCompiler {
 	val String slicerName
@@ -43,35 +42,35 @@ class SlicerCompiler {
 	val List<EClass> metamodelClasses = new ArrayList
 	val List<GenModel> genModels = new ArrayList
 	val StringBuilder imports = new StringBuilder
+	val boolean serialise
 	
 	def static void main(String[] args) {
-		var slicerCompiler = new SlicerCompiler("strictEcore.kompren", "", "/media/data/dev/kompren/kompren-examples/")
+//		var slicerCompiler = new SlicerCompiler("strictEcore.kompren", "/media/data/dev/kompren/kompren-examples/")
+//		slicerCompiler.compile
+		var slicerCompiler = new SlicerCompiler("k3transfoFootprint.kompren", true, "/media/data/dev/kompren/kompren-examples/")
 		slicerCompiler.compile
-//		var slicerCompiler = new SlicerCompiler("k3transfoFootprint.kompren", "", "/media/data/dev/kompren/kompren-examples/")
+//		slicerCompiler = new SlicerCompiler("sm.kompren", "/media/data/dev/kompren/kompren-examples/")
 //		slicerCompiler.compile
-//		slicerCompiler = new SlicerCompiler("sm.kompren", "", "/media/data/dev/kompren/kompren-examples/")
+//		slicerCompiler = new SlicerCompiler("classInverted.kompren", "/media/data/dev/kompren/kompren-examples/")
 //		slicerCompiler.compile
-//		slicerCompiler = new SlicerCompiler("classInverted.kompren", "", "/media/data/dev/kompren/kompren-examples/")
-//		slicerCompiler.compile
-//		slicerCompiler = new SlicerCompiler("clazz.kompren", "", "/media/data/dev/kompren/kompren-examples/")
+//		slicerCompiler = new SlicerCompiler("clazz.kompren", "/media/data/dev/kompren/kompren-examples/")
 //		slicerCompiler.compile
 	}
 	
-	new(String slicerURI, String uri, String targetDir) {
-		val rs = new ResourceSetImpl
-		KomprenPackageImpl.eINSTANCE.eClass
-		EcoreFactoryImpl.eINSTANCE.eClass
-		slicer = getSlicerModel(slicerURI, rs)
-		
+	new(Slicer slicer, boolean serialise, String targetDir) {
+		this.slicer = slicer
+		this.serialise = serialise
 		if(slicer.uriMetamodel.exists[!endsWith(".genmodel")]) 
 			throw new IllegalArgumentException("URI metamodel must refers to a genmodel.")
-		
+
 		GenModelPackage.eINSTANCE.eClass
+
 		val set = new ResourceSetImpl
 		val ecoreFactory = new EcoreResourceFactoryImpl
 		val map = set.getResourceFactoryRegistry.getExtensionToFactoryMap
         map.put("ecore", ecoreFactory)
 		map.put("genmodel", ecoreFactory)
+
 		slicer.uriMetamodel.forEach[uriMM |
 			val res = set.getResource(URI.createURI(uriMM), true)
 			res.load(null)
@@ -86,6 +85,11 @@ class SlicerCompiler {
 		aspectGenerator = new SlicerAspectGenerator(metamodel, slicerName, slicer, pkgName, metamodelClasses, imports)
 		mainGenerator = new SlicerMainGenerator(metamodel, slicerName, slicer, pkgName, imports)
 		this.targetDir = targetDir
+	}
+
+
+	new(String slicerURI, boolean serialise, String targetDir) {
+		this(getSlicerModel(slicerURI), serialise, targetDir)
 	}
 	
 	
@@ -120,7 +124,7 @@ class SlicerCompiler {
 	}
 
 
-	protected def void compile() {
+	def void compile() {
 		if(slicer.strict) {
 			metamodel.forEach[feedSubClassesRelations]
 			identifyAllElementsToSlice
@@ -129,9 +133,8 @@ class SlicerCompiler {
 		completeConstraintsToSubClasses
 		aspectGenerator.generate
 		mainGenerator.generate
-//		println(aspectGenerator.code)
-//		println(mainGenerator.code)
-		saveCode
+		if(serialise)
+			saveCode
 	}
 	
 	
@@ -191,25 +194,46 @@ class SlicerCompiler {
 //		println(setSlicedClasses.map[name].join(", "))
 //		println(slicer.slicedProps.map[domain].map[name].join(", "))
 	}
+	
+	
+	def String getFileNameAspect() {
+		slicerName+"Aspects.xtend"
+	}
+	
+	def String getFileNameMain() {
+		slicerName+".xtend"
+	}
+	
+	def StringBuilder getCodeAspect() {
+		aspectGenerator.code
+	}
+	
+	def StringBuilder getCodeMain() {
+		mainGenerator.code
+	}
+	
+	def String getPackageFolder() {
+		pkgName+"/"
+	}
 
 
-	protected def void saveCode() {
-		val p = targetDir+slicer.name+"/src/main/java/"+pkgName+"/"
+	private def void saveCode() {
+		val p = targetDir+slicer.name+"/src/main/java/"+getPackageFolder
 		val path = Paths.get(p)
 		if(!Files.exists(path))
 			Files.createDirectories(path)
-		var out = new PrintWriter(p+slicerName+"Aspects.xtend")
-		out.println(aspectGenerator.code)
+		var out = new PrintWriter(p+getFileNameAspect)
+		out.println(getCodeAspect)
 		out.flush
 		out.close
-		out = new PrintWriter(p+slicerName+".xtend")
-		out.println(mainGenerator.code)
+		out = new PrintWriter(p+getFileNameMain)
+		out.println(getCodeMain)
 		out.flush
 		out.close
 	}
 	
 	
-	protected def List<EPackage> getEcoreModel(Slicer slicer) {
+	private def List<EPackage> getEcoreModel(Slicer slicer) {
 		val List<EPackage> mm = new ArrayList
 		val Set<EPackage> pkgsVisited = new HashSet
 		
@@ -231,10 +255,12 @@ class SlicerCompiler {
 		return mm
 	}
 	
-	protected def Slicer getSlicerModel(String uriSlicerModel, ResourceSet rs) {
+	static def Slicer getSlicerModel(String uriSlicerModel) {
+		KomprenPackageImpl.eINSTANCE.eClass
+		EcoreFactoryImpl.eINSTANCE.eClass
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap.put("ecore", new EcoreResourceFactoryImpl)
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap.put("kompren", new XMIResourceFactoryImpl)
-		val res = rs.getResource(URI.createURI(uriSlicerModel), true)
+		val res = new ResourceSetImpl().getResource(URI.createURI(uriSlicerModel), true)
 		res.load(Collections.emptyMap)
 		return res.contents.filter(Slicer).head
 	}
