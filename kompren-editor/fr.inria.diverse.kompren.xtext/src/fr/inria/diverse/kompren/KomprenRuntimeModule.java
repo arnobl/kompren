@@ -3,9 +3,20 @@
  */
 package fr.inria.diverse.kompren;
 
+import org.eclipse.xtext.generator.IOutputConfigurationProvider;
+
+import com.google.inject.Binder;
+import com.google.inject.Singleton;
+
+import fr.inria.diverse.kompren.generator.KomprenOutputConfigurationProvider;
+
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 public class KomprenRuntimeModule extends fr.inria.diverse.kompren.AbstractKomprenRuntimeModule {
-
+	  @Override
+	  public void configure(Binder binder) {
+	    super.configure(binder);
+	    binder.bind(IOutputConfigurationProvider.class).to(KomprenOutputConfigurationProvider.class).in(Singleton.class);
+	  }
 }
