@@ -1,0 +1,15 @@
+slicer examples.lowerTypesSlicer{
+	domain: "platform:/resource/examples.lowerTypesSlicer/src/main/model/ClassModel.genmodel"
+	input: ex.classModel.Clazz
+	slicedClass: ex.classModel.Clazz clazz [[
+	println("Clazz: " + clazz.name)
+	buf.append(clazz.name).append(' ')
+	]]
+	slicedProperty: ex.classModel.Clazz.superClasses opposite(lowerType) src tgt [[
+	println("Inheritance: " + src.name + " " + tgt.name)
+	buf.append(src.name).append(' ').append(tgt.name).append(' ')
+	]]
+	helper [[
+	public val buf = new StringBuilder
+	]]
+}
