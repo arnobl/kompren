@@ -20,7 +20,6 @@ Workflow {
 		registerGeneratedEPackage = "kompren.KomprenPackage"
 		registerGenModelFile = "platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel"
 //		registerGenModelFile = "platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel"
-	//	registerGenModelFile = "platform:/resource/fr.inria.diverse.kompren.xtext/src/fr/inria/diverse/kompren/kompren.genmodel"
 		registerGenModelFile = "platform:/resource/fr.inria.diverse.kompren.model/model/kompren.genmodel"
 	}
 
