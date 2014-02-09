@@ -4,14 +4,14 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "http://kompren/fr.inria.diverse.kompren" 
 
 Slicer returns Slicer: 'slicer' (active?='active')? (strict?='strict')? name=QName '{'
-		('domain' ':' uriMetamodel+=STRING)+
-		'input' ':' inputClasses+=[ecore::EClass|QName] ( "," inputClasses+=[ecore::EClass|QName])*
-		('radius' ':' radius=Radius)?
-		('slicedClass' ':' slicedElements+=SlicedClass)*
-		('slicedProperty' ':' slicedElements+=SlicedProperty)*
-		('onStart' onStart=CODE_BLOCK)?
-		('onEnd' onEnd=CODE_BLOCK)?
-		('helper' helper=CODE_BLOCK)?
+		(('domain' ':' uriMetamodel+=STRING)+ &
+		('input' ':' inputClasses+=[ecore::EClass|QName] ( "," inputClasses+=[ecore::EClass|QName])*) &
+		('radius' ':' radius=Radius)? &
+		('slicedClass' ':' slicedElements+=SlicedClass)* &
+		('slicedProperty' ':' slicedElements+=SlicedProperty)* &
+		('onStart' onStart=CODE_BLOCK)? &
+		('onEnd' onEnd=CODE_BLOCK)? &
+		('helper' helper=CODE_BLOCK)?)
 	'}';
 
 terminal IDKOMPREN : ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
