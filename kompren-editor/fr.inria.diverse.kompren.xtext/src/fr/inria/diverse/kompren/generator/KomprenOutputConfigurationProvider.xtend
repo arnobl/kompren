@@ -9,7 +9,7 @@ class KomprenOutputConfigurationProvider implements IOutputConfigurationProvider
 	override Set<OutputConfiguration> getOutputConfigurations() {
 	    val slicerOutput = new OutputConfiguration(IFileSystemAccess.DEFAULT_OUTPUT);
 	    slicerOutput.setDescription("Kompren Slicer Folder")
-	    slicerOutput.setOutputDirectory("kompren-gen")
+	    slicerOutput.setOutputDirectory("src/main/kompren-gen")
 	    slicerOutput.setOverrideExistingResources(true)
 	    slicerOutput.setCreateOutputDirectory(true)
 	    slicerOutput.setCleanUpDerivedResources(true)
