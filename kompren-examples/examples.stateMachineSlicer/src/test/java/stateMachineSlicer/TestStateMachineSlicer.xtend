@@ -1,5 +1,6 @@
 package stateMachineSlicer
 
+import StateMachineSlicer.StateMachineSlicer
 import ex.stateMachine.State
 import ex.stateMachine.StateMachine
 import ex.stateMachine.impl.StateMachineFactoryImpl

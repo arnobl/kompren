@@ -1,0 +1,6 @@
+slicer strict StateMachineSlicer{
+	domain: "platform:/resource/examples.stateMachineSlicer/src/main/model/StateMachine.genmodel"
+	input: ex.stateMachine.State
+	slicedClass: ex.stateMachine.Transition
+	slicedProperty: ex.stateMachine.OutputState.outgoingTransitions
+}
