@@ -118,7 +118,8 @@ public class SlicedPropertyItemProvider
 		final SlicedProperty slicedProperty = (SlicedProperty)object;
 		final EStructuralFeature domain = slicedProperty.getDomain();
 		return getString("_UI_SlicedProperty_type") +
-				(domain==null ? "" : " " + domain.getEContainingClass().getName() + " -> " + domain.getName());
+				(domain==null ? "" : 
+				" " + (domain.getEContainingClass()==null ? "?":domain.getEContainingClass().getName()) + " -> " + domain.getName());
 	}
 
 	/**
