@@ -41,7 +41,7 @@ public interface Radius extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Focused Classes</em>' reference list.
 	 * @see kompren.KomprenPackage#getRadius_FocusedClasses()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	EList<SlicedClass> getFocusedClasses();
