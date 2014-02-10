@@ -29,8 +29,9 @@ class KomprenValidator extends AbstractKomprenValidator {
 
 	/** Checks that the sliced classes and properties are sliced only a single time. */
 	@Check def checkUniqueSlicedClassProperty(Slicer slicer) {
+		if(slicer==null) return;
 		val Set<ENamedElement> set = new HashSet
-		slicer.slicedElements.forEach[se |
+		slicer?.slicedElements.filter[domain!=null].forEach[se |
 			if(set.contains(se.domain))
 				error("A sliced element must be unique: " + se.domain.name, KomprenPackage.Literals.SLICER__NAME)
 			else
@@ -41,6 +42,7 @@ class KomprenValidator extends AbstractKomprenValidator {
 
 	/** Checks that VarDecl instances are defined when an expression is specified on a sliced class. */
 	@Check def checkSlicedClassExpressionImpliesVariable(SlicedClass sc) {
+		if(sc==null) return;
 		if(!sc.expression.nullOrEmpty && sc.ctx==null)
 				error("Defining an expression on a sliced class requires the definition of 'ctx'", KomprenPackage.Literals.SLICED_CLASS__CTX, NO_VARDECL4EXP)
 	}
@@ -48,6 +50,7 @@ class KomprenValidator extends AbstractKomprenValidator {
 
 	/** Checks that VarDecl instances are defined when an expression is specified on a sliced property. */
 	@Check def checkSlicedPropertyExpressionImpliesVariable(SlicedProperty sc) {
+		if(sc==null) return;
 		if(!sc.expression.nullOrEmpty && (sc.src==null || sc.tgt==null))
 				error("Defining an expression on a sliced property requires the definition of both 'src' and 'tgt'", KomprenPackage.Literals.SLICED_PROPERTY__SRC, NO_VARDECL4EXP)
 	}
@@ -55,6 +58,7 @@ class KomprenValidator extends AbstractKomprenValidator {
 
 	/** Checks that VarDecl instances are defined when constraints are specified. */
 	@Check def checkConstraintImpliesVariable(Constraint cst) {
+		if(cst==null) return;
 		val container = cst.eContainer
 		if(container instanceof SlicedClass) {
 			if(container.ctx==null)
@@ -68,9 +72,10 @@ class KomprenValidator extends AbstractKomprenValidator {
 
 	/** Checks that the given URIs are unique and existing genmodel files. */
 	@Check def checkURI(Slicer slicer) {
+		if(slicer==null) return;
 		val suffix = '.genmodel'
 
-		slicer.uriMetamodel.forEach[uri |
+		slicer?.uriMetamodel.forEach[uri |
 			try {
 				if(!uri.endsWith(suffix))
 					error("Only genmodel can be used as input domain.", KomprenPackage.Literals.SLICER__URI_METAMODEL, ONLY_GENMODEL)
