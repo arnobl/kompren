@@ -1,0 +1,20 @@
+slicer fr.inria.diverse.kompren.prettyprinter {
+	domain: "platform:/plugin/fr.inria.diverse.kompren.model/model/kompren.genmodel"
+	input: kompren.Slicer
+	slicedClass: kompren.Slicer sl [[
+	buf.append("slicer ")
+	if(sl.isStrict) buf.append("strict ")
+	if(sl.isActive) buf.append("active ")
+	buf.append(sl.name).append("{\n")
+	sl.uriMetamodel.forEach[uri | buf.append("\tdomain: ").append(uri).append("\n")]
+	sl.inputClasses.forEach[in | buf.append("\tinput: ").append(in.qualifiedName).append("\n")]
+	}
+	]]
+	slicedClass: kompren.SlicedClass sc [[
+	buf.append("slicedClass: ").append(sc.qualifiedName)
+	]]
+	slicedProperty: kompren.Slicer.slicedElements
+	helper [[
+	val buf = new StringBuilder
+	]]
+}

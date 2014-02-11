@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Prettyprinter
+Bundle-SymbolicName: fr.inria.diverse.kompren.prettyprinter
+Bundle-Version: 1.0.0.qualifier
+Export-Package: prettyprinter
