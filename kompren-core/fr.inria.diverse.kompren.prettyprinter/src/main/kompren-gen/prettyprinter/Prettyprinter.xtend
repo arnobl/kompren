@@ -49,7 +49,7 @@ class Prettyprinter{
 		
 	buf.append("slicer ")
 	if(sl.isStrict) buf.append("strict ")
-	if(sl.isActive) buf.append("active ") 
+	if(sl.isActive) buf.append("active ")
 	buf.append(sl.name).append("{\n")
 	sl.uriMetamodel.forEach[uri | buf.append("\tdomain: \"").append(uri).append("\"\n")]
 	buf.append("\tinput: ")
