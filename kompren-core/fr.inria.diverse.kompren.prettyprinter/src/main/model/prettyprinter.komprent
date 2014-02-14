@@ -1,20 +1,59 @@
 slicer fr.inria.diverse.kompren.prettyprinter {
 	domain: "platform:/plugin/fr.inria.diverse.kompren.model/model/kompren.genmodel"
+	
 	input: kompren.Slicer
 	slicedClass: kompren.Slicer sl [[
 	buf.append("slicer ")
 	if(sl.isStrict) buf.append("strict ")
 	if(sl.isActive) buf.append("active ")
 	buf.append(sl.name).append("{\n")
-	sl.uriMetamodel.forEach[uri | buf.append("\tdomain: ").append(uri).append("\n")]
-	sl.inputClasses.forEach[in | buf.append("\tinput: ").append(in.qualifiedName).append("\n")]
-	}
+	sl.uriMetamodel.forEach[uri | buf.append("\tdomain: \"").append(uri).append("\"\n")]
+	buf.append("\tinput: ")
+	buf.append(sl.inputClasses.map[in | qualifiedName(in)].join(", ")).append('\n')
 	]]
 	slicedClass: kompren.SlicedClass sc [[
-	buf.append("slicedClass: ").append(sc.qualifiedName)
+	buf.append("\tslicedClass: ").append(qualifiedName(sc.domain))
+	if(sc.isOption) buf.append(" option")
+	if(sc.ctx!=null) buf.append(" ").append(sc.ctx.varName)
+	if(sc.expression!=null && sc.expression.length>0)
+		buf.append("[[").append(sc.expression).append(dbleBrack)
+	buf.append('\n')			
 	]]
+	
+	slicedClass: kompren.SlicedProperty sp [[
+	buf.append("\tslicedProperty: ").append(qualifiedName(sp.domain))
+	if(sp.isOption) buf.append(" option")
+	if(sp.src!=null) buf.append(" ").append(sp.src.varName)
+	if(sp.tgt!=null) buf.append(" ").append(sp.tgt.varName)
+	if(sp.expression!=null && sp.expression.length>0)
+		buf.append("[[").append(sp.expression).append(dbleBrack) 
+	buf.append("\n")
+	]]
+
+	slicedClass: kompren.Radius rad [[
+	buf.append("\radius: ").append(rad.focusedClasses.map[cl | qualifiedName(cl.domain)].join(", ")).append('\n')	
+	]]
+	
+	slicedClass: kompren.Constraint cst [[
+	buf.append("\t\tconstraint: ").append(cst.name).append(" [[").append(cst.expression).append(dbleBrack).append('\n')
+	]]	
+
+	slicedProperty: kompren.SlicedElement.constraints
 	slicedProperty: kompren.Slicer.slicedElements
+
 	helper [[
-	val buf = new StringBuilder
+	public val buf = new StringBuilder
+	val dbleBrack = "] ]".replaceAll(" ", "")	
+
+	private static def String qualifiedName(ENamedElement elt) {
+		if(elt==null) return ""
+		var qn = elt.name
+		if(elt.eContainer instanceof ENamedElement) 
+			qn = qualifiedName(elt.eContainer as ENamedElement) + "." + qn
+		qn
+	}
 	]]
+	onEnd [[
+		buf.append("}\n")		
+	]]	
 }
