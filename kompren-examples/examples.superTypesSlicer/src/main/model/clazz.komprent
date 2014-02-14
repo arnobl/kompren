@@ -9,7 +9,7 @@ slicer examples.superTypesSlicer{
 	println("Inheritance: " + srcClass.name + " " + tgtClass.name)
 	buf.append(srcClass.name).append(' ').append(tgtClass.name).append(' ')
 	]]
-	helper [[ 
+	helper [[
 	public val buf = new StringBuilder
 	]]
 	onStart [[

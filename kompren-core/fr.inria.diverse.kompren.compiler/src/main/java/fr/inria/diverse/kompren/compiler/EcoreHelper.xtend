@@ -6,8 +6,8 @@
  */
 package fr.inria.diverse.kompren.compiler
 
-import fr.inria.triskell.k3.Aspect
-import fr.inria.triskell.k3.OverrideAspectMethod
+import fr.inria.diverse.k3.al.annotationprocessor.Aspect
+import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import java.util.ArrayList
 import java.util.HashSet
 import java.util.List

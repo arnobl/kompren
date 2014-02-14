@@ -3,6 +3,7 @@ package fr.inria.diverse.kompren.compiler
 import java.util.List
 import kompren.Slicer
 import org.eclipse.emf.ecore.EPackage
+
 import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 
 abstract class SlicerGenerator {

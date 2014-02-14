@@ -12,8 +12,8 @@ import static extension fr.inria.diverse.kompren.compiler.SlicedClassAspect.*
 import static extension fr.inria.diverse.kompren.compiler.ConstraintAspect.*
 
 class SlicerAspectGenerator extends SlicerGenerator {
-	val String aspectVisitor = "import fr.inria.triskell.k3.Aspect
-import fr.inria.triskell.k3.OverrideAspectMethod
+	val String aspectVisitor = "import fr.inria.diverse.k3.al.annotationprocessor.Aspect
+import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import java.util.List
 import java.util.ArrayList
 import org.eclipse.emf.ecore.EObject

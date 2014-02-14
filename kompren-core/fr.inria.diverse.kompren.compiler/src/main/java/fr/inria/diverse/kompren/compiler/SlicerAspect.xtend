@@ -1,6 +1,6 @@
 package fr.inria.diverse.kompren.compiler
 
-import fr.inria.triskell.k3.Aspect
+import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import java.util.HashMap
 import java.util.List
 import java.util.Map
