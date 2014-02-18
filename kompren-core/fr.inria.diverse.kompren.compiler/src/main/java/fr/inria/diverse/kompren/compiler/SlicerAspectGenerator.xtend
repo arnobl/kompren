@@ -5,11 +5,11 @@ import kompren.Slicer
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EPackage
 
-import static extension fr.inria.diverse.kompren.compiler.EClassAspect.*
-import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
-import static extension fr.inria.diverse.kompren.compiler.SlicedPropertyAspect.*
-import static extension fr.inria.diverse.kompren.compiler.SlicedClassAspect.*
 import static extension fr.inria.diverse.kompren.compiler.ConstraintAspect.*
+import static extension fr.inria.diverse.kompren.compiler.EClassAspect.*
+import static extension fr.inria.diverse.kompren.compiler.SlicedClassAspect.*
+import static extension fr.inria.diverse.kompren.compiler.SlicedPropertyAspect.*
+import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 
 class SlicerAspectGenerator extends SlicerGenerator {
 	val String aspectVisitor = "import fr.inria.diverse.k3.al.annotationprocessor.Aspect
@@ -69,9 +69,10 @@ abstract class __SlicerAspect__ {
 		metamodelClasses.filter[name!="EStringToStringMapEntry"].forEach[cl |
 			val superName = if(cl.ESuperTypes.empty) "__SlicerAspect__" else cl.ESuperTypes.head.name+"Aspect"
 			val slicedCl = slicer.slicedClasses.findFirst[domain==cl]
-
+			val withParam = if(cl.ESuperTypes.empty) "typeof("+superName+")" 
+							else cl.ESuperTypes.filter[st|st!=null && st.name!=null && st.name.length>0].map[st | "typeof("+st.name+"Aspect)"].join(", ")
 			if(opposite) cl.generateFeedOppositeCodeVisitor
-			buf.append("@Aspect(className=typeof(").append(cl.name).append("))\n")
+			buf.append("@Aspect(className=typeof(").append(cl.name).append("), with=#[").append(withParam).append("])\n")
 			if(cl.abstract) buf.append("abstract ")
 			buf.append("class ").append(cl.name).append("Aspect extends ").append(superName).append("{\n")
 			buf.append(cl.oppositeAttr)
