@@ -1,5 +1,6 @@
 package k3TransfoFootprint
 
+import java.util.ArrayList
 import java.util.HashSet
 import java.util.List
 import java.util.Set
@@ -13,6 +14,13 @@ import static extension k3TransfoFootprint.__SlicerAspect__.*
 class K3TransfoFootprint{
 
 	public val Set<String> footprint = new HashSet
+	public val List<String> pkgs = new ArrayList
+	private def addQN(String qn) {
+		if(qn!=null && !qn.startsWith("java.") && !qn.startsWith("com.google.") && 
+			!qn.startsWith("sun.") && !qn.startsWith("javax.") && !qn.startsWith("com.sun") &&
+			!qn.startsWith("com.oracle") && !qn.startsWith("sunw."))
+			footprint.add(qn)
+	}
 	
 	val List<JvmFormalParameter> inputJvmFormalParameter
 	val List<JvmTypeReference> inputJvmTypeReference
@@ -36,10 +44,10 @@ class K3TransfoFootprint{
 	}
 
 	def void onJvmTypeReferenceSliced(JvmTypeReference type){
-		footprint.add(type.getQualifiedName)
+		addQN(type.getQualifiedName)
 	}
 	def void onJvmIdentifiableElementSliced(JvmIdentifiableElement ident){
-		footprint.add(ident.getQualifiedName)
+		addQN(ident.getQualifiedName)
 	}
 
 	protected def void onStart(){
