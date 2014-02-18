@@ -1,30 +1,27 @@
 package strictEcore
-import org.eclipse.emf.ecore.*
-import org.eclipse.emf.ecore.impl.*
 
-import static extension strictEcore.__SlicerAspect__.*
-import static extension strictEcore.ENamedElementAspect.*
-import static extension strictEcore.EClassifierAspect.*
-import static extension strictEcore.ETypeParameterAspect.*
-import static extension strictEcore.ETypedElementAspect.*
-import static extension strictEcore.EStructuralFeatureAspect.*
-import static extension strictEcore.EClassAspect.*
-import static extension strictEcore.EOperationAspect.*
-import static extension strictEcore.EReferenceAspect.*
-import static extension strictEcore.EAttributeAspect.*
-import static extension strictEcore.EEnumLiteralAspect.*
-import static extension strictEcore.EModelElementAspect.*
-import static extension strictEcore.EAnnotationAspect.*
-import static extension strictEcore.EFactoryAspect.*
-import static extension strictEcore.EParameterAspect.*
-import static extension strictEcore.EDataTypeAspect.*
-import static extension strictEcore.EEnumAspect.*
-import static extension strictEcore.EPackageAspect.*
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
-import java.util.List
-import java.util.ArrayList
+import org.eclipse.emf.ecore.EAnnotation
+import org.eclipse.emf.ecore.EAttribute
+import org.eclipse.emf.ecore.EClass
+import org.eclipse.emf.ecore.EClassifier
+import org.eclipse.emf.ecore.EDataType
+import org.eclipse.emf.ecore.EEnum
+import org.eclipse.emf.ecore.EEnumLiteral
+import org.eclipse.emf.ecore.EFactory
+import org.eclipse.emf.ecore.EGenericType
+import org.eclipse.emf.ecore.EModelElement
+import org.eclipse.emf.ecore.ENamedElement
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EOperation
+import org.eclipse.emf.ecore.EPackage
+import org.eclipse.emf.ecore.EParameter
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.emf.ecore.EStructuralFeature
+import org.eclipse.emf.ecore.ETypeParameter
+import org.eclipse.emf.ecore.ETypedElement
+import org.eclipse.emf.ecore.impl.EcoreFactoryImpl
 
 @Aspect(className=typeof(Object))
 abstract class __SlicerAspect__ {
@@ -53,7 +50,7 @@ abstract class __SlicerAspect__ {
 	def void feedOpposites(){}
 }
 
-@Aspect(className=typeof(EAttribute))
+@Aspect(className=typeof(EAttribute), with=#[typeof(EStructuralFeatureAspect)])
 class EAttributeAspect extends EStructuralFeatureAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
@@ -75,7 +72,7 @@ class EAttributeAspect extends EStructuralFeatureAspect{
 	}
 }
 
-@Aspect(className=typeof(EAnnotation))
+@Aspect(className=typeof(EAnnotation), with=#[typeof(EModelElementAspect)])
 class EAnnotationAspect extends EModelElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
@@ -93,7 +90,7 @@ class EAnnotationAspect extends EModelElementAspect{
 	}
 }
 
-@Aspect(className=typeof(EClass))
+@Aspect(className=typeof(EClass), with=#[typeof(EClassifierAspect)])
 class EClassAspect extends EClassifierAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
@@ -123,7 +120,7 @@ class EClassAspect extends EClassifierAspect{
 	}
 }
 
-@Aspect(className=typeof(EClassifier))
+@Aspect(className=typeof(EClassifier), with=#[typeof(ENamedElementAspect)])
 abstract class EClassifierAspect extends ENamedElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
@@ -137,7 +134,7 @@ abstract class EClassifierAspect extends ENamedElementAspect{
 	}
 }
 
-@Aspect(className=typeof(EDataType))
+@Aspect(className=typeof(EDataType), with=#[typeof(EClassifierAspect)])
 class EDataTypeAspect extends EClassifierAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
@@ -155,7 +152,7 @@ class EDataTypeAspect extends EClassifierAspect{
 	}
 }
 
-@Aspect(className=typeof(EEnum))
+@Aspect(className=typeof(EEnum), with=#[typeof(EDataTypeAspect)])
 class EEnumAspect extends EDataTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
@@ -177,7 +174,7 @@ class EEnumAspect extends EDataTypeAspect{
 	}
 }
 
-@Aspect(className=typeof(EEnumLiteral))
+@Aspect(className=typeof(EEnumLiteral), with=#[typeof(ENamedElementAspect)])
 class EEnumLiteralAspect extends ENamedElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
@@ -195,7 +192,7 @@ class EEnumLiteralAspect extends ENamedElementAspect{
 	}
 }
 
-@Aspect(className=typeof(EFactory))
+@Aspect(className=typeof(EFactory), with=#[typeof(EModelElementAspect)])
 class EFactoryAspect extends EModelElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
@@ -219,7 +216,7 @@ class EFactoryAspect extends EModelElementAspect{
 	}
 }
 
-@Aspect(className=typeof(EModelElement))
+@Aspect(className=typeof(EModelElement), with=#[typeof(__SlicerAspect__)])
 abstract class EModelElementAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
@@ -233,7 +230,7 @@ abstract class EModelElementAspect extends __SlicerAspect__{
 	}
 }
 
-@Aspect(className=typeof(ENamedElement))
+@Aspect(className=typeof(ENamedElement), with=#[typeof(EModelElementAspect)])
 abstract class ENamedElementAspect extends EModelElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
@@ -249,21 +246,7 @@ abstract class ENamedElementAspect extends EModelElementAspect{
 	}
 }
 
-@Aspect(className=typeof(EObject))
-class EObjectAspect extends __SlicerAspect__{
-	@OverrideAspectMethod
-	def void _visitToAddClasses(StrictEcore theSlicer){
-		_self.super__visitToAddClasses(theSlicer)
-
-	}
-	@OverrideAspectMethod
-	def void _visitToAddRelations(StrictEcore theSlicer){
-		_self.super__visitToAddRelations(theSlicer)
-
-	}
-}
-
-@Aspect(className=typeof(EOperation))
+@Aspect(className=typeof(EOperation), with=#[typeof(ETypedElementAspect)])
 class EOperationAspect extends ETypedElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
@@ -285,7 +268,7 @@ class EOperationAspect extends ETypedElementAspect{
 	}
 }
 
-@Aspect(className=typeof(EPackage))
+@Aspect(className=typeof(EPackage), with=#[typeof(ENamedElementAspect)])
 class EPackageAspect extends ENamedElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
@@ -309,7 +292,7 @@ class EPackageAspect extends ENamedElementAspect{
 	}
 }
 
-@Aspect(className=typeof(EParameter))
+@Aspect(className=typeof(EParameter), with=#[typeof(ETypedElementAspect)])
 class EParameterAspect extends ETypedElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
@@ -327,7 +310,7 @@ class EParameterAspect extends ETypedElementAspect{
 	}
 }
 
-@Aspect(className=typeof(EReference))
+@Aspect(className=typeof(EReference), with=#[typeof(EStructuralFeatureAspect)])
 class EReferenceAspect extends EStructuralFeatureAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
@@ -349,7 +332,7 @@ class EReferenceAspect extends EStructuralFeatureAspect{
 	}
 }
 
-@Aspect(className=typeof(EStructuralFeature))
+@Aspect(className=typeof(EStructuralFeature), with=#[typeof(ETypedElementAspect)])
 abstract class EStructuralFeatureAspect extends ETypedElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
@@ -363,7 +346,7 @@ abstract class EStructuralFeatureAspect extends ETypedElementAspect{
 	}
 }
 
-@Aspect(className=typeof(ETypedElement))
+@Aspect(className=typeof(ETypedElement), with=#[typeof(ENamedElementAspect)])
 abstract class ETypedElementAspect extends ENamedElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
@@ -383,7 +366,7 @@ abstract class ETypedElementAspect extends ENamedElementAspect{
 	}
 }
 
-@Aspect(className=typeof(EGenericType))
+@Aspect(className=typeof(EGenericType), with=#[typeof(__SlicerAspect__)])
 class EGenericTypeAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
@@ -397,7 +380,7 @@ class EGenericTypeAspect extends __SlicerAspect__{
 	}
 }
 
-@Aspect(className=typeof(ETypeParameter))
+@Aspect(className=typeof(ETypeParameter), with=#[typeof(ENamedElementAspect)])
 class ETypeParameterAspect extends ENamedElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
