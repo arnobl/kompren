@@ -1,23 +1,91 @@
 package k3TransfoFootprint
-import org.eclipse.xtext.xbase.annotations.xAnnotations.*
-import org.eclipse.xtext.xbase.annotations.xAnnotations.impl.*
-import org.eclipse.xtext.xtype.*
-import org.eclipse.xtext.xtype.impl.*
-import org.eclipse.xtext.xbase.*
-import org.eclipse.xtext.xbase.impl.*
-import org.eclipse.xtext.common.types.*
-import org.eclipse.xtext.common.types.impl.*
-import org.eclipse.xtext.common.types.*
-import org.eclipse.xtext.common.types.impl.*
 
-import static extension k3TransfoFootprint.__SlicerAspect__.*
-import static extension k3TransfoFootprint.JvmTypeReferenceAspect.*
-import static extension k3TransfoFootprint.JvmIdentifiableElementAspect.*
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
-import java.util.List
-import java.util.ArrayList
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.common.types.JvmAnnotationAnnotationValue
+import org.eclipse.xtext.common.types.JvmAnnotationReference
+import org.eclipse.xtext.common.types.JvmAnnotationTarget
+import org.eclipse.xtext.common.types.JvmAnnotationType
+import org.eclipse.xtext.common.types.JvmAnnotationValue
+import org.eclipse.xtext.common.types.JvmAnyTypeReference
+import org.eclipse.xtext.common.types.JvmArrayType
+import org.eclipse.xtext.common.types.JvmBooleanAnnotationValue
+import org.eclipse.xtext.common.types.JvmByteAnnotationValue
+import org.eclipse.xtext.common.types.JvmCharAnnotationValue
+import org.eclipse.xtext.common.types.JvmComponentType
+import org.eclipse.xtext.common.types.JvmCompoundTypeReference
+import org.eclipse.xtext.common.types.JvmConstraintOwner
+import org.eclipse.xtext.common.types.JvmConstructor
+import org.eclipse.xtext.common.types.JvmCustomAnnotationValue
+import org.eclipse.xtext.common.types.JvmDeclaredType
+import org.eclipse.xtext.common.types.JvmDelegateTypeReference
+import org.eclipse.xtext.common.types.JvmDoubleAnnotationValue
+import org.eclipse.xtext.common.types.JvmEnumAnnotationValue
+import org.eclipse.xtext.common.types.JvmEnumerationLiteral
+import org.eclipse.xtext.common.types.JvmEnumerationType
+import org.eclipse.xtext.common.types.JvmExecutable
+import org.eclipse.xtext.common.types.JvmFeature
+import org.eclipse.xtext.common.types.JvmField
+import org.eclipse.xtext.common.types.JvmFloatAnnotationValue
+import org.eclipse.xtext.common.types.JvmFormalParameter
+import org.eclipse.xtext.common.types.JvmGenericArrayTypeReference
+import org.eclipse.xtext.common.types.JvmGenericType
+import org.eclipse.xtext.common.types.JvmIdentifiableElement
+import org.eclipse.xtext.common.types.JvmIntAnnotationValue
+import org.eclipse.xtext.common.types.JvmLongAnnotationValue
+import org.eclipse.xtext.common.types.JvmLowerBound
+import org.eclipse.xtext.common.types.JvmMember
+import org.eclipse.xtext.common.types.JvmMultiTypeReference
+import org.eclipse.xtext.common.types.JvmOperation
+import org.eclipse.xtext.common.types.JvmParameterizedTypeReference
+import org.eclipse.xtext.common.types.JvmPrimitiveType
+import org.eclipse.xtext.common.types.JvmShortAnnotationValue
+import org.eclipse.xtext.common.types.JvmSpecializedTypeReference
+import org.eclipse.xtext.common.types.JvmStringAnnotationValue
+import org.eclipse.xtext.common.types.JvmSynonymTypeReference
+import org.eclipse.xtext.common.types.JvmType
+import org.eclipse.xtext.common.types.JvmTypeAnnotationValue
+import org.eclipse.xtext.common.types.JvmTypeConstraint
+import org.eclipse.xtext.common.types.JvmTypeParameter
+import org.eclipse.xtext.common.types.JvmTypeParameterDeclarator
+import org.eclipse.xtext.common.types.JvmTypeReference
+import org.eclipse.xtext.common.types.JvmUnknownTypeReference
+import org.eclipse.xtext.common.types.JvmUpperBound
+import org.eclipse.xtext.common.types.JvmVoid
+import org.eclipse.xtext.common.types.JvmWildcardTypeReference
+import org.eclipse.xtext.xbase.XAbstractFeatureCall
+import org.eclipse.xtext.xbase.XAbstractWhileExpression
+import org.eclipse.xtext.xbase.XAssignment
+import org.eclipse.xtext.xbase.XBinaryOperation
+import org.eclipse.xtext.xbase.XBlockExpression
+import org.eclipse.xtext.xbase.XBooleanLiteral
+import org.eclipse.xtext.xbase.XCasePart
+import org.eclipse.xtext.xbase.XCastedExpression
+import org.eclipse.xtext.xbase.XCatchClause
+import org.eclipse.xtext.xbase.XClosure
+import org.eclipse.xtext.xbase.XCollectionLiteral
+import org.eclipse.xtext.xbase.XConstructorCall
+import org.eclipse.xtext.xbase.XDoWhileExpression
+import org.eclipse.xtext.xbase.XExpression
+import org.eclipse.xtext.xbase.XFeatureCall
+import org.eclipse.xtext.xbase.XForLoopExpression
+import org.eclipse.xtext.xbase.XIfExpression
+import org.eclipse.xtext.xbase.XInstanceOfExpression
+import org.eclipse.xtext.xbase.XListLiteral
+import org.eclipse.xtext.xbase.XMemberFeatureCall
+import org.eclipse.xtext.xbase.XNullLiteral
+import org.eclipse.xtext.xbase.XNumberLiteral
+import org.eclipse.xtext.xbase.XReturnExpression
+import org.eclipse.xtext.xbase.XSetLiteral
+import org.eclipse.xtext.xbase.XStringLiteral
+import org.eclipse.xtext.xbase.XSwitchExpression
+import org.eclipse.xtext.xbase.XThrowExpression
+import org.eclipse.xtext.xbase.XTryCatchFinallyExpression
+import org.eclipse.xtext.xbase.XTypeLiteral
+import org.eclipse.xtext.xbase.XUnaryOperation
+import org.eclipse.xtext.xbase.XVariableDeclaration
+import org.eclipse.xtext.xbase.XWhileExpression
 
 @Aspect(className=typeof(Object))
 abstract class __SlicerAspect__ {
@@ -46,7 +114,7 @@ abstract class __SlicerAspect__ {
 	def void feedOpposites(){}
 }
 
-@Aspect(className=typeof(JvmIdentifiableElement))
+@Aspect(className=typeof(JvmIdentifiableElement), with=#[typeof(__SlicerAspect__)])
 abstract class JvmIdentifiableElementAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -61,7 +129,7 @@ abstract class JvmIdentifiableElementAspect extends __SlicerAspect__{
 	}
 }
 
-@Aspect(className=typeof(JvmType))
+@Aspect(className=typeof(JvmType), with=#[typeof(JvmIdentifiableElementAspect)])
 abstract class JvmTypeAspect extends JvmIdentifiableElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -75,7 +143,7 @@ abstract class JvmTypeAspect extends JvmIdentifiableElementAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmVoid))
+@Aspect(className=typeof(JvmVoid), with=#[typeof(JvmTypeAspect)])
 class JvmVoidAspect extends JvmTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -89,7 +157,7 @@ class JvmVoidAspect extends JvmTypeAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmComponentType))
+@Aspect(className=typeof(JvmComponentType), with=#[typeof(JvmTypeAspect)])
 abstract class JvmComponentTypeAspect extends JvmTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -107,7 +175,7 @@ abstract class JvmComponentTypeAspect extends JvmTypeAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmPrimitiveType))
+@Aspect(className=typeof(JvmPrimitiveType), with=#[typeof(JvmComponentTypeAspect)])
 class JvmPrimitiveTypeAspect extends JvmComponentTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -121,7 +189,7 @@ class JvmPrimitiveTypeAspect extends JvmComponentTypeAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmArrayType))
+@Aspect(className=typeof(JvmArrayType), with=#[typeof(JvmComponentTypeAspect)])
 class JvmArrayTypeAspect extends JvmComponentTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -139,7 +207,7 @@ class JvmArrayTypeAspect extends JvmComponentTypeAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmDeclaredType))
+@Aspect(className=typeof(JvmDeclaredType), with=#[typeof(JvmMemberAspect), typeof(JvmComponentTypeAspect)])
 abstract class JvmDeclaredTypeAspect extends JvmMemberAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -157,7 +225,7 @@ abstract class JvmDeclaredTypeAspect extends JvmMemberAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmTypeParameter))
+@Aspect(className=typeof(JvmTypeParameter), with=#[typeof(JvmComponentTypeAspect), typeof(JvmConstraintOwnerAspect)])
 class JvmTypeParameterAspect extends JvmComponentTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -175,7 +243,7 @@ class JvmTypeParameterAspect extends JvmComponentTypeAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmTypeParameterDeclarator))
+@Aspect(className=typeof(JvmTypeParameterDeclarator), with=#[typeof(__SlicerAspect__)])
 abstract class JvmTypeParameterDeclaratorAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -191,7 +259,7 @@ abstract class JvmTypeParameterDeclaratorAspect extends __SlicerAspect__{
 	}
 }
 
-@Aspect(className=typeof(JvmConstraintOwner))
+@Aspect(className=typeof(JvmConstraintOwner), with=#[typeof(__SlicerAspect__)])
 abstract class JvmConstraintOwnerAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -207,7 +275,7 @@ abstract class JvmConstraintOwnerAspect extends __SlicerAspect__{
 	}
 }
 
-@Aspect(className=typeof(JvmTypeConstraint))
+@Aspect(className=typeof(JvmTypeConstraint), with=#[typeof(__SlicerAspect__)])
 abstract class JvmTypeConstraintAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -229,7 +297,7 @@ abstract class JvmTypeConstraintAspect extends __SlicerAspect__{
 	}
 }
 
-@Aspect(className=typeof(JvmUpperBound))
+@Aspect(className=typeof(JvmUpperBound), with=#[typeof(JvmTypeConstraintAspect)])
 class JvmUpperBoundAspect extends JvmTypeConstraintAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -243,7 +311,7 @@ class JvmUpperBoundAspect extends JvmTypeConstraintAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmLowerBound))
+@Aspect(className=typeof(JvmLowerBound), with=#[typeof(JvmTypeConstraintAspect)])
 class JvmLowerBoundAspect extends JvmTypeConstraintAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -257,7 +325,7 @@ class JvmLowerBoundAspect extends JvmTypeConstraintAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmAnnotationType))
+@Aspect(className=typeof(JvmAnnotationType), with=#[typeof(JvmDeclaredTypeAspect)])
 class JvmAnnotationTypeAspect extends JvmDeclaredTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -271,7 +339,7 @@ class JvmAnnotationTypeAspect extends JvmDeclaredTypeAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmEnumerationType))
+@Aspect(className=typeof(JvmEnumerationType), with=#[typeof(JvmDeclaredTypeAspect)])
 class JvmEnumerationTypeAspect extends JvmDeclaredTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -287,7 +355,7 @@ class JvmEnumerationTypeAspect extends JvmDeclaredTypeAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmEnumerationLiteral))
+@Aspect(className=typeof(JvmEnumerationLiteral), with=#[typeof(JvmFieldAspect)])
 class JvmEnumerationLiteralAspect extends JvmFieldAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -301,7 +369,7 @@ class JvmEnumerationLiteralAspect extends JvmFieldAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmGenericType))
+@Aspect(className=typeof(JvmGenericType), with=#[typeof(JvmDeclaredTypeAspect), typeof(JvmTypeParameterDeclaratorAspect)])
 class JvmGenericTypeAspect extends JvmDeclaredTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -315,7 +383,7 @@ class JvmGenericTypeAspect extends JvmDeclaredTypeAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmTypeReference))
+@Aspect(className=typeof(JvmTypeReference), with=#[typeof(__SlicerAspect__)])
 abstract class JvmTypeReferenceAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -330,7 +398,7 @@ abstract class JvmTypeReferenceAspect extends __SlicerAspect__{
 	}
 }
 
-@Aspect(className=typeof(JvmParameterizedTypeReference))
+@Aspect(className=typeof(JvmParameterizedTypeReference), with=#[typeof(JvmTypeReferenceAspect)])
 class JvmParameterizedTypeReferenceAspect extends JvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -350,7 +418,7 @@ class JvmParameterizedTypeReferenceAspect extends JvmTypeReferenceAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmGenericArrayTypeReference))
+@Aspect(className=typeof(JvmGenericArrayTypeReference), with=#[typeof(JvmTypeReferenceAspect)])
 class JvmGenericArrayTypeReferenceAspect extends JvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -368,7 +436,7 @@ class JvmGenericArrayTypeReferenceAspect extends JvmTypeReferenceAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmWildcardTypeReference))
+@Aspect(className=typeof(JvmWildcardTypeReference), with=#[typeof(JvmTypeReferenceAspect), typeof(JvmConstraintOwnerAspect)])
 class JvmWildcardTypeReferenceAspect extends JvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -382,7 +450,7 @@ class JvmWildcardTypeReferenceAspect extends JvmTypeReferenceAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmAnyTypeReference))
+@Aspect(className=typeof(JvmAnyTypeReference), with=#[typeof(JvmTypeReferenceAspect)])
 class JvmAnyTypeReferenceAspect extends JvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -400,7 +468,7 @@ class JvmAnyTypeReferenceAspect extends JvmTypeReferenceAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmMultiTypeReference))
+@Aspect(className=typeof(JvmMultiTypeReference), with=#[typeof(JvmCompoundTypeReferenceAspect)])
 class JvmMultiTypeReferenceAspect extends JvmCompoundTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -414,7 +482,7 @@ class JvmMultiTypeReferenceAspect extends JvmCompoundTypeReferenceAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmMember))
+@Aspect(className=typeof(JvmMember), with=#[typeof(JvmAnnotationTargetAspect)])
 abstract class JvmMemberAspect extends JvmAnnotationTargetAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -432,7 +500,7 @@ abstract class JvmMemberAspect extends JvmAnnotationTargetAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmFeature))
+@Aspect(className=typeof(JvmFeature), with=#[typeof(JvmMemberAspect)])
 abstract class JvmFeatureAspect extends JvmMemberAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -446,7 +514,7 @@ abstract class JvmFeatureAspect extends JvmMemberAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmField))
+@Aspect(className=typeof(JvmField), with=#[typeof(JvmFeatureAspect)])
 class JvmFieldAspect extends JvmFeatureAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -464,7 +532,7 @@ class JvmFieldAspect extends JvmFeatureAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmExecutable))
+@Aspect(className=typeof(JvmExecutable), with=#[typeof(JvmFeatureAspect), typeof(JvmTypeParameterDeclaratorAspect)])
 abstract class JvmExecutableAspect extends JvmFeatureAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -482,7 +550,7 @@ abstract class JvmExecutableAspect extends JvmFeatureAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmConstructor))
+@Aspect(className=typeof(JvmConstructor), with=#[typeof(JvmExecutableAspect)])
 class JvmConstructorAspect extends JvmExecutableAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -496,7 +564,7 @@ class JvmConstructorAspect extends JvmExecutableAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmOperation))
+@Aspect(className=typeof(JvmOperation), with=#[typeof(JvmExecutableAspect)])
 class JvmOperationAspect extends JvmExecutableAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -518,7 +586,7 @@ class JvmOperationAspect extends JvmExecutableAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmFormalParameter))
+@Aspect(className=typeof(JvmFormalParameter), with=#[typeof(JvmAnnotationTargetAspect)])
 class JvmFormalParameterAspect extends JvmAnnotationTargetAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -536,7 +604,7 @@ class JvmFormalParameterAspect extends JvmAnnotationTargetAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmAnnotationTarget))
+@Aspect(className=typeof(JvmAnnotationTarget), with=#[typeof(JvmIdentifiableElementAspect)])
 abstract class JvmAnnotationTargetAspect extends JvmIdentifiableElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -552,7 +620,7 @@ abstract class JvmAnnotationTargetAspect extends JvmIdentifiableElementAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmAnnotationReference))
+@Aspect(className=typeof(JvmAnnotationReference), with=#[typeof(__SlicerAspect__)])
 class JvmAnnotationReferenceAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -572,7 +640,7 @@ class JvmAnnotationReferenceAspect extends __SlicerAspect__{
 	}
 }
 
-@Aspect(className=typeof(JvmAnnotationValue))
+@Aspect(className=typeof(JvmAnnotationValue), with=#[typeof(__SlicerAspect__)])
 abstract class JvmAnnotationValueAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -590,7 +658,7 @@ abstract class JvmAnnotationValueAspect extends __SlicerAspect__{
 	}
 }
 
-@Aspect(className=typeof(JvmIntAnnotationValue))
+@Aspect(className=typeof(JvmIntAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
 class JvmIntAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -604,7 +672,7 @@ class JvmIntAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmBooleanAnnotationValue))
+@Aspect(className=typeof(JvmBooleanAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
 class JvmBooleanAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -618,7 +686,7 @@ class JvmBooleanAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmByteAnnotationValue))
+@Aspect(className=typeof(JvmByteAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
 class JvmByteAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -632,7 +700,7 @@ class JvmByteAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmShortAnnotationValue))
+@Aspect(className=typeof(JvmShortAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
 class JvmShortAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -646,7 +714,7 @@ class JvmShortAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmLongAnnotationValue))
+@Aspect(className=typeof(JvmLongAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
 class JvmLongAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -660,7 +728,7 @@ class JvmLongAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmDoubleAnnotationValue))
+@Aspect(className=typeof(JvmDoubleAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
 class JvmDoubleAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -674,7 +742,7 @@ class JvmDoubleAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmFloatAnnotationValue))
+@Aspect(className=typeof(JvmFloatAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
 class JvmFloatAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -688,7 +756,7 @@ class JvmFloatAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmCharAnnotationValue))
+@Aspect(className=typeof(JvmCharAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
 class JvmCharAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -702,7 +770,7 @@ class JvmCharAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmStringAnnotationValue))
+@Aspect(className=typeof(JvmStringAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
 class JvmStringAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -716,7 +784,7 @@ class JvmStringAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmTypeAnnotationValue))
+@Aspect(className=typeof(JvmTypeAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
 class JvmTypeAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -732,7 +800,7 @@ class JvmTypeAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmAnnotationAnnotationValue))
+@Aspect(className=typeof(JvmAnnotationAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
 class JvmAnnotationAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -748,7 +816,7 @@ class JvmAnnotationAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmEnumAnnotationValue))
+@Aspect(className=typeof(JvmEnumAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
 class JvmEnumAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -764,7 +832,7 @@ class JvmEnumAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmDelegateTypeReference))
+@Aspect(className=typeof(JvmDelegateTypeReference), with=#[typeof(JvmTypeReferenceAspect)])
 class JvmDelegateTypeReferenceAspect extends JvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -782,7 +850,7 @@ class JvmDelegateTypeReferenceAspect extends JvmTypeReferenceAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmSpecializedTypeReference))
+@Aspect(className=typeof(JvmSpecializedTypeReference), with=#[typeof(JvmTypeReferenceAspect)])
 abstract class JvmSpecializedTypeReferenceAspect extends JvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -800,7 +868,7 @@ abstract class JvmSpecializedTypeReferenceAspect extends JvmTypeReferenceAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmSynonymTypeReference))
+@Aspect(className=typeof(JvmSynonymTypeReference), with=#[typeof(JvmCompoundTypeReferenceAspect)])
 class JvmSynonymTypeReferenceAspect extends JvmCompoundTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -814,7 +882,7 @@ class JvmSynonymTypeReferenceAspect extends JvmCompoundTypeReferenceAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmUnknownTypeReference))
+@Aspect(className=typeof(JvmUnknownTypeReference), with=#[typeof(JvmTypeReferenceAspect)])
 class JvmUnknownTypeReferenceAspect extends JvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -828,7 +896,7 @@ class JvmUnknownTypeReferenceAspect extends JvmTypeReferenceAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmCompoundTypeReference))
+@Aspect(className=typeof(JvmCompoundTypeReference), with=#[typeof(JvmTypeReferenceAspect)])
 abstract class JvmCompoundTypeReferenceAspect extends JvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -848,7 +916,7 @@ abstract class JvmCompoundTypeReferenceAspect extends JvmTypeReferenceAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmCustomAnnotationValue))
+@Aspect(className=typeof(JvmCustomAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
 class JvmCustomAnnotationValueAspect extends JvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -862,7 +930,7 @@ class JvmCustomAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(XExpression))
+@Aspect(className=typeof(XExpression), with=#[typeof(__SlicerAspect__)])
 abstract class XExpressionAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -876,7 +944,7 @@ abstract class XExpressionAspect extends __SlicerAspect__{
 	}
 }
 
-@Aspect(className=typeof(XIfExpression))
+@Aspect(className=typeof(XIfExpression), with=#[typeof(XExpressionAspect)])
 class XIfExpressionAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -902,7 +970,7 @@ class XIfExpressionAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XSwitchExpression))
+@Aspect(className=typeof(XSwitchExpression), with=#[typeof(XExpressionAspect)])
 class XSwitchExpressionAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -926,7 +994,7 @@ class XSwitchExpressionAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XCasePart))
+@Aspect(className=typeof(XCasePart), with=#[typeof(__SlicerAspect__)])
 class XCasePartAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -952,7 +1020,7 @@ class XCasePartAspect extends __SlicerAspect__{
 	}
 }
 
-@Aspect(className=typeof(XBlockExpression))
+@Aspect(className=typeof(XBlockExpression), with=#[typeof(XExpressionAspect)])
 class XBlockExpressionAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -968,7 +1036,7 @@ class XBlockExpressionAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XVariableDeclaration))
+@Aspect(className=typeof(XVariableDeclaration), with=#[typeof(XExpressionAspect)])
 class XVariableDeclarationAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -990,7 +1058,7 @@ class XVariableDeclarationAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XAbstractFeatureCall))
+@Aspect(className=typeof(XAbstractFeatureCall), with=#[typeof(XExpressionAspect)])
 abstract class XAbstractFeatureCallAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1018,7 +1086,7 @@ abstract class XAbstractFeatureCallAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XMemberFeatureCall))
+@Aspect(className=typeof(XMemberFeatureCall), with=#[typeof(XAbstractFeatureCallAspect)])
 class XMemberFeatureCallAspect extends XAbstractFeatureCallAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1038,7 +1106,7 @@ class XMemberFeatureCallAspect extends XAbstractFeatureCallAspect{
 	}
 }
 
-@Aspect(className=typeof(XFeatureCall))
+@Aspect(className=typeof(XFeatureCall), with=#[typeof(XAbstractFeatureCallAspect)])
 class XFeatureCallAspect extends XAbstractFeatureCallAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1054,7 +1122,7 @@ class XFeatureCallAspect extends XAbstractFeatureCallAspect{
 	}
 }
 
-@Aspect(className=typeof(XConstructorCall))
+@Aspect(className=typeof(XConstructorCall), with=#[typeof(XExpressionAspect)])
 class XConstructorCallAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1074,7 +1142,7 @@ class XConstructorCallAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XBooleanLiteral))
+@Aspect(className=typeof(XBooleanLiteral), with=#[typeof(XExpressionAspect)])
 class XBooleanLiteralAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1088,7 +1156,7 @@ class XBooleanLiteralAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XNullLiteral))
+@Aspect(className=typeof(XNullLiteral), with=#[typeof(XExpressionAspect)])
 class XNullLiteralAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1102,7 +1170,7 @@ class XNullLiteralAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XNumberLiteral))
+@Aspect(className=typeof(XNumberLiteral), with=#[typeof(XExpressionAspect)])
 class XNumberLiteralAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1116,7 +1184,7 @@ class XNumberLiteralAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XStringLiteral))
+@Aspect(className=typeof(XStringLiteral), with=#[typeof(XExpressionAspect)])
 class XStringLiteralAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1130,7 +1198,7 @@ class XStringLiteralAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XCollectionLiteral))
+@Aspect(className=typeof(XCollectionLiteral), with=#[typeof(XExpressionAspect)])
 abstract class XCollectionLiteralAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1146,7 +1214,7 @@ abstract class XCollectionLiteralAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XListLiteral))
+@Aspect(className=typeof(XListLiteral), with=#[typeof(XCollectionLiteralAspect)])
 class XListLiteralAspect extends XCollectionLiteralAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1160,7 +1228,7 @@ class XListLiteralAspect extends XCollectionLiteralAspect{
 	}
 }
 
-@Aspect(className=typeof(XSetLiteral))
+@Aspect(className=typeof(XSetLiteral), with=#[typeof(XCollectionLiteralAspect)])
 class XSetLiteralAspect extends XCollectionLiteralAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1174,7 +1242,7 @@ class XSetLiteralAspect extends XCollectionLiteralAspect{
 	}
 }
 
-@Aspect(className=typeof(XClosure))
+@Aspect(className=typeof(XClosure), with=#[typeof(XExpressionAspect)])
 class XClosureAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1198,7 +1266,7 @@ class XClosureAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XCastedExpression))
+@Aspect(className=typeof(XCastedExpression), with=#[typeof(XExpressionAspect)])
 class XCastedExpressionAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1220,7 +1288,7 @@ class XCastedExpressionAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XBinaryOperation))
+@Aspect(className=typeof(XBinaryOperation), with=#[typeof(XAbstractFeatureCallAspect)])
 class XBinaryOperationAspect extends XAbstractFeatureCallAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1242,7 +1310,7 @@ class XBinaryOperationAspect extends XAbstractFeatureCallAspect{
 	}
 }
 
-@Aspect(className=typeof(XUnaryOperation))
+@Aspect(className=typeof(XUnaryOperation), with=#[typeof(XAbstractFeatureCallAspect)])
 class XUnaryOperationAspect extends XAbstractFeatureCallAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1260,7 +1328,7 @@ class XUnaryOperationAspect extends XAbstractFeatureCallAspect{
 	}
 }
 
-@Aspect(className=typeof(XForLoopExpression))
+@Aspect(className=typeof(XForLoopExpression), with=#[typeof(XExpressionAspect)])
 class XForLoopExpressionAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1286,7 +1354,7 @@ class XForLoopExpressionAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XAbstractWhileExpression))
+@Aspect(className=typeof(XAbstractWhileExpression), with=#[typeof(XExpressionAspect)])
 abstract class XAbstractWhileExpressionAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1308,7 +1376,7 @@ abstract class XAbstractWhileExpressionAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XDoWhileExpression))
+@Aspect(className=typeof(XDoWhileExpression), with=#[typeof(XAbstractWhileExpressionAspect)])
 class XDoWhileExpressionAspect extends XAbstractWhileExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1322,7 +1390,7 @@ class XDoWhileExpressionAspect extends XAbstractWhileExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XWhileExpression))
+@Aspect(className=typeof(XWhileExpression), with=#[typeof(XAbstractWhileExpressionAspect)])
 class XWhileExpressionAspect extends XAbstractWhileExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1336,7 +1404,7 @@ class XWhileExpressionAspect extends XAbstractWhileExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XTypeLiteral))
+@Aspect(className=typeof(XTypeLiteral), with=#[typeof(XExpressionAspect)])
 class XTypeLiteralAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1354,7 +1422,7 @@ class XTypeLiteralAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XInstanceOfExpression))
+@Aspect(className=typeof(XInstanceOfExpression), with=#[typeof(XExpressionAspect)])
 class XInstanceOfExpressionAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1376,7 +1444,7 @@ class XInstanceOfExpressionAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XThrowExpression))
+@Aspect(className=typeof(XThrowExpression), with=#[typeof(XExpressionAspect)])
 class XThrowExpressionAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1394,7 +1462,7 @@ class XThrowExpressionAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XTryCatchFinallyExpression))
+@Aspect(className=typeof(XTryCatchFinallyExpression), with=#[typeof(XExpressionAspect)])
 class XTryCatchFinallyExpressionAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1418,7 +1486,7 @@ class XTryCatchFinallyExpressionAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XCatchClause))
+@Aspect(className=typeof(XCatchClause), with=#[typeof(__SlicerAspect__)])
 class XCatchClauseAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1440,7 +1508,7 @@ class XCatchClauseAspect extends __SlicerAspect__{
 	}
 }
 
-@Aspect(className=typeof(XAssignment))
+@Aspect(className=typeof(XAssignment), with=#[typeof(XAbstractFeatureCallAspect)])
 class XAssignmentAspect extends XAbstractFeatureCallAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
@@ -1462,7 +1530,7 @@ class XAssignmentAspect extends XAbstractFeatureCallAspect{
 	}
 }
 
-@Aspect(className=typeof(XReturnExpression))
+@Aspect(className=typeof(XReturnExpression), with=#[typeof(XExpressionAspect)])
 class XReturnExpressionAspect extends XExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){

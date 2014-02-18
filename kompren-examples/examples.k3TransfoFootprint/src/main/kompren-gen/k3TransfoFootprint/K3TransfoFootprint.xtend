@@ -1,25 +1,19 @@
 package k3TransfoFootprint
-import org.eclipse.xtext.xbase.annotations.xAnnotations.*
-import org.eclipse.xtext.xbase.annotations.xAnnotations.impl.*
-import org.eclipse.xtext.xtype.*
-import org.eclipse.xtext.xtype.impl.*
-import org.eclipse.xtext.xbase.*
-import org.eclipse.xtext.xbase.impl.*
-import org.eclipse.xtext.common.types.*
-import org.eclipse.xtext.common.types.impl.*
-import org.eclipse.xtext.common.types.*
-import org.eclipse.xtext.common.types.impl.*
 
-import static extension k3TransfoFootprint.__SlicerAspect__.*
-import static extension k3TransfoFootprint.JvmTypeReferenceAspect.*
-import static extension k3TransfoFootprint.JvmIdentifiableElementAspect.*
-
-import static extension k3TransfoFootprint.__SlicerAspect__.*
-import static extension k3TransfoFootprint.JvmTypeReferenceAspect.*
-import static extension k3TransfoFootprint.JvmIdentifiableElementAspect.*
+import java.util.HashSet
 import java.util.List
+import java.util.Set
+import org.eclipse.xtext.common.types.JvmFormalParameter
+import org.eclipse.xtext.common.types.JvmIdentifiableElement
+import org.eclipse.xtext.common.types.JvmTypeReference
+import org.eclipse.xtext.xbase.XExpression
+
+import static extension k3TransfoFootprint.__SlicerAspect__.*
 
 class K3TransfoFootprint{
+
+	public val Set<String> footprint = new HashSet
+	
 	val List<JvmFormalParameter> inputJvmFormalParameter
 	val List<JvmTypeReference> inputJvmTypeReference
 	val List<XExpression> inputXExpression

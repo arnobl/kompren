@@ -83,4 +83,7 @@ slicer examples.k3TransfoFootprint{
 	slicedProperty: types.JvmSpecializedTypeReference.equivalent
 	slicedProperty: types.JvmCompoundTypeReference.type
 	slicedProperty: types.JvmCompoundTypeReference.references
+	helper [[
+	public val java.util.Set<String> footprint = new java.util.HashSet
+	]]
 }
