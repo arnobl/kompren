@@ -1,15 +1,9 @@
 package superTypesSlicer
-import ex.*
-import ex.impl.*
-import ex.classModel.*
-import ex.classModel.impl.*
 
-import static extension superTypesSlicer.__SlicerAspect__.*
-import static extension superTypesSlicer.ClazzAspect.*
-
-import static extension superTypesSlicer.__SlicerAspect__.*
-import static extension superTypesSlicer.ClazzAspect.*
+import ex.classModel.Clazz
 import java.util.List
+
+import static extension superTypesSlicer.__SlicerAspect__.*
 
 class SuperTypesSlicer{
 

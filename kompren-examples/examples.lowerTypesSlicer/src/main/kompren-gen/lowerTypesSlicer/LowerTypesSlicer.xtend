@@ -1,17 +1,11 @@
 package lowerTypesSlicer
-import ex.*
-import ex.impl.*
-import ex.classModel.*
-import ex.classModel.impl.*
 
-import static extension lowerTypesSlicer.__SlicerAspect__.*
-import static extension lowerTypesSlicer.ClazzAspect.*
-
-import static extension lowerTypesSlicer.__SlicerAspect__.*
-import static extension lowerTypesSlicer.ClazzAspect.*
+import ex.classModel.Clazz
 import java.util.List
-
 import org.eclipse.emf.ecore.EObject
+
+import static extension lowerTypesSlicer.__SlicerAspect__.*
+
 class LowerTypesSlicer{
 
 	public val buf = new StringBuilder

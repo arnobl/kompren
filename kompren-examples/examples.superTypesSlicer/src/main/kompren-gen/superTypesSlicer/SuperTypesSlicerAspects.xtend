@@ -1,15 +1,9 @@
 package superTypesSlicer
-import ex.*
-import ex.impl.*
-import ex.classModel.*
-import ex.classModel.impl.*
 
-import static extension superTypesSlicer.__SlicerAspect__.*
-import static extension superTypesSlicer.ClazzAspect.*
+import ex.classModel.ClassModel
+import ex.classModel.Clazz
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
-import java.util.List
-import java.util.ArrayList
 import org.eclipse.emf.ecore.EObject
 
 @Aspect(className=typeof(Object))
@@ -39,7 +33,7 @@ abstract class __SlicerAspect__ {
 	def void feedOpposites(){}
 }
 
-@Aspect(className=typeof(ClassModel))
+@Aspect(className=typeof(ClassModel), with=#[typeof(__SlicerAspect__)])
 class ClassModelAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(SuperTypesSlicer theSlicer){
@@ -53,7 +47,7 @@ class ClassModelAspect extends __SlicerAspect__{
 	}
 }
 
-@Aspect(className=typeof(Clazz))
+@Aspect(className=typeof(Clazz), with=#[typeof(__SlicerAspect__)])
 class ClazzAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(SuperTypesSlicer theSlicer){
