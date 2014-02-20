@@ -241,6 +241,7 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 			val isPrim = sp.domain.EType.isPrimitiveType
 			_self.relationCode.append("\n\t\t\tif(_self.sliced")
 			if(!isPrim) _self.relationCode.append(" && _elt.sliced")
+			if(!isPrim && slicer.strict) _self.relationCode.append(" && _elt.clonedElt!=null")
 			_self.relationCode.append(") ")
 			if(slicer.strict)
 				if(isPrim)
