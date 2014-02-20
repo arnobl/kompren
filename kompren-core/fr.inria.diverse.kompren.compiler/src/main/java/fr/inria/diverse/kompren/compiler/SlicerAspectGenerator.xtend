@@ -59,14 +59,7 @@ abstract class __SlicerAspect__ {
 		buf.append(getMMPackagesImports).append(aspectVisitor.replace("TYPE", slicerName)).append('\n')
 		val opposite = slicer.hasOpposite
 		
-		//FIX ecore
-		if(metamodel.head!=null && metamodel.head.name=="ecore") {
-			val elt = metamodelClasses.findFirst[name=="EStringToStringMapEntry"]
-			if(elt!=null)
-				metamodelClasses.remove(elt)
-		}
-
-		metamodelClasses.filter[name!="EStringToStringMapEntry"].forEach[cl |
+		metamodelClasses.forEach[cl |
 			val superName = if(cl.ESuperTypes.empty) "__SlicerAspect__" else cl.ESuperTypes.head.name+"Aspect"
 			val slicedCl = slicer.slicedClasses.findFirst[domain==cl]
 			val withParam = if(cl.ESuperTypes.empty) "typeof("+superName+")" 

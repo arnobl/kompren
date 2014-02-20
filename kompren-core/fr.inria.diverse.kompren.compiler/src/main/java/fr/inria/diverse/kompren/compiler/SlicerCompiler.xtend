@@ -192,9 +192,39 @@ class SlicerCompiler {
 			prop.domain = ref
 			slicer.slicedElements+=prop
 		]
+
+		removeEcoreTricks
 //		println(slicer.slicedClasses.map[domain.name].join(", "))
 //		println(setSlicedClasses.map[name].join(", "))
 //		println(slicer.slicedProps.map[domain].map[name].join(", "))
+	}
+
+
+	private def _removeClass(String clname) {
+		val classToRemove = slicer.slicedClasses.findFirst[cl | cl.domain.name==clname]
+		if(classToRemove!=null) slicer.slicedElements.remove(classToRemove)
+		val cl = metamodelClasses.findFirst[name==clname]
+		if(cl!=null) metamodelClasses.remove(cl)
+	}
+
+	private def _removeRef(String name) {
+		val relToRemove = slicer.slicedProps.findFirst[cl | cl.domain.name==name]
+		if(relToRemove!=null) slicer.slicedElements.remove(relToRemove)
+	}
+
+	private def removeEcoreTricks() {
+		// Some hacks to do when one of the metamodel to slice is Ecore.		
+		val ecoreSuffix = 'ecore.genmodel'
+		if(slicer.uriMetamodel.exists[toLowerCase.endsWith(ecoreSuffix)]) {
+			// The classes EObject and EFactory must not be sliced.
+			_removeClass('EFactory')
+			_removeClass('EObject')
+			_removeClass('EStringToStringMapEntry')
+			// The relation EFactoryInstance must not be sliced since no ecore model contains factory.
+			_removeRef('eFactoryInstance')
+			// The attribute Id is coded as ID...
+			_removeRef('iD')
+		}
 	}
 	
 	
