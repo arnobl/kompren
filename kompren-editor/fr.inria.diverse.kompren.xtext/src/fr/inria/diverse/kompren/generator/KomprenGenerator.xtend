@@ -20,6 +20,7 @@ class KomprenGenerator implements IGenerator {
 			slicer.logVisitRelation = removeBrackets(slicer.logVisitRelation)
 			slicer.slicedElements.forEach[se |
 				se.expression = removeBrackets(se.expression)
+				se.constraints.forEach[cst | cst.expression = removeBrackets(cst.expression)]
 			]
 			
 			val compiler = new SlicerCompiler(slicer, false, "")
