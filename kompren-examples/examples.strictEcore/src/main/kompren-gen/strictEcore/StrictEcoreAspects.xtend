@@ -1,26 +1,29 @@
 package strictEcore
+import org.eclipse.emf.ecore.*
+import org.eclipse.emf.ecore.impl.*
 
+import static extension strictEcore.__SlicerAspect__.*
+import static extension strictEcore.ENamedElementAspect.*
+import static extension strictEcore.EStructuralFeatureAspect.*
+import static extension strictEcore.EPackageAspect.*
+import static extension strictEcore.EModelElementAspect.*
+import static extension strictEcore.ETypeParameterAspect.*
+import static extension strictEcore.ETypedElementAspect.*
+import static extension strictEcore.EOperationAspect.*
+import static extension strictEcore.EClassifierAspect.*
+import static extension strictEcore.EDataTypeAspect.*
+import static extension strictEcore.EEnumAspect.*
+import static extension strictEcore.EReferenceAspect.*
+import static extension strictEcore.EAttributeAspect.*
+import static extension strictEcore.EParameterAspect.*
+import static extension strictEcore.EAnnotationAspect.*
+import static extension strictEcore.EEnumLiteralAspect.*
+import static extension strictEcore.EClassAspect.*
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
-import org.eclipse.emf.ecore.EAnnotation
-import org.eclipse.emf.ecore.EAttribute
-import org.eclipse.emf.ecore.EClass
-import org.eclipse.emf.ecore.EClassifier
-import org.eclipse.emf.ecore.EDataType
-import org.eclipse.emf.ecore.EEnum
-import org.eclipse.emf.ecore.EEnumLiteral
-import org.eclipse.emf.ecore.EGenericType
-import org.eclipse.emf.ecore.EModelElement
-import org.eclipse.emf.ecore.ENamedElement
+import java.util.List
+import java.util.ArrayList
 import org.eclipse.emf.ecore.EObject
-import org.eclipse.emf.ecore.EOperation
-import org.eclipse.emf.ecore.EPackage
-import org.eclipse.emf.ecore.EParameter
-import org.eclipse.emf.ecore.EReference
-import org.eclipse.emf.ecore.EStructuralFeature
-import org.eclipse.emf.ecore.ETypeParameter
-import org.eclipse.emf.ecore.ETypedElement
-import org.eclipse.emf.ecore.impl.EcoreFactoryImpl
 
 @Aspect(className=typeof(Object))
 abstract class __SlicerAspect__ {
@@ -185,7 +188,7 @@ class EEnumAspect extends EDataTypeAspect{
 	def void _visitToAddRelations(StrictEcore theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
 		_self.^ELiterals.forEach[_elt| _elt.visitToAddRelations(theSlicer)
-			if(_self.sliced && _elt.sliced) (_self.clonedElt as EEnum).^ELiterals.add( _elt.clonedElt as EEnumLiteral)
+			if(_self.sliced && _elt.sliced && _elt.clonedElt!=null) (_self.clonedElt as EEnum).^ELiterals.add( _elt.clonedElt as EEnumLiteral)
 		]
 
 	}
@@ -216,7 +219,6 @@ class EEnumLiteralAspect extends ENamedElementAspect{
 
 	}
 }
-
 
 @Aspect(className=typeof(EModelElement), with=#[typeof(__SlicerAspect__)])
 abstract class EModelElementAspect extends __SlicerAspect__{
@@ -265,7 +267,7 @@ class EOperationAspect extends ETypedElementAspect{
 	def void _visitToAddRelations(StrictEcore theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
 		_self.^EParameters.forEach[_elt| _elt.visitToAddRelations(theSlicer)
-			if(_self.sliced && _elt.sliced) (_self.clonedElt as EOperation).^EParameters.add( _elt.clonedElt as EParameter)
+			if(_self.sliced && _elt.sliced && _elt.clonedElt!=null) (_self.clonedElt as EOperation).^EParameters.add( _elt.clonedElt as EParameter)
 		]
 		if(_self.^EContainingClass!=null){
 		_self.^EContainingClass.visitToAddRelations(theSlicer)
@@ -286,7 +288,6 @@ class EPackageAspect extends ENamedElementAspect{
 		}
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^ESuperPackage?.visitToAddClasses(theSlicer)
-		_self.^EFactoryInstance?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
@@ -301,6 +302,7 @@ class EPackageAspect extends ENamedElementAspect{
 		if(_self.sliced) (_self.clonedElt as EPackage).^nsPrefix = _self.^nsPrefix
 
 		if(_self.sliced) (_self.clonedElt as EPackage).^nsURI = _self.^nsURI
+
 	}
 }
 
@@ -386,9 +388,9 @@ abstract class EStructuralFeatureAspect extends ETypedElementAspect{
 
 		}
 	}
-	def boolean checkcard1(){ 
+	def boolean checkcard1(){
 		val feat = _self
-		feat.lowerBound>0
+		 feat.lowerBound>0 
 	}
 }
 

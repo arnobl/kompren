@@ -26,7 +26,7 @@ slicer strict strictEcore{
 	slicedProperty: ecore.EStructuralFeature.derived
 	slicedProperty: ecore.EStructuralFeature.transient
 	slicedProperty: ecore.EStructuralFeature.unsettable
-	slicedProperty: ecore.EStructuralFeature.volatile
+	slicedProperty: ecore.EStructuralFeature.volatile 
 //	slicedProperty: ecore.EStructuralFeature.defaultValue
 	slicedProperty: ecore.EClassifier.ePackage
 	slicedProperty: ecore.EClassifier.instanceTypeName
@@ -38,7 +38,7 @@ slicer strict strictEcore{
 	slicedProperty: ecore.EReference.container
 	slicedProperty: ecore.EReference.containment
 	slicedProperty: ecore.EReference.resolveProxies
-//	slicedProperty: ecore.EAttribute.iD
+	slicedProperty: ecore.EAttribute.iD
 	slicedProperty: ecore.EEnumLiteral.eEnum
 	slicedProperty: ecore.EEnumLiteral.value
 }
