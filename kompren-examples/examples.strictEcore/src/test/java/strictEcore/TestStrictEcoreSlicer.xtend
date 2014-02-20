@@ -5,6 +5,7 @@ import java.util.Collections
 import java.util.List
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EClass
+import org.eclipse.emf.ecore.EModelElement
 import org.eclipse.emf.ecore.EPackage
 import org.eclipse.emf.ecore.impl.EcoreFactoryImpl
 import org.eclipse.emf.ecore.resource.Resource
@@ -14,7 +15,7 @@ import org.junit.Test
 
 class TestStrictEcoreSlicer {
 	@Test def testSlicer() {
-		val List<EClass> inputs = new  ArrayList
+		val List<EModelElement> inputs = new  ArrayList
 		val rs = new ResourceSetImpl
 		EcoreFactoryImpl.eINSTANCE.eClass
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap.put("ecore", new EcoreResourceFactoryImpl)

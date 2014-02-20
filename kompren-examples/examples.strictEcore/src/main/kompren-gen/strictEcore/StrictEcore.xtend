@@ -4,7 +4,7 @@ import java.util.ArrayList
 import java.util.Collections
 import java.util.List
 import org.eclipse.emf.common.util.URI
-import org.eclipse.emf.ecore.EClass
+import org.eclipse.emf.ecore.EModelElement
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
@@ -12,16 +12,16 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import static extension strictEcore.__SlicerAspect__.*
 
 class StrictEcore{
-	val List<EClass> inputEClass
+	val List<EModelElement> inputEModelElement
 	private val List<EObject> clonedElts = new ArrayList
 
-	new(List<EClass> inputEClass){
-		this.inputEClass = inputEClass
+	new(List<EModelElement> inputEModelElement){
+		this.inputEModelElement = inputEModelElement
 	}
 
 	def void slice(){
-		inputEClass?.forEach[visitToAddClasses(this)]
-		inputEClass?.forEach[visitToAddRelations(this)]
+		inputEModelElement?.forEach[visitToAddClasses(this)]
+		inputEModelElement?.forEach[visitToAddRelations(this)]
 		save
 	}
 
