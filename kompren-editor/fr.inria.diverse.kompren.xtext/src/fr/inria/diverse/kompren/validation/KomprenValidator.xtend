@@ -6,14 +6,15 @@ package fr.inria.diverse.kompren.validation
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.URL
-import java.util.HashSet
+import java.util.Map
 import java.util.Set
 import kompren.Constraint
 import kompren.KomprenPackage
 import kompren.SlicedClass
 import kompren.SlicedProperty
 import kompren.Slicer
-import org.eclipse.emf.ecore.ENamedElement
+import org.eclipse.emf.ecore.EClass
+import org.eclipse.emf.ecore.EStructuralFeature
 import org.eclipse.xtext.validation.Check
 
 /**
@@ -30,12 +31,20 @@ class KomprenValidator extends AbstractKomprenValidator {
 	/** Checks that the sliced classes and properties are sliced only a single time. */
 	@Check def checkUniqueSlicedClassProperty(Slicer slicer) {
 		if(slicer==null) return;
-		val Set<ENamedElement> set = new HashSet
-		slicer?.slicedElements.filter[domain!=null].forEach[se |
+		val Set<EClass> set = newHashSet
+		slicer?.slicedElements.filter(SlicedClass).filter[domain!=null].forEach[se |
 			if(set.contains(se.domain))
-				error("A sliced element must be unique: " + se.domain.name, KomprenPackage.Literals.SLICER__NAME)
-			else
+				error("A sliced class must be unique: " + se.domain.name, se, KomprenPackage.Literals.SLICED_ELEMENT__DOMAIN)
 				set.add(se.domain)
+		]
+
+		val Map<EStructuralFeature,SlicedProperty> props = newHashMap
+		slicer?.slicedElements.filter(SlicedProperty).filter[domain!=null].forEach[se |
+			val elt = props.get(se.domain)
+			if(elt!=null && (se.opposite==elt.opposite || (se.opposite!=null && elt.opposite!=null)))
+				error("A sliced property must be unique: " + se.domain.name, se,  KomprenPackage.Literals.SLICED_ELEMENT__DOMAIN)
+			else
+				props.put(se.domain, se)
 		]
 	}
 

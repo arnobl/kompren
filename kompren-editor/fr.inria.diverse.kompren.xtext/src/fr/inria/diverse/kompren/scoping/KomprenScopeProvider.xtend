@@ -1,7 +1,6 @@
 package fr.inria.diverse.kompren.scoping
 
 import com.google.common.base.Function
-import java.util.ArrayList
 import java.util.List
 import kompren.SlicedClass
 import kompren.SlicedElement
@@ -56,7 +55,7 @@ class KomprenScopeProvider extends AbstractDeclarativeScopeProvider {
 //	}
 
 	private def Iterable<ENamedElement> getScopeClasses(Slicer slicer, boolean classes) {
-		val genModels = new ArrayList<GenModel>
+		val List<GenModel> genModels = newArrayList
 		
 		slicer.uriMetamodel.filter[endsWith(".genmodel")].forEach[uri |
 			val res = set.getResource(URI.createURI(uri), true)
@@ -74,7 +73,7 @@ class KomprenScopeProvider extends AbstractDeclarativeScopeProvider {
 
 class QNFunction implements Function<ENamedElement, QualifiedName> {
 	override QualifiedName apply(ENamedElement elt) {
-		val list = new ArrayList<String>()
+		val List<String> list = newArrayList
 		getQN(elt, list)
 		QualifiedName.create(list.reverse)
 	}
