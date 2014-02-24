@@ -1,6 +1,5 @@
 package strictEcore
 
-import java.util.ArrayList
 import java.util.Collections
 import java.util.List
 import org.eclipse.emf.common.util.URI
@@ -13,7 +12,7 @@ import static extension strictEcore.__SlicerAspect__.*
 
 class StrictEcore{
 	val List<EModelElement> inputEModelElement
-	private val List<EObject> clonedElts = new ArrayList
+	private val List<EObject> clonedElts = newArrayList
 
 	new(List<EModelElement> inputEModelElement){
 		this.inputEModelElement = inputEModelElement
