@@ -1,7 +1,6 @@
 package fr.inria.diverse.kompren.compiler
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
-import java.util.HashMap
 import java.util.List
 import java.util.Map
 import kompren.Constraint
@@ -19,7 +18,7 @@ class SlicerAspect {
 	
 	
 	private def void initOptionsMap() {
-		_self._options = new HashMap
+		_self._options = newHashMap
 		_self.slicedElements.filter[isOption].forEach[opt | _self._options.put(opt.domain, "option"+opt.domain.name)]
 	}
 	

@@ -8,8 +8,6 @@ package fr.inria.diverse.kompren.compiler
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
-import java.util.ArrayList
-import java.util.HashSet
 import java.util.List
 import java.util.Set
 import kompren.SlicedClass
@@ -34,7 +32,7 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 	
 	def boolean isPrimitiveType() {
 		if(_self.primitiveTypes==null) {
-			_self.primitiveTypes = new HashSet
+			_self.primitiveTypes = newHashSet
 			_self.primitiveTypes.add("EString")
 			_self.primitiveTypes.add("EBoolean")
 			_self.primitiveTypes.add("EFloat")
@@ -108,13 +106,13 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 	
 	@OverrideAspectMethod
 	def void feedSubClassesRelations() {
-		if(_self.lowerClasses==null) _self.lowerClasses = new ArrayList
+		if(_self.lowerClasses==null) _self.lowerClasses = newArrayList
 		_self.ESuperTypes.forEach[addLowerClass(_self)]
 	}
 	
 	
 	private def void addLowerClass(EClass cl) {
-		if(_self.lowerClasses==null) _self.lowerClasses = new ArrayList
+		if(_self.lowerClasses==null) _self.lowerClasses = newArrayList
 		if(!_self.lowerClasses.contains(cl)) _self.lowerClasses.add(cl)
 	}
 	
@@ -126,7 +124,7 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 			if(sp.domain.upperBound==1)
 				_self.oppositeAttr.append("\tvar ").append(sp.domain.EType.name).append(' ^').append(sp.opposite.name).append("\n\n")
 			else
-				_self.oppositeAttr.append("\tval List<").append(sp.domain.EType.name).append("> ^").append(sp.opposite.name).append(" = new ArrayList\n\n")
+				_self.oppositeAttr.append("\tval List<").append(sp.domain.EType.name).append("> ^").append(sp.opposite.name).append(" = newArrayList\n\n")
 		}	
 	}	
 

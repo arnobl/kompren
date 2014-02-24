@@ -131,7 +131,7 @@ class SlicerMainGenerator extends SlicerGenerator {
 		val buf = new StringBuilder
 		slicer.inputClasses.forEach[cl | buf.append("\tval List<").append(cl.name).append("> input").append(cl.name).append('\n')]
 		if(slicer.strict)
-			buf.append("\tprivate val List<EObject> clonedElts = new java.util.ArrayList\n")
+			buf.append("\tprivate val List<EObject> clonedElts = newArrayList\n")
 		slicer.optionNames.forEach[name | buf.append("\tpublic val boolean ").append(name).append('\n')]
 		return buf
 	}

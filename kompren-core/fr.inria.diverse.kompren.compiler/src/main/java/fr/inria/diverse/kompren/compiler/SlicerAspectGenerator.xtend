@@ -15,7 +15,6 @@ class SlicerAspectGenerator extends SlicerGenerator {
 	val String aspectVisitor = "import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import java.util.List
-import java.util.ArrayList
 import org.eclipse.emf.ecore.EObject
 
 @Aspect(className=typeof(Object))

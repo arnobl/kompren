@@ -3,9 +3,7 @@ package fr.inria.diverse.kompren.compiler
 import java.io.PrintWriter
 import java.nio.file.Files
 import java.nio.file.Paths
-import java.util.ArrayList
 import java.util.Collections
-import java.util.HashSet
 import java.util.List
 import java.util.Set
 import kompren.SlicedClass
@@ -39,8 +37,8 @@ class SlicerCompiler {
 	val SlicerAspectGenerator aspectGenerator
 	val SlicerMainGenerator mainGenerator
 	val String targetDir
-	val List<EClass> metamodelClasses = new ArrayList
-	val List<GenModel> genModels = new ArrayList
+	val List<EClass> metamodelClasses = newArrayList
+	val List<GenModel> genModels = newArrayList
 	val StringBuilder imports = new StringBuilder
 	val boolean serialise
 	
@@ -148,7 +146,7 @@ class SlicerCompiler {
 	
 	
 	private def void _completeConstraintsToSubClasses(List<EClass> classes, SlicedClass slicedCl) {
-		val subClasses = new ArrayList<EClass>()
+		val List<EClass> subClasses = newArrayList
 		classes.forEach[cl |
 			subClasses.addAll(cl.lowerClasses)
 			slicedCl.constraints.filter[!cloned].forEach[cst |
@@ -165,7 +163,7 @@ class SlicerCompiler {
 	
 	
 	protected def void identifyAllElementsToSlice() {
-		val set = new HashSet<EClass>()
+		val Set<EClass> set = newHashSet
 		val setSlicedClasses = slicer.slicedClasses.map[domain].toSet
 		var EClass clazz
 		set.addAll(setSlicedClasses)
@@ -266,8 +264,8 @@ class SlicerCompiler {
 	
 	
 	private def List<EPackage> getEcoreModel(Slicer slicer) {
-		val List<EPackage> mm = new ArrayList
-		val Set<EPackage> pkgsVisited = new HashSet
+		val List<EPackage> mm = newArrayList
+		val Set<EPackage> pkgsVisited = newHashSet
 		
 		slicer.slicedElements.forEach[elt |
 			var EPackage pkg = switch(elt) {
