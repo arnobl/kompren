@@ -59,10 +59,11 @@ abstract class __SlicerAspect__ {
 		val opposite = slicer.hasOpposite
 		
 		metamodelClasses.forEach[cl |
-			val superName = if(cl.ESuperTypes.empty) "__SlicerAspect__" else cl.ESuperTypes.head.name+"Aspect"
+			val sts = cl.ESuperTypes.filter[st | st!=null && st.name!=null && st.name.length>0]
+			val superName = if(sts.empty) "__SlicerAspect__" else sts.head.name+"Aspect"
 			val slicedCl = slicer.slicedClasses.findFirst[domain==cl]
-			val withParam = if(cl.ESuperTypes.empty) "typeof("+superName+")" 
-							else cl.ESuperTypes.filter[st|st!=null && st.name!=null && st.name.length>0].map[st | "typeof("+st.name+"Aspect)"].join(", ")
+			val withParam = if(sts.empty) "typeof("+superName+")" 
+							else sts.map[st | "typeof("+st.name+"Aspect)"].join(", ")
 			if(opposite) cl.generateFeedOppositeCodeVisitor
 			buf.append("@Aspect(className=typeof(").append(cl.name).append("), with=#[").append(withParam).append("])\n")
 			if(cl.abstract) buf.append("abstract ")
@@ -77,7 +78,12 @@ abstract class __SlicerAspect__ {
 			if(slicedCl!=null && !slicedCl.constraints.empty)
 				buf.append("\t\tif(").append(slicedCl.constraintsInXtend).append("){\n")
 			buf.append(cl.codeAction)
-			buf.append("\t\t_self.super__visitToAddClasses(theSlicer)\n")
+
+			if(sts.size<2)
+				buf.append("\t\t_self.super__visitToAddClasses(theSlicer)\n")
+			else
+				sts.forEach[st | buf.append("\t\t_self.super_").append(st.name).append("__visitToAddClasses(theSlicer)\n") ]
+
 			buf.append(cl.codeVisit).append('\n')
 			if(slicedCl!=null && !slicedCl.constraints.empty) buf.append("\t\t}\n")
 			buf.append("\t}\n\t@OverrideAspectMethod\n")
@@ -86,7 +92,12 @@ abstract class __SlicerAspect__ {
 				buf.append(slicer.logVisitRelation.replaceAll("<aspectClassName>", cl.name+"Aspect").replaceAll("<className>", cl.name)).append('\n')
 			if(slicedCl!=null && !slicedCl.constraints.empty)
 				buf.append("\t\tif(").append(slicedCl.constraintsInXtend).append("){\n")
-			buf.append("\t\t_self.super__visitToAddRelations(theSlicer)\n")
+
+			if(sts.size<2)
+				buf.append("\t\t_self.super__visitToAddRelations(theSlicer)\n")
+			else
+				sts.forEach[st | buf.append("\t\t_self.super_").append(st.name).append("__visitToAddRelations(theSlicer)\n") ]
+			
 			buf.append(cl.relationCode).append('\n')
 			if(slicedCl!=null && !slicedCl.constraints.empty) buf.append("\t\t}\n")
 			buf.append("\t}\n")

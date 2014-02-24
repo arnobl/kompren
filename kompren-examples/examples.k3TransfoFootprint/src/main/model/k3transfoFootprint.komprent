@@ -84,8 +84,8 @@ slicer examples.k3TransfoFootprint{
 	slicedProperty: types.JvmCompoundTypeReference.type
 	slicedProperty: types.JvmCompoundTypeReference.references
 	helper [[
-	public val java.util.Set<String> footprint = new java.util.HashSet
-	public val java.util.List<String> pkgs = new java.util.ArrayList
+	public val java.util.Set<String> footprint = newHashSet
+	public val java.util.List<String> pkgs = newArrayList
 	private def addQN(String qn) {
 		if(qn!=null && !qn.startsWith("java.") && !qn.startsWith("com.google.") && 
 			!qn.startsWith("sun.") && !qn.startsWith("javax.") && !qn.startsWith("com.sun") &&
