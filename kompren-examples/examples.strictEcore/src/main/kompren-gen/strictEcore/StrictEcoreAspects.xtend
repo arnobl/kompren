@@ -30,6 +30,7 @@ import static extension strictEcore.EOperationAspect.*
 import static extension strictEcore.EParameterAspect.*
 import static extension strictEcore.EStructuralFeatureAspect.*
 import static extension strictEcore.ETypeParameterAspect.*
+import java.util.Set
 
 @Aspect(className=typeof(Object))
 abstract class __SlicerAspect__ {
@@ -199,6 +200,21 @@ _self.^ETypeParameters.forEach[feedOpposites]
 
 @Aspect(className=typeof(EDataType), with=#[typeof(EClassifierAspect)])
 class EDataTypeAspect extends EClassifierAspect{
+	static Set<String> ecoreDTs = {
+		val Set<String> map = newHashSet
+		map.add("EBoolean")
+		map.add("EShort")
+		map.add("EInt")
+		map.add("EDouble")
+		map.add("ELong")
+		map.add("EString")
+		return map
+	}
+	
+	def boolean isEcoreDataType() {
+		_self.ecoreDTs.contains(_self.name) && _self.eContainer instanceof EPackage && (_self.eContainer as EPackage).name=="ecore"
+	}
+	
 	@OverrideAspectMethod
 	def void feedOpposites(){
 
@@ -206,6 +222,7 @@ class EDataTypeAspect extends EClassifierAspect{
 
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
+		if(_self.isEcoreDataType) return;
 		if(_self.clonedElt==null){
 			_self.clonedElt = EcoreFactoryImpl.eINSTANCE.createEDataType
 			theSlicer.objectCloned(_self.clonedElt)
@@ -215,6 +232,7 @@ class EDataTypeAspect extends EClassifierAspect{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(StrictEcore theSlicer){
+		if(_self.isEcoreDataType) return;
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
