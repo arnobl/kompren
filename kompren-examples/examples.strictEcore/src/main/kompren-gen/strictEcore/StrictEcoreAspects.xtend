@@ -135,7 +135,7 @@ _self.^EGenericSuperTypes.forEach[feedOpposites]
 		}
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^ESuperTypes.forEach[visitToAddClasses(theSlicer)]
-		if(theSlicer.optioneSuperTypes){
+		if(theSlicer.optionlowerTypes){
 		_self.^lowerTypes.forEach[visitToAddClasses(theSlicer)]
 		}
 		_self.^EStructuralFeatures.forEach[visitToAddClasses(theSlicer)]
@@ -148,7 +148,7 @@ _self.^EGenericSuperTypes.forEach[feedOpposites]
 		_self.^ESuperTypes.forEach[_elt| _elt.visitToAddRelations(theSlicer)
 			if(_self.sliced && _elt.sliced && _elt.clonedElt!=null) (_self.clonedElt as EClass).^ESuperTypes.add( _elt.clonedElt as EClass)
 		]
-		if(theSlicer.optioneSuperTypes){
+		if(theSlicer.optionlowerTypes){
 		_self.^lowerTypes.forEach[_elt| _elt.visitToAddRelations(theSlicer)
 			if(_self.sliced && _elt.sliced && _elt.clonedElt!=null) (_self.clonedElt as EClass).^lowerTypes.add( _elt.clonedElt as EClass)
 		]
