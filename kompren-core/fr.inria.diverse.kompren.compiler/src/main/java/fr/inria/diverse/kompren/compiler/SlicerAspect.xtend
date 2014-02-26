@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.ENamedElement
 
 import static extension fr.inria.diverse.kompren.compiler.EClassifierAspect.*
 import static extension fr.inria.diverse.kompren.compiler.EStructuralFeatureAspect.*
+import org.eclipse.emf.ecore.EReference
 
 @Aspect(className=typeof(Slicer))
 class SlicerAspect {
@@ -19,12 +20,25 @@ class SlicerAspect {
 	
 	private def void initOptionsMap() {
 		_self._options = newHashMap
-		_self.slicedElements.filter[isOption].forEach[opt | _self._options.put(opt.domain, "option"+opt.domain.name)]
+		_self.slicedElements.filter[isOption].forEach[opt | 
+			if(opt instanceof SlicedProperty && (opt.domain instanceof EReference) && (opt as SlicedProperty).opposite!=null)
+				_self._options.put((opt.domain as EReference).EOpposite, "option"+(opt as SlicedProperty).opposite.name)
+			else
+				_self._options.put(opt.domain, "option"+opt.domain.name)
+		]
 	}
 	
-	def String getOptionName(ENamedElement elt) {
+	def String getOptionNameClass(SlicedClass sc) {
 		if(_self._options==null) _self.initOptionsMap
-		_self._options.get(elt)
+		_self._options.get(sc.domain)
+	}
+
+	def String getOptionNameProp(SlicedProperty sp) {
+		if(_self._options==null) _self.initOptionsMap
+		if(sp.opposite==null)
+			_self._options.get(sp.domain)
+		else
+			_self._options.get((sp.domain as EReference).EOpposite)
 	}
 	
 	def List<String> getOptionNames() {

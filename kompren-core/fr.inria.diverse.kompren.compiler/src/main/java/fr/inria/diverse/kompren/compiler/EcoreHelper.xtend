@@ -152,7 +152,7 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 
 
 	def void generateVisitToAddClassesActions(SlicedClass sc, Slicer slicer) {
-		val optionName = slicer.getOptionName(sc.domain)
+		val optionName = slicer.getOptionNameClass(sc)
 		if(optionName!=null)
 			_self.codeAction.append("\t\tif(theSlicer.").append(optionName).append("){\n")
 		if(slicer.strict) {
@@ -173,7 +173,7 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 			val constraints = sp.constraintsInXtend
 
 			if(sp.isOption)
-				_self.codeVisit.append("\t\tif(theSlicer.").append(slicer.getOptionName(sp.domain)).append("){\n")
+				_self.codeVisit.append("\t\tif(theSlicer.").append(slicer.getOptionNameProp(sp)).append("){\n")
 
 			if(elt.upperBound>1 || elt.upperBound<0) {
 				_self.codeVisit.append("\t\t_self.^").append(name)
@@ -197,7 +197,7 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 		val name = sp.getXtendNameOrOppositeOne
 		
 		if(sp.isOption)
-			_self.relationCode.append("\t\tif(theSlicer.").append(slicer.getOptionName(sp.domain)).append("){\n")
+			_self.relationCode.append("\t\tif(theSlicer.").append(slicer.getOptionNameProp(sp)).append("){\n")
 
 		if(sp.domain.upperBound>1 || sp.domain.upperBound<0)
 			_self.generateVisitToAddRelations4MultiCard(sp, slicer, name, okSlice)
