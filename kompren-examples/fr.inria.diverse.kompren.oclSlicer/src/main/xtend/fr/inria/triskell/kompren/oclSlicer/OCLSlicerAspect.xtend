@@ -1,7 +1,7 @@
 package fr.inria.triskell.kompren.oclSlicer
 
-import fr.inria.triskell.k3.Aspect
-import fr.inria.triskell.k3.OverrideAspectMethod
+import fr.inria.diverse.k3.al.annotationprocessor.Aspect
+import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.ocl.ecore.AssociationClassCallExp
 import org.eclipse.ocl.ecore.CallExp
@@ -32,8 +32,8 @@ import org.eclipse.ocl.ecore.TupleLiteralPart
 import org.eclipse.ocl.ecore.TypeExp
 import org.eclipse.ocl.ecore.Variable
 import org.eclipse.ocl.ecore.VariableExp
-import org.eclipse.ocl.utilities.TypedElement
 import org.eclipse.ocl.utilities.PredefinedType
+import org.eclipse.ocl.utilities.TypedElement
 
 @Aspect(className=typeof(Object))
 abstract class OCLSlicerVisitor {

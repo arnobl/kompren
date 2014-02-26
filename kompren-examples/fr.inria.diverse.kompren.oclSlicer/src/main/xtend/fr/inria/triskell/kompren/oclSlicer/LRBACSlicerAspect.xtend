@@ -11,9 +11,9 @@ import LRBAC2.Object
 import LRBAC2.Operation
 import LRBAC2.Role
 import LRBAC2.impl.LRBACFactoryImpl
-import fr.inria.triskell.k3.Aspect
-import fr.inria.triskell.k3.OverrideAspectMethod
 import org.eclipse.emf.ecore.EObject
+import fr.inria.diverse.k3.al.annotationprocessor.Aspect
+import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 
 @Aspect(className=typeof(java.lang.Object))
 abstract class LRBASlicerVisitor {
@@ -25,7 +25,7 @@ abstract class LRBASlicerVisitor {
 		if(!_self.sliced) {
 			_self.sliced = true
 			_self._visitToAddClasses(slicer)
-			slicer.roots.add(_self.clonedElt as EObject)
+			slicer.roots.add(_self.clonedElt)
 		}
 	}
 	
