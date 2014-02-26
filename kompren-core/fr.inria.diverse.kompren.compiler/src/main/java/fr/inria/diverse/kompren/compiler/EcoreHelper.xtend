@@ -166,12 +166,15 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 	}
 
 
-	def void generateVisitToAddClasses(SlicedProperty sp) {
+	def void generateVisitToAddClasses(SlicedProperty sp, Slicer slicer) {
 		val elt = sp.domain
 		if(!elt.EType.primitiveType) {		
 			val name = sp.getXtendNameOrOppositeOne
 			val constraints = sp.constraintsInXtend
-			
+
+			if(sp.isOption)
+				_self.codeVisit.append("\t\tif(theSlicer.").append(slicer.getOptionName(sp.domain)).append("){\n")
+
 			if(elt.upperBound>1 || elt.upperBound<0) {
 				_self.codeVisit.append("\t\t_self.^").append(name)
 				if(!sp.constraints.empty) _self.codeVisit.append(".filter[").append(constraints).append("]")
@@ -183,6 +186,8 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 					_self.codeVisit.append("if(_self.^").append(name).append("!=null && ").append(constraints).append(") ")
 				_self.codeVisit.append("_self.^").append(name).append("?.visitToAddClasses(theSlicer)\n")
 			}
+
+			if(sp.isOption) _self.codeVisit.append("\t\t}\n")
 		}
 	}
 
@@ -191,10 +196,15 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 		val okSlice = slicer.strict || (sp.expression!=null && sp.expression.length>0 && sp.tgt!=null && sp.src!=null)
 		val name = sp.getXtendNameOrOppositeOne
 		
+		if(sp.isOption)
+			_self.relationCode.append("\t\tif(theSlicer.").append(slicer.getOptionName(sp.domain)).append("){\n")
+
 		if(sp.domain.upperBound>1 || sp.domain.upperBound<0)
 			_self.generateVisitToAddRelations4MultiCard(sp, slicer, name, okSlice)
 		else
 			_self.generateVisitToAddRelations4OneCard(sp, slicer, name, okSlice)
+
+		if(sp.isOption) _self.relationCode.append("\t\t}\n")
 	}
 	
 	

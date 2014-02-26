@@ -118,7 +118,7 @@ abstract class __SlicerAspect__ {
 		slicer.slicedProps.forEach[sp |
 			sp.domain.EContainingClass.generateOppositeCode(sp)
 			sp.domain.EContainingClass.generateFeedOppositeCode(sp)
-			sp.domain.EContainingClass.generateVisitToAddClasses(sp)
+			sp.domain.EContainingClass.generateVisitToAddClasses(sp, slicer)
 			sp.domain.EContainingClass.generateVisitToAddRelations(sp, slicer)
 		]
 		slicer.slicedClasses.forEach[sc |
