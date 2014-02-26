@@ -14,14 +14,16 @@ class StrictEcore{
 	val List<EModelElement> inputEModelElement
 	private val List<EObject> clonedElts = newArrayList
 	public val boolean optionlowerTypes
+	val String nameExtension
 
 	val EObject _root
 
-	new(List<EModelElement> inputEModelElement, EObject metamodelRoot, boolean optionlowerTypes){
+	new(List<EModelElement> inputEModelElement, EObject metamodelRoot, boolean optionlowerTypes, String nameExtension){
 		this.inputEModelElement = inputEModelElement
 		if(metamodelRoot==null) throw new IllegalArgumentException
 		this._root = metamodelRoot
 		this.optionlowerTypes = optionlowerTypes
+		this.nameExtension=nameExtension
 	}
 
 	def void slice(){
@@ -39,7 +41,7 @@ class StrictEcore{
 		val objs = this.clonedElts.filter[eContainer==null]
 		val resSet = new ResourceSetImpl
 		resSet.getResourceFactoryRegistry.getExtensionToFactoryMap.put("*", new XMIResourceFactoryImpl)
-		val res = resSet.createResource(URI.createURI("modelSlice.xmi"))
+		val res = resSet.createResource(URI.createURI("modelSlice."+this.nameExtension))
 		res.getContents.addAll(objs)
 	    res.save(Collections.emptyMap)
 	    res.unload

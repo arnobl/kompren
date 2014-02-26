@@ -23,7 +23,7 @@ class TestStrictEcoreSlicer {
 		res.load(Collections.emptyMap)
 		val mm = res.contents.filter(EPackage).head
 		inputs.add(mm.EClassifiers.filter(EClass).findFirst[name=="A"])
-		val slicer = new StrictEcore(inputs, mm, false)
+		val slicer = new StrictEcore(inputs, mm, false, "ecore")
 		slicer.slice
 	}
 }

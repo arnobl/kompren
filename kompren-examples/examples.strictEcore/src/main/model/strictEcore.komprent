@@ -3,7 +3,7 @@ slicer strict strictEcore{
 	input: ecore.EModelElement 
 	slicedClass: ecore.ENamedElement
 	slicedClass: ecore.EStructuralFeature feat
-		constraint: card1 [[ feat.lowerBound>0 ]] 
+		constraint: card1 [[ feat.lowerBound>0 ]]
 	slicedProperty: ecore.EClass.eSuperTypes
 	slicedProperty: ecore.EClass.eSuperTypes option opposite(lowerTypes)
 	slicedProperty: ecore.EClass.eStructuralFeatures clazz feat
