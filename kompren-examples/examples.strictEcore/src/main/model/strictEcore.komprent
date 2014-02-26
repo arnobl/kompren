@@ -5,6 +5,7 @@ slicer strict strictEcore{
 	slicedClass: ecore.EStructuralFeature feat
 		constraint: card1 [[ feat.lowerBound>0 ]] 
 	slicedProperty: ecore.EClass.eSuperTypes
+	slicedProperty: ecore.EClass.eSuperTypes option opposite(lowerTypes)
 	slicedProperty: ecore.EClass.eStructuralFeatures clazz feat
 	slicedProperty: ecore.EClass.eOperations clazz op
 	slicedProperty: ecore.EClass.abstract

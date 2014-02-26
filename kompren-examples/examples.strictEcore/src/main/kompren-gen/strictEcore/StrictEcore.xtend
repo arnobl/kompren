@@ -13,12 +13,19 @@ import static extension strictEcore.__SlicerAspect__.*
 class StrictEcore{
 	val List<EModelElement> inputEModelElement
 	private val List<EObject> clonedElts = newArrayList
+	public val boolean optioneSuperTypes
 
-	new(List<EModelElement> inputEModelElement){
+	val EObject _root
+
+	new(List<EModelElement> inputEModelElement, EObject metamodelRoot, boolean optioneSuperTypes){
 		this.inputEModelElement = inputEModelElement
+		if(metamodelRoot==null) throw new IllegalArgumentException
+		this._root = metamodelRoot
+		this.optioneSuperTypes = optioneSuperTypes
 	}
 
 	def void slice(){
+		_root.feedOpposites
 		inputEModelElement?.forEach[visitToAddClasses(this)]
 		inputEModelElement?.forEach[visitToAddRelations(this)]
 		save
