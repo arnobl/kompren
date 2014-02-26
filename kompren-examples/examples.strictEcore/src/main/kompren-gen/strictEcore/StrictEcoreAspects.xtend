@@ -170,6 +170,21 @@ _self.^EGenericSuperTypes.forEach[feedOpposites]
 
 @Aspect(className=typeof(EClassifier), with=#[typeof(ENamedElementAspect)])
 abstract class EClassifierAspect extends ENamedElementAspect{
+	static Set<String> ecoreDTs = {
+		val Set<String> map = newHashSet
+		map.add("EBoolean")
+		map.add("EShort")
+		map.add("EInt")
+		map.add("EDouble")
+		map.add("ELong")
+		map.add("EString")
+		return map
+	}
+
+	def boolean isEcoreType() {
+		_self.ecoreDTs.contains(_self.name) && _self.eContainer instanceof EPackage && (_self.eContainer as EPackage).name=="ecore"
+	}
+	
 	@OverrideAspectMethod
 	def void feedOpposites(){
 _self.^ETypeParameters.forEach[feedOpposites]
@@ -200,21 +215,6 @@ _self.^ETypeParameters.forEach[feedOpposites]
 
 @Aspect(className=typeof(EDataType), with=#[typeof(EClassifierAspect)])
 class EDataTypeAspect extends EClassifierAspect{
-	static Set<String> ecoreDTs = {
-		val Set<String> map = newHashSet
-		map.add("EBoolean")
-		map.add("EShort")
-		map.add("EInt")
-		map.add("EDouble")
-		map.add("ELong")
-		map.add("EString")
-		return map
-	}
-	
-	def boolean isEcoreDataType() {
-		_self.ecoreDTs.contains(_self.name) && _self.eContainer instanceof EPackage && (_self.eContainer as EPackage).name=="ecore"
-	}
-	
 	@OverrideAspectMethod
 	def void feedOpposites(){
 
@@ -222,7 +222,7 @@ class EDataTypeAspect extends EClassifierAspect{
 
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
-		if(_self.isEcoreDataType) return;
+		if(_self.isEcoreType) return;
 		if(_self.clonedElt==null){
 			_self.clonedElt = EcoreFactoryImpl.eINSTANCE.createEDataType
 			theSlicer.objectCloned(_self.clonedElt)
@@ -232,7 +232,7 @@ class EDataTypeAspect extends EClassifierAspect{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(StrictEcore theSlicer){
-		if(_self.isEcoreDataType) return;
+		if(_self.isEcoreType) return;
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
@@ -523,16 +523,19 @@ _self.^EGenericType?.feedOpposites
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
-		_self.^EType?.visitToAddClasses(theSlicer)
+		if(_self.EType!=null && !_self.EType.isEcoreType)
+			_self.^EType?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(StrictEcore theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^EType!=null){
-		_self.^EType.visitToAddRelations(theSlicer)
-
-		if(_self.sliced && _self.^EType.sliced) (_self.clonedElt as ETypedElement).^EType = _self.^EType.clonedElt as EClassifier
+		if(_self.EType!=null && !_self.EType.isEcoreType) {
+			_self.^EType.visitToAddRelations(theSlicer)
+	
+			if(_self.sliced && _self.^EType.sliced) (_self.clonedElt as ETypedElement).^EType = _self.^EType.clonedElt as EClassifier
+		}else {
+			(_self.clonedElt as ETypedElement).^EType =_self.EType
 		}
 
 		if(_self.sliced) (_self.clonedElt as ETypedElement).^lowerBound = _self.^lowerBound
