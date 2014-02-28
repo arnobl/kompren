@@ -1,106 +1,45 @@
-<?xml version="1.0" encoding="ASCII"?>
-<kompren:Slicer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:kompren="http://kompren/fr.inria.diverse.kompren" name="examples.strictEcore" strict="true">
-  <uriMetamodel>Ecore.genmodel</uriMetamodel>
-  <slicedElements xsi:type="kompren:SlicedClass">
-    <domain xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty" isOption="true">
-    <domain xsi:type="ecore:EReference" href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eSuperTypes"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EReference" href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eSuperTypes"/>
-    <opposite name="subClasses"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EReference" href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eStructuralFeatures"/>
-    <constraints expression="tgt.lowerBound>0" name="Card1"/>
-    <src varName="src"/>
-    <tgt varName="tgt"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EReference" href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/eType"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EReference" href="http://www.eclipse.org/emf/2002/Ecore#//EEnum/eLiterals"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//EClass/abstract"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//EClass/interface"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EReference" href="http://www.eclipse.org/emf/2002/Ecore#//EClassifier/ePackage"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//EDataType/serializable"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//EClassifier/instanceTypeName"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//EClassifier/instanceClassName"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//EEnumLiteral/literal"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//EEnumLiteral/value"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//EPackage/nsPrefix"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//EPackage/nsURI"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//EReference/container"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//EReference/containment"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//EReference/resolveProxies"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature/changeable"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature/volatile"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature/transient"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature/defaultValueLiteral"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature/unsettable"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature/derived"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/ordered"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/unique"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/lowerBound"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/upperBound"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/many"/>
-  </slicedElements>
-  <slicedElements xsi:type="kompren:SlicedProperty">
-    <domain xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/required"/>
-  </slicedElements>
-  <inputClasses href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
-  <inputClasses href="http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature"/>
-</kompren:Slicer>
+slicer strict strictEcore{ 
+	domain: "platform:/resource/examples.strictEcore/src/main/model/Ecore.genmodel"
+	input: ecore.EModelElement 
+	slicedClass: ecore.ENamedElement
+	slicedClass: ecore.EStructuralFeature feat
+		constraint: card1 [[ feat.lowerBound>0 ]]
+	slicedProperty: ecore.EClass.eSuperTypes
+	slicedProperty: ecore.EClass.eSuperTypes option opposite(lowerTypes)
+	slicedProperty: ecore.EClass.eStructuralFeatures clazz feat
+	slicedProperty: ecore.EClass.eOperations clazz op
+	slicedProperty: ecore.EClass.abstract
+	slicedProperty: ecore.EClass.interface
+	slicedProperty: ecore.ETypedElement.eType
+	slicedProperty: ecore.ETypedElement.lowerBound
+	slicedProperty: ecore.ETypedElement.many
+	slicedProperty: ecore.ETypedElement.ordered
+	slicedProperty: ecore.ETypedElement.required
+	slicedProperty: ecore.ETypedElement.unique
+	slicedProperty: ecore.ETypedElement.upperBound
+	slicedProperty: ecore.EOperation.eParameters
+	slicedProperty: ecore.EOperation.eContainingClass
+	slicedProperty: ecore.EEnum.eLiterals
+	slicedProperty: ecore.ENamedElement.name
+	slicedProperty: ecore.EStructuralFeature.eContainingClass
+	slicedProperty: ecore.EStructuralFeature.changeable
+	slicedProperty: ecore.EStructuralFeature.defaultValueLiteral
+	slicedProperty: ecore.EStructuralFeature.derived
+	slicedProperty: ecore.EStructuralFeature.transient
+	slicedProperty: ecore.EStructuralFeature.unsettable
+	slicedProperty: ecore.EStructuralFeature.volatile 
+//	slicedProperty: ecore.EStructuralFeature.defaultValue
+	slicedProperty: ecore.EClassifier.ePackage
+	slicedProperty: ecore.EClassifier.instanceTypeName
+	slicedProperty: ecore.EClassifier.instanceClassName
+//	slicedProperty: ecore.EClassifier.defaultValue
+	slicedProperty: ecore.EPackage.eSuperPackage
+	slicedProperty: ecore.EPackage.nsPrefix
+	slicedProperty: ecore.EPackage.nsURI
+	slicedProperty: ecore.EReference.container
+	slicedProperty: ecore.EReference.containment
+	slicedProperty: ecore.EReference.resolveProxies
+	slicedProperty: ecore.EAttribute.iD
+	slicedProperty: ecore.EEnumLiteral.eEnum
+	slicedProperty: ecore.EEnumLiteral.value
+}
