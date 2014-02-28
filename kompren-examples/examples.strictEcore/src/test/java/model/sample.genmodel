@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/examples.model/src" modelPluginID="examples.model"
+    modelName="Sample" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>sample.ecore</foreignModel>
+  <genPackages prefix="StrictSample" disposableProviderFactory="true" ecorePackage="sample.ecore#/">
+    <genClasses ecoreClass="sample.ecore#//A">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sample.ecore#//A/bs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sample.ecore#//A/a"/>
+    </genClasses>
+    <genClasses ecoreClass="sample.ecore#//B">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sample.ecore#//B/cs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sample.ecore#//B/b"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sample.ecore#//B/d"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="StrictSample2" disposableProviderFactory="true" ecorePackage="sample2.ecore#/">
+    <genDataTypes ecoreDataType="sample2.ecore#//D1"/>
+    <genClasses ecoreClass="sample2.ecore#//D"/>
+  </genPackages>
+  <genPackages prefix="StrictSample1" disposableProviderFactory="true" ecorePackage="sample1.ecore#/">
+    <genClasses ecoreClass="sample1.ecore#//C"/>
+  </genPackages>
+</genmodel:GenModel>

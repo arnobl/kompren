@@ -26,4 +26,17 @@ class TestStrictEcoreSlicer {
 		val slicer = new StrictEcore(inputs, mm, false, "ecore")
 		slicer.slice
 	}
+	
+	@Test def testExternMMs() {
+		val List<EModelElement> inputs = new  ArrayList
+		val rs = new ResourceSetImpl
+		EcoreFactoryImpl.eINSTANCE.eClass
+		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap.put("ecore", new EcoreResourceFactoryImpl)
+		val res = rs.getResource(URI.createURI("src/test/java/model/sample.ecore"), true)
+		res.load(Collections.emptyMap)
+		val mm = res.contents.filter(EPackage).head
+		inputs.add(mm.EClassifiers.filter(EClass).findFirst[name=="A"])
+		val slicer = new StrictEcore(inputs, mm, false, "ecore")
+		slicer.slice
+	}	
 }
