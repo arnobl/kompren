@@ -23,7 +23,7 @@
             id="kompren.presentation.KomprenEditorID"
             name="%_UI_KomprenEditor_label"
             icon="icons/full/obj16/KomprenModelFile.gif"
-            extensions="kompren"
+            extensions="komprenx"
             class="kompren.presentation.KomprenEditor"
             contributorClass="kompren.presentation.KomprenActionBarContributor">
       </editor>

@@ -9,7 +9,7 @@
             class="fr.inria.diverse.kompren.ui.KomprenExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
             default="true"
-            extensions="komprent"
+            extensions="kompren"
             id="fr.inria.diverse.kompren.Kompren"
             name="Kompren Editor">
         </editor>
@@ -213,13 +213,13 @@
 		point="org.eclipse.emf.ecore.extension_parser">
 		<parser
 			class="fr.inria.diverse.kompren.ui.KomprenExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
-			type="komprent">
+			type="kompren">
 		</parser>
 	</extension>
 	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
         <resourceServiceProvider
             class="fr.inria.diverse.kompren.ui.KomprenExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
-            uriExtension="komprent">
+            uriExtension="kompren">
         </resourceServiceProvider>
     </extension>
 
@@ -377,19 +377,19 @@
   <extension point="org.eclipse.compare.contentViewers">
     <viewer id="fr.inria.diverse.kompren.Kompren.compare.contentViewers"
             class="fr.inria.diverse.kompren.ui.KomprenExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-            extensions="komprent">
+            extensions="kompren">
     </viewer>
   </extension>
   <extension point="org.eclipse.compare.contentMergeViewers">
     <viewer id="fr.inria.diverse.kompren.Kompren.compare.contentMergeViewers"
             class="fr.inria.diverse.kompren.ui.KomprenExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-            extensions="komprent" label="Kompren Compare">
+            extensions="kompren" label="Kompren Compare">
      </viewer>
   </extension>
   <extension point="org.eclipse.ui.editors.documentProviders">
     <provider id="fr.inria.diverse.kompren.Kompren.editors.documentProviders"
             class="fr.inria.diverse.kompren.ui.KomprenExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
-            extensions="komprent">
+            extensions="kompren">
     </provider>
   </extension>
 
