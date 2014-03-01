@@ -13,7 +13,6 @@ import kompren.impl.KomprenFactoryImpl
 import kompren.impl.KomprenPackageImpl
 import org.eclipse.emf.codegen.ecore.genmodel.GenModel
 import org.eclipse.emf.codegen.ecore.genmodel.GenModelPackage
-import org.eclipse.emf.codegen.ecore.genmodel.GenPackage
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EPackage
@@ -39,7 +38,6 @@ class SlicerCompiler {
 	val String targetDir
 	val List<EClass> metamodelClasses = newArrayList
 	val List<GenModel> genModels = newArrayList
-	val StringBuilder imports = new StringBuilder
 	val boolean serialise
 	
 	def static void main(String[] args) {
@@ -77,12 +75,11 @@ class SlicerCompiler {
 
 		metamodel = getEcoreModel(slicer)
 		getAllClasses(metamodel)
-		produceImports
 		var last = slicer.name.split("\\.").last
 		slicerName = Character.toUpperCase(last.charAt(0)).toString+last.substring(1)
 		pkgName = last.toLowerCase
-		aspectGenerator = new SlicerAspectGenerator(metamodel, slicerName, slicer, pkgName, metamodelClasses, imports)
-		mainGenerator = new SlicerMainGenerator(metamodel, slicerName, slicer, pkgName, imports)
+		aspectGenerator = new SlicerAspectGenerator(metamodel, slicerName, slicer, pkgName, metamodelClasses)
+		mainGenerator = new SlicerMainGenerator(metamodel, slicerName, slicer, pkgName)
 		this.targetDir = targetDir
 	}
 
@@ -92,31 +89,6 @@ class SlicerCompiler {
 	}
 	
 	
-	/** Produces the imports from the packages of the genmodel. */
-	private def void produceImports() {
-		genModels.forEach[gen |
-			_produceImports(gen.genPackages)
-			_produceImports(gen.usedGenPackages)
-		]
-	}
-	
-	private def void _produceImports(Iterable<GenPackage> pkgs) {
-		pkgs.filter[getEcorePackage!=null].forEach[pkg |
-			imports.append("import ")
-			val base = pkg.basePackage
-			val suffix = pkg.classPackageSuffix
-			val str = if(base!=null && base.length>0) base + '.' else ""
-			
-			imports.append(str).append(pkg.packageName).append(".*\n")
-
-			if(suffix!=null && suffix.length>0)
-				imports.append("import ").append(str).append(pkg.packageName).append('.').append(suffix).append(".*\n")
-
-			_produceImports(pkg.nestedGenPackages)
-		]
-	}
-
-
 	private def void getAllClasses(List<EPackage> pkgs) {
 		metamodelClasses.addAll(pkgs.map[EClassifiers].flatten.filter(EClass))
 		pkgs.forEach[pkg | getAllClasses(pkg.ESubpackages)]

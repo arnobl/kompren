@@ -14,14 +14,12 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 class SlicerAspectGenerator extends SlicerGenerator {
 	val String aspectVisitor = "import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
-import java.util.List
-import org.eclipse.emf.ecore.EObject
 
-@Aspect(className=typeof(Object))
+@Aspect(className=typeof(java.lang.Object))
 abstract class __SlicerAspect__ {
 	var boolean visitedForRelations = false
 	var boolean sliced = false
-	protected var EObject clonedElt = null
+	protected var org.eclipse.emf.ecore.EObject clonedElt = null
 
 	def void visitToAddClasses(TYPE theSlicer){
 		if(!_self.sliced) {
@@ -46,8 +44,8 @@ abstract class __SlicerAspect__ {
 	
 	val List<EClass> metamodelClasses
 	
-	new(List<EPackage> mm, String name, Slicer slicer, String pkgName, List<EClass> metamodelClasses, StringBuilder imports) {
-		super(mm, name, slicer, pkgName, imports)
+	new(List<EPackage> mm, String name, Slicer slicer, String pkgName, List<EClass> metamodelClasses) {
+		super(mm, name, slicer, pkgName)
 		this.metamodelClasses = metamodelClasses
 	}
 
@@ -60,21 +58,21 @@ abstract class __SlicerAspect__ {
 		
 		metamodelClasses.forEach[cl |
 			val sts = cl.ESuperTypes.filter[st | st!=null && st.name!=null && st.name.length>0]
-			val superName = if(sts.empty) "__SlicerAspect__" else sts.head.name+"Aspect"
+			val superName = if(sts.empty) "__SlicerAspect__" else sts.head.qName("")+"Aspect"
 			val slicedCl = slicer.slicedClasses.findFirst[domain==cl]
 			val withParam = if(sts.empty) "typeof("+superName+")" 
-							else sts.map[st | "typeof("+st.name+"Aspect)"].join(", ")
+							else sts.map[st | "typeof("+st.qName("")+"Aspect)"].join(", ")
 			if(opposite) cl.generateFeedOppositeCodeVisitor
-			buf.append("@Aspect(className=typeof(").append(cl.name).append("), with=#[").append(withParam).append("])\n")
+			buf.append("@Aspect(className=typeof(").append(cl.qName('.')).append("), with=#[").append(withParam).append("])\n")
 			if(cl.abstract) buf.append("abstract ")
-			buf.append("class ").append(cl.name).append("Aspect extends ").append(superName).append("{\n")
+			buf.append("class ").append(cl.qName("")).append("Aspect extends ").append(superName).append("{\n")
 			buf.append(cl.oppositeAttr)
 			if(opposite)
 				buf.append("\t@OverrideAspectMethod\n\tdef void feedOpposites(){\n").append(cl.oppositeFeed).append("\n\t}\n\n")
 			buf.append("\t@OverrideAspectMethod\n")
 			buf.append("\tdef void _visitToAddClasses(").append(slicerName).append(" theSlicer){\n")
 			if(slicer.logVisitClass!=null && slicer.logVisitClass.length>0)
-				buf.append(slicer.logVisitClass.replaceAll("<aspectClassName>", cl.name+"Aspect").replaceAll("<className>", cl.name)).append('\n')
+				buf.append(slicer.logVisitClass.replaceAll("<aspectClassName>", cl.name+"Aspect").replaceAll("<className>", cl.qName('.'))).append('\n')
 			if(slicedCl!=null && !slicedCl.constraints.empty)
 				buf.append("\t\tif(").append(slicedCl.constraintsInXtend).append("){\n")
 			buf.append(cl.codeAction)

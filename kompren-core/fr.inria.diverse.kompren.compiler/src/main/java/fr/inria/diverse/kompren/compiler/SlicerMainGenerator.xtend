@@ -5,23 +5,21 @@ import kompren.Slicer
 import org.eclipse.emf.ecore.EPackage
 
 import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
-
+import static extension fr.inria.diverse.kompren.compiler.ENamedEltAspect.*
 class SlicerMainGenerator extends SlicerGenerator {
 	static val extensionName = "nameExtension"
 	
-	new(List<EPackage> mm, String name, Slicer slicer, String pkgName, StringBuilder imports) {
-		super(mm, name, slicer, pkgName, imports)
+	new(List<EPackage> mm, String name, Slicer slicer, String pkgName) {
+		super(mm, name, slicer, pkgName)
 	}
 	
 	override generate() {
 		buf.append("package ").append(pkgName).append('\n')
 		buf.append(getMMPackagesImports)
-		buf.append("import java.util.List\n\n")
-		if(slicer.hasOpposite || slicer.strict) buf.append("import org.eclipse.emf.ecore.EObject\n")
 		buf.append("class ").append(slicerName).append("{\n")
 		if(!slicer.strict && slicer.helper!=null && slicer.helper.length>0) buf.append(slicer.helper).append('\n')
 		buf.append(generateAttributes).append('\n')
-		if(slicer.hasOpposite) buf.append("\tval EObject _root\n\n")
+		if(slicer.hasOpposite) buf.append("\tval org.eclipse.emf.ecore.EObject _root\n\n")
 		buf.append(generateConstructor).append('\n')
 		buf.append(generateLaunch).append('\n')
 		if(slicer.strict) {
@@ -50,7 +48,7 @@ class SlicerMainGenerator extends SlicerGenerator {
 
 
 	private def StringBuilder generateObjectAdded() {
-		new StringBuilder("\tdef void objectCloned(EObject object){\n\t\tthis.clonedElts.add(object)\n\t}\n")
+		new StringBuilder("\tdef void objectCloned(org.eclipse.emf.ecore.EObject object){\n\t\tthis.clonedElts.add(object)\n\t}\n")
 	}
 
 
@@ -113,8 +111,8 @@ class SlicerMainGenerator extends SlicerGenerator {
 	private def StringBuilder generateConstructor() {
 		val buf = new StringBuilder
 		buf.append("\tnew(")
-		buf.append(slicer.inputClasses.map[cl | new StringBuilder("List<").append(cl.name).append("> input").append(cl.name)].join(","))
-		if(slicer.hasOpposite) buf.append(", EObject metamodelRoot")
+		buf.append(slicer.inputClasses.map[cl | new StringBuilder("java.util.List<").append(cl.qName('.')).append("> input").append(cl.name)].join(","))
+		if(slicer.hasOpposite) buf.append(", org.eclipse.emf.ecore.EObject metamodelRoot")
 		val listOptions = slicer.optionNames
 		if(!listOptions.empty)
 			buf.append(", ").append(listOptions.map[name | new StringBuilder("boolean ").append(name)].join(", "))
@@ -134,9 +132,9 @@ class SlicerMainGenerator extends SlicerGenerator {
 	
 	private def StringBuilder generateAttributes() {
 		val buf = new StringBuilder
-		slicer.inputClasses.forEach[cl | buf.append("\tval List<").append(cl.name).append("> input").append(cl.name).append('\n')]
+		slicer.inputClasses.forEach[cl | buf.append("\tval java.util.List<").append(cl.qName('.')).append("> input").append(cl.name).append('\n')]
 		if(slicer.strict)
-			buf.append("\tprivate val List<EObject> clonedElts = newArrayList\n")
+			buf.append("\tprivate val java.util.List<org.eclipse.emf.ecore.EObject> clonedElts = newArrayList\n")
 		slicer.optionNames.forEach[name | buf.append("\tpublic val boolean ").append(name).append('\n')]
 		if(slicer.strict)
 			buf.append("\tval String ").append(extensionName).append('\n')

@@ -5,6 +5,7 @@ import kompren.Slicer
 import org.eclipse.emf.ecore.EPackage
 
 import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
+import static extension fr.inria.diverse.kompren.compiler.ENamedEltAspect.*
 
 abstract class SlicerGenerator {
 	protected val List<EPackage> metamodel
@@ -12,15 +13,14 @@ abstract class SlicerGenerator {
 	protected val String pkgName
 	protected val Slicer slicer
 	protected val buf = new StringBuilder
-	protected val StringBuilder imports
+	protected val imports = new StringBuilder
 
 	
-	new(List<EPackage> mm, String name, Slicer slicer, String pkgName, StringBuilder imports) {
+	new(List<EPackage> mm, String name, Slicer slicer, String pkgName) {
 		metamodel = mm
 		slicerName = name
 		this.pkgName = pkgName
 		this.slicer = slicer
-		this.imports = imports
 	}
 	
 	abstract def void generate()
@@ -30,7 +30,7 @@ abstract class SlicerGenerator {
 	protected def String getMMPackagesImports() {
 		imports.append("\nimport static extension " + pkgName + ".__SlicerAspect__.*\n")
 		slicer.slicedClasses.forEach[slicedClass |
-			imports.append("import static extension ").append(pkgName).append('.').append(slicedClass.domain.name).append("Aspect.*\n")
+			imports.append("import static extension ").append(pkgName).append('.').append(slicedClass.domain.qName("")).append("Aspect.*\n")
 		]
 		imports.toString
 	}

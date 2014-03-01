@@ -24,8 +24,19 @@ import static extension fr.inria.diverse.kompren.compiler.EPackageAspect.*
 import static extension fr.inria.diverse.kompren.compiler.EStructuralFeatureAspect.*
 import static extension fr.inria.diverse.kompren.compiler.SlicedPropertyAspect.*
 import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
+import org.eclipse.emf.ecore.ENamedElement
 
-@Aspect(className=typeof(EClassifier)) class EClassifierAspect{
+@Aspect(className=typeof(ENamedElement))
+class ENamedEltAspect {
+	def String qName(String sep) {
+		var _qName = _self.name
+		if(_self.eContainer instanceof ENamedElement) 
+			_qName = (_self.eContainer as ENamedElement).qName(sep) + sep + _qName
+		_qName
+	}
+}
+
+@Aspect(className=typeof(EClassifier)) class EClassifierAspect extends ENamedEltAspect{
 	private var Set<String> primitiveTypes
 	
 	def void feedSubClassesRelations() {}
@@ -61,7 +72,7 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 }
 
 
-@Aspect(className=typeof(EPackage)) class EPackageAspect {
+@Aspect(className=typeof(EPackage)) class EPackageAspect extends ENamedEltAspect {
 	private var String _factoryName = null
 	
 	def void feedSubClassesRelations() {
@@ -70,8 +81,13 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 	}
 	
 	def String factoryName() {
-		if(_self._factoryName==null)
-			_self._factoryName = Character.toUpperCase(_self.name.charAt(0))+_self.name.substring(1)+"FactoryImpl"
+		if(_self._factoryName==null) {
+			var qn = _self.qName('.')
+			val index = qn.lastIndexOf('.')
+			if(index==-1) qn = qn + "."
+			else qn = qn.substring(0, index)
+			_self._factoryName = qn+Character.toUpperCase(_self.name.charAt(0))+_self.name.substring(1)+"Factory"
+		}
 		_self._factoryName
 	}
 	
@@ -79,7 +95,7 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 }
 
 
-@Aspect(className=typeof(EStructuralFeature)) class EStructuralFeatureAspect {
+@Aspect(className=typeof(EStructuralFeature)) class EStructuralFeatureAspect extends ENamedEltAspect {
 	def boolean isEcore() { _self?.EContainingClass.ecore }
 	
 	def String getXtendName() { _self.name }
@@ -124,7 +140,7 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 			if(sp.domain.upperBound==1)
 				_self.oppositeAttr.append("\tvar ").append(sp.domain.EType.name).append(' ^').append(sp.opposite.name).append("\n\n")
 			else
-				_self.oppositeAttr.append("\tval List<").append(sp.domain.EType.name).append("> ^").append(sp.opposite.name).append(" = newArrayList\n\n")
+				_self.oppositeAttr.append("\tval java.util.List<").append(sp.domain.EType.name).append("> ^").append(sp.opposite.name).append(" = newArrayList\n\n")
 		}	
 	}	
 
@@ -224,13 +240,13 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 			_self.relationCode.append(") ")
 			if(slicer.strict)
 				if(isPrim)
-					_self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").^").append(name).append(" = _self.^").append(name).append('\n')
+					_self.relationCode.append("(_self.clonedElt as ").append(_self.qName('.')).append(").^").append(name).append(" = _self.^").append(name).append('\n')
 				else
 					if(!sp.domain.changeable && hasOpposite)
 						_self.generateCodeForReadOnlyRefWithOpposite(sp)
 					else
-						_self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").^").append(name).
-						append(" = _self.^").append(name).append(".clonedElt as ").append(sp.domain.EType.name).append('\n')
+						_self.relationCode.append("(_self.clonedElt as ").append(_self.qName('.')).append(").^").append(name).
+						append(" = _self.^").append(name).append(".clonedElt as ").append(sp.domain.EType.qName('.')).append('\n')
 			else
 				_self.relationCode.append("\t\ttheSlicer.on").append(name).append("Sliced(_self").append(", _self.^").append(name).append(")\n")
 		}
@@ -257,8 +273,8 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 				else {
 					if(!sp.domain.changeable && hasOpposite)
 						_self.generateCodeForReadOnlyRefWithOpposite(sp)
-					else _self.relationCode.append("(_self.clonedElt as ").append(_self.name).append(").^").append(name).
-					append(".add( _elt.clonedElt as ").append(sp.domain.EType.name).append(")\n")
+					else _self.relationCode.append("(_self.clonedElt as ").append(_self.qName('.')).append(").^").append(name).
+					append(".add( _elt.clonedElt as ").append(sp.domain.EType.qName('.')).append(")\n")
 				}
 			else
 				_self.relationCode.append("theSlicer.on").append(name).append("Sliced(_self").append(", _elt)\n")
@@ -269,10 +285,10 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 	
 	private def void generateCodeForReadOnlyRefWithOpposite(SlicedProperty sp) {
 		val refOpp = (sp.domain as EReference).EOpposite
-		_self.relationCode.append("(_self.").append(sp.domain.xtendName).append(".clonedElt as ").append(sp.domain.EType.name).append(").^").append(refOpp.xtendName)
+		_self.relationCode.append("(_self.").append(sp.domain.xtendName).append(".clonedElt as ").append(sp.domain.EType.qName('.')).append(").^").append(refOpp.xtendName)
 		if(refOpp.upperBound<0 || refOpp.upperBound>1)
-			_self.relationCode.append(".add(_self.clonedElt as ").append(refOpp.EType.name).append(")\n")
+			_self.relationCode.append(".add(_self.clonedElt as ").append(refOpp.EType.qName('.')).append(")\n")
 		else
-			_self.relationCode.append(" = _self.clonedElt as ").append(refOpp.EType.name).append('\n')
+			_self.relationCode.append(" = _self.clonedElt as ").append(refOpp.EType.qName('.')).append('\n')
 	}
 }
