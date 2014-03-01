@@ -78,8 +78,9 @@ class SlicerCompiler {
 		metamodel = getEcoreModel(slicer)
 		getAllClasses(metamodel)
 		produceImports
-		pkgName = slicer.name.split("\\.").last
-		slicerName = Character.toUpperCase(pkgName.charAt(0)).toString+pkgName.substring(1)
+		var last = slicer.name.split("\\.").last
+		slicerName = Character.toUpperCase(last.charAt(0)).toString+last.substring(1)
+		pkgName = last.toLowerCase
 		aspectGenerator = new SlicerAspectGenerator(metamodel, slicerName, slicer, pkgName, metamodelClasses, imports)
 		mainGenerator = new SlicerMainGenerator(metamodel, slicerName, slicer, pkgName, imports)
 		this.targetDir = targetDir
