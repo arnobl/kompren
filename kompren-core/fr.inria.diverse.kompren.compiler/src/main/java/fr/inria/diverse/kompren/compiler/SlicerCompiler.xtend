@@ -129,7 +129,15 @@ class SlicerCompiler {
 		if(slicer.strict)
 			identifyAllElementsToSlice
 
-		slicer.slicedClasses.forEach[slicedCl | slicedCl.domain.slicedClass=slicedCl]
+		val scs = slicer.slicedClasses
+		scs.forEach[slicedCl | slicedCl.domain.slicedClass=slicedCl]
+		if(!slicer.strict) {
+			scs.forEach[slicedCl | if(slicedCl.ctx==null) slicedCl.ctx = SlicerFactory::createVarDecl("theVar")]
+			slicer.slicedProps.forEach[slicedProp |
+				if(slicedProp.src==null) slicedProp.src = SlicerFactory::createVarDecl("theSrc")
+				if(slicedProp.tgt==null) slicedProp.tgt = SlicerFactory::createVarDecl("theTgt")
+			]
+		}
 		completeConstraintsToSubClasses
 		aspectGenerator.generate
 		mainGenerator.generate

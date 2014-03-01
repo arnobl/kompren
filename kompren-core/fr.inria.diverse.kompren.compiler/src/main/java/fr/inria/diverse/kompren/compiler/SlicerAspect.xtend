@@ -4,14 +4,24 @@ import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import java.util.List
 import java.util.Map
 import kompren.Constraint
+import kompren.KomprenFactory
 import kompren.SlicedClass
 import kompren.SlicedProperty
 import kompren.Slicer
+import kompren.VarDecl
 import org.eclipse.emf.ecore.ENamedElement
+import org.eclipse.emf.ecore.EReference
 
 import static extension fr.inria.diverse.kompren.compiler.EClassifierAspect.*
 import static extension fr.inria.diverse.kompren.compiler.EStructuralFeatureAspect.*
-import org.eclipse.emf.ecore.EReference
+
+class SlicerFactory {
+	static def VarDecl createVarDecl(String name) {
+		val varDecl = KomprenFactory.eINSTANCE.createVarDecl
+		varDecl.varName = name
+		varDecl
+	}
+}
 
 @Aspect(className=typeof(Slicer))
 class SlicerAspect {
