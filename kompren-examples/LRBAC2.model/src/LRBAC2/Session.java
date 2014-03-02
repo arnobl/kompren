@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see LRBAC2.LRBACPackage#getSession()
+ * @see LRBAC2.LRBAC2Package#getSession()
  * @model
  * @generated
  */
@@ -31,7 +31,7 @@ public interface Session extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sess User</em>' reference.
 	 * @see #setSessUser(User)
-	 * @see LRBAC2.LRBACPackage#getSession_SessUser()
+	 * @see LRBAC2.LRBAC2Package#getSession_SessUser()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */

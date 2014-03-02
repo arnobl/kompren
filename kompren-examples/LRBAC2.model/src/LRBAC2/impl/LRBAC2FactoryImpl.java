@@ -3,8 +3,8 @@
 package LRBAC2.impl;
 
 import LRBAC2.Execute;
-import LRBAC2.LRBACFactory;
-import LRBAC2.LRBACPackage;
+import LRBAC2.LRBAC2Factory;
+import LRBAC2.LRBAC2Package;
 import LRBAC2.Location;
 import LRBAC2.Operation;
 import LRBAC2.Permission;
@@ -28,24 +28,24 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LRBACFactoryImpl extends EFactoryImpl implements LRBACFactory {
+public class LRBAC2FactoryImpl extends EFactoryImpl implements LRBAC2Factory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static LRBACFactory init() {
+	public static LRBAC2Factory init() {
 		try {
-			LRBACFactory theLRBACFactory = (LRBACFactory)EPackage.Registry.INSTANCE.getEFactory(LRBACPackage.eNS_URI);
-			if (theLRBACFactory != null) {
-				return theLRBACFactory;
+			LRBAC2Factory theLRBAC2Factory = (LRBAC2Factory)EPackage.Registry.INSTANCE.getEFactory(LRBAC2Package.eNS_URI);
+			if (theLRBAC2Factory != null) {
+				return theLRBAC2Factory;
 			}
 		}
 		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
-		return new LRBACFactoryImpl();
+		return new LRBAC2FactoryImpl();
 	}
 
 	/**
@@ -54,7 +54,7 @@ public class LRBACFactoryImpl extends EFactoryImpl implements LRBACFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LRBACFactoryImpl() {
+	public LRBAC2FactoryImpl() {
 		super();
 	}
 
@@ -66,16 +66,16 @@ public class LRBACFactoryImpl extends EFactoryImpl implements LRBACFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case LRBACPackage.USER: return createUser();
-			case LRBACPackage.LOCATION: return createLocation();
-			case LRBACPackage.PERMISSION: return createPermission();
-			case LRBACPackage.OPERATION: return createOperation();
-			case LRBACPackage.WRITE: return createWrite();
-			case LRBACPackage.EXECUTE: return createExecute();
-			case LRBACPackage.READ: return createRead();
-			case LRBACPackage.OBJECT: return createObject();
-			case LRBACPackage.ROLE: return createRole();
-			case LRBACPackage.SESSION: return createSession();
+			case LRBAC2Package.USER: return createUser();
+			case LRBAC2Package.LOCATION: return createLocation();
+			case LRBAC2Package.PERMISSION: return createPermission();
+			case LRBAC2Package.OPERATION: return createOperation();
+			case LRBAC2Package.WRITE: return createWrite();
+			case LRBAC2Package.EXECUTE: return createExecute();
+			case LRBAC2Package.READ: return createRead();
+			case LRBAC2Package.OBJECT: return createObject();
+			case LRBAC2Package.ROLE: return createRole();
+			case LRBAC2Package.SESSION: return createSession();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -186,8 +186,8 @@ public class LRBACFactoryImpl extends EFactoryImpl implements LRBACFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LRBACPackage getLRBACPackage() {
-		return (LRBACPackage)getEPackage();
+	public LRBAC2Package getLRBAC2Package() {
+		return (LRBAC2Package)getEPackage();
 	}
 
 	/**
@@ -197,8 +197,8 @@ public class LRBACFactoryImpl extends EFactoryImpl implements LRBACFactory {
 	 * @generated
 	 */
 	@Deprecated
-	public static LRBACPackage getPackage() {
-		return LRBACPackage.eINSTANCE;
+	public static LRBAC2Package getPackage() {
+		return LRBAC2Package.eINSTANCE;
 	}
 
-} //LRBACFactoryImpl
+} //LRBAC2FactoryImpl

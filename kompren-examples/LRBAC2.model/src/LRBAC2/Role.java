@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  *
- * @see LRBAC2.LRBACPackage#getRole()
+ * @see LRBAC2.LRBAC2Package#getRole()
  * @model
  * @generated
  */

@@ -2,7 +2,7 @@
  */
 package LRBAC2.impl;
 
-import LRBAC2.LRBACPackage;
+import LRBAC2.LRBAC2Package;
 import LRBAC2.Operation;
 
 import org.eclipse.emf.ecore.EClass;
@@ -35,7 +35,7 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return LRBACPackage.Literals.OPERATION;
+		return LRBAC2Package.Literals.OPERATION;
 	}
 
 } //OperationImpl

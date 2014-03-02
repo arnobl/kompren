@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see LRBAC2.LRBACPackage#getObject()
+ * @see LRBAC2.LRBAC2Package#getObject()
  * @model
  * @generated
  */
@@ -31,7 +31,7 @@ public interface Object extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Obj Loc</em>' reference.
 	 * @see #setObjLoc(Location)
-	 * @see LRBAC2.LRBACPackage#getObject_ObjLoc()
+	 * @see LRBAC2.LRBAC2Package#getObject_ObjLoc()
 	 * @model required="true"
 	 * @generated
 	 */

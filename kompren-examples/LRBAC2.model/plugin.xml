@@ -10,7 +10,7 @@
       <!-- @generated slicedPaper -->
       <package
             uri="http://BlankModel/LRBAC2"
-            class="LRBAC2.LRBACPackage"/>
+            class="LRBAC2.LRBAC2Package"/>
    </extension>
 
 </plugin>

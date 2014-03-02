@@ -2,7 +2,7 @@
  */
 package LRBAC2.impl;
 
-import LRBAC2.LRBACPackage;
+import LRBAC2.LRBAC2Package;
 import LRBAC2.Location;
 import LRBAC2.Operation;
 import LRBAC2.Permission;
@@ -104,7 +104,7 @@ public class PermissionImpl extends MinimalEObjectImpl.Container implements Perm
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return LRBACPackage.Literals.PERMISSION;
+		return LRBAC2Package.Literals.PERMISSION;
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class PermissionImpl extends MinimalEObjectImpl.Container implements Perm
 			permOper = (Operation)eResolveProxy(oldPermOper);
 			if (permOper != oldPermOper) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LRBACPackage.PERMISSION__PERM_OPER, oldPermOper, permOper));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LRBAC2Package.PERMISSION__PERM_OPER, oldPermOper, permOper));
 			}
 		}
 		return permOper;
@@ -142,7 +142,7 @@ public class PermissionImpl extends MinimalEObjectImpl.Container implements Perm
 		Operation oldPermOper = permOper;
 		permOper = newPermOper;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LRBACPackage.PERMISSION__PERM_OPER, oldPermOper, permOper));
+			eNotify(new ENotificationImpl(this, Notification.SET, LRBAC2Package.PERMISSION__PERM_OPER, oldPermOper, permOper));
 	}
 
 	/**
@@ -156,7 +156,7 @@ public class PermissionImpl extends MinimalEObjectImpl.Container implements Perm
 			permObj = (LRBAC2.Object)eResolveProxy(oldPermObj);
 			if (permObj != oldPermObj) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LRBACPackage.PERMISSION__PERM_OBJ, oldPermObj, permObj));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LRBAC2Package.PERMISSION__PERM_OBJ, oldPermObj, permObj));
 			}
 		}
 		return permObj;
@@ -180,7 +180,7 @@ public class PermissionImpl extends MinimalEObjectImpl.Container implements Perm
 		LRBAC2.Object oldPermObj = permObj;
 		permObj = newPermObj;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LRBACPackage.PERMISSION__PERM_OBJ, oldPermObj, permObj));
+			eNotify(new ENotificationImpl(this, Notification.SET, LRBAC2Package.PERMISSION__PERM_OBJ, oldPermObj, permObj));
 	}
 
 	/**
@@ -194,7 +194,7 @@ public class PermissionImpl extends MinimalEObjectImpl.Container implements Perm
 			permRole = (Role)eResolveProxy(oldPermRole);
 			if (permRole != oldPermRole) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LRBACPackage.PERMISSION__PERM_ROLE, oldPermRole, permRole));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LRBAC2Package.PERMISSION__PERM_ROLE, oldPermRole, permRole));
 			}
 		}
 		return permRole;
@@ -218,7 +218,7 @@ public class PermissionImpl extends MinimalEObjectImpl.Container implements Perm
 		Role oldPermRole = permRole;
 		permRole = newPermRole;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LRBACPackage.PERMISSION__PERM_ROLE, oldPermRole, permRole));
+			eNotify(new ENotificationImpl(this, Notification.SET, LRBAC2Package.PERMISSION__PERM_ROLE, oldPermRole, permRole));
 	}
 
 	/**
@@ -232,7 +232,7 @@ public class PermissionImpl extends MinimalEObjectImpl.Container implements Perm
 			roleLocPerm = (Location)eResolveProxy(oldRoleLocPerm);
 			if (roleLocPerm != oldRoleLocPerm) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LRBACPackage.PERMISSION__ROLE_LOC_PERM, oldRoleLocPerm, roleLocPerm));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LRBAC2Package.PERMISSION__ROLE_LOC_PERM, oldRoleLocPerm, roleLocPerm));
 			}
 		}
 		return roleLocPerm;
@@ -256,7 +256,7 @@ public class PermissionImpl extends MinimalEObjectImpl.Container implements Perm
 		Location oldRoleLocPerm = roleLocPerm;
 		roleLocPerm = newRoleLocPerm;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LRBACPackage.PERMISSION__ROLE_LOC_PERM, oldRoleLocPerm, roleLocPerm));
+			eNotify(new ENotificationImpl(this, Notification.SET, LRBAC2Package.PERMISSION__ROLE_LOC_PERM, oldRoleLocPerm, roleLocPerm));
 	}
 
 	/**
@@ -270,7 +270,7 @@ public class PermissionImpl extends MinimalEObjectImpl.Container implements Perm
 			objLocPerm = (Location)eResolveProxy(oldObjLocPerm);
 			if (objLocPerm != oldObjLocPerm) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LRBACPackage.PERMISSION__OBJ_LOC_PERM, oldObjLocPerm, objLocPerm));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LRBAC2Package.PERMISSION__OBJ_LOC_PERM, oldObjLocPerm, objLocPerm));
 			}
 		}
 		return objLocPerm;
@@ -294,7 +294,7 @@ public class PermissionImpl extends MinimalEObjectImpl.Container implements Perm
 		Location oldObjLocPerm = objLocPerm;
 		objLocPerm = newObjLocPerm;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LRBACPackage.PERMISSION__OBJ_LOC_PERM, oldObjLocPerm, objLocPerm));
+			eNotify(new ENotificationImpl(this, Notification.SET, LRBAC2Package.PERMISSION__OBJ_LOC_PERM, oldObjLocPerm, objLocPerm));
 	}
 
 	/**
@@ -316,19 +316,19 @@ public class PermissionImpl extends MinimalEObjectImpl.Container implements Perm
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case LRBACPackage.PERMISSION__PERM_OPER:
+			case LRBAC2Package.PERMISSION__PERM_OPER:
 				if (resolve) return getPermOper();
 				return basicGetPermOper();
-			case LRBACPackage.PERMISSION__PERM_OBJ:
+			case LRBAC2Package.PERMISSION__PERM_OBJ:
 				if (resolve) return getPermObj();
 				return basicGetPermObj();
-			case LRBACPackage.PERMISSION__PERM_ROLE:
+			case LRBAC2Package.PERMISSION__PERM_ROLE:
 				if (resolve) return getPermRole();
 				return basicGetPermRole();
-			case LRBACPackage.PERMISSION__ROLE_LOC_PERM:
+			case LRBAC2Package.PERMISSION__ROLE_LOC_PERM:
 				if (resolve) return getRoleLocPerm();
 				return basicGetRoleLocPerm();
-			case LRBACPackage.PERMISSION__OBJ_LOC_PERM:
+			case LRBAC2Package.PERMISSION__OBJ_LOC_PERM:
 				if (resolve) return getObjLocPerm();
 				return basicGetObjLocPerm();
 		}
@@ -343,19 +343,19 @@ public class PermissionImpl extends MinimalEObjectImpl.Container implements Perm
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case LRBACPackage.PERMISSION__PERM_OPER:
+			case LRBAC2Package.PERMISSION__PERM_OPER:
 				setPermOper((Operation)newValue);
 				return;
-			case LRBACPackage.PERMISSION__PERM_OBJ:
+			case LRBAC2Package.PERMISSION__PERM_OBJ:
 				setPermObj((LRBAC2.Object)newValue);
 				return;
-			case LRBACPackage.PERMISSION__PERM_ROLE:
+			case LRBAC2Package.PERMISSION__PERM_ROLE:
 				setPermRole((Role)newValue);
 				return;
-			case LRBACPackage.PERMISSION__ROLE_LOC_PERM:
+			case LRBAC2Package.PERMISSION__ROLE_LOC_PERM:
 				setRoleLocPerm((Location)newValue);
 				return;
-			case LRBACPackage.PERMISSION__OBJ_LOC_PERM:
+			case LRBAC2Package.PERMISSION__OBJ_LOC_PERM:
 				setObjLocPerm((Location)newValue);
 				return;
 		}
@@ -370,19 +370,19 @@ public class PermissionImpl extends MinimalEObjectImpl.Container implements Perm
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case LRBACPackage.PERMISSION__PERM_OPER:
+			case LRBAC2Package.PERMISSION__PERM_OPER:
 				setPermOper((Operation)null);
 				return;
-			case LRBACPackage.PERMISSION__PERM_OBJ:
+			case LRBAC2Package.PERMISSION__PERM_OBJ:
 				setPermObj((LRBAC2.Object)null);
 				return;
-			case LRBACPackage.PERMISSION__PERM_ROLE:
+			case LRBAC2Package.PERMISSION__PERM_ROLE:
 				setPermRole((Role)null);
 				return;
-			case LRBACPackage.PERMISSION__ROLE_LOC_PERM:
+			case LRBAC2Package.PERMISSION__ROLE_LOC_PERM:
 				setRoleLocPerm((Location)null);
 				return;
-			case LRBACPackage.PERMISSION__OBJ_LOC_PERM:
+			case LRBAC2Package.PERMISSION__OBJ_LOC_PERM:
 				setObjLocPerm((Location)null);
 				return;
 		}
@@ -397,15 +397,15 @@ public class PermissionImpl extends MinimalEObjectImpl.Container implements Perm
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case LRBACPackage.PERMISSION__PERM_OPER:
+			case LRBAC2Package.PERMISSION__PERM_OPER:
 				return permOper != null;
-			case LRBACPackage.PERMISSION__PERM_OBJ:
+			case LRBAC2Package.PERMISSION__PERM_OBJ:
 				return permObj != null;
-			case LRBACPackage.PERMISSION__PERM_ROLE:
+			case LRBAC2Package.PERMISSION__PERM_ROLE:
 				return permRole != null;
-			case LRBACPackage.PERMISSION__ROLE_LOC_PERM:
+			case LRBAC2Package.PERMISSION__ROLE_LOC_PERM:
 				return roleLocPerm != null;
-			case LRBACPackage.PERMISSION__OBJ_LOC_PERM:
+			case LRBAC2Package.PERMISSION__OBJ_LOC_PERM:
 				return objLocPerm != null;
 		}
 		return super.eIsSet(featureID);
@@ -419,7 +419,7 @@ public class PermissionImpl extends MinimalEObjectImpl.Container implements Perm
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case LRBACPackage.PERMISSION___UPDATE_PERM_NAME__STRING:
+			case LRBAC2Package.PERMISSION___UPDATE_PERM_NAME__STRING:
 				UpdatePermName((String)arguments.get(0));
 				return null;
 		}

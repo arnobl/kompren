@@ -3,7 +3,7 @@
 package LRBAC2.util;
 
 import LRBAC2.Execute;
-import LRBAC2.LRBACPackage;
+import LRBAC2.LRBAC2Package;
 import LRBAC2.Location;
 import LRBAC2.Operation;
 import LRBAC2.Permission;
@@ -28,17 +28,17 @@ import org.eclipse.emf.ecore.util.Switch;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see LRBAC2.LRBACPackage
+ * @see LRBAC2.LRBAC2Package
  * @generated
  */
-public class LRBACSwitch<T> extends Switch<T> {
+public class LRBAC2Switch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static LRBACPackage modelPackage;
+	protected static LRBAC2Package modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -46,9 +46,9 @@ public class LRBACSwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LRBACSwitch() {
+	public LRBAC2Switch() {
 		if (modelPackage == null) {
-			modelPackage = LRBACPackage.eINSTANCE;
+			modelPackage = LRBAC2Package.eINSTANCE;
 		}
 	}
 
@@ -75,64 +75,64 @@ public class LRBACSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case LRBACPackage.USER: {
+			case LRBAC2Package.USER: {
 				User user = (User)theEObject;
 				T result = caseUser(user);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case LRBACPackage.LOCATION: {
+			case LRBAC2Package.LOCATION: {
 				Location location = (Location)theEObject;
 				T result = caseLocation(location);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case LRBACPackage.PERMISSION: {
+			case LRBAC2Package.PERMISSION: {
 				Permission permission = (Permission)theEObject;
 				T result = casePermission(permission);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case LRBACPackage.OPERATION: {
+			case LRBAC2Package.OPERATION: {
 				Operation operation = (Operation)theEObject;
 				T result = caseOperation(operation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case LRBACPackage.WRITE: {
+			case LRBAC2Package.WRITE: {
 				Write write = (Write)theEObject;
 				T result = caseWrite(write);
 				if (result == null) result = caseOperation(write);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case LRBACPackage.EXECUTE: {
+			case LRBAC2Package.EXECUTE: {
 				Execute execute = (Execute)theEObject;
 				T result = caseExecute(execute);
 				if (result == null) result = caseOperation(execute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case LRBACPackage.READ: {
+			case LRBAC2Package.READ: {
 				Read read = (Read)theEObject;
 				T result = caseRead(read);
 				if (result == null) result = caseOperation(read);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case LRBACPackage.OBJECT: {
+			case LRBAC2Package.OBJECT: {
 				LRBAC2.Object object = (LRBAC2.Object)theEObject;
 				T result = caseObject(object);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case LRBACPackage.ROLE: {
+			case LRBAC2Package.ROLE: {
 				Role role = (Role)theEObject;
 				T result = caseRole(role);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case LRBACPackage.SESSION: {
+			case LRBAC2Package.SESSION: {
 				Session session = (Session)theEObject;
 				T result = caseSession(session);
 				if (result == null) result = defaultCase(theEObject);
@@ -308,4 +308,4 @@ public class LRBACSwitch<T> extends Switch<T> {
 		return null;
 	}
 
-} //LRBACSwitch
+} //LRBAC2Switch

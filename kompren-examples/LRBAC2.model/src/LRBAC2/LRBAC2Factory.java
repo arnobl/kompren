@@ -9,17 +9,17 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see LRBAC2.LRBACPackage
+ * @see LRBAC2.LRBAC2Package
  * @generated
  */
-public interface LRBACFactory extends EFactory {
+public interface LRBAC2Factory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	LRBACFactory eINSTANCE = LRBAC2.impl.LRBACFactoryImpl.init();
+	LRBAC2Factory eINSTANCE = LRBAC2.impl.LRBAC2FactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>User</em>'.
@@ -118,6 +118,6 @@ public interface LRBACFactory extends EFactory {
 	 * @return the package supported by this factory.
 	 * @generated
 	 */
-	LRBACPackage getLRBACPackage();
+	LRBAC2Package getLRBAC2Package();
 
-} //LRBACFactory
+} //LRBAC2Factory

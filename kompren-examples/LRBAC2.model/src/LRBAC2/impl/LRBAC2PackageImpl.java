@@ -3,8 +3,8 @@
 package LRBAC2.impl;
 
 import LRBAC2.Execute;
-import LRBAC2.LRBACFactory;
-import LRBAC2.LRBACPackage;
+import LRBAC2.LRBAC2Factory;
+import LRBAC2.LRBAC2Package;
 import LRBAC2.Location;
 import LRBAC2.Operation;
 import LRBAC2.Permission;
@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LRBACPackageImpl extends EPackageImpl implements LRBACPackage {
+public class LRBAC2PackageImpl extends EPackageImpl implements LRBAC2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -109,12 +109,12 @@ public class LRBACPackageImpl extends EPackageImpl implements LRBACPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see LRBAC2.LRBACPackage#eNS_URI
+	 * @see LRBAC2.LRBAC2Package#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
-	private LRBACPackageImpl() {
-		super(eNS_URI, LRBACFactory.eINSTANCE);
+	private LRBAC2PackageImpl() {
+		super(eNS_URI, LRBAC2Factory.eINSTANCE);
 	}
 
 	/**
@@ -127,7 +127,7 @@ public class LRBACPackageImpl extends EPackageImpl implements LRBACPackage {
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link LRBACPackage#eINSTANCE} when that field is accessed.
+	 * <p>This method is used to initialize {@link LRBAC2Package#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -136,27 +136,27 @@ public class LRBACPackageImpl extends EPackageImpl implements LRBACPackage {
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static LRBACPackage init() {
-		if (isInited) return (LRBACPackage)EPackage.Registry.INSTANCE.getEPackage(LRBACPackage.eNS_URI);
+	public static LRBAC2Package init() {
+		if (isInited) return (LRBAC2Package)EPackage.Registry.INSTANCE.getEPackage(LRBAC2Package.eNS_URI);
 
 		// Obtain or create and register package
-		LRBACPackageImpl theLRBACPackage = (LRBACPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof LRBACPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new LRBACPackageImpl());
+		LRBAC2PackageImpl theLRBAC2Package = (LRBAC2PackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof LRBAC2PackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new LRBAC2PackageImpl());
 
 		isInited = true;
 
 		// Create package meta-data objects
-		theLRBACPackage.createPackageContents();
+		theLRBAC2Package.createPackageContents();
 
 		// Initialize created meta-data
-		theLRBACPackage.initializePackageContents();
+		theLRBAC2Package.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
-		theLRBACPackage.freeze();
+		theLRBAC2Package.freeze();
 
   
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(LRBACPackage.eNS_URI, theLRBACPackage);
-		return theLRBACPackage;
+		EPackage.Registry.INSTANCE.put(LRBAC2Package.eNS_URI, theLRBAC2Package);
+		return theLRBAC2Package;
 	}
 
 	/**
@@ -425,8 +425,8 @@ public class LRBACPackageImpl extends EPackageImpl implements LRBACPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LRBACFactory getLRBACFactory() {
-		return (LRBACFactory)getEFactoryInstance();
+	public LRBAC2Factory getLRBAC2Factory() {
+		return (LRBAC2Factory)getEFactoryInstance();
 	}
 
 	/**
@@ -586,4 +586,4 @@ public class LRBACPackageImpl extends EPackageImpl implements LRBACPackage {
 		createResource(eNS_URI);
 	}
 
-} //LRBACPackageImpl
+} //LRBAC2PackageImpl

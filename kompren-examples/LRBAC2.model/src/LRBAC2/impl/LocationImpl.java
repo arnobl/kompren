@@ -2,7 +2,7 @@
  */
 package LRBAC2.impl;
 
-import LRBAC2.LRBACPackage;
+import LRBAC2.LRBAC2Package;
 import LRBAC2.Location;
 
 import java.lang.reflect.InvocationTargetException;
@@ -39,7 +39,7 @@ public class LocationImpl extends MinimalEObjectImpl.Container implements Locati
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return LRBACPackage.Literals.LOCATION;
+		return LRBAC2Package.Literals.LOCATION;
 	}
 
 	/**
@@ -61,7 +61,7 @@ public class LocationImpl extends MinimalEObjectImpl.Container implements Locati
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case LRBACPackage.LOCATION___UPDATE_LOC_NAME__STRING:
+			case LRBAC2Package.LOCATION___UPDATE_LOC_NAME__STRING:
 				UpdateLocName((String)arguments.get(0));
 				return null;
 		}

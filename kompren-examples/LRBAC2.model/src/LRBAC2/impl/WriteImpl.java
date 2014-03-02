@@ -2,7 +2,7 @@
  */
 package LRBAC2.impl;
 
-import LRBAC2.LRBACPackage;
+import LRBAC2.LRBAC2Package;
 import LRBAC2.Write;
 
 import org.eclipse.emf.ecore.EClass;
@@ -33,7 +33,7 @@ public class WriteImpl extends OperationImpl implements Write {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return LRBACPackage.Literals.WRITE;
+		return LRBAC2Package.Literals.WRITE;
 	}
 
 } //WriteImpl

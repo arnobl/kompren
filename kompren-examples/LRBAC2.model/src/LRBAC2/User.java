@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see LRBAC2.LRBACPackage#getUser()
+ * @see LRBAC2.LRBAC2Package#getUser()
  * @model
  * @generated
  */
@@ -31,7 +31,7 @@ public interface User extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>User Loc</em>' reference.
 	 * @see #setUserLoc(Location)
-	 * @see LRBAC2.LRBACPackage#getUser_UserLoc()
+	 * @see LRBAC2.LRBAC2Package#getUser_UserLoc()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */

@@ -3,7 +3,7 @@
 package LRBAC2.impl;
 
 import LRBAC2.Execute;
-import LRBAC2.LRBACPackage;
+import LRBAC2.LRBAC2Package;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -33,7 +33,7 @@ public class ExecuteImpl extends OperationImpl implements Execute {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return LRBACPackage.Literals.EXECUTE;
+		return LRBAC2Package.Literals.EXECUTE;
 	}
 
 } //ExecuteImpl

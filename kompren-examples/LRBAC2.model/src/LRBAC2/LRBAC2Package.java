@@ -19,11 +19,11 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see LRBAC2.LRBACFactory
+ * @see LRBAC2.LRBAC2Factory
  * @model kind="package"
  * @generated
  */
-public interface LRBACPackage extends EPackage {
+public interface LRBAC2Package extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -54,14 +54,14 @@ public interface LRBACPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	LRBACPackage eINSTANCE = LRBAC2.impl.LRBACPackageImpl.init();
+	LRBAC2Package eINSTANCE = LRBAC2.impl.LRBAC2PackageImpl.init();
 
 	/**
 	 * The meta object id for the '{@link LRBAC2.impl.UserImpl <em>User</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see LRBAC2.impl.UserImpl
-	 * @see LRBAC2.impl.LRBACPackageImpl#getUser()
+	 * @see LRBAC2.impl.LRBAC2PackageImpl#getUser()
 	 * @generated
 	 */
 	int USER = 0;
@@ -143,7 +143,7 @@ public interface LRBACPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see LRBAC2.impl.LocationImpl
-	 * @see LRBAC2.impl.LRBACPackageImpl#getLocation()
+	 * @see LRBAC2.impl.LRBAC2PackageImpl#getLocation()
 	 * @generated
 	 */
 	int LOCATION = 1;
@@ -180,7 +180,7 @@ public interface LRBACPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see LRBAC2.impl.PermissionImpl
-	 * @see LRBAC2.impl.LRBACPackageImpl#getPermission()
+	 * @see LRBAC2.impl.LRBAC2PackageImpl#getPermission()
 	 * @generated
 	 */
 	int PERMISSION = 2;
@@ -262,7 +262,7 @@ public interface LRBACPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see LRBAC2.impl.OperationImpl
-	 * @see LRBAC2.impl.LRBACPackageImpl#getOperation()
+	 * @see LRBAC2.impl.LRBAC2PackageImpl#getOperation()
 	 * @generated
 	 */
 	int OPERATION = 3;
@@ -290,7 +290,7 @@ public interface LRBACPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see LRBAC2.impl.WriteImpl
-	 * @see LRBAC2.impl.LRBACPackageImpl#getWrite()
+	 * @see LRBAC2.impl.LRBAC2PackageImpl#getWrite()
 	 * @generated
 	 */
 	int WRITE = 4;
@@ -318,7 +318,7 @@ public interface LRBACPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see LRBAC2.impl.ExecuteImpl
-	 * @see LRBAC2.impl.LRBACPackageImpl#getExecute()
+	 * @see LRBAC2.impl.LRBAC2PackageImpl#getExecute()
 	 * @generated
 	 */
 	int EXECUTE = 5;
@@ -346,7 +346,7 @@ public interface LRBACPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see LRBAC2.impl.ReadImpl
-	 * @see LRBAC2.impl.LRBACPackageImpl#getRead()
+	 * @see LRBAC2.impl.LRBAC2PackageImpl#getRead()
 	 * @generated
 	 */
 	int READ = 6;
@@ -374,7 +374,7 @@ public interface LRBACPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see LRBAC2.impl.ObjectImpl
-	 * @see LRBAC2.impl.LRBACPackageImpl#getObject()
+	 * @see LRBAC2.impl.LRBAC2PackageImpl#getObject()
 	 * @generated
 	 */
 	int OBJECT = 7;
@@ -420,7 +420,7 @@ public interface LRBACPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see LRBAC2.impl.RoleImpl
-	 * @see LRBAC2.impl.LRBACPackageImpl#getRole()
+	 * @see LRBAC2.impl.LRBAC2PackageImpl#getRole()
 	 * @generated
 	 */
 	int ROLE = 8;
@@ -466,7 +466,7 @@ public interface LRBACPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see LRBAC2.impl.SessionImpl
-	 * @see LRBAC2.impl.LRBACPackageImpl#getSession()
+	 * @see LRBAC2.impl.LRBAC2PackageImpl#getSession()
 	 * @generated
 	 */
 	int SESSION = 9;
@@ -813,7 +813,7 @@ public interface LRBACPackage extends EPackage {
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
-	LRBACFactory getLRBACFactory();
+	LRBAC2Factory getLRBAC2Factory();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -834,7 +834,7 @@ public interface LRBACPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see LRBAC2.impl.UserImpl
-		 * @see LRBAC2.impl.LRBACPackageImpl#getUser()
+		 * @see LRBAC2.impl.LRBAC2PackageImpl#getUser()
 		 * @generated
 		 */
 		EClass USER = eINSTANCE.getUser();
@@ -892,7 +892,7 @@ public interface LRBACPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see LRBAC2.impl.LocationImpl
-		 * @see LRBAC2.impl.LRBACPackageImpl#getLocation()
+		 * @see LRBAC2.impl.LRBAC2PackageImpl#getLocation()
 		 * @generated
 		 */
 		EClass LOCATION = eINSTANCE.getLocation();
@@ -910,7 +910,7 @@ public interface LRBACPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see LRBAC2.impl.PermissionImpl
-		 * @see LRBAC2.impl.LRBACPackageImpl#getPermission()
+		 * @see LRBAC2.impl.LRBAC2PackageImpl#getPermission()
 		 * @generated
 		 */
 		EClass PERMISSION = eINSTANCE.getPermission();
@@ -968,7 +968,7 @@ public interface LRBACPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see LRBAC2.impl.OperationImpl
-		 * @see LRBAC2.impl.LRBACPackageImpl#getOperation()
+		 * @see LRBAC2.impl.LRBAC2PackageImpl#getOperation()
 		 * @generated
 		 */
 		EClass OPERATION = eINSTANCE.getOperation();
@@ -978,7 +978,7 @@ public interface LRBACPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see LRBAC2.impl.WriteImpl
-		 * @see LRBAC2.impl.LRBACPackageImpl#getWrite()
+		 * @see LRBAC2.impl.LRBAC2PackageImpl#getWrite()
 		 * @generated
 		 */
 		EClass WRITE = eINSTANCE.getWrite();
@@ -988,7 +988,7 @@ public interface LRBACPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see LRBAC2.impl.ExecuteImpl
-		 * @see LRBAC2.impl.LRBACPackageImpl#getExecute()
+		 * @see LRBAC2.impl.LRBAC2PackageImpl#getExecute()
 		 * @generated
 		 */
 		EClass EXECUTE = eINSTANCE.getExecute();
@@ -998,7 +998,7 @@ public interface LRBACPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see LRBAC2.impl.ReadImpl
-		 * @see LRBAC2.impl.LRBACPackageImpl#getRead()
+		 * @see LRBAC2.impl.LRBAC2PackageImpl#getRead()
 		 * @generated
 		 */
 		EClass READ = eINSTANCE.getRead();
@@ -1008,7 +1008,7 @@ public interface LRBACPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see LRBAC2.impl.ObjectImpl
-		 * @see LRBAC2.impl.LRBACPackageImpl#getObject()
+		 * @see LRBAC2.impl.LRBAC2PackageImpl#getObject()
 		 * @generated
 		 */
 		EClass OBJECT = eINSTANCE.getObject();
@@ -1034,7 +1034,7 @@ public interface LRBACPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see LRBAC2.impl.RoleImpl
-		 * @see LRBAC2.impl.LRBACPackageImpl#getRole()
+		 * @see LRBAC2.impl.LRBAC2PackageImpl#getRole()
 		 * @generated
 		 */
 		EClass ROLE = eINSTANCE.getRole();
@@ -1060,7 +1060,7 @@ public interface LRBACPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see LRBAC2.impl.SessionImpl
-		 * @see LRBAC2.impl.LRBACPackageImpl#getSession()
+		 * @see LRBAC2.impl.LRBAC2PackageImpl#getSession()
 		 * @generated
 		 */
 		EClass SESSION = eINSTANCE.getSession();
@@ -1083,4 +1083,4 @@ public interface LRBACPackage extends EPackage {
 
 	}
 
-} //LRBACPackage
+} //LRBAC2Package

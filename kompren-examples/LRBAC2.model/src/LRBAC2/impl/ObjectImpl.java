@@ -2,7 +2,7 @@
  */
 package LRBAC2.impl;
 
-import LRBAC2.LRBACPackage;
+import LRBAC2.LRBAC2Package;
 import LRBAC2.Location;
 
 import java.lang.reflect.InvocationTargetException;
@@ -57,7 +57,7 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements LRBAC2.O
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return LRBACPackage.Literals.OBJECT;
+		return LRBAC2Package.Literals.OBJECT;
 	}
 
 	/**
@@ -71,7 +71,7 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements LRBAC2.O
 			objLoc = (Location)eResolveProxy(oldObjLoc);
 			if (objLoc != oldObjLoc) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LRBACPackage.OBJECT__OBJ_LOC, oldObjLoc, objLoc));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LRBAC2Package.OBJECT__OBJ_LOC, oldObjLoc, objLoc));
 			}
 		}
 		return objLoc;
@@ -95,7 +95,7 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements LRBAC2.O
 		Location oldObjLoc = objLoc;
 		objLoc = newObjLoc;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LRBACPackage.OBJECT__OBJ_LOC, oldObjLoc, objLoc));
+			eNotify(new ENotificationImpl(this, Notification.SET, LRBAC2Package.OBJECT__OBJ_LOC, oldObjLoc, objLoc));
 	}
 
 	/**
@@ -117,7 +117,7 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements LRBAC2.O
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case LRBACPackage.OBJECT__OBJ_LOC:
+			case LRBAC2Package.OBJECT__OBJ_LOC:
 				if (resolve) return getObjLoc();
 				return basicGetObjLoc();
 		}
@@ -132,7 +132,7 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements LRBAC2.O
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case LRBACPackage.OBJECT__OBJ_LOC:
+			case LRBAC2Package.OBJECT__OBJ_LOC:
 				setObjLoc((Location)newValue);
 				return;
 		}
@@ -147,7 +147,7 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements LRBAC2.O
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case LRBACPackage.OBJECT__OBJ_LOC:
+			case LRBAC2Package.OBJECT__OBJ_LOC:
 				setObjLoc((Location)null);
 				return;
 		}
@@ -162,7 +162,7 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements LRBAC2.O
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case LRBACPackage.OBJECT__OBJ_LOC:
+			case LRBAC2Package.OBJECT__OBJ_LOC:
 				return objLoc != null;
 		}
 		return super.eIsSet(featureID);
@@ -176,7 +176,7 @@ public class ObjectImpl extends MinimalEObjectImpl.Container implements LRBAC2.O
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case LRBACPackage.OBJECT___UPDATE_OBJ_ID__INT:
+			case LRBAC2Package.OBJECT___UPDATE_OBJ_ID__INT:
 				UpdateObjID((Integer)arguments.get(0));
 				return null;
 		}

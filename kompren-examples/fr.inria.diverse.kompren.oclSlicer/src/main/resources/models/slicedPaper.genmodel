@@ -2,10 +2,10 @@
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/LRBAC2.model/src" modelPluginID="LRBAC2.model"
     modelName="SlicedPaper" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
   <foreignModel>slicedPaper.ecore</foreignModel>
-  <genPackages prefix="LRBAC" disposableProviderFactory="true" ecorePackage="slicedPaper.ecore#/">
+  <genPackages prefix="LRBAC2" disposableProviderFactory="true" ecorePackage="slicedPaper.ecore#/">
     <genClasses ecoreClass="slicedPaper.ecore#//User">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference slicedPaper.ecore#//User/UserLoc"/>
       <genOperations ecoreOperation="slicedPaper.ecore#//User/UpdateUserID">

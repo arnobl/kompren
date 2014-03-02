@@ -2,7 +2,7 @@
  */
 package LRBAC2.impl;
 
-import LRBAC2.LRBACPackage;
+import LRBAC2.LRBAC2Package;
 import LRBAC2.Session;
 import LRBAC2.User;
 
@@ -58,7 +58,7 @@ public class SessionImpl extends MinimalEObjectImpl.Container implements Session
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return LRBACPackage.Literals.SESSION;
+		return LRBAC2Package.Literals.SESSION;
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class SessionImpl extends MinimalEObjectImpl.Container implements Session
 			sessUser = (User)eResolveProxy(oldSessUser);
 			if (sessUser != oldSessUser) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LRBACPackage.SESSION__SESS_USER, oldSessUser, sessUser));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LRBAC2Package.SESSION__SESS_USER, oldSessUser, sessUser));
 			}
 		}
 		return sessUser;
@@ -96,7 +96,7 @@ public class SessionImpl extends MinimalEObjectImpl.Container implements Session
 		User oldSessUser = sessUser;
 		sessUser = newSessUser;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LRBACPackage.SESSION__SESS_USER, oldSessUser, sessUser));
+			eNotify(new ENotificationImpl(this, Notification.SET, LRBAC2Package.SESSION__SESS_USER, oldSessUser, sessUser));
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class SessionImpl extends MinimalEObjectImpl.Container implements Session
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case LRBACPackage.SESSION__SESS_USER:
+			case LRBAC2Package.SESSION__SESS_USER:
 				if (resolve) return getSessUser();
 				return basicGetSessUser();
 		}
@@ -133,7 +133,7 @@ public class SessionImpl extends MinimalEObjectImpl.Container implements Session
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case LRBACPackage.SESSION__SESS_USER:
+			case LRBAC2Package.SESSION__SESS_USER:
 				setSessUser((User)newValue);
 				return;
 		}
@@ -148,7 +148,7 @@ public class SessionImpl extends MinimalEObjectImpl.Container implements Session
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case LRBACPackage.SESSION__SESS_USER:
+			case LRBAC2Package.SESSION__SESS_USER:
 				setSessUser((User)null);
 				return;
 		}
@@ -163,7 +163,7 @@ public class SessionImpl extends MinimalEObjectImpl.Container implements Session
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case LRBACPackage.SESSION__SESS_USER:
+			case LRBAC2Package.SESSION__SESS_USER:
 				return sessUser != null;
 		}
 		return super.eIsSet(featureID);
@@ -177,7 +177,7 @@ public class SessionImpl extends MinimalEObjectImpl.Container implements Session
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case LRBACPackage.SESSION___UPDATE_MAX_ROLES__INT:
+			case LRBAC2Package.SESSION___UPDATE_MAX_ROLES__INT:
 				UpdateMaxRoles((Integer)arguments.get(0));
 				return null;
 		}

@@ -3,7 +3,7 @@
 package LRBAC2.util;
 
 import LRBAC2.Execute;
-import LRBAC2.LRBACPackage;
+import LRBAC2.LRBAC2Package;
 import LRBAC2.Location;
 import LRBAC2.Operation;
 import LRBAC2.Permission;
@@ -25,17 +25,17 @@ import org.eclipse.emf.ecore.EObject;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see LRBAC2.LRBACPackage
+ * @see LRBAC2.LRBAC2Package
  * @generated
  */
-public class LRBACAdapterFactory extends AdapterFactoryImpl {
+public class LRBAC2AdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static LRBACPackage modelPackage;
+	protected static LRBAC2Package modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -43,9 +43,9 @@ public class LRBACAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LRBACAdapterFactory() {
+	public LRBAC2AdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = LRBACPackage.eINSTANCE;
+			modelPackage = LRBAC2Package.eINSTANCE;
 		}
 	}
 
@@ -74,8 +74,8 @@ public class LRBACAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LRBACSwitch<Adapter> modelSwitch =
-		new LRBACSwitch<Adapter>() {
+	protected LRBAC2Switch<Adapter> modelSwitch =
+		new LRBAC2Switch<Adapter>() {
 			@Override
 			public Adapter caseUser(User object) {
 				return createUserAdapter();
@@ -288,4 +288,4 @@ public class LRBACAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //LRBACAdapterFactory
+} //LRBAC2AdapterFactory

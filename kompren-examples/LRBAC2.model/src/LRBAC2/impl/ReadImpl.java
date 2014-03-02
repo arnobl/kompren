@@ -2,7 +2,7 @@
  */
 package LRBAC2.impl;
 
-import LRBAC2.LRBACPackage;
+import LRBAC2.LRBAC2Package;
 import LRBAC2.Read;
 
 import org.eclipse.emf.ecore.EClass;
@@ -33,7 +33,7 @@ public class ReadImpl extends OperationImpl implements Read {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return LRBACPackage.Literals.READ;
+		return LRBAC2Package.Literals.READ;
 	}
 
 } //ReadImpl

@@ -2,7 +2,7 @@
  */
 package LRBAC2.impl;
 
-import LRBAC2.LRBACPackage;
+import LRBAC2.LRBAC2Package;
 import LRBAC2.Location;
 import LRBAC2.Role;
 
@@ -40,7 +40,7 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return LRBACPackage.Literals.ROLE;
+		return LRBAC2Package.Literals.ROLE;
 	}
 
 	/**
@@ -73,10 +73,10 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case LRBACPackage.ROLE___UPDATE_ROLE_NAME__STRING:
+			case LRBAC2Package.ROLE___UPDATE_ROLE_NAME__STRING:
 				UpdateRoleName((String)arguments.get(0));
 				return null;
-			case LRBACPackage.ROLE___ADD_ASSIGN_LOC__LOCATION:
+			case LRBAC2Package.ROLE___ADD_ASSIGN_LOC__LOCATION:
 				AddAssignLoc((Location)arguments.get(0));
 				return null;
 		}

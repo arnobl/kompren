@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see LRBAC2.LRBACPackage#getPermission()
+ * @see LRBAC2.LRBAC2Package#getPermission()
  * @model
  * @generated
  */
@@ -35,7 +35,7 @@ public interface Permission extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Perm Oper</em>' reference.
 	 * @see #setPermOper(Operation)
-	 * @see LRBAC2.LRBACPackage#getPermission_PermOper()
+	 * @see LRBAC2.LRBAC2Package#getPermission_PermOper()
 	 * @model required="true"
 	 * @generated
 	 */
@@ -61,7 +61,7 @@ public interface Permission extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Perm Obj</em>' reference.
 	 * @see #setPermObj(LRBAC2.Object)
-	 * @see LRBAC2.LRBACPackage#getPermission_PermObj()
+	 * @see LRBAC2.LRBAC2Package#getPermission_PermObj()
 	 * @model required="true"
 	 * @generated
 	 */
@@ -87,7 +87,7 @@ public interface Permission extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Perm Role</em>' reference.
 	 * @see #setPermRole(Role)
-	 * @see LRBAC2.LRBACPackage#getPermission_PermRole()
+	 * @see LRBAC2.LRBAC2Package#getPermission_PermRole()
 	 * @model required="true"
 	 * @generated
 	 */
@@ -113,7 +113,7 @@ public interface Permission extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Role Loc Perm</em>' reference.
 	 * @see #setRoleLocPerm(Location)
-	 * @see LRBAC2.LRBACPackage#getPermission_RoleLocPerm()
+	 * @see LRBAC2.LRBAC2Package#getPermission_RoleLocPerm()
 	 * @model required="true"
 	 * @generated
 	 */
@@ -139,7 +139,7 @@ public interface Permission extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Obj Loc Perm</em>' reference.
 	 * @see #setObjLocPerm(Location)
-	 * @see LRBAC2.LRBACPackage#getPermission_ObjLocPerm()
+	 * @see LRBAC2.LRBAC2Package#getPermission_ObjLocPerm()
 	 * @model required="true"
 	 * @generated
 	 */

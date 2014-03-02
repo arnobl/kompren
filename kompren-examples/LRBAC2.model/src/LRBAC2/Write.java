@@ -9,7 +9,7 @@ package LRBAC2;
  * <!-- end-user-doc -->
  *
  *
- * @see LRBAC2.LRBACPackage#getWrite()
+ * @see LRBAC2.LRBAC2Package#getWrite()
  * @model
  * @generated
  */
