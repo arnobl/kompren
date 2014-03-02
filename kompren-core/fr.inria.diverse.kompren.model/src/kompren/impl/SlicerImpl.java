@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link kompren.impl.SlicerImpl#getName <em>Name</em>}</li>
  *   <li>{@link kompren.impl.SlicerImpl#getUriMetamodel <em>Uri Metamodel</em>}</li>
+ *   <li>{@link kompren.impl.SlicerImpl#getOutputMetamodel <em>Output Metamodel</em>}</li>
  *   <li>{@link kompren.impl.SlicerImpl#isActive <em>Active</em>}</li>
  *   <li>{@link kompren.impl.SlicerImpl#isStrict <em>Strict</em>}</li>
  *   <li>{@link kompren.impl.SlicerImpl#getHelper <em>Helper</em>}</li>
@@ -80,6 +81,26 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 	 * @ordered
 	 */
 	protected EList<String> uriMetamodel;
+
+	/**
+	 * The default value of the '{@link #getOutputMetamodel() <em>Output Metamodel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputMetamodel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String OUTPUT_METAMODEL_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getOutputMetamodel() <em>Output Metamodel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputMetamodel()
+	 * @generated
+	 * @ordered
+	 */
+	protected String outputMetamodel = OUTPUT_METAMODEL_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isActive() <em>Active</em>}' attribute.
@@ -301,6 +322,27 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 			uriMetamodel = new EDataTypeUniqueEList<String>(String.class, this, KomprenPackage.SLICER__URI_METAMODEL);
 		}
 		return uriMetamodel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getOutputMetamodel() {
+		return outputMetamodel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOutputMetamodel(String newOutputMetamodel) {
+		String oldOutputMetamodel = outputMetamodel;
+		outputMetamodel = newOutputMetamodel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, KomprenPackage.SLICER__OUTPUT_METAMODEL, oldOutputMetamodel, outputMetamodel));
 	}
 
 	/**
@@ -545,6 +587,8 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 				return getName();
 			case KomprenPackage.SLICER__URI_METAMODEL:
 				return getUriMetamodel();
+			case KomprenPackage.SLICER__OUTPUT_METAMODEL:
+				return getOutputMetamodel();
 			case KomprenPackage.SLICER__ACTIVE:
 				return isActive();
 			case KomprenPackage.SLICER__STRICT:
@@ -584,6 +628,9 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 			case KomprenPackage.SLICER__URI_METAMODEL:
 				getUriMetamodel().clear();
 				getUriMetamodel().addAll((Collection<? extends String>)newValue);
+				return;
+			case KomprenPackage.SLICER__OUTPUT_METAMODEL:
+				setOutputMetamodel((String)newValue);
 				return;
 			case KomprenPackage.SLICER__ACTIVE:
 				setActive((Boolean)newValue);
@@ -635,6 +682,9 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 			case KomprenPackage.SLICER__URI_METAMODEL:
 				getUriMetamodel().clear();
 				return;
+			case KomprenPackage.SLICER__OUTPUT_METAMODEL:
+				setOutputMetamodel(OUTPUT_METAMODEL_EDEFAULT);
+				return;
 			case KomprenPackage.SLICER__ACTIVE:
 				setActive(ACTIVE_EDEFAULT);
 				return;
@@ -681,6 +731,8 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case KomprenPackage.SLICER__URI_METAMODEL:
 				return uriMetamodel != null && !uriMetamodel.isEmpty();
+			case KomprenPackage.SLICER__OUTPUT_METAMODEL:
+				return OUTPUT_METAMODEL_EDEFAULT == null ? outputMetamodel != null : !OUTPUT_METAMODEL_EDEFAULT.equals(outputMetamodel);
 			case KomprenPackage.SLICER__ACTIVE:
 				return active != ACTIVE_EDEFAULT;
 			case KomprenPackage.SLICER__STRICT:
@@ -719,6 +771,8 @@ public class SlicerImpl extends MinimalEObjectImpl.Container implements Slicer {
 		result.append(name);
 		result.append(", uriMetamodel: ");
 		result.append(uriMetamodel);
+		result.append(", outputMetamodel: ");
+		result.append(outputMetamodel);
 		result.append(", active: ");
 		result.append(active);
 		result.append(", strict: ");

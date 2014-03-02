@@ -13,6 +13,7 @@ import kompren.KomprenPackage
 import kompren.SlicedClass
 import kompren.SlicedProperty
 import kompren.Slicer
+import org.eclipse.emf.ecore.EAttribute
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EStructuralFeature
 import org.eclipse.xtext.validation.Check
@@ -79,24 +80,33 @@ class KomprenValidator extends AbstractKomprenValidator {
 	}
 
 
+	@Check def notOutputIfStrict(Slicer slicer) {
+		if(slicer!=null && slicer.outputMetamodel!=null && !slicer.strict)
+			warning("An output metamodel can be defined for strict slicers only.", slicer, KomprenPackage.Literals.SLICER__OUTPUT_METAMODEL)
+	}
+
+
 	/** Checks that the given URIs are unique and existing genmodel files. */
 	@Check def checkURI(Slicer slicer) {
 		if(slicer==null) return;
 		val suffix = '.genmodel'
 
-		slicer?.uriMetamodel.forEach[uri |
-			try {
-				if(!uri.endsWith(suffix))
-					error("Only genmodel can be used as input domain.", KomprenPackage.Literals.SLICER__URI_METAMODEL, ONLY_GENMODEL)
+		slicer?.uriMetamodel.forEach[uri | _checkURI(suffix, uri, KomprenPackage.Literals.SLICER__URI_METAMODEL)]
+		if(slicer.outputMetamodel!=null) _checkURI(suffix, slicer.outputMetamodel, KomprenPackage.Literals.SLICER__OUTPUT_METAMODEL)
+	}
+	
+	private def _checkURI(String suffix, String uri, EAttribute attr) {
+		try {
+			if(!uri.endsWith(suffix))
+				error("Only genmodel can be used as input domain.", KomprenPackage.Literals.SLICER__URI_METAMODEL, ONLY_GENMODEL)
 
-				val url = new URL(uri)
-				val stream = url.openConnection.getInputStream
-				val in = new BufferedReader(new InputStreamReader(stream))
-				in.close
-				stream.close
-			}catch(Exception ex) {
-				error("Cannot resolve this URI.", KomprenPackage.Literals.SLICER__URI_METAMODEL, INVALID_URI)
-			}
-		]
+			val url = new URL(uri)
+			val stream = url.openConnection.getInputStream
+			val in = new BufferedReader(new InputStreamReader(stream))
+			in.close
+			stream.close
+		}catch(Exception ex) {
+			error("Cannot resolve this URI.", attr, INVALID_URI)
+		}
 	}
 }

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link kompren.Slicer#getName <em>Name</em>}</li>
  *   <li>{@link kompren.Slicer#getUriMetamodel <em>Uri Metamodel</em>}</li>
+ *   <li>{@link kompren.Slicer#getOutputMetamodel <em>Output Metamodel</em>}</li>
  *   <li>{@link kompren.Slicer#isActive <em>Active</em>}</li>
  *   <li>{@link kompren.Slicer#isStrict <em>Strict</em>}</li>
  *   <li>{@link kompren.Slicer#getHelper <em>Helper</em>}</li>
@@ -83,6 +84,32 @@ public interface Slicer extends EObject {
 	 * @generated
 	 */
 	EList<String> getUriMetamodel();
+
+	/**
+	 * Returns the value of the '<em><b>Output Metamodel</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Output Metamodel</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Output Metamodel</em>' attribute.
+	 * @see #setOutputMetamodel(String)
+	 * @see kompren.KomprenPackage#getSlicer_OutputMetamodel()
+	 * @model
+	 * @generated
+	 */
+	String getOutputMetamodel();
+
+	/**
+	 * Sets the value of the '{@link kompren.Slicer#getOutputMetamodel <em>Output Metamodel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Output Metamodel</em>' attribute.
+	 * @see #getOutputMetamodel()
+	 * @generated
+	 */
+	void setOutputMetamodel(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Active</b></em>' attribute.

@@ -5,6 +5,7 @@ import "http://kompren/fr.inria.diverse.kompren"
 
 Slicer returns Slicer: 'slicer' (active?='active')? (strict?='strict')? name=QName '{'
 		(('domain' ':' uriMetamodel+=STRING)+ &
+		('outputDomain' ':' outputMetamodel=STRING)? &
 		('input' ':' inputClasses+=[ecore::EClass|QName] ( "," inputClasses+=[ecore::EClass|QName])*) &
 		('radius' ':' radius=Radius)? &
 		(('slicedClass' ':' slicedElements+=SlicedClass) |

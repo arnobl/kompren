@@ -187,7 +187,7 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSlicer_Active() {
+	public EAttribute getSlicer_OutputMetamodel() {
 		return (EAttribute)slicerEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -196,7 +196,7 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSlicer_Strict() {
+	public EAttribute getSlicer_Active() {
 		return (EAttribute)slicerEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -205,7 +205,7 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSlicer_Helper() {
+	public EAttribute getSlicer_Strict() {
 		return (EAttribute)slicerEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -214,7 +214,7 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSlicer_OnStart() {
+	public EAttribute getSlicer_Helper() {
 		return (EAttribute)slicerEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -223,7 +223,7 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSlicer_OnEnd() {
+	public EAttribute getSlicer_OnStart() {
 		return (EAttribute)slicerEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -232,8 +232,8 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSlicer_Radius() {
-		return (EReference)slicerEClass.getEStructuralFeatures().get(7);
+	public EAttribute getSlicer_OnEnd() {
+		return (EAttribute)slicerEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -241,7 +241,7 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSlicer_SlicedElements() {
+	public EReference getSlicer_Radius() {
 		return (EReference)slicerEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -250,7 +250,7 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSlicer_InputClasses() {
+	public EReference getSlicer_SlicedElements() {
 		return (EReference)slicerEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -259,8 +259,17 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSlicer_InputClasses() {
+		return (EReference)slicerEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getSlicer_LogVisitClass() {
-		return (EAttribute)slicerEClass.getEStructuralFeatures().get(10);
+		return (EAttribute)slicerEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -269,7 +278,7 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 	 * @generated
 	 */
 	public EAttribute getSlicer_LogVisitRelation() {
-		return (EAttribute)slicerEClass.getEStructuralFeatures().get(11);
+		return (EAttribute)slicerEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -492,6 +501,7 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 		slicerEClass = createEClass(SLICER);
 		createEAttribute(slicerEClass, SLICER__NAME);
 		createEAttribute(slicerEClass, SLICER__URI_METAMODEL);
+		createEAttribute(slicerEClass, SLICER__OUTPUT_METAMODEL);
 		createEAttribute(slicerEClass, SLICER__ACTIVE);
 		createEAttribute(slicerEClass, SLICER__STRICT);
 		createEAttribute(slicerEClass, SLICER__HELPER);
@@ -579,6 +589,7 @@ public class KomprenPackageImpl extends EPackageImpl implements KomprenPackage {
 		initEClass(slicerEClass, Slicer.class, "Slicer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSlicer_Name(), ecorePackage.getEString(), "name", null, 1, 1, Slicer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSlicer_UriMetamodel(), ecorePackage.getEString(), "uriMetamodel", null, 1, -1, Slicer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSlicer_OutputMetamodel(), ecorePackage.getEString(), "outputMetamodel", null, 0, 1, Slicer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSlicer_Active(), ecorePackage.getEBoolean(), "active", null, 0, 1, Slicer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSlicer_Strict(), ecorePackage.getEBoolean(), "strict", null, 0, 1, Slicer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSlicer_Helper(), ecorePackage.getEString(), "helper", null, 0, 1, Slicer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

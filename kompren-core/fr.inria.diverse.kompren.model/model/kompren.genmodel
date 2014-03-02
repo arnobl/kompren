@@ -10,6 +10,8 @@
     <genClasses ecoreClass="kompren.ecore#//Slicer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kompren.ecore#//Slicer/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kompren.ecore#//Slicer/uriMetamodel"/>
+      <genFeatures createChild="false" propertyDescription="The output metamodel to use when  defining a strict slicer. The provided metamodel must be a sub-type of one of the input metamodels."
+          ecoreFeature="ecore:EAttribute kompren.ecore#//Slicer/outputMetamodel"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kompren.ecore#//Slicer/active"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kompren.ecore#//Slicer/strict"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute kompren.ecore#//Slicer/helper"/>

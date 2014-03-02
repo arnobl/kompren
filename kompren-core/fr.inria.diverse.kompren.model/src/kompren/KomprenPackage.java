@@ -92,13 +92,22 @@ public interface KomprenPackage extends EPackage {
 	int SLICER__URI_METAMODEL = 1;
 
 	/**
+	 * The feature id for the '<em><b>Output Metamodel</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLICER__OUTPUT_METAMODEL = 2;
+
+	/**
 	 * The feature id for the '<em><b>Active</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLICER__ACTIVE = 2;
+	int SLICER__ACTIVE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Strict</b></em>' attribute.
@@ -107,7 +116,7 @@ public interface KomprenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICER__STRICT = 3;
+	int SLICER__STRICT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Helper</b></em>' attribute.
@@ -116,7 +125,7 @@ public interface KomprenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICER__HELPER = 4;
+	int SLICER__HELPER = 5;
 
 	/**
 	 * The feature id for the '<em><b>On Start</b></em>' attribute.
@@ -125,7 +134,7 @@ public interface KomprenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICER__ON_START = 5;
+	int SLICER__ON_START = 6;
 
 	/**
 	 * The feature id for the '<em><b>On End</b></em>' attribute.
@@ -134,7 +143,7 @@ public interface KomprenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICER__ON_END = 6;
+	int SLICER__ON_END = 7;
 
 	/**
 	 * The feature id for the '<em><b>Radius</b></em>' containment reference.
@@ -143,7 +152,7 @@ public interface KomprenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICER__RADIUS = 7;
+	int SLICER__RADIUS = 8;
 
 	/**
 	 * The feature id for the '<em><b>Sliced Elements</b></em>' containment reference list.
@@ -152,7 +161,7 @@ public interface KomprenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICER__SLICED_ELEMENTS = 8;
+	int SLICER__SLICED_ELEMENTS = 9;
 
 	/**
 	 * The feature id for the '<em><b>Input Classes</b></em>' reference list.
@@ -161,7 +170,7 @@ public interface KomprenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICER__INPUT_CLASSES = 9;
+	int SLICER__INPUT_CLASSES = 10;
 
 	/**
 	 * The feature id for the '<em><b>Log Visit Class</b></em>' attribute.
@@ -170,7 +179,7 @@ public interface KomprenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICER__LOG_VISIT_CLASS = 10;
+	int SLICER__LOG_VISIT_CLASS = 11;
 
 	/**
 	 * The feature id for the '<em><b>Log Visit Relation</b></em>' attribute.
@@ -179,7 +188,7 @@ public interface KomprenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICER__LOG_VISIT_RELATION = 11;
+	int SLICER__LOG_VISIT_RELATION = 12;
 
 	/**
 	 * The number of structural features of the '<em>Slicer</em>' class.
@@ -188,7 +197,7 @@ public interface KomprenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICER_FEATURE_COUNT = 12;
+	int SLICER_FEATURE_COUNT = 13;
 
 	/**
 	 * The number of operations of the '<em>Slicer</em>' class.
@@ -627,6 +636,17 @@ public interface KomprenPackage extends EPackage {
 	EAttribute getSlicer_UriMetamodel();
 
 	/**
+	 * Returns the meta object for the attribute '{@link kompren.Slicer#getOutputMetamodel <em>Output Metamodel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Output Metamodel</em>'.
+	 * @see kompren.Slicer#getOutputMetamodel()
+	 * @see #getSlicer()
+	 * @generated
+	 */
+	EAttribute getSlicer_OutputMetamodel();
+
+	/**
 	 * Returns the meta object for the attribute '{@link kompren.Slicer#isActive <em>Active</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1008,6 +1028,14 @@ public interface KomprenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SLICER__URI_METAMODEL = eINSTANCE.getSlicer_UriMetamodel();
+
+		/**
+		 * The meta object literal for the '<em><b>Output Metamodel</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SLICER__OUTPUT_METAMODEL = eINSTANCE.getSlicer_OutputMetamodel();
 
 		/**
 		 * The meta object literal for the '<em><b>Active</b></em>' attribute feature.

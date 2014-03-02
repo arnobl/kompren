@@ -78,7 +78,7 @@ class QNFunction implements Function<ENamedElement, QualifiedName> {
 		QualifiedName.create(list.reverse)
 	}
 	
-	private def getQN(ENamedElement elt, List<String> list) {
+	private def void getQN(ENamedElement elt, List<String> list) {
 		if(elt==null) return;
 		list.add(elt.name)
 		val cont = elt.eContainer

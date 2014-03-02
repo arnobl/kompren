@@ -72,6 +72,7 @@ public class SlicerItemProvider
 
 			addNamePropertyDescriptor(object);
 			addUriMetamodelPropertyDescriptor(object);
+			addOutputMetamodelPropertyDescriptor(object);
 			addActivePropertyDescriptor(object);
 			addStrictPropertyDescriptor(object);
 			addHelperPropertyDescriptor(object);
@@ -120,6 +121,28 @@ public class SlicerItemProvider
 				 getString("_UI_Slicer_uriMetamodel_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Slicer_uriMetamodel_feature", "_UI_Slicer_type"),
 				 KomprenPackage.Literals.SLICER__URI_METAMODEL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Output Metamodel feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOutputMetamodelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Slicer_outputMetamodel_feature"),
+				 getString("_UI_Slicer_outputMetamodel_description"),
+				 KomprenPackage.Literals.SLICER__OUTPUT_METAMODEL,
 				 true,
 				 false,
 				 false,
@@ -374,6 +397,7 @@ public class SlicerItemProvider
 		switch (notification.getFeatureID(Slicer.class)) {
 			case KomprenPackage.SLICER__NAME:
 			case KomprenPackage.SLICER__URI_METAMODEL:
+			case KomprenPackage.SLICER__OUTPUT_METAMODEL:
 			case KomprenPackage.SLICER__ACTIVE:
 			case KomprenPackage.SLICER__STRICT:
 			case KomprenPackage.SLICER__HELPER:
