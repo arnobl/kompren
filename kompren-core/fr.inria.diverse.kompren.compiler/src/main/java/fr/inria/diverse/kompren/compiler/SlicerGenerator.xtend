@@ -35,7 +35,7 @@ abstract class SlicerGenerator {
 	protected def String getMMPackagesImports() {
 		imports.append("\nimport static extension " + pkgName + ".__SlicerAspect__.*\n")
 		slicer.slicedClasses.forEach[slicedClass |
-			imports.append("import static extension ").append(pkgName).append('.').append(slicedClass.domain.qName(false)).append("Aspect.*\n")
+			imports.append("import static extension ").append(pkgName).append('.').append(slicedClass.domain.qName(false, false)).append("Aspect.*\n")
 		]
 		imports.toString
 	}

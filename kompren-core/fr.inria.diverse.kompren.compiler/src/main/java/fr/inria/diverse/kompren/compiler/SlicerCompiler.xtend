@@ -33,6 +33,7 @@ import static extension fr.inria.diverse.kompren.compiler.EPackageAspect.*
 import static extension fr.inria.diverse.kompren.compiler.SlicedClassAspect.*
 import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 import org.eclipse.emf.codegen.ecore.genmodel.GenPackage
+import org.eclipse.emf.ecore.resource.ResourceSet
 
 class SlicerCompiler {
 	val String slicerName
@@ -55,7 +56,7 @@ class SlicerCompiler {
 
 		GenModelPackage.eINSTANCE.eClass
 
-		val set = new ResourceSetImpl
+		val ResourceSet set = new ResourceSetImpl
 		val ecoreFactory = new EcoreResourceFactoryImpl
 		val map = set.getResourceFactoryRegistry.getExtensionToFactoryMap
         map.put("ecore", ecoreFactory)
@@ -70,6 +71,8 @@ class SlicerCompiler {
 		metamodel = getEcoreModel(slicer)
 		getAllClasses(metamodel)
 		initPackagePrefix
+		if(slicer.strict && slicer.outputMetamodel!=null)
+			mapInputOutputMetamodel(set)
 		var last = slicer.name.split("\\.").last
 		slicerName = Character.toUpperCase(last.charAt(0)).toString+last.substring(1)
 		pkgName = last.toLowerCase
@@ -81,6 +84,27 @@ class SlicerCompiler {
 
 	new(String slicerURI, boolean serialise, String targetDir) {
 		this(getSlicerModel(slicerURI), serialise, targetDir)
+	}
+
+
+	private def void mapInputOutputMetamodel(ResourceSet set) {
+		val res = set.getResource(URI.createURI(slicer.outputMetamodel), true)
+		res.load(null)
+		val outputGen = res.contents.filter(GenModel).map[genPackages].flatten.map[getEcorePackage].toList
+		_mapInputOutputMetamodel(outputGen, metamodel)
+	}
+
+
+	private def void _mapInputOutputMetamodel(List<EPackage> outPkgs, List<EPackage> inPkgs) {
+		if(outPkgs.nullOrEmpty || inPkgs.nullOrEmpty || outPkgs.size!=inPkgs.size) return;
+		for(i : 0 ..<outPkgs.size)
+			inPkgs.get(i).mappedPkg = outPkgs.get(i)
+//		outPkgs.forEach[outPkg |
+//			val matching = inPkgs.head//.findFirst[pkg | outPkg.name.toLowerCase.compareToIgnoreCase(pkg.name)<0]
+//			if(matching!=null)
+//				matching.mappedPkg = outPkg
+//		]
+		_mapInputOutputMetamodel(outPkgs.map[ESubpackages].flatten.toList, inPkgs.map[ESubpackages].flatten.toList)
 	}
 
 
