@@ -1,9 +1,9 @@
-package superTypesSlicer
+package supertypesslicer
 
 import ex.classModel.Clazz
 import java.util.List
 
-import static extension superTypesSlicer.__SlicerAspect__.*
+import static extension supertypesslicer.__SlicerAspect__.*
 
 class SuperTypesSlicer{
 

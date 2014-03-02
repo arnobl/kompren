@@ -1,19 +1,19 @@
 package stateMachineSlicer
 
-import StateMachineSlicer.StateMachineSlicer
 import ex.stateMachine.State
 import ex.stateMachine.StateMachine
 import ex.stateMachine.impl.StateMachineFactoryImpl
 import java.util.ArrayList
 import java.util.List
 import org.junit.Test
+import statemachineslicer.StateMachineSlicer
 
 class TestStateMachineSlicer {
 	@Test def testSlicer() {
 		val List<State> inputs = new  ArrayList
 		val model = createModel(inputs)
 		inputs.add(model.initState)
-		val slicer = new StateMachineSlicer(inputs)
+		val slicer = new StateMachineSlicer(inputs, ".xmi")
 		slicer.slice
 //		assertEquals("c3 c2 c1 c5 c4 c2 c1 c3 c2 c4 c3 c5 c4 ", slicer.buf.toString)
 	}

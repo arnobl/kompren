@@ -1,4 +1,4 @@
-package strictEcore
+package strictecore
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
@@ -21,16 +21,15 @@ import org.eclipse.emf.ecore.EReference
 import org.eclipse.emf.ecore.EStructuralFeature
 import org.eclipse.emf.ecore.ETypeParameter
 import org.eclipse.emf.ecore.ETypedElement
-import org.eclipse.emf.ecore.impl.EcoreFactoryImpl
+import org.eclipse.emf.ecore.EcoreFactory
 
-import static extension strictEcore.EAnnotationAspect.*
-import static extension strictEcore.EClassifierAspect.*
-import static extension strictEcore.EEnumLiteralAspect.*
-import static extension strictEcore.EOperationAspect.*
-import static extension strictEcore.EParameterAspect.*
-import static extension strictEcore.EStructuralFeatureAspect.*
-import static extension strictEcore.ETypeParameterAspect.*
-import java.util.Set
+import static extension strictecore.orgeclipseemfecoreEAnnotationAspect.*
+import static extension strictecore.orgeclipseemfecoreEClassifierAspect.*
+import static extension strictecore.orgeclipseemfecoreEEnumLiteralAspect.*
+import static extension strictecore.orgeclipseemfecoreEOperationAspect.*
+import static extension strictecore.orgeclipseemfecoreEParameterAspect.*
+import static extension strictecore.orgeclipseemfecoreEStructuralFeatureAspect.*
+import static extension strictecore.orgeclipseemfecoreETypeParameterAspect.*
 
 @Aspect(className=typeof(Object))
 abstract class __SlicerAspect__ {
@@ -59,8 +58,8 @@ abstract class __SlicerAspect__ {
 	def void feedOpposites(){}
 }
 
-@Aspect(className=typeof(EAttribute), with=#[typeof(EStructuralFeatureAspect)])
-class EAttributeAspect extends EStructuralFeatureAspect{
+@Aspect(className=typeof(EAttribute), with=#[typeof(orgeclipseemfecoreEStructuralFeatureAspect)])
+class orgeclipseemfecoreEAttributeAspect extends orgeclipseemfecoreEStructuralFeatureAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
 
@@ -70,7 +69,7 @@ class EAttributeAspect extends EStructuralFeatureAspect{
 	def void _visitToAddClasses(StrictEcore theSlicer){
 		if(_self.checkcard1){
 		if(_self.clonedElt==null){
-			_self.clonedElt = EcoreFactoryImpl.eINSTANCE.createEAttribute
+			_self.clonedElt = EcoreFactory.eINSTANCE.createEAttribute
 			theSlicer.objectCloned(_self.clonedElt)
 		}
 		_self.super__visitToAddClasses(theSlicer)
@@ -90,8 +89,8 @@ class EAttributeAspect extends EStructuralFeatureAspect{
 	}
 }
 
-@Aspect(className=typeof(EAnnotation), with=#[typeof(EModelElementAspect)])
-class EAnnotationAspect extends EModelElementAspect{
+@Aspect(className=typeof(EAnnotation), with=#[typeof(orgeclipseemfecoreEModelElementAspect)])
+class orgeclipseemfecoreEAnnotationAspect extends orgeclipseemfecoreEModelElementAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
 _self.^details.forEach[feedOpposites]
@@ -102,7 +101,7 @@ _self.^contents.forEach[feedOpposites]
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
 		if(_self.clonedElt==null){
-			_self.clonedElt = EcoreFactoryImpl.eINSTANCE.createEAnnotation
+			_self.clonedElt = EcoreFactory.eINSTANCE.createEAnnotation
 			theSlicer.objectCloned(_self.clonedElt)
 		}
 		_self.super__visitToAddClasses(theSlicer)
@@ -115,8 +114,8 @@ _self.^contents.forEach[feedOpposites]
 	}
 }
 
-@Aspect(className=typeof(EClass), with=#[typeof(EClassifierAspect)])
-class EClassAspect extends EClassifierAspect{
+@Aspect(className=typeof(EClass), with=#[typeof(orgeclipseemfecoreEClassifierAspect)])
+class orgeclipseemfecoreEClassAspect extends orgeclipseemfecoreEClassifierAspect{
 	val List<EClass> ^lowerTypes = newArrayList
 
 	@OverrideAspectMethod
@@ -125,13 +124,13 @@ _self.^ESuperTypes.forEach[^lowerTypes.add(_self)]
 _self.^EOperations.forEach[feedOpposites]
 _self.^EStructuralFeatures.forEach[feedOpposites]
 _self.^EGenericSuperTypes.forEach[feedOpposites]
-
+ 
 	}
 
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
 		if(_self.clonedElt==null){
-			_self.clonedElt = EcoreFactoryImpl.eINSTANCE.createEClass
+			_self.clonedElt = EcoreFactory.eINSTANCE.createEClass
 			theSlicer.objectCloned(_self.clonedElt)
 		}
 		_self.super__visitToAddClasses(theSlicer)
@@ -168,23 +167,8 @@ _self.^EGenericSuperTypes.forEach[feedOpposites]
 	}
 }
 
-@Aspect(className=typeof(EClassifier), with=#[typeof(ENamedElementAspect)])
-abstract class EClassifierAspect extends ENamedElementAspect{
-	static Set<String> ecoreDTs = {
-		val Set<String> map = newHashSet
-		map.add("EBoolean")
-		map.add("EShort")
-		map.add("EInt")
-		map.add("EDouble")
-		map.add("ELong")
-		map.add("EString")
-		return map
-	}
-
-	def boolean isEcoreType() {
-		_self.ecoreDTs.contains(_self.name) && _self.eContainer instanceof EPackage && (_self.eContainer as EPackage).name=="ecore"
-	}
-	
+@Aspect(className=typeof(EClassifier), with=#[typeof(orgeclipseemfecoreENamedElementAspect)])
+abstract class orgeclipseemfecoreEClassifierAspect extends orgeclipseemfecoreENamedElementAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
 _self.^ETypeParameters.forEach[feedOpposites]
@@ -213,8 +197,8 @@ _self.^ETypeParameters.forEach[feedOpposites]
 	}
 }
 
-@Aspect(className=typeof(EDataType), with=#[typeof(EClassifierAspect)])
-class EDataTypeAspect extends EClassifierAspect{
+@Aspect(className=typeof(EDataType), with=#[typeof(orgeclipseemfecoreEClassifierAspect)])
+class orgeclipseemfecoreEDataTypeAspect extends orgeclipseemfecoreEClassifierAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
 
@@ -222,9 +206,8 @@ class EDataTypeAspect extends EClassifierAspect{
 
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
-		if(_self.isEcoreType) return;
 		if(_self.clonedElt==null){
-			_self.clonedElt = EcoreFactoryImpl.eINSTANCE.createEDataType
+			_self.clonedElt = EcoreFactory.eINSTANCE.createEDataType
 			theSlicer.objectCloned(_self.clonedElt)
 		}
 		_self.super__visitToAddClasses(theSlicer)
@@ -232,14 +215,13 @@ class EDataTypeAspect extends EClassifierAspect{
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(StrictEcore theSlicer){
-		if(_self.isEcoreType) return;
 		_self.super__visitToAddRelations(theSlicer)
 
 	}
 }
 
-@Aspect(className=typeof(EEnum), with=#[typeof(EDataTypeAspect)])
-class EEnumAspect extends EDataTypeAspect{
+@Aspect(className=typeof(EEnum), with=#[typeof(orgeclipseemfecoreEDataTypeAspect)])
+class orgeclipseemfecoreEEnumAspect extends orgeclipseemfecoreEDataTypeAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
 _self.^ELiterals.forEach[feedOpposites]
@@ -249,7 +231,7 @@ _self.^ELiterals.forEach[feedOpposites]
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
 		if(_self.clonedElt==null){
-			_self.clonedElt = EcoreFactoryImpl.eINSTANCE.createEEnum
+			_self.clonedElt = EcoreFactory.eINSTANCE.createEEnum
 			theSlicer.objectCloned(_self.clonedElt)
 		}
 		_self.super__visitToAddClasses(theSlicer)
@@ -266,8 +248,8 @@ _self.^ELiterals.forEach[feedOpposites]
 	}
 }
 
-@Aspect(className=typeof(EEnumLiteral), with=#[typeof(ENamedElementAspect)])
-class EEnumLiteralAspect extends ENamedElementAspect{
+@Aspect(className=typeof(EEnumLiteral), with=#[typeof(orgeclipseemfecoreENamedElementAspect)])
+class orgeclipseemfecoreEEnumLiteralAspect extends orgeclipseemfecoreENamedElementAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
 
@@ -276,7 +258,7 @@ class EEnumLiteralAspect extends ENamedElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
 		if(_self.clonedElt==null){
-			_self.clonedElt = EcoreFactoryImpl.eINSTANCE.createEEnumLiteral
+			_self.clonedElt = EcoreFactory.eINSTANCE.createEEnumLiteral
 			theSlicer.objectCloned(_self.clonedElt)
 		}
 		_self.super__visitToAddClasses(theSlicer)
@@ -298,7 +280,7 @@ class EEnumLiteralAspect extends ENamedElementAspect{
 }
 
 @Aspect(className=typeof(EModelElement), with=#[typeof(__SlicerAspect__)])
-abstract class EModelElementAspect extends __SlicerAspect__{
+abstract class orgeclipseemfecoreEModelElementAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void feedOpposites(){
 _self.^EAnnotations.forEach[feedOpposites]
@@ -317,8 +299,8 @@ _self.^EAnnotations.forEach[feedOpposites]
 	}
 }
 
-@Aspect(className=typeof(ENamedElement), with=#[typeof(EModelElementAspect)])
-abstract class ENamedElementAspect extends EModelElementAspect{
+@Aspect(className=typeof(ENamedElement), with=#[typeof(orgeclipseemfecoreEModelElementAspect)])
+abstract class orgeclipseemfecoreENamedElementAspect extends orgeclipseemfecoreEModelElementAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
 
@@ -338,8 +320,8 @@ abstract class ENamedElementAspect extends EModelElementAspect{
 	}
 }
 
-@Aspect(className=typeof(EOperation), with=#[typeof(ETypedElementAspect)])
-class EOperationAspect extends ETypedElementAspect{
+@Aspect(className=typeof(EOperation), with=#[typeof(orgeclipseemfecoreETypedElementAspect)])
+class orgeclipseemfecoreEOperationAspect extends orgeclipseemfecoreETypedElementAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
 _self.^ETypeParameters.forEach[feedOpposites]
@@ -351,7 +333,7 @@ _self.^EGenericExceptions.forEach[feedOpposites]
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
 		if(_self.clonedElt==null){
-			_self.clonedElt = EcoreFactoryImpl.eINSTANCE.createEOperation
+			_self.clonedElt = EcoreFactory.eINSTANCE.createEOperation
 			theSlicer.objectCloned(_self.clonedElt)
 		}
 		_self.super__visitToAddClasses(theSlicer)
@@ -374,8 +356,8 @@ _self.^EGenericExceptions.forEach[feedOpposites]
 	}
 }
 
-@Aspect(className=typeof(EPackage), with=#[typeof(ENamedElementAspect)])
-class EPackageAspect extends ENamedElementAspect{
+@Aspect(className=typeof(EPackage), with=#[typeof(orgeclipseemfecoreENamedElementAspect)])
+class orgeclipseemfecoreEPackageAspect extends orgeclipseemfecoreENamedElementAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
 _self.^EClassifiers.forEach[feedOpposites]
@@ -386,7 +368,7 @@ _self.^ESubpackages.forEach[feedOpposites]
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
 		if(_self.clonedElt==null){
-			_self.clonedElt = EcoreFactoryImpl.eINSTANCE.createEPackage
+			_self.clonedElt = EcoreFactory.eINSTANCE.createEPackage
 			theSlicer.objectCloned(_self.clonedElt)
 		}
 		_self.super__visitToAddClasses(theSlicer)
@@ -409,8 +391,8 @@ _self.^ESubpackages.forEach[feedOpposites]
 	}
 }
 
-@Aspect(className=typeof(EParameter), with=#[typeof(ETypedElementAspect)])
-class EParameterAspect extends ETypedElementAspect{
+@Aspect(className=typeof(EParameter), with=#[typeof(orgeclipseemfecoreETypedElementAspect)])
+class orgeclipseemfecoreEParameterAspect extends orgeclipseemfecoreETypedElementAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
 
@@ -419,7 +401,7 @@ class EParameterAspect extends ETypedElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
 		if(_self.clonedElt==null){
-			_self.clonedElt = EcoreFactoryImpl.eINSTANCE.createEParameter
+			_self.clonedElt = EcoreFactory.eINSTANCE.createEParameter
 			theSlicer.objectCloned(_self.clonedElt)
 		}
 		_self.super__visitToAddClasses(theSlicer)
@@ -432,8 +414,8 @@ class EParameterAspect extends ETypedElementAspect{
 	}
 }
 
-@Aspect(className=typeof(EReference), with=#[typeof(EStructuralFeatureAspect)])
-class EReferenceAspect extends EStructuralFeatureAspect{
+@Aspect(className=typeof(EReference), with=#[typeof(orgeclipseemfecoreEStructuralFeatureAspect)])
+class orgeclipseemfecoreEReferenceAspect extends orgeclipseemfecoreEStructuralFeatureAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
 
@@ -443,7 +425,7 @@ class EReferenceAspect extends EStructuralFeatureAspect{
 	def void _visitToAddClasses(StrictEcore theSlicer){
 		if(_self.checkcard1){
 		if(_self.clonedElt==null){
-			_self.clonedElt = EcoreFactoryImpl.eINSTANCE.createEReference
+			_self.clonedElt = EcoreFactory.eINSTANCE.createEReference
 			theSlicer.objectCloned(_self.clonedElt)
 		}
 		_self.super__visitToAddClasses(theSlicer)
@@ -467,8 +449,8 @@ class EReferenceAspect extends EStructuralFeatureAspect{
 	}
 }
 
-@Aspect(className=typeof(EStructuralFeature), with=#[typeof(ETypedElementAspect)])
-abstract class EStructuralFeatureAspect extends ETypedElementAspect{
+@Aspect(className=typeof(EStructuralFeature), with=#[typeof(orgeclipseemfecoreETypedElementAspect)])
+abstract class orgeclipseemfecoreEStructuralFeatureAspect extends orgeclipseemfecoreETypedElementAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
 
@@ -512,8 +494,8 @@ abstract class EStructuralFeatureAspect extends ETypedElementAspect{
 	}
 }
 
-@Aspect(className=typeof(ETypedElement), with=#[typeof(ENamedElementAspect)])
-abstract class ETypedElementAspect extends ENamedElementAspect{
+@Aspect(className=typeof(ETypedElement), with=#[typeof(orgeclipseemfecoreENamedElementAspect)])
+abstract class orgeclipseemfecoreETypedElementAspect extends orgeclipseemfecoreENamedElementAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
 _self.^EGenericType?.feedOpposites
@@ -523,19 +505,16 @@ _self.^EGenericType?.feedOpposites
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
-		if(_self.EType!=null && !_self.EType.isEcoreType)
-			_self.^EType?.visitToAddClasses(theSlicer)
+		_self.^EType?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(StrictEcore theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.EType!=null && !_self.EType.isEcoreType) {
-			_self.^EType.visitToAddRelations(theSlicer)
-	
-			if(_self.sliced && _self.^EType.sliced) (_self.clonedElt as ETypedElement).^EType = _self.^EType.clonedElt as EClassifier
-		}else {
-			(_self.clonedElt as ETypedElement).^EType =_self.EType
+		if(_self.^EType!=null){
+		_self.^EType.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^EType.sliced) (_self.clonedElt as ETypedElement).^EType = _self.^EType.clonedElt as EClassifier
 		}
 
 		if(_self.sliced) (_self.clonedElt as ETypedElement).^lowerBound = _self.^lowerBound
@@ -550,7 +529,7 @@ _self.^EGenericType?.feedOpposites
 }
 
 @Aspect(className=typeof(EGenericType), with=#[typeof(__SlicerAspect__)])
-class EGenericTypeAspect extends __SlicerAspect__{
+class orgeclipseemfecoreEGenericTypeAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void feedOpposites(){
 _self.^EUpperBound?.feedOpposites
@@ -571,8 +550,8 @@ _self.^ELowerBound?.feedOpposites
 	}
 }
 
-@Aspect(className=typeof(ETypeParameter), with=#[typeof(ENamedElementAspect)])
-class ETypeParameterAspect extends ENamedElementAspect{
+@Aspect(className=typeof(ETypeParameter), with=#[typeof(orgeclipseemfecoreENamedElementAspect)])
+class orgeclipseemfecoreETypeParameterAspect extends orgeclipseemfecoreENamedElementAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
 _self.^EBounds.forEach[feedOpposites]
@@ -582,7 +561,7 @@ _self.^EBounds.forEach[feedOpposites]
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
 		if(_self.clonedElt==null){
-			_self.clonedElt = EcoreFactoryImpl.eINSTANCE.createETypeParameter
+			_self.clonedElt = EcoreFactory.eINSTANCE.createETypeParameter
 			theSlicer.objectCloned(_self.clonedElt)
 		}
 		_self.super__visitToAddClasses(theSlicer)

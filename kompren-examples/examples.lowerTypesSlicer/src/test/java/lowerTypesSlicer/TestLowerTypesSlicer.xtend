@@ -5,6 +5,7 @@ import ex.classModel.Clazz
 import ex.classModel.impl.ClassModelFactoryImpl
 import java.util.ArrayList
 import java.util.List
+import lowertypesslicer.LowerTypesSlicer
 import org.junit.Test
 
 import static org.junit.Assert.*

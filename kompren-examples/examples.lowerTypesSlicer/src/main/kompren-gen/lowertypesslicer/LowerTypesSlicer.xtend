@@ -1,10 +1,10 @@
-package lowerTypesSlicer
+package lowertypesslicer
 
 import ex.classModel.Clazz
 import java.util.List
 import org.eclipse.emf.ecore.EObject
 
-import static extension lowerTypesSlicer.__SlicerAspect__.*
+import static extension lowertypesslicer.__SlicerAspect__.*
 
 class LowerTypesSlicer{
 

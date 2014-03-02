@@ -1,4 +1,4 @@
-package k3TransfoFootprint
+package k3transfofootprint
 
 import java.util.List
 import java.util.Set
@@ -7,7 +7,7 @@ import org.eclipse.xtext.common.types.JvmIdentifiableElement
 import org.eclipse.xtext.common.types.JvmTypeReference
 import org.eclipse.xtext.xbase.XExpression
 
-import static extension k3TransfoFootprint.__SlicerAspect__.*
+import static extension k3transfofootprint.__SlicerAspect__.*
 
 class K3TransfoFootprint{
 
@@ -19,7 +19,7 @@ class K3TransfoFootprint{
 			!qn.startsWith("com.oracle") && !qn.startsWith("sunw."))
 			footprint.add(qn)
 	}
-	
+ 	
 	val List<JvmFormalParameter> inputJvmFormalParameter
 	val List<JvmTypeReference> inputJvmTypeReference
 	val List<XExpression> inputXExpression

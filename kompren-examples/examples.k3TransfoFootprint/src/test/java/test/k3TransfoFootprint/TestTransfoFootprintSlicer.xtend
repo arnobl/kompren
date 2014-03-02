@@ -3,7 +3,7 @@ package test.k3TransfoFootprint
 import java.util.ArrayList
 import java.util.Collections
 import java.util.List
-import k3TransfoFootprint.K3TransfoFootprint
+import k3transfofootprint.K3TransfoFootprint
 import org.eclipse.xtext.xbase.XExpression
 import org.eclipse.xtext.xbase.impl.XbaseFactoryImpl
 import org.junit.Test

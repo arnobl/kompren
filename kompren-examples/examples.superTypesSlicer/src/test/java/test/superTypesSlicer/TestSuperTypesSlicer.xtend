@@ -6,7 +6,7 @@ import ex.classModel.impl.ClassModelFactoryImpl
 import java.util.ArrayList
 import java.util.List
 import org.junit.Test
-import superTypesSlicer.SuperTypesSlicer
+import supertypesslicer.SuperTypesSlicer
 
 import static org.junit.Assert.*
 

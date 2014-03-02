@@ -1,4 +1,4 @@
-package k3TransfoFootprint
+package k3transfofootprint
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
@@ -95,7 +95,7 @@ abstract class __SlicerAspect__ {
 
 	def void visitToAddClasses(K3TransfoFootprint theSlicer){
 		if(!_self.sliced) {
-			_self.sliced = true
+			_self.sliced = true 
 			_self._visitToAddClasses(theSlicer)
 		}
 	}
@@ -115,7 +115,7 @@ abstract class __SlicerAspect__ {
 }
 
 @Aspect(className=typeof(JvmIdentifiableElement), with=#[typeof(__SlicerAspect__)])
-abstract class JvmIdentifiableElementAspect extends __SlicerAspect__{
+abstract class orgeclipsextextcommontypesJvmIdentifiableElementAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		theSlicer.onJvmIdentifiableElementSliced(_self)
@@ -129,8 +129,8 @@ abstract class JvmIdentifiableElementAspect extends __SlicerAspect__{
 	}
 }
 
-@Aspect(className=typeof(JvmType), with=#[typeof(JvmIdentifiableElementAspect)])
-abstract class JvmTypeAspect extends JvmIdentifiableElementAspect{
+@Aspect(className=typeof(JvmType), with=#[typeof(orgeclipsextextcommontypesJvmIdentifiableElementAspect)])
+abstract class orgeclipsextextcommontypesJvmTypeAspect extends orgeclipsextextcommontypesJvmIdentifiableElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -143,8 +143,8 @@ abstract class JvmTypeAspect extends JvmIdentifiableElementAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmVoid), with=#[typeof(JvmTypeAspect)])
-class JvmVoidAspect extends JvmTypeAspect{
+@Aspect(className=typeof(JvmVoid), with=#[typeof(orgeclipsextextcommontypesJvmTypeAspect)])
+class orgeclipsextextcommontypesJvmVoidAspect extends orgeclipsextextcommontypesJvmTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -157,8 +157,8 @@ class JvmVoidAspect extends JvmTypeAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmComponentType), with=#[typeof(JvmTypeAspect)])
-abstract class JvmComponentTypeAspect extends JvmTypeAspect{
+@Aspect(className=typeof(JvmComponentType), with=#[typeof(orgeclipsextextcommontypesJvmTypeAspect)])
+abstract class orgeclipsextextcommontypesJvmComponentTypeAspect extends orgeclipsextextcommontypesJvmTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -175,8 +175,8 @@ abstract class JvmComponentTypeAspect extends JvmTypeAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmPrimitiveType), with=#[typeof(JvmComponentTypeAspect)])
-class JvmPrimitiveTypeAspect extends JvmComponentTypeAspect{
+@Aspect(className=typeof(JvmPrimitiveType), with=#[typeof(orgeclipsextextcommontypesJvmComponentTypeAspect)])
+class orgeclipsextextcommontypesJvmPrimitiveTypeAspect extends orgeclipsextextcommontypesJvmComponentTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -189,8 +189,8 @@ class JvmPrimitiveTypeAspect extends JvmComponentTypeAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmArrayType), with=#[typeof(JvmComponentTypeAspect)])
-class JvmArrayTypeAspect extends JvmComponentTypeAspect{
+@Aspect(className=typeof(JvmArrayType), with=#[typeof(orgeclipsextextcommontypesJvmComponentTypeAspect)])
+class orgeclipsextextcommontypesJvmArrayTypeAspect extends orgeclipsextextcommontypesJvmComponentTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -207,8 +207,8 @@ class JvmArrayTypeAspect extends JvmComponentTypeAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmDeclaredType), with=#[typeof(JvmMemberAspect), typeof(JvmComponentTypeAspect)])
-abstract class JvmDeclaredTypeAspect extends JvmMemberAspect{
+@Aspect(className=typeof(JvmDeclaredType), with=#[typeof(orgeclipsextextcommontypesJvmMemberAspect), typeof(orgeclipsextextcommontypesJvmComponentTypeAspect)])
+abstract class orgeclipsextextcommontypesJvmDeclaredTypeAspect extends orgeclipsextextcommontypesJvmMemberAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super_JvmMember__visitToAddClasses(theSlicer)
@@ -227,8 +227,8 @@ abstract class JvmDeclaredTypeAspect extends JvmMemberAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmTypeParameter), with=#[typeof(JvmComponentTypeAspect), typeof(JvmConstraintOwnerAspect)])
-class JvmTypeParameterAspect extends JvmComponentTypeAspect{
+@Aspect(className=typeof(JvmTypeParameter), with=#[typeof(orgeclipsextextcommontypesJvmComponentTypeAspect), typeof(orgeclipsextextcommontypesJvmConstraintOwnerAspect)])
+class orgeclipsextextcommontypesJvmTypeParameterAspect extends orgeclipsextextcommontypesJvmComponentTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super_JvmComponentType__visitToAddClasses(theSlicer)
@@ -248,7 +248,7 @@ class JvmTypeParameterAspect extends JvmComponentTypeAspect{
 }
 
 @Aspect(className=typeof(JvmTypeParameterDeclarator), with=#[typeof(__SlicerAspect__)])
-abstract class JvmTypeParameterDeclaratorAspect extends __SlicerAspect__{
+abstract class orgeclipsextextcommontypesJvmTypeParameterDeclaratorAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -264,7 +264,7 @@ abstract class JvmTypeParameterDeclaratorAspect extends __SlicerAspect__{
 }
 
 @Aspect(className=typeof(JvmConstraintOwner), with=#[typeof(__SlicerAspect__)])
-abstract class JvmConstraintOwnerAspect extends __SlicerAspect__{
+abstract class orgeclipsextextcommontypesJvmConstraintOwnerAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -280,7 +280,7 @@ abstract class JvmConstraintOwnerAspect extends __SlicerAspect__{
 }
 
 @Aspect(className=typeof(JvmTypeConstraint), with=#[typeof(__SlicerAspect__)])
-abstract class JvmTypeConstraintAspect extends __SlicerAspect__{
+abstract class orgeclipsextextcommontypesJvmTypeConstraintAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -301,8 +301,8 @@ abstract class JvmTypeConstraintAspect extends __SlicerAspect__{
 	}
 }
 
-@Aspect(className=typeof(JvmUpperBound), with=#[typeof(JvmTypeConstraintAspect)])
-class JvmUpperBoundAspect extends JvmTypeConstraintAspect{
+@Aspect(className=typeof(JvmUpperBound), with=#[typeof(orgeclipsextextcommontypesJvmTypeConstraintAspect)])
+class orgeclipsextextcommontypesJvmUpperBoundAspect extends orgeclipsextextcommontypesJvmTypeConstraintAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -315,8 +315,8 @@ class JvmUpperBoundAspect extends JvmTypeConstraintAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmLowerBound), with=#[typeof(JvmTypeConstraintAspect)])
-class JvmLowerBoundAspect extends JvmTypeConstraintAspect{
+@Aspect(className=typeof(JvmLowerBound), with=#[typeof(orgeclipsextextcommontypesJvmTypeConstraintAspect)])
+class orgeclipsextextcommontypesJvmLowerBoundAspect extends orgeclipsextextcommontypesJvmTypeConstraintAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -329,8 +329,8 @@ class JvmLowerBoundAspect extends JvmTypeConstraintAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmAnnotationType), with=#[typeof(JvmDeclaredTypeAspect)])
-class JvmAnnotationTypeAspect extends JvmDeclaredTypeAspect{
+@Aspect(className=typeof(JvmAnnotationType), with=#[typeof(orgeclipsextextcommontypesJvmDeclaredTypeAspect)])
+class orgeclipsextextcommontypesJvmAnnotationTypeAspect extends orgeclipsextextcommontypesJvmDeclaredTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -343,8 +343,8 @@ class JvmAnnotationTypeAspect extends JvmDeclaredTypeAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmEnumerationType), with=#[typeof(JvmDeclaredTypeAspect)])
-class JvmEnumerationTypeAspect extends JvmDeclaredTypeAspect{
+@Aspect(className=typeof(JvmEnumerationType), with=#[typeof(orgeclipsextextcommontypesJvmDeclaredTypeAspect)])
+class orgeclipsextextcommontypesJvmEnumerationTypeAspect extends orgeclipsextextcommontypesJvmDeclaredTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -359,8 +359,8 @@ class JvmEnumerationTypeAspect extends JvmDeclaredTypeAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmEnumerationLiteral), with=#[typeof(JvmFieldAspect)])
-class JvmEnumerationLiteralAspect extends JvmFieldAspect{
+@Aspect(className=typeof(JvmEnumerationLiteral), with=#[typeof(orgeclipsextextcommontypesJvmFieldAspect)])
+class orgeclipsextextcommontypesJvmEnumerationLiteralAspect extends orgeclipsextextcommontypesJvmFieldAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -373,8 +373,8 @@ class JvmEnumerationLiteralAspect extends JvmFieldAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmGenericType), with=#[typeof(JvmDeclaredTypeAspect), typeof(JvmTypeParameterDeclaratorAspect)])
-class JvmGenericTypeAspect extends JvmDeclaredTypeAspect{
+@Aspect(className=typeof(JvmGenericType), with=#[typeof(orgeclipsextextcommontypesJvmDeclaredTypeAspect), typeof(orgeclipsextextcommontypesJvmTypeParameterDeclaratorAspect)])
+class orgeclipsextextcommontypesJvmGenericTypeAspect extends orgeclipsextextcommontypesJvmDeclaredTypeAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super_JvmDeclaredType__visitToAddClasses(theSlicer)
@@ -390,7 +390,7 @@ class JvmGenericTypeAspect extends JvmDeclaredTypeAspect{
 }
 
 @Aspect(className=typeof(JvmTypeReference), with=#[typeof(__SlicerAspect__)])
-abstract class JvmTypeReferenceAspect extends __SlicerAspect__{
+abstract class orgeclipsextextcommontypesJvmTypeReferenceAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		theSlicer.onJvmTypeReferenceSliced(_self)
@@ -404,8 +404,8 @@ abstract class JvmTypeReferenceAspect extends __SlicerAspect__{
 	}
 }
 
-@Aspect(className=typeof(JvmParameterizedTypeReference), with=#[typeof(JvmTypeReferenceAspect)])
-class JvmParameterizedTypeReferenceAspect extends JvmTypeReferenceAspect{
+@Aspect(className=typeof(JvmParameterizedTypeReference), with=#[typeof(orgeclipsextextcommontypesJvmTypeReferenceAspect)])
+class orgeclipsextextcommontypesJvmParameterizedTypeReferenceAspect extends orgeclipsextextcommontypesJvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -424,8 +424,8 @@ class JvmParameterizedTypeReferenceAspect extends JvmTypeReferenceAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmGenericArrayTypeReference), with=#[typeof(JvmTypeReferenceAspect)])
-class JvmGenericArrayTypeReferenceAspect extends JvmTypeReferenceAspect{
+@Aspect(className=typeof(JvmGenericArrayTypeReference), with=#[typeof(orgeclipsextextcommontypesJvmTypeReferenceAspect)])
+class orgeclipsextextcommontypesJvmGenericArrayTypeReferenceAspect extends orgeclipsextextcommontypesJvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -442,8 +442,8 @@ class JvmGenericArrayTypeReferenceAspect extends JvmTypeReferenceAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmWildcardTypeReference), with=#[typeof(JvmTypeReferenceAspect), typeof(JvmConstraintOwnerAspect)])
-class JvmWildcardTypeReferenceAspect extends JvmTypeReferenceAspect{
+@Aspect(className=typeof(JvmWildcardTypeReference), with=#[typeof(orgeclipsextextcommontypesJvmTypeReferenceAspect), typeof(orgeclipsextextcommontypesJvmConstraintOwnerAspect)])
+class orgeclipsextextcommontypesJvmWildcardTypeReferenceAspect extends orgeclipsextextcommontypesJvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super_JvmTypeReference__visitToAddClasses(theSlicer)
@@ -458,8 +458,8 @@ class JvmWildcardTypeReferenceAspect extends JvmTypeReferenceAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmAnyTypeReference), with=#[typeof(JvmTypeReferenceAspect)])
-class JvmAnyTypeReferenceAspect extends JvmTypeReferenceAspect{
+@Aspect(className=typeof(JvmAnyTypeReference), with=#[typeof(orgeclipsextextcommontypesJvmTypeReferenceAspect)])
+class orgeclipsextextcommontypesJvmAnyTypeReferenceAspect extends orgeclipsextextcommontypesJvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -476,8 +476,8 @@ class JvmAnyTypeReferenceAspect extends JvmTypeReferenceAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmMultiTypeReference), with=#[typeof(JvmCompoundTypeReferenceAspect)])
-class JvmMultiTypeReferenceAspect extends JvmCompoundTypeReferenceAspect{
+@Aspect(className=typeof(JvmMultiTypeReference), with=#[typeof(orgeclipsextextcommontypesJvmCompoundTypeReferenceAspect)])
+class orgeclipsextextcommontypesJvmMultiTypeReferenceAspect extends orgeclipsextextcommontypesJvmCompoundTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -490,8 +490,8 @@ class JvmMultiTypeReferenceAspect extends JvmCompoundTypeReferenceAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmMember), with=#[typeof(JvmAnnotationTargetAspect)])
-abstract class JvmMemberAspect extends JvmAnnotationTargetAspect{
+@Aspect(className=typeof(JvmMember), with=#[typeof(orgeclipsextextcommontypesJvmAnnotationTargetAspect)])
+abstract class orgeclipsextextcommontypesJvmMemberAspect extends orgeclipsextextcommontypesJvmAnnotationTargetAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -508,8 +508,8 @@ abstract class JvmMemberAspect extends JvmAnnotationTargetAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmFeature), with=#[typeof(JvmMemberAspect)])
-abstract class JvmFeatureAspect extends JvmMemberAspect{
+@Aspect(className=typeof(JvmFeature), with=#[typeof(orgeclipsextextcommontypesJvmMemberAspect)])
+abstract class orgeclipsextextcommontypesJvmFeatureAspect extends orgeclipsextextcommontypesJvmMemberAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -522,8 +522,8 @@ abstract class JvmFeatureAspect extends JvmMemberAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmField), with=#[typeof(JvmFeatureAspect)])
-class JvmFieldAspect extends JvmFeatureAspect{
+@Aspect(className=typeof(JvmField), with=#[typeof(orgeclipsextextcommontypesJvmFeatureAspect)])
+class orgeclipsextextcommontypesJvmFieldAspect extends orgeclipsextextcommontypesJvmFeatureAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -540,8 +540,8 @@ class JvmFieldAspect extends JvmFeatureAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmExecutable), with=#[typeof(JvmFeatureAspect), typeof(JvmTypeParameterDeclaratorAspect)])
-abstract class JvmExecutableAspect extends JvmFeatureAspect{
+@Aspect(className=typeof(JvmExecutable), with=#[typeof(orgeclipsextextcommontypesJvmFeatureAspect), typeof(orgeclipsextextcommontypesJvmTypeParameterDeclaratorAspect)])
+abstract class orgeclipsextextcommontypesJvmExecutableAspect extends orgeclipsextextcommontypesJvmFeatureAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super_JvmFeature__visitToAddClasses(theSlicer)
@@ -560,8 +560,8 @@ abstract class JvmExecutableAspect extends JvmFeatureAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmConstructor), with=#[typeof(JvmExecutableAspect)])
-class JvmConstructorAspect extends JvmExecutableAspect{
+@Aspect(className=typeof(JvmConstructor), with=#[typeof(orgeclipsextextcommontypesJvmExecutableAspect)])
+class orgeclipsextextcommontypesJvmConstructorAspect extends orgeclipsextextcommontypesJvmExecutableAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -574,8 +574,8 @@ class JvmConstructorAspect extends JvmExecutableAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmOperation), with=#[typeof(JvmExecutableAspect)])
-class JvmOperationAspect extends JvmExecutableAspect{
+@Aspect(className=typeof(JvmOperation), with=#[typeof(orgeclipsextextcommontypesJvmExecutableAspect)])
+class orgeclipsextextcommontypesJvmOperationAspect extends orgeclipsextextcommontypesJvmExecutableAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -596,8 +596,8 @@ class JvmOperationAspect extends JvmExecutableAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmFormalParameter), with=#[typeof(JvmAnnotationTargetAspect)])
-class JvmFormalParameterAspect extends JvmAnnotationTargetAspect{
+@Aspect(className=typeof(JvmFormalParameter), with=#[typeof(orgeclipsextextcommontypesJvmAnnotationTargetAspect)])
+class orgeclipsextextcommontypesJvmFormalParameterAspect extends orgeclipsextextcommontypesJvmAnnotationTargetAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -614,8 +614,8 @@ class JvmFormalParameterAspect extends JvmAnnotationTargetAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmAnnotationTarget), with=#[typeof(JvmIdentifiableElementAspect)])
-abstract class JvmAnnotationTargetAspect extends JvmIdentifiableElementAspect{
+@Aspect(className=typeof(JvmAnnotationTarget), with=#[typeof(orgeclipsextextcommontypesJvmIdentifiableElementAspect)])
+abstract class orgeclipsextextcommontypesJvmAnnotationTargetAspect extends orgeclipsextextcommontypesJvmIdentifiableElementAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -631,7 +631,7 @@ abstract class JvmAnnotationTargetAspect extends JvmIdentifiableElementAspect{
 }
 
 @Aspect(className=typeof(JvmAnnotationReference), with=#[typeof(__SlicerAspect__)])
-class JvmAnnotationReferenceAspect extends __SlicerAspect__{
+class orgeclipsextextcommontypesJvmAnnotationReferenceAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -651,7 +651,7 @@ class JvmAnnotationReferenceAspect extends __SlicerAspect__{
 }
 
 @Aspect(className=typeof(JvmAnnotationValue), with=#[typeof(__SlicerAspect__)])
-abstract class JvmAnnotationValueAspect extends __SlicerAspect__{
+abstract class orgeclipsextextcommontypesJvmAnnotationValueAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -668,8 +668,8 @@ abstract class JvmAnnotationValueAspect extends __SlicerAspect__{
 	}
 }
 
-@Aspect(className=typeof(JvmIntAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
-class JvmIntAnnotationValueAspect extends JvmAnnotationValueAspect{
+@Aspect(className=typeof(JvmIntAnnotationValue), with=#[typeof(orgeclipsextextcommontypesJvmAnnotationValueAspect)])
+class orgeclipsextextcommontypesJvmIntAnnotationValueAspect extends orgeclipsextextcommontypesJvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -682,8 +682,8 @@ class JvmIntAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmBooleanAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
-class JvmBooleanAnnotationValueAspect extends JvmAnnotationValueAspect{
+@Aspect(className=typeof(JvmBooleanAnnotationValue), with=#[typeof(orgeclipsextextcommontypesJvmAnnotationValueAspect)])
+class orgeclipsextextcommontypesJvmBooleanAnnotationValueAspect extends orgeclipsextextcommontypesJvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -696,8 +696,8 @@ class JvmBooleanAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmByteAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
-class JvmByteAnnotationValueAspect extends JvmAnnotationValueAspect{
+@Aspect(className=typeof(JvmByteAnnotationValue), with=#[typeof(orgeclipsextextcommontypesJvmAnnotationValueAspect)])
+class orgeclipsextextcommontypesJvmByteAnnotationValueAspect extends orgeclipsextextcommontypesJvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -710,8 +710,8 @@ class JvmByteAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmShortAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
-class JvmShortAnnotationValueAspect extends JvmAnnotationValueAspect{
+@Aspect(className=typeof(JvmShortAnnotationValue), with=#[typeof(orgeclipsextextcommontypesJvmAnnotationValueAspect)])
+class orgeclipsextextcommontypesJvmShortAnnotationValueAspect extends orgeclipsextextcommontypesJvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -724,8 +724,8 @@ class JvmShortAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmLongAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
-class JvmLongAnnotationValueAspect extends JvmAnnotationValueAspect{
+@Aspect(className=typeof(JvmLongAnnotationValue), with=#[typeof(orgeclipsextextcommontypesJvmAnnotationValueAspect)])
+class orgeclipsextextcommontypesJvmLongAnnotationValueAspect extends orgeclipsextextcommontypesJvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -738,8 +738,8 @@ class JvmLongAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmDoubleAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
-class JvmDoubleAnnotationValueAspect extends JvmAnnotationValueAspect{
+@Aspect(className=typeof(JvmDoubleAnnotationValue), with=#[typeof(orgeclipsextextcommontypesJvmAnnotationValueAspect)])
+class orgeclipsextextcommontypesJvmDoubleAnnotationValueAspect extends orgeclipsextextcommontypesJvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -752,8 +752,8 @@ class JvmDoubleAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmFloatAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
-class JvmFloatAnnotationValueAspect extends JvmAnnotationValueAspect{
+@Aspect(className=typeof(JvmFloatAnnotationValue), with=#[typeof(orgeclipsextextcommontypesJvmAnnotationValueAspect)])
+class orgeclipsextextcommontypesJvmFloatAnnotationValueAspect extends orgeclipsextextcommontypesJvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -766,8 +766,8 @@ class JvmFloatAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmCharAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
-class JvmCharAnnotationValueAspect extends JvmAnnotationValueAspect{
+@Aspect(className=typeof(JvmCharAnnotationValue), with=#[typeof(orgeclipsextextcommontypesJvmAnnotationValueAspect)])
+class orgeclipsextextcommontypesJvmCharAnnotationValueAspect extends orgeclipsextextcommontypesJvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -780,8 +780,8 @@ class JvmCharAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmStringAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
-class JvmStringAnnotationValueAspect extends JvmAnnotationValueAspect{
+@Aspect(className=typeof(JvmStringAnnotationValue), with=#[typeof(orgeclipsextextcommontypesJvmAnnotationValueAspect)])
+class orgeclipsextextcommontypesJvmStringAnnotationValueAspect extends orgeclipsextextcommontypesJvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -794,24 +794,8 @@ class JvmStringAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmTypeAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
-class JvmTypeAnnotationValueAspect extends JvmAnnotationValueAspect{
-	@OverrideAspectMethod
-	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
-		_self.super__visitToAddClasses(theSlicer)
-		_self.^values.forEach[visitToAddClasses(theSlicer)]
-
-	}
-	@OverrideAspectMethod
-	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
-		_self.super__visitToAddRelations(theSlicer)
-		_self.^values.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
-
-	}
-}
-
-@Aspect(className=typeof(JvmAnnotationAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
-class JvmAnnotationAnnotationValueAspect extends JvmAnnotationValueAspect{
+@Aspect(className=typeof(JvmTypeAnnotationValue), with=#[typeof(orgeclipsextextcommontypesJvmAnnotationValueAspect)])
+class orgeclipsextextcommontypesJvmTypeAnnotationValueAspect extends orgeclipsextextcommontypesJvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -826,8 +810,8 @@ class JvmAnnotationAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmEnumAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
-class JvmEnumAnnotationValueAspect extends JvmAnnotationValueAspect{
+@Aspect(className=typeof(JvmAnnotationAnnotationValue), with=#[typeof(orgeclipsextextcommontypesJvmAnnotationValueAspect)])
+class orgeclipsextextcommontypesJvmAnnotationAnnotationValueAspect extends orgeclipsextextcommontypesJvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -842,8 +826,24 @@ class JvmEnumAnnotationValueAspect extends JvmAnnotationValueAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmDelegateTypeReference), with=#[typeof(JvmTypeReferenceAspect)])
-class JvmDelegateTypeReferenceAspect extends JvmTypeReferenceAspect{
+@Aspect(className=typeof(JvmEnumAnnotationValue), with=#[typeof(orgeclipsextextcommontypesJvmAnnotationValueAspect)])
+class orgeclipsextextcommontypesJvmEnumAnnotationValueAspect extends orgeclipsextextcommontypesJvmAnnotationValueAspect{
+	@OverrideAspectMethod
+	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+		_self.super__visitToAddClasses(theSlicer)
+		_self.^values.forEach[visitToAddClasses(theSlicer)]
+
+	}
+	@OverrideAspectMethod
+	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+		_self.super__visitToAddRelations(theSlicer)
+		_self.^values.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
+
+	}
+}
+
+@Aspect(className=typeof(JvmDelegateTypeReference), with=#[typeof(orgeclipsextextcommontypesJvmTypeReferenceAspect)])
+class orgeclipsextextcommontypesJvmDelegateTypeReferenceAspect extends orgeclipsextextcommontypesJvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -860,8 +860,8 @@ class JvmDelegateTypeReferenceAspect extends JvmTypeReferenceAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmSpecializedTypeReference), with=#[typeof(JvmTypeReferenceAspect)])
-abstract class JvmSpecializedTypeReferenceAspect extends JvmTypeReferenceAspect{
+@Aspect(className=typeof(JvmSpecializedTypeReference), with=#[typeof(orgeclipsextextcommontypesJvmTypeReferenceAspect)])
+abstract class orgeclipsextextcommontypesJvmSpecializedTypeReferenceAspect extends orgeclipsextextcommontypesJvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -878,8 +878,8 @@ abstract class JvmSpecializedTypeReferenceAspect extends JvmTypeReferenceAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmSynonymTypeReference), with=#[typeof(JvmCompoundTypeReferenceAspect)])
-class JvmSynonymTypeReferenceAspect extends JvmCompoundTypeReferenceAspect{
+@Aspect(className=typeof(JvmSynonymTypeReference), with=#[typeof(orgeclipsextextcommontypesJvmCompoundTypeReferenceAspect)])
+class orgeclipsextextcommontypesJvmSynonymTypeReferenceAspect extends orgeclipsextextcommontypesJvmCompoundTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -892,8 +892,8 @@ class JvmSynonymTypeReferenceAspect extends JvmCompoundTypeReferenceAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmUnknownTypeReference), with=#[typeof(JvmTypeReferenceAspect)])
-class JvmUnknownTypeReferenceAspect extends JvmTypeReferenceAspect{
+@Aspect(className=typeof(JvmUnknownTypeReference), with=#[typeof(orgeclipsextextcommontypesJvmTypeReferenceAspect)])
+class orgeclipsextextcommontypesJvmUnknownTypeReferenceAspect extends orgeclipsextextcommontypesJvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -906,8 +906,8 @@ class JvmUnknownTypeReferenceAspect extends JvmTypeReferenceAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmCompoundTypeReference), with=#[typeof(JvmTypeReferenceAspect)])
-abstract class JvmCompoundTypeReferenceAspect extends JvmTypeReferenceAspect{
+@Aspect(className=typeof(JvmCompoundTypeReference), with=#[typeof(orgeclipsextextcommontypesJvmTypeReferenceAspect)])
+abstract class orgeclipsextextcommontypesJvmCompoundTypeReferenceAspect extends orgeclipsextextcommontypesJvmTypeReferenceAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -926,8 +926,8 @@ abstract class JvmCompoundTypeReferenceAspect extends JvmTypeReferenceAspect{
 	}
 }
 
-@Aspect(className=typeof(JvmCustomAnnotationValue), with=#[typeof(JvmAnnotationValueAspect)])
-class JvmCustomAnnotationValueAspect extends JvmAnnotationValueAspect{
+@Aspect(className=typeof(JvmCustomAnnotationValue), with=#[typeof(orgeclipsextextcommontypesJvmAnnotationValueAspect)])
+class orgeclipsextextcommontypesJvmCustomAnnotationValueAspect extends orgeclipsextextcommontypesJvmAnnotationValueAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -941,7 +941,7 @@ class JvmCustomAnnotationValueAspect extends JvmAnnotationValueAspect{
 }
 
 @Aspect(className=typeof(XExpression), with=#[typeof(__SlicerAspect__)])
-abstract class XExpressionAspect extends __SlicerAspect__{
+abstract class orgeclipsextextxbaseXExpressionAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -954,8 +954,8 @@ abstract class XExpressionAspect extends __SlicerAspect__{
 	}
 }
 
-@Aspect(className=typeof(XIfExpression), with=#[typeof(XExpressionAspect)])
-class XIfExpressionAspect extends XExpressionAspect{
+@Aspect(className=typeof(XIfExpression), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
+class orgeclipsextextxbaseXIfExpressionAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -980,8 +980,8 @@ class XIfExpressionAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XSwitchExpression), with=#[typeof(XExpressionAspect)])
-class XSwitchExpressionAspect extends XExpressionAspect{
+@Aspect(className=typeof(XSwitchExpression), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
+class orgeclipsextextxbaseXSwitchExpressionAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1005,7 +1005,7 @@ class XSwitchExpressionAspect extends XExpressionAspect{
 }
 
 @Aspect(className=typeof(XCasePart), with=#[typeof(__SlicerAspect__)])
-class XCasePartAspect extends __SlicerAspect__{
+class orgeclipsextextxbaseXCasePartAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1030,8 +1030,8 @@ class XCasePartAspect extends __SlicerAspect__{
 	}
 }
 
-@Aspect(className=typeof(XBlockExpression), with=#[typeof(XExpressionAspect)])
-class XBlockExpressionAspect extends XExpressionAspect{
+@Aspect(className=typeof(XBlockExpression), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
+class orgeclipsextextxbaseXBlockExpressionAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1046,8 +1046,8 @@ class XBlockExpressionAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XVariableDeclaration), with=#[typeof(XExpressionAspect)])
-class XVariableDeclarationAspect extends XExpressionAspect{
+@Aspect(className=typeof(XVariableDeclaration), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
+class orgeclipsextextxbaseXVariableDeclarationAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1068,8 +1068,8 @@ class XVariableDeclarationAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XAbstractFeatureCall), with=#[typeof(XExpressionAspect)])
-abstract class XAbstractFeatureCallAspect extends XExpressionAspect{
+@Aspect(className=typeof(XAbstractFeatureCall), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
+abstract class orgeclipsextextxbaseXAbstractFeatureCallAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1096,8 +1096,8 @@ abstract class XAbstractFeatureCallAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XMemberFeatureCall), with=#[typeof(XAbstractFeatureCallAspect)])
-class XMemberFeatureCallAspect extends XAbstractFeatureCallAspect{
+@Aspect(className=typeof(XMemberFeatureCall), with=#[typeof(orgeclipsextextxbaseXAbstractFeatureCallAspect)])
+class orgeclipsextextxbaseXMemberFeatureCallAspect extends orgeclipsextextxbaseXAbstractFeatureCallAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1116,8 +1116,8 @@ class XMemberFeatureCallAspect extends XAbstractFeatureCallAspect{
 	}
 }
 
-@Aspect(className=typeof(XFeatureCall), with=#[typeof(XAbstractFeatureCallAspect)])
-class XFeatureCallAspect extends XAbstractFeatureCallAspect{
+@Aspect(className=typeof(XFeatureCall), with=#[typeof(orgeclipsextextxbaseXAbstractFeatureCallAspect)])
+class orgeclipsextextxbaseXFeatureCallAspect extends orgeclipsextextxbaseXAbstractFeatureCallAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1132,8 +1132,8 @@ class XFeatureCallAspect extends XAbstractFeatureCallAspect{
 	}
 }
 
-@Aspect(className=typeof(XConstructorCall), with=#[typeof(XExpressionAspect)])
-class XConstructorCallAspect extends XExpressionAspect{
+@Aspect(className=typeof(XConstructorCall), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
+class orgeclipsextextxbaseXConstructorCallAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1152,8 +1152,8 @@ class XConstructorCallAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XBooleanLiteral), with=#[typeof(XExpressionAspect)])
-class XBooleanLiteralAspect extends XExpressionAspect{
+@Aspect(className=typeof(XBooleanLiteral), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
+class orgeclipsextextxbaseXBooleanLiteralAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1166,8 +1166,8 @@ class XBooleanLiteralAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XNullLiteral), with=#[typeof(XExpressionAspect)])
-class XNullLiteralAspect extends XExpressionAspect{
+@Aspect(className=typeof(XNullLiteral), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
+class orgeclipsextextxbaseXNullLiteralAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1180,8 +1180,8 @@ class XNullLiteralAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XNumberLiteral), with=#[typeof(XExpressionAspect)])
-class XNumberLiteralAspect extends XExpressionAspect{
+@Aspect(className=typeof(XNumberLiteral), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
+class orgeclipsextextxbaseXNumberLiteralAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1194,8 +1194,8 @@ class XNumberLiteralAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XStringLiteral), with=#[typeof(XExpressionAspect)])
-class XStringLiteralAspect extends XExpressionAspect{
+@Aspect(className=typeof(XStringLiteral), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
+class orgeclipsextextxbaseXStringLiteralAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1208,8 +1208,8 @@ class XStringLiteralAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XCollectionLiteral), with=#[typeof(XExpressionAspect)])
-abstract class XCollectionLiteralAspect extends XExpressionAspect{
+@Aspect(className=typeof(XCollectionLiteral), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
+abstract class orgeclipsextextxbaseXCollectionLiteralAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1224,8 +1224,8 @@ abstract class XCollectionLiteralAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XListLiteral), with=#[typeof(XCollectionLiteralAspect)])
-class XListLiteralAspect extends XCollectionLiteralAspect{
+@Aspect(className=typeof(XListLiteral), with=#[typeof(orgeclipsextextxbaseXCollectionLiteralAspect)])
+class orgeclipsextextxbaseXListLiteralAspect extends orgeclipsextextxbaseXCollectionLiteralAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1238,8 +1238,8 @@ class XListLiteralAspect extends XCollectionLiteralAspect{
 	}
 }
 
-@Aspect(className=typeof(XSetLiteral), with=#[typeof(XCollectionLiteralAspect)])
-class XSetLiteralAspect extends XCollectionLiteralAspect{
+@Aspect(className=typeof(XSetLiteral), with=#[typeof(orgeclipsextextxbaseXCollectionLiteralAspect)])
+class orgeclipsextextxbaseXSetLiteralAspect extends orgeclipsextextxbaseXCollectionLiteralAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1252,8 +1252,8 @@ class XSetLiteralAspect extends XCollectionLiteralAspect{
 	}
 }
 
-@Aspect(className=typeof(XClosure), with=#[typeof(XExpressionAspect)])
-class XClosureAspect extends XExpressionAspect{
+@Aspect(className=typeof(XClosure), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
+class orgeclipsextextxbaseXClosureAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1276,8 +1276,8 @@ class XClosureAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XCastedExpression), with=#[typeof(XExpressionAspect)])
-class XCastedExpressionAspect extends XExpressionAspect{
+@Aspect(className=typeof(XCastedExpression), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
+class orgeclipsextextxbaseXCastedExpressionAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1298,8 +1298,8 @@ class XCastedExpressionAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XBinaryOperation), with=#[typeof(XAbstractFeatureCallAspect)])
-class XBinaryOperationAspect extends XAbstractFeatureCallAspect{
+@Aspect(className=typeof(XBinaryOperation), with=#[typeof(orgeclipsextextxbaseXAbstractFeatureCallAspect)])
+class orgeclipsextextxbaseXBinaryOperationAspect extends orgeclipsextextxbaseXAbstractFeatureCallAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1320,8 +1320,8 @@ class XBinaryOperationAspect extends XAbstractFeatureCallAspect{
 	}
 }
 
-@Aspect(className=typeof(XUnaryOperation), with=#[typeof(XAbstractFeatureCallAspect)])
-class XUnaryOperationAspect extends XAbstractFeatureCallAspect{
+@Aspect(className=typeof(XUnaryOperation), with=#[typeof(orgeclipsextextxbaseXAbstractFeatureCallAspect)])
+class orgeclipsextextxbaseXUnaryOperationAspect extends orgeclipsextextxbaseXAbstractFeatureCallAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1338,8 +1338,8 @@ class XUnaryOperationAspect extends XAbstractFeatureCallAspect{
 	}
 }
 
-@Aspect(className=typeof(XForLoopExpression), with=#[typeof(XExpressionAspect)])
-class XForLoopExpressionAspect extends XExpressionAspect{
+@Aspect(className=typeof(XForLoopExpression), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
+class orgeclipsextextxbaseXForLoopExpressionAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1364,8 +1364,8 @@ class XForLoopExpressionAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XAbstractWhileExpression), with=#[typeof(XExpressionAspect)])
-abstract class XAbstractWhileExpressionAspect extends XExpressionAspect{
+@Aspect(className=typeof(XAbstractWhileExpression), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
+abstract class orgeclipsextextxbaseXAbstractWhileExpressionAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1386,8 +1386,8 @@ abstract class XAbstractWhileExpressionAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XDoWhileExpression), with=#[typeof(XAbstractWhileExpressionAspect)])
-class XDoWhileExpressionAspect extends XAbstractWhileExpressionAspect{
+@Aspect(className=typeof(XDoWhileExpression), with=#[typeof(orgeclipsextextxbaseXAbstractWhileExpressionAspect)])
+class orgeclipsextextxbaseXDoWhileExpressionAspect extends orgeclipsextextxbaseXAbstractWhileExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1400,8 +1400,8 @@ class XDoWhileExpressionAspect extends XAbstractWhileExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XWhileExpression), with=#[typeof(XAbstractWhileExpressionAspect)])
-class XWhileExpressionAspect extends XAbstractWhileExpressionAspect{
+@Aspect(className=typeof(XWhileExpression), with=#[typeof(orgeclipsextextxbaseXAbstractWhileExpressionAspect)])
+class orgeclipsextextxbaseXWhileExpressionAspect extends orgeclipsextextxbaseXAbstractWhileExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1414,8 +1414,8 @@ class XWhileExpressionAspect extends XAbstractWhileExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XTypeLiteral), with=#[typeof(XExpressionAspect)])
-class XTypeLiteralAspect extends XExpressionAspect{
+@Aspect(className=typeof(XTypeLiteral), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
+class orgeclipsextextxbaseXTypeLiteralAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1432,8 +1432,8 @@ class XTypeLiteralAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XInstanceOfExpression), with=#[typeof(XExpressionAspect)])
-class XInstanceOfExpressionAspect extends XExpressionAspect{
+@Aspect(className=typeof(XInstanceOfExpression), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
+class orgeclipsextextxbaseXInstanceOfExpressionAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1454,8 +1454,8 @@ class XInstanceOfExpressionAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XThrowExpression), with=#[typeof(XExpressionAspect)])
-class XThrowExpressionAspect extends XExpressionAspect{
+@Aspect(className=typeof(XThrowExpression), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
+class orgeclipsextextxbaseXThrowExpressionAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1472,8 +1472,8 @@ class XThrowExpressionAspect extends XExpressionAspect{
 	}
 }
 
-@Aspect(className=typeof(XTryCatchFinallyExpression), with=#[typeof(XExpressionAspect)])
-class XTryCatchFinallyExpressionAspect extends XExpressionAspect{
+@Aspect(className=typeof(XTryCatchFinallyExpression), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
+class orgeclipsextextxbaseXTryCatchFinallyExpressionAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1497,7 +1497,7 @@ class XTryCatchFinallyExpressionAspect extends XExpressionAspect{
 }
 
 @Aspect(className=typeof(XCatchClause), with=#[typeof(__SlicerAspect__)])
-class XCatchClauseAspect extends __SlicerAspect__{
+class orgeclipsextextxbaseXCatchClauseAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1518,8 +1518,8 @@ class XCatchClauseAspect extends __SlicerAspect__{
 	}
 }
 
-@Aspect(className=typeof(XAssignment), with=#[typeof(XAbstractFeatureCallAspect)])
-class XAssignmentAspect extends XAbstractFeatureCallAspect{
+@Aspect(className=typeof(XAssignment), with=#[typeof(orgeclipsextextxbaseXAbstractFeatureCallAspect)])
+class orgeclipsextextxbaseXAssignmentAspect extends orgeclipsextextxbaseXAbstractFeatureCallAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1540,8 +1540,8 @@ class XAssignmentAspect extends XAbstractFeatureCallAspect{
 	}
 }
 
-@Aspect(className=typeof(XReturnExpression), with=#[typeof(XExpressionAspect)])
-class XReturnExpressionAspect extends XExpressionAspect{
+@Aspect(className=typeof(XReturnExpression), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
+class orgeclipsextextxbaseXReturnExpressionAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)

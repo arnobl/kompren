@@ -1,4 +1,4 @@
-package superTypesSlicer
+package supertypesslicer
 
 import ex.classModel.ClassModel
 import ex.classModel.Clazz
@@ -34,7 +34,7 @@ abstract class __SlicerAspect__ {
 }
 
 @Aspect(className=typeof(ClassModel), with=#[typeof(__SlicerAspect__)])
-class ClassModelAspect extends __SlicerAspect__{
+class exclassModelClassModelAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(SuperTypesSlicer theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -48,7 +48,7 @@ class ClassModelAspect extends __SlicerAspect__{
 }
 
 @Aspect(className=typeof(Clazz), with=#[typeof(__SlicerAspect__)])
-class ClazzAspect extends __SlicerAspect__{
+class exclassModelClazzAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddClasses(SuperTypesSlicer theSlicer){
 		theSlicer.onClazzSliced(_self)

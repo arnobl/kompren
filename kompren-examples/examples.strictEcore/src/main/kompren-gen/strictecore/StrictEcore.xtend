@@ -1,4 +1,4 @@
-package strictEcore
+package strictecore
 
 import java.util.Collections
 import java.util.List
@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 
-import static extension strictEcore.__SlicerAspect__.*
+import static extension strictecore.__SlicerAspect__.*
 
 class StrictEcore{
 	val List<EModelElement> inputEModelElement

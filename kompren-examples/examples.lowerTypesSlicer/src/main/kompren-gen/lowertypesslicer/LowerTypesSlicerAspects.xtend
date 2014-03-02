@@ -1,14 +1,13 @@
-package lowerTypesSlicer
+package lowertypesslicer
 
 import ex.classModel.ClassModel
 import ex.classModel.Clazz
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
-import java.util.ArrayList
 import java.util.List
 import org.eclipse.emf.ecore.EObject
 
-import static extension lowerTypesSlicer.ClazzAspect.*
+import static extension lowertypesslicer.exclassModelClazzAspect.*
 
 @Aspect(className=typeof(Object))
 abstract class __SlicerAspect__ {
@@ -38,7 +37,7 @@ abstract class __SlicerAspect__ {
 }
 
 @Aspect(className=typeof(ClassModel), with=#[typeof(__SlicerAspect__)])
-class ClassModelAspect extends __SlicerAspect__{
+class exclassModelClassModelAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void feedOpposites(){
 _self.^classes.forEach[feedOpposites]
@@ -58,8 +57,8 @@ _self.^classes.forEach[feedOpposites]
 }
 
 @Aspect(className=typeof(Clazz), with=#[typeof(__SlicerAspect__)])
-class ClazzAspect extends __SlicerAspect__{
-	val List<Clazz> ^lowerType = new ArrayList
+class exclassModelClazzAspect extends __SlicerAspect__{
+	val List<Clazz> ^lowerType = newArrayList
 
 	@OverrideAspectMethod
 	def void feedOpposites(){
