@@ -1,3 +1,9 @@
+/*
+ * Licence  : EPL
+ * Copyright: Inria Rennes, Diverse
+ * Authors  : Arnaud Blouin
+ */
+ 
 package fr.inria.diverse.kompren.compiler
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect

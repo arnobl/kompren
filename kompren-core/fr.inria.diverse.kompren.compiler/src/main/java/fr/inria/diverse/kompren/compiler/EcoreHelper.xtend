@@ -1,7 +1,7 @@
 /*
  * Creation : November 22, 2010
  * Licence  : EPL
- * Copyright: INRIA Rennes, Triskell
+ * Copyright: Inria Rennes, Diverse
  * Authors  : Arnaud Blouin
  */
 package fr.inria.diverse.kompren.compiler

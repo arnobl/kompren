@@ -1,3 +1,8 @@
+/*
+ * Licence  : EPL
+ * Copyright: Inria Rennes, Diverse
+ * Authors  : Arnaud Blouin
+ */
 package fr.inria.diverse.kompren.compiler
 
 import java.io.PrintWriter
