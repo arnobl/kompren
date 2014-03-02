@@ -28,12 +28,25 @@ import org.eclipse.emf.ecore.ENamedElement
 
 @Aspect(className=typeof(ENamedElement))
 class ENamedEltAspect {
-	def String qName(String sep) {
-		var _qName = _self.name
+	private var String qNameSep = null
+	private var String qNameNoSep = null
+	
+	def String qName(boolean withSep) {
+		if(withSep && _self.qNameSep!=null) return _self.qNameSep
+		if(!withSep && _self.qNameNoSep!=null) return _self.qNameNoSep
+
+		val sep = if(withSep) "." else ""
+		var _qName = _self.getName4QName(withSep)
 		if(_self.eContainer instanceof ENamedElement) 
-			_qName = (_self.eContainer as ENamedElement).qName(sep) + sep + _qName
+			_qName = (_self.eContainer as ENamedElement).qName(withSep) + sep + _qName
+			
+		if(withSep) _self.qNameSep = _qName
+		else _self.qNameNoSep = _qName
+
 		_qName
 	}
+	
+	protected def String getName4QName(boolean withSep) { _self.name }
 }
 
 @Aspect(className=typeof(EClassifier)) class EClassifierAspect extends ENamedEltAspect{
@@ -74,7 +87,17 @@ class ENamedEltAspect {
 
 @Aspect(className=typeof(EPackage)) class EPackageAspect extends ENamedEltAspect {
 	private var String _factoryName = null
+	protected var String pkgPrefix = ""
+	protected var String pkgPrefixNoSep = ""
+
+
+	@OverrideAspectMethod
+	protected def String getName4QName(boolean withSep) {
+		val pkgPref = if(withSep) _self.pkgPrefix else _self.pkgPrefixNoSep
+		return pkgPref + _self.name
+	}
 	
+
 	def void feedSubClassesRelations() {
 		_self.EClassifiers.forEach[feedSubClassesRelations]
 		_self.ESubpackages.forEach[feedSubClassesRelations]
@@ -82,11 +105,8 @@ class ENamedEltAspect {
 	
 	def String factoryName() {
 		if(_self._factoryName==null) {
-			var qn = _self.qName('.')
-			val index = qn.lastIndexOf('.')
-			if(index==-1) qn = qn + "."
-			else qn = qn.substring(0, index)
-			_self._factoryName = qn+Character.toUpperCase(_self.name.charAt(0))+_self.name.substring(1)+"Factory"
+			var qn = _self.qName(true)
+			_self._factoryName = qn+'.'+Character.toUpperCase(_self.name.charAt(0))+_self.name.substring(1)+"Factory"
 		}
 		_self._factoryName
 	}
@@ -138,9 +158,9 @@ class ENamedEltAspect {
 			if(sp.opposite.name==null || sp.opposite.name.length==0)
 				sp.opposite.name = "opposite"+sp.domain.name
 			if(sp.domain.upperBound==1)
-				_self.oppositeAttr.append("\tvar ").append(sp.domain.EType.name).append(' ^').append(sp.opposite.name).append("\n\n")
+				_self.oppositeAttr.append("\tvar ").append(sp.domain.EType.qName(true)).append(' ^').append(sp.opposite.name).append("\n\n")
 			else
-				_self.oppositeAttr.append("\tval java.util.List<").append(sp.domain.EType.name).append("> ^").append(sp.opposite.name).append(" = newArrayList\n\n")
+				_self.oppositeAttr.append("\tval java.util.List<").append(sp.domain.EType.qName(true)).append("> ^").append(sp.opposite.name).append(" = newArrayList\n\n")
 		}	
 	}	
 
@@ -240,13 +260,13 @@ class ENamedEltAspect {
 			_self.relationCode.append(") ")
 			if(slicer.strict)
 				if(isPrim)
-					_self.relationCode.append("(_self.clonedElt as ").append(_self.qName('.')).append(").^").append(name).append(" = _self.^").append(name).append('\n')
+					_self.relationCode.append("(_self.clonedElt as ").append(_self.qName(true)).append(").^").append(name).append(" = _self.^").append(name).append('\n')
 				else
 					if(!sp.domain.changeable && hasOpposite)
 						_self.generateCodeForReadOnlyRefWithOpposite(sp)
 					else
-						_self.relationCode.append("(_self.clonedElt as ").append(_self.qName('.')).append(").^").append(name).
-						append(" = _self.^").append(name).append(".clonedElt as ").append(sp.domain.EType.qName('.')).append('\n')
+						_self.relationCode.append("(_self.clonedElt as ").append(_self.qName(true)).append(").^").append(name).
+						append(" = _self.^").append(name).append(".clonedElt as ").append(sp.domain.EType.qName(true)).append('\n')
 			else
 				_self.relationCode.append("\t\ttheSlicer.on").append(name).append("Sliced(_self").append(", _self.^").append(name).append(")\n")
 		}
@@ -273,8 +293,8 @@ class ENamedEltAspect {
 				else {
 					if(!sp.domain.changeable && hasOpposite)
 						_self.generateCodeForReadOnlyRefWithOpposite(sp)
-					else _self.relationCode.append("(_self.clonedElt as ").append(_self.qName('.')).append(").^").append(name).
-					append(".add( _elt.clonedElt as ").append(sp.domain.EType.qName('.')).append(")\n")
+					else _self.relationCode.append("(_self.clonedElt as ").append(_self.qName(true)).append(").^").append(name).
+					append(".add( _elt.clonedElt as ").append(sp.domain.EType.qName(true)).append(")\n")
 				}
 			else
 				_self.relationCode.append("theSlicer.on").append(name).append("Sliced(_self").append(", _elt)\n")
@@ -285,10 +305,10 @@ class ENamedEltAspect {
 	
 	private def void generateCodeForReadOnlyRefWithOpposite(SlicedProperty sp) {
 		val refOpp = (sp.domain as EReference).EOpposite
-		_self.relationCode.append("(_self.").append(sp.domain.xtendName).append(".clonedElt as ").append(sp.domain.EType.qName('.')).append(").^").append(refOpp.xtendName)
+		_self.relationCode.append("(_self.").append(sp.domain.xtendName).append(".clonedElt as ").append(sp.domain.EType.qName(true)).append(").^").append(refOpp.xtendName)
 		if(refOpp.upperBound<0 || refOpp.upperBound>1)
-			_self.relationCode.append(".add(_self.clonedElt as ").append(refOpp.EType.qName('.')).append(")\n")
+			_self.relationCode.append(".add(_self.clonedElt as ").append(refOpp.EType.qName(true)).append(")\n")
 		else
-			_self.relationCode.append(" = _self.clonedElt as ").append(refOpp.EType.qName('.')).append('\n')
+			_self.relationCode.append(" = _self.clonedElt as ").append(refOpp.EType.qName(true)).append('\n')
 	}
 }

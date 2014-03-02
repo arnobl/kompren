@@ -57,15 +57,15 @@ class SlicerMainGenerator extends SlicerGenerator {
 		slicer.slicedClasses.forEach[cl |
 			val exp = if(cl.expression==null) "" else cl.expression
 			buf.append("\tdef void on").append(cl.domain.name).append("Sliced(").
-				append(cl.ctx.type.name).append(' ').append(cl.ctx.varName).append("){\n").
+				append(cl.ctx.type.qName(true)).append(' ').append(cl.ctx.varName).append("){\n").
 				append("\t\t").append(exp).append('\n').append("\t}\n")
 		]
 		slicer.slicedProps.filter[expression!=null && expression.length>0 && src!=null && tgt!=null].forEach[prop|
 			val name = if(prop.opposite==null) prop.domain.name else prop.opposite.name
 			val exp = if(prop.expression==null) "" else prop.expression
 			buf.append("\tdef void on").append(name).append("Sliced(").
-				append(prop.src.type.name).append(' ').append(prop.src.varName).append(", ").
-				append(prop.tgt.type.name).append(' ').append(prop.tgt.varName).append("){\n")
+				append(prop.src.type.qName(true)).append(' ').append(prop.src.varName).append(", ").
+				append(prop.tgt.type.qName(true)).append(' ').append(prop.tgt.varName).append("){\n")
 			buf.append("\t\t").append(exp).append('\n')
 			buf.append("\t}\n")
 		]
@@ -111,7 +111,7 @@ class SlicerMainGenerator extends SlicerGenerator {
 	private def StringBuilder generateConstructor() {
 		val buf = new StringBuilder
 		buf.append("\tnew(")
-		buf.append(slicer.inputClasses.map[cl | new StringBuilder("java.util.List<").append(cl.qName('.')).append("> input").append(cl.name)].join(","))
+		buf.append(slicer.inputClasses.map[cl | new StringBuilder("java.util.List<").append(cl.qName(true)).append("> input").append(cl.name)].join(","))
 		if(slicer.hasOpposite) buf.append(", org.eclipse.emf.ecore.EObject metamodelRoot")
 		val listOptions = slicer.optionNames
 		if(!listOptions.empty)
@@ -132,7 +132,7 @@ class SlicerMainGenerator extends SlicerGenerator {
 	
 	private def StringBuilder generateAttributes() {
 		val buf = new StringBuilder
-		slicer.inputClasses.forEach[cl | buf.append("\tval java.util.List<").append(cl.qName('.')).append("> input").append(cl.name).append('\n')]
+		slicer.inputClasses.forEach[cl | buf.append("\tval java.util.List<").append(cl.qName(true)).append("> input").append(cl.name).append('\n')]
 		if(slicer.strict)
 			buf.append("\tprivate val java.util.List<org.eclipse.emf.ecore.EObject> clonedElts = newArrayList\n")
 		slicer.optionNames.forEach[name | buf.append("\tpublic val boolean ").append(name).append('\n')]

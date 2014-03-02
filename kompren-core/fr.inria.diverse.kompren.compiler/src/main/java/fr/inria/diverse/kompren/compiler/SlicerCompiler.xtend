@@ -27,6 +27,7 @@ import static extension fr.inria.diverse.kompren.compiler.EClassAspect.*
 import static extension fr.inria.diverse.kompren.compiler.EPackageAspect.*
 import static extension fr.inria.diverse.kompren.compiler.SlicedClassAspect.*
 import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
+import org.eclipse.emf.codegen.ecore.genmodel.GenPackage
 
 class SlicerCompiler {
 	val String slicerName
@@ -40,18 +41,6 @@ class SlicerCompiler {
 	val List<GenModel> genModels = newArrayList
 	val boolean serialise
 	
-	def static void main(String[] args) {
-//		var slicerCompiler = new SlicerCompiler("strictEcore.kompren", "/media/data/dev/kompren/kompren-examples/")
-//		slicerCompiler.compile
-		var slicerCompiler = new SlicerCompiler("k3transfoFootprint.kompren", true, "/media/data/dev/kompren/kompren-examples/")
-		slicerCompiler.compile
-//		slicerCompiler = new SlicerCompiler("sm.kompren", "/media/data/dev/kompren/kompren-examples/")
-//		slicerCompiler.compile
-//		slicerCompiler = new SlicerCompiler("classInverted.kompren", "/media/data/dev/kompren/kompren-examples/")
-//		slicerCompiler.compile
-//		slicerCompiler = new SlicerCompiler("clazz.kompren", "/media/data/dev/kompren/kompren-examples/")
-//		slicerCompiler.compile
-	}
 	
 	new(Slicer slicer, boolean serialise, String targetDir) {
 		this.slicer = slicer
@@ -75,6 +64,7 @@ class SlicerCompiler {
 
 		metamodel = getEcoreModel(slicer)
 		getAllClasses(metamodel)
+		initPackagePrefix
 		var last = slicer.name.split("\\.").last
 		slicerName = Character.toUpperCase(last.charAt(0)).toString+last.substring(1)
 		pkgName = last.toLowerCase
@@ -87,7 +77,29 @@ class SlicerCompiler {
 	new(String slicerURI, boolean serialise, String targetDir) {
 		this(getSlicerModel(slicerURI), serialise, targetDir)
 	}
-	
+
+
+	private def void initPackagePrefix() {
+		genModels.forEach[gen |
+			_initPackagePrefix(gen.genPackages)
+			_initPackagePrefix(gen.usedGenPackages)
+		]
+	}
+
+	private def void _initPackagePrefix(Iterable<GenPackage> pkgs) {
+		val pkgRoots = metamodel.toMap[name]
+		
+		pkgs.filter[getEcorePackage!=null].forEach[pkg |
+			val pkg2 = pkgRoots.get(pkg.getEcorePackage.name)
+			if(pkg2!=null) {
+				val base = pkg.basePackage
+				pkg2.pkgPrefix = if(base!=null && base.length>0) base + '.' else ""
+				pkg2.pkgPrefixNoSep = pkg2.pkgPrefix.replace(".", "")
+	//			_initPackagePrefix(pkg.nestedGenPackages)
+			}
+		]
+	}
+
 	
 	private def void getAllClasses(List<EPackage> pkgs) {
 		metamodelClasses.addAll(pkgs.map[EClassifiers].flatten.filter(EClass))
