@@ -28,21 +28,12 @@ import org.eclipse.emf.ecore.ENamedElement
 
 @Aspect(className=typeof(ENamedElement))
 class ENamedEltAspect {
-	private var String qNameSep = null
-	private var String qNameNoSep = null
-	
 	def String qName(boolean withSep, boolean useOutputMM) {
-		if(withSep && _self.qNameSep!=null) return _self.qNameSep
-		if(!withSep && _self.qNameNoSep!=null) return _self.qNameNoSep
-
 		val sep = if(withSep) "." else ""
 		var _qName = _self.getName4QName(withSep)
 		if(_self.eContainer instanceof ENamedElement) 
 			_qName = (_self.eContainer as ENamedElement).qName(withSep, useOutputMM) + sep + _qName
 			
-		if(withSep) _self.qNameSep = _qName
-		else _self.qNameNoSep = _qName
-
 		_qName
 	}
 	
