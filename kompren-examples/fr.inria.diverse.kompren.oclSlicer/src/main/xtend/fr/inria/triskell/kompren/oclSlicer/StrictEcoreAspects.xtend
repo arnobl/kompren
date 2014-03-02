@@ -72,6 +72,7 @@ class EAttributeAspect extends EStructuralFeatureAspect{
 		if(_self.clonedElt==null){
 			_self.clonedElt = EcoreFactoryImpl.eINSTANCE.createEAttribute
 			theSlicer.objectCloned(_self.clonedElt)
+			theSlicer.modelSlicer.append("\tslicedProperty: ").append(StrictEcore::qualifiedName(_self)).append("\n")
 		}
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^EAttributeType?.visitToAddClasses(theSlicer)
@@ -133,6 +134,7 @@ _self.^EGenericSuperTypes.forEach[feedOpposites]
 		if(_self.clonedElt==null){
 			_self.clonedElt = EcoreFactoryImpl.eINSTANCE.createEClass
 			theSlicer.objectCloned(_self.clonedElt)
+			theSlicer.modelSlicer.append("\tslicedClass: ").append(StrictEcore::qualifiedName(_self)).append("\n")
 		}
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^ESuperTypes.forEach[visitToAddClasses(theSlicer)]
@@ -443,6 +445,7 @@ class EReferenceAspect extends EStructuralFeatureAspect{
 		if(_self.clonedElt==null){
 			_self.clonedElt = EcoreFactoryImpl.eINSTANCE.createEReference
 			theSlicer.objectCloned(_self.clonedElt)
+			theSlicer.modelSlicer.append("\tslicedProperty: ").append(StrictEcore::qualifiedName(_self)).append("\n")
 		}
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^EReferenceType?.visitToAddClasses(theSlicer)

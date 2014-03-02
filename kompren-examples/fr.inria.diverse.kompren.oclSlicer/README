@@ -1,0 +1,37 @@
+This project is composed of 3 slicers:
+
+The first one, OCLSlicer, extracts model elements from OCL constraints (in xmi format).
+The Java program OCL2XMI converts textual OCL constraints in EMF ones.
+
+The second slicer, StrictEcore (called by the first one), is a metamodel footprinter:
+it produces a footprint, i.e. an ecore model, from the ecore model used by the OCL constraints.
+This reduced ecore model is a sub-type of the original one.
+This slicer also produces as output a Kompren slicer (textual format).
+
+This produced slicer is the third one.
+This slicer is a model footprinter for the reduced ecore model.
+The Kompren model of this slicer must be completed with:
+the path to the original ecore model (in fact its genmodel);
+the path to the reduced ecore model (still, its genmodel);
+the input classes use the start the slicing process.
+Once completed, this slicer is automatically compiled into Xtend code in the folder kompren-gen.
+Because of a bug in Xtend/Xtext, the compilation of these generated Xtend files is manual:
+open them, add a space somewhere to launch the compilation.
+The execution of this slicer takes as input an input model and produces as output a reduced one that conforms to the reduced metamodel.
+
+A sample example is provided in this project.
+The folder 'models' contains some ocl, ecore, and kompren models.
+The metamodel Paper.ecore is the input metamodel.
+PaperCst.ocl and .xmi is OCL constraints on this input metamodel.
+The execution of OCLSlicer produced: 
+slicedPaper.ecore, the reduced metamodel; 
+LRBACFootprinter.kompren, the Kompren model of the third slicer.
+The executions of these slicers requires to generate the Java code of all the involved metamodels.
+Moreover, Kompren requires the genmodel of a metamodel.
+This sample example this requires the projects LRBAC.model and LRBAC2.model available in kompren-examples.
+The file ExecModelFootprint is an example of how to execute the third slicer.
+
+The use of maven is strongly advised to build the different projects and manage the dependencies.
+
+
+ 

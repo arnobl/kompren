@@ -1,7 +1,6 @@
 package fr.inria.triskell.kompren.oclSlicer
 
 import LRBAC.LRBACPackage
-import java.util.HashSet
 import java.util.Set
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EClassifier
@@ -21,6 +20,8 @@ import static extension fr.inria.triskell.kompren.oclSlicer.OCLSlicerVisitor.*
 
 class OCLSlicer {
 	def static void main(String[] args) {
+		// First step: Extracts model elements from OCL constraints
+
 	    OCL::newInstance()//EcoreEnvironmentFactory.INSTANCE)
 	    LRBACPackage.eINSTANCE.eClass
 	    Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap.put("xmi", new XMIResourceFactoryImpl)
@@ -28,15 +29,15 @@ class OCLSlicer {
 	    val resSet = new ResourceSetImpl
 	    val resource = resSet.getResource(URI.createURI("src/main/resources/models/PaperCst.xmi"), true)
 	    resource.getContents.filter(typeof(Constraint)).forEach[visitToAddClasses(slicer)]
-//	    println(slicer)
 
 		slicer.objects.filter(typeof(EModelElement)).forEach[obj | 
 			if(obj instanceof EClassifier) slicer.classifiers.add(obj)
 			else slicer.elts.add(obj)
 		]
+
 		//---------------//
-		// Extracting the metamodel footprint
-	    val set = new HashSet
+		// Second step: Extracting the metamodel footprint (StrictEcore)
+	    val Set<EModelElement> set = newHashSet
 	    set.addAll(slicer.ops)
 	    set.addAll(slicer.features)
 	    set.addAll(slicer.enumLiterals)
@@ -46,8 +47,7 @@ class OCLSlicer {
 	    
 //	    Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap.put("ecore", new EcoreResourceFactoryImpl)
 //		val resource2 = resSet.getResource(URI.createURI("src/main/resources/models/Paper.ecore"), true)
-//	    EcoreUtil.resolveAll(resource2)
-	    val metamodel = new HashSet
+	    val Set<EModelElement> metamodel = newHashSet
 	    val cl = slicer.classifiers.head
 	    var EModelElement root = cl
 	    
@@ -60,13 +60,13 @@ class OCLSlicer {
 	    resource.unload
 	}
 	
-	public val Set<EOperation> ops = new HashSet
-	public val Set<EStructuralFeature> features = new HashSet
-	public val Set<EEnumLiteral> enumLiterals = new HashSet
-	public val Set<EParameter> params = new HashSet
-	public val Set<EObject> objects = new HashSet
-	public val Set<EClassifier> classifiers = new HashSet
-	public val Set<EModelElement> elts = new HashSet
+	public val Set<EOperation> ops = newHashSet
+	public val Set<EStructuralFeature> features = newHashSet
+	public val Set<EEnumLiteral> enumLiterals = newHashSet
+	public val Set<EParameter> params = newHashSet
+	public val Set<EObject> objects = newHashSet
+	public val Set<EClassifier> classifiers = newHashSet
+	public val Set<EModelElement> elts = newHashSet
 	
 	override String toString() {
 		val buf = new StringBuilder
