@@ -32,6 +32,10 @@ This sample example this requires the projects LRBAC.model and LRBAC2.model avai
 The file ExecModelFootprint is an example of how to execute the third slicer.
 
 The use of maven is strongly advised to build the different projects and manage the dependencies.
+Import the different projects into Eclipse as "maven projects".
+Then, build (mvn clean install) the required Java code (e.g. LRBAC.model).
+Then, update the maven dependencies of the oclSlicer project to use these builds.
+
 
 
  
