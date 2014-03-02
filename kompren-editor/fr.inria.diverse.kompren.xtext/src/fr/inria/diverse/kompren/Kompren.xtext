@@ -7,8 +7,8 @@ Slicer returns Slicer: 'slicer' (active?='active')? (strict?='strict')? name=QNa
 		(('domain' ':' uriMetamodel+=STRING)+ &
 		('input' ':' inputClasses+=[ecore::EClass|QName] ( "," inputClasses+=[ecore::EClass|QName])*) &
 		('radius' ':' radius=Radius)? &
-		('slicedClass' ':' slicedElements+=SlicedClass)* &
-		('slicedProperty' ':' slicedElements+=SlicedProperty)* &
+		(('slicedClass' ':' slicedElements+=SlicedClass) |
+		('slicedProperty' ':' slicedElements+=SlicedProperty))* &
 		('onStart' onStart=CODE_BLOCK)? &
 		('onEnd' onEnd=CODE_BLOCK)? &
 		('helper' helper=CODE_BLOCK)?)
