@@ -38,7 +38,5 @@ class KomprenLabelProvider extends DefaultEObjectLabelProvider {
 	
 	def text(VarDecl vd) { "Var " + if(vd.varName==null) "" else vd.varName }
 
-//	def image(Greeting ele) {
-//		'Greeting.gif'
-//	}
+	def image(Slicer slicer) { 'full/obj16/komprenTextFile.png' }
 }
