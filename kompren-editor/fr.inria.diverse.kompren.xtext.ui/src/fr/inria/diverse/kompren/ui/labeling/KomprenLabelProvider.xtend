@@ -4,25 +4,40 @@
 package fr.inria.diverse.kompren.ui.labeling
 
 import com.google.inject.Inject
+import kompren.Constraint
+import kompren.Radius
+import kompren.SlicedClass
+import kompren.SlicedProperty
+import kompren.Slicer
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
+import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
+import kompren.OppositeCreation
+import kompren.VarDecl
 
 /**
  * Provides labels for a EObjects.
- * 
  * see http://www.eclipse.org/Xtext/documentation.html#labelProvider
  */
-class KomprenLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider {
-
+class KomprenLabelProvider extends DefaultEObjectLabelProvider {
 	@Inject
-	new(org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider delegate) {
+	new(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
 
-	// Labels and icons can be computed like this:
+	def text(SlicedClass sc) {"SlicedClass " + if(sc.domain==null) "" else sc.domain.name }
 	
-//	def text(Greeting ele) {
-//		'A greeting to ' + ele.name
-//	}
-//
+	def text(SlicedProperty sc) {"SlicedProperty " + if(sc.domain==null) "" else sc.domain.name }
+
+	def text(Slicer slicer) { "Slicer " + if(slicer.name==null) "" else slicer.name }
+	
+	def text(Constraint cst) { "Constraint " + if(cst.name==null) "" else cst.name }
+	
+	def text(Radius rad) { "Radius " + rad.focusedClasses.filter[domain!=null && domain.name!=null].map[domain.name].join(", ") }
+	
+	def text(OppositeCreation opp) { "Opposite " + if(opp.name==null) "" else opp.name }
+	
+	def text(VarDecl vd) { "Var " + if(vd.varName==null) "" else vd.varName }
+
 //	def image(Greeting ele) {
 //		'Greeting.gif'
 //	}

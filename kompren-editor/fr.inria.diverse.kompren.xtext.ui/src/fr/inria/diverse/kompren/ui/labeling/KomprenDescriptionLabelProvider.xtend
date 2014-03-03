@@ -3,6 +3,8 @@
 */
 package fr.inria.diverse.kompren.ui.labeling
 
+import org.eclipse.xtext.ui.label.DefaultDescriptionLabelProvider
+
 //import org.eclipse.xtext.resource.IEObjectDescription
 
 /**
@@ -10,7 +12,7 @@ package fr.inria.diverse.kompren.ui.labeling
  * 
  * see http://www.eclipse.org/Xtext/documentation.html#labelProvider
  */
-class KomprenDescriptionLabelProvider extends org.eclipse.xtext.ui.label.DefaultDescriptionLabelProvider {
+class KomprenDescriptionLabelProvider extends DefaultDescriptionLabelProvider {
 
 	// Labels and icons can be computed like this:
 	

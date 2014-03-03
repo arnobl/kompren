@@ -3,7 +3,13 @@
  */
 package fr.inria.diverse.kompren.ui;
 
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.ui.editor.contentassist.ContentProposalLabelProvider;
+
+import com.google.inject.Binder;
+
+import fr.inria.diverse.kompren.ui.labeling.KomprenDescriptionLabelProvider;
 
 /**
  * Use this class to register components to be used within the IDE.
@@ -12,4 +18,9 @@ public class KomprenUiModule extends fr.inria.diverse.kompren.ui.AbstractKompren
 	public KomprenUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}
+	
+    @Override
+    public void configureContentProposalLabelProvider(Binder binder) {
+    	binder.bind(ILabelProvider.class).annotatedWith(ContentProposalLabelProvider.class).to(KomprenDescriptionLabelProvider.class);
+    }
 }
