@@ -71,19 +71,15 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</url>
 		</repository>
-	</repositories>
-	<distributionManagement>
 		<repository>
 			<id>kermeta-public-release</id>
 			<name>Kermeta public release repository on maven.irisa.fr</name>
 			<url>http://maven.irisa.fr/artifactory/kermeta-public-release</url>
-			<uniqueVersion>false</uniqueVersion>
 		</repository>
-		<snapshotRepository>
+		<repository>
 			<id>kermeta-public-snapshot</id>
 			<name>Kermeta public snapshot repository on maven.irisa.fr</name>
 			<url>http://maven.irisa.fr/artifactory/kermeta-public-snapshot</url>
-			<uniqueVersion>false</uniqueVersion>
-		</snapshotRepository>
-	</distributionManagement>
+		</repository>
+	</repositories>
 </project>
