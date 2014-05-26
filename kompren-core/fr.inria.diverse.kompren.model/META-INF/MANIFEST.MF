@@ -10,6 +10,6 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: kompren,
  kompren.impl,
  kompren.util
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.9.0",
+ org.eclipse.emf.ecore;bundle-version="2.9.2";visibility:=reexport
 Bundle-ActivationPolicy: lazy
