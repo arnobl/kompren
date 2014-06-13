@@ -1,0 +1,554 @@
+<?xml version="1.0"?>
+<org_kermeta_language_structure:ModelingUnit xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org_kermeta_language_behavior="http://www.kermeta.org/kermeta/2_0_0//org/kermeta/language/behavior" xmlns:org_kermeta_language_structure="http://www.kermeta.org/kermeta/2_0_0//org/kermeta/language/structure" xmi:version="2.0" name="examples.RAMSlicer" namespacePrefix="">
+  <packages name="ram" uri="http://cs.mcgill.ca/sel/ram/2.0">
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Aspect" superType="//ram/Aspect/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/NamedElement"/>
+      <ownedAttribute name="structuralView" type="//ram/Aspect/structuralView/@containedType.0" isOrdered="true" lower="1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/StructuralView"/>
+      </ownedAttribute>
+      <ownedAttribute name="mandatoryAspectParameters" type="//ram/Aspect/mandatoryAspectParameters/@containedType.0" upper="-1" isReadOnly="true" isDerived="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/MappableElement"/>
+      </ownedAttribute>
+      <ownedAttribute name="messageViews" type="//ram/Aspect/messageViews/@containedType.0" upper="-1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/AbstractMessageView"/>
+      </ownedAttribute>
+      <ownedAttribute name="instantiations" type="//ram/Aspect/instantiations/@containedType.0" isOrdered="true" upper="-1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Instantiation"/>
+      </ownedAttribute>
+      <ownedAttribute name="layout" type="//ram/Aspect/layout/@containedType.0" isOrdered="true" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Layout"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="MappableElement" superType="//ram/MappableElement/@containedType.0" isAbstract="true">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/NamedElement"/>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="StructuralView">
+      <ownedAttribute name="classes" type="//ram/StructuralView/classes/@containedType.0" isOrdered="true" upper="-1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Classifier"/>
+      </ownedAttribute>
+      <ownedAttribute name="associations" type="//ram/StructuralView/associations/@containedType.0" isOrdered="true" upper="-1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Association"/>
+      </ownedAttribute>
+      <ownedAttribute name="types" type="//ram/StructuralView/types/@containedType.0" upper="-1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Type"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Class" superType="//ram/Class/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Classifier"/>
+      <ownedAttribute name="associationEnds" type="//ram/Class/associationEnds/@containedType.0" isOrdered="true" upper="-1" opposite="//ram/AssociationEnd/myClass" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/AssociationEnd"/>
+      </ownedAttribute>
+      <ownedAttribute name="attributes" type="//ram/Class/attributes/@containedType.0" isOrdered="true" upper="-1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Attribute"/>
+      </ownedAttribute>
+      <ownedAttribute name="partial" type="//ram/Class/partial/@containedType.0" isOrdered="true" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Boolean"/>
+      </ownedAttribute>
+      <ownedAttribute name="abstract" type="//ram/Class/abstract/@containedType.0" isOrdered="true" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Boolean"/>
+      </ownedAttribute>
+      <ownedAttribute name="superTypes" type="//ram/Class/superTypes/@containedType.0" isOrdered="true" upper="-1">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Classifier"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="AssociationEnd" superType="//ram/AssociationEnd/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Property"/>
+      <ownedAttribute name="navigable" type="//ram/AssociationEnd/navigable/@containedType.0" isOrdered="true" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Boolean"/>
+      </ownedAttribute>
+      <ownedAttribute name="assoc" type="//ram/AssociationEnd/assoc/@containedType.0" isOrdered="true" lower="1" opposite="//ram/Association/ends">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Association"/>
+      </ownedAttribute>
+      <ownedAttribute name="myClass" type="//ram/AssociationEnd/myClass/@containedType.0" isOrdered="true" lower="1" opposite="//ram/Class/associationEnds">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Class"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Association" superType="//ram/Association/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/NamedElement"/>
+      <ownedAttribute name="ends" type="//ram/Association/ends/@containedType.0" isOrdered="true" lower="2" upper="2" opposite="//ram/AssociationEnd/assoc">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/AssociationEnd"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="NamedElement" superType="//ram/NamedElement/@containedType.0" isAbstract="true">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Object"/>
+      <ownedAttribute name="name" type="//ram/NamedElement/name/@containedType.0" isOrdered="true" lower="1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/String"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Instantiation">
+      <ownedAttribute name="mappings" type="//ram/Instantiation/mappings/@containedType.0" isOrdered="true" upper="-1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Mapping"/>
+      </ownedAttribute>
+      <ownedAttribute name="externalAspect" type="//ram/Instantiation/externalAspect/@containedType.0" isOrdered="true" lower="1">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Aspect"/>
+      </ownedAttribute>
+      <ownedAttribute name="type" type="//ram/InstantiationType" isOrdered="true" lower="1" isComposite="true"/>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Mapping" superType="//ram/Mapping/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Object"/>
+      <ownedAttribute name="maps" type="//ram/Mapping/maps/@containedType.0" isOrdered="true" lower="1" upper="-1">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/MappableElement"/>
+      </ownedAttribute>
+      <ownedAttribute name="sourceModelElement" type="//ram/Mapping/sourceModelElement/@containedType.0" isOrdered="true" lower="1">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/MappableElement"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Operation" superType="//ram/Operation/@containedType.0 //ram/Operation/@containedType.1">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/NamedElement"/>
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/MappableElement"/>
+      <ownedAttribute name="abstract" type="//ram/Operation/abstract/@containedType.0" isOrdered="true" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Boolean"/>
+      </ownedAttribute>
+      <ownedAttribute name="visibility" type="//ram/Visibility" isOrdered="true" isComposite="true"/>
+      <ownedAttribute name="returnType" type="//ram/Operation/returnType/@containedType.0" isOrdered="true" lower="0">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Type"/>
+      </ownedAttribute>
+      <ownedAttribute name="parameters" type="//ram/Operation/parameters/@containedType.0" isOrdered="true" upper="-1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Parameter"/>
+      </ownedAttribute>
+      <ownedAttribute name="static" type="//ram/Operation/static/@containedType.0" isOrdered="true" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Boolean"/>
+      </ownedAttribute>
+      <ownedAttribute name="partial" type="//ram/Operation/partial/@containedType.0" isOrdered="true" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Boolean"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Attribute" superType="//ram/Attribute/@containedType.0 //ram/Attribute/@containedType.1">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/TemporaryProperty"/>
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/StructuralFeature"/>
+      <ownedAttribute name="type" type="//ram/Attribute/type/@containedType.0" isOrdered="true" lower="1">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/PrimitiveType"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Type" superType="//ram/Type/@containedType.0" isAbstract="true">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/NamedElement"/>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Parameter" superType="//ram/Parameter/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/NamedElement"/>
+      <ownedAttribute name="type" type="//ram/Parameter/type/@containedType.0" isOrdered="true" lower="1">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Type"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:Enumeration" name="Visibility">
+      <ownedLiteral name="public"/>
+      <ownedLiteral name="private"/>
+      <ownedLiteral name="protected"/>
+      <ownedLiteral name="package"/>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="PrimitiveType" superType="//ram/PrimitiveType/@containedType.0 //ram/PrimitiveType/@containedType.1" isAbstract="true">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Type"/>
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/ImplementationClass"/>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="ObjectType" superType="//ram/ObjectType/@containedType.0 //ram/ObjectType/@containedType.1" isAbstract="true">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Type"/>
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/MappableElement"/>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="RVoid" superType="//ram/RVoid/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Type"/>
+      <ownedOperation name="getName" type="//ram/RVoid/getName/@containedType.0" isOrdered="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/String"/>
+      </ownedOperation>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="RBoolean" superType="//ram/RBoolean/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/PrimitiveType"/>
+      <ownedOperation name="getName" type="//ram/RBoolean/getName/@containedType.0" isOrdered="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/String"/>
+      </ownedOperation>
+      <ownedOperation name="getInstanceClassName" type="//ram/RBoolean/getInstanceClassName/@containedType.0" isOrdered="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/String"/>
+      </ownedOperation>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:Enumeration" name="ReferenceType">
+      <ownedLiteral name="Composition"/>
+      <ownedLiteral name="Aggregation"/>
+      <ownedLiteral name="Regular"/>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="RInt" superType="//ram/RInt/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/PrimitiveType"/>
+      <ownedOperation name="getName" type="//ram/RInt/getName/@containedType.0" isOrdered="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/String"/>
+      </ownedOperation>
+      <ownedOperation name="getInstanceClassName" type="//ram/RInt/getInstanceClassName/@containedType.0" isOrdered="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/String"/>
+      </ownedOperation>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="RChar" superType="//ram/RChar/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/PrimitiveType"/>
+      <ownedOperation name="getName" type="//ram/RChar/getName/@containedType.0" isOrdered="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/String"/>
+      </ownedOperation>
+      <ownedOperation name="getInstanceClassName" type="//ram/RChar/getInstanceClassName/@containedType.0" isOrdered="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/String"/>
+      </ownedOperation>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="RString" superType="//ram/RString/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/PrimitiveType"/>
+      <ownedOperation name="getName" type="//ram/RString/getName/@containedType.0" isOrdered="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/String"/>
+      </ownedOperation>
+      <ownedOperation name="getInstanceClassName" type="//ram/RString/getInstanceClassName/@containedType.0" isOrdered="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/String"/>
+      </ownedOperation>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="RAny" superType="//ram/RAny/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Type"/>
+      <ownedOperation name="getName" type="//ram/RAny/getName/@containedType.0" isOrdered="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/String"/>
+      </ownedOperation>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="REnum" superType="//ram/REnum/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/PrimitiveType"/>
+      <ownedAttribute name="literals" type="//ram/REnum/literals/@containedType.0" isOrdered="true" lower="1" upper="-1" opposite="//ram/REnumLiteral/enum" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/REnumLiteral"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="REnumLiteral" superType="//ram/REnumLiteral/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/NamedElement"/>
+      <ownedAttribute name="enum" type="//ram/REnumLiteral/enum/@containedType.0" isOrdered="true" lower="1" opposite="//ram/REnum/literals">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/REnum"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="AbstractMessageView" superType="//ram/AbstractMessageView/@containedType.0" isAbstract="true">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Object"/>
+      <ownedAttribute name="affectedBy" type="//ram/AbstractMessageView/affectedBy/@containedType.0" upper="-1">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/AspectMessageView"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="MessageView" superType="//ram/MessageView/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/AbstractMessageView"/>
+      <ownedAttribute name="specifies" type="//ram/MessageView/specifies/@containedType.0" lower="1">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Operation"/>
+      </ownedAttribute>
+      <ownedAttribute name="specification" type="//ram/MessageView/specification/@containedType.0" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Interaction"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="MessageViewReference" superType="//ram/MessageViewReference/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/AbstractMessageView"/>
+      <ownedAttribute name="references" type="//ram/MessageViewReference/references/@containedType.0" lower="1">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/MessageView"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Interaction" superType="//ram/Interaction/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/FragmentContainer"/>
+      <ownedAttribute name="lifelines" type="//ram/Interaction/lifelines/@containedType.0" lower="2" upper="-1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Lifeline"/>
+      </ownedAttribute>
+      <ownedAttribute name="messages" type="//ram/Interaction/messages/@containedType.0" lower="1" upper="-1" opposite="//ram/Message/interaction" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Message"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="AspectMessageView" superType="//ram/AspectMessageView/@containedType.0 //ram/AspectMessageView/@containedType.1">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/NamedElement"/>
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/AbstractMessageView"/>
+      <ownedAttribute name="pointcut" type="//ram/AspectMessageView/pointcut/@containedType.0" lower="1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Interaction"/>
+      </ownedAttribute>
+      <ownedAttribute name="advice" type="//ram/AspectMessageView/advice/@containedType.0" lower="1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Interaction"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Lifeline" superType="//ram/Lifeline/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/NamedElement"/>
+      <ownedAttribute name="metaClass" type="//ram/Lifeline/metaClass/@containedType.0" lower="1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Boolean"/>
+      </ownedAttribute>
+      <ownedAttribute name="represents" type="//ram/Lifeline/represents/@containedType.0" lower="1">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Classifier"/>
+      </ownedAttribute>
+      <ownedAttribute name="localProperties" type="//ram/Lifeline/localProperties/@containedType.0" upper="-1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/TemporaryProperty"/>
+      </ownedAttribute>
+      <ownedAttribute name="coveredBy" type="//ram/Lifeline/coveredBy/@containedType.0" lower="1" upper="-1" opposite="//ram/InteractionFragment/covered">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/InteractionFragment"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Message" superType="//ram/Message/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Object"/>
+      <ownedAttribute name="sendEvent" type="//ram/Message/sendEvent/@containedType.0" lower="1">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/MessageEnd"/>
+      </ownedAttribute>
+      <ownedAttribute name="receiveEvent" type="//ram/Message/receiveEvent/@containedType.0" lower="1">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/MessageEnd"/>
+      </ownedAttribute>
+      <ownedAttribute name="signature" type="//ram/Message/signature/@containedType.0" lower="1">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Operation"/>
+      </ownedAttribute>
+      <ownedAttribute name="assignTo" type="//ram/Message/assignTo/@containedType.0">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/StructuralFeature"/>
+      </ownedAttribute>
+      <ownedAttribute name="messageSort" type="//ram/MessageSort" lower="1" isComposite="true"/>
+      <ownedAttribute name="arguments" type="//ram/Message/arguments/@containedType.0" upper="-1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/ParameterValueMapping"/>
+      </ownedAttribute>
+      <ownedAttribute name="interaction" type="//ram/Message/interaction/@containedType.0" lower="1" opposite="//ram/Interaction/messages">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Interaction"/>
+      </ownedAttribute>
+      <ownedAttribute name="returns" type="//ram/Message/returns/@containedType.0" isOrdered="true" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/ValueSpecification"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:Enumeration" name="MessageSort">
+      <ownedLiteral name="synchCall"/>
+      <ownedLiteral name="createMessage"/>
+      <ownedLiteral name="deleteMessage"/>
+      <ownedLiteral name="reply"/>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="MessageEnd" superType="//ram/MessageEnd/@containedType.0" isAbstract="true">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Object"/>
+      <ownedAttribute name="message" type="//ram/MessageEnd/message/@containedType.0" lower="1">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Message"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="MessageOccurrenceSpecification" superType="//ram/MessageOccurrenceSpecification/@containedType.0 //ram/MessageOccurrenceSpecification/@containedType.1">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/MessageEnd"/>
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/OccurrenceSpecification"/>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="OccurrenceSpecification" superType="//ram/OccurrenceSpecification/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/InteractionFragment"/>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="DestructionOccurrenceSpecification" superType="//ram/DestructionOccurrenceSpecification/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/MessageOccurrenceSpecification"/>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="InteractionFragment" superType="//ram/InteractionFragment/@containedType.0" isAbstract="true">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Object"/>
+      <ownedAttribute name="covered" type="//ram/InteractionFragment/covered/@containedType.0" lower="1" upper="-1" opposite="//ram/Lifeline/coveredBy">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Lifeline"/>
+      </ownedAttribute>
+      <ownedAttribute name="container" type="//ram/InteractionFragment/container/@containedType.0" lower="1" opposite="//ram/FragmentContainer/fragments">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/FragmentContainer"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:Enumeration" name="InteractionOperatorKind">
+      <ownedLiteral name="alt"/>
+      <ownedLiteral name="opt"/>
+      <ownedLiteral name="loop"/>
+      <ownedLiteral name="disruptable"/>
+      <ownedLiteral name="critical"/>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="CombinedFragment" superType="//ram/CombinedFragment/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/InteractionFragment"/>
+      <ownedAttribute name="interactionOperator" type="//ram/InteractionOperatorKind" lower="1" isComposite="true"/>
+      <ownedAttribute name="operands" type="//ram/CombinedFragment/operands/@containedType.0" isOrdered="true" lower="1" upper="-1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/InteractionOperand"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="OriginalBehaviorExecution" superType="//ram/OriginalBehaviorExecution/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/InteractionFragment"/>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="CodeExecution" superType="//ram/CodeExecution/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/InteractionFragment"/>
+      <ownedAttribute name="specification" type="//ram/CodeExecution/specification/@containedType.0" lower="1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/ValueSpecification"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="InteractionOperand" superType="//ram/InteractionOperand/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/FragmentContainer"/>
+      <ownedAttribute name="interactionConstraint" type="//ram/InteractionOperand/interactionConstraint/@containedType.0" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/ValueSpecification"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="ValueSpecification" superType="//ram/ValueSpecification/@containedType.0" isAbstract="true">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Object"/>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="StructuralFeatureValue" superType="//ram/StructuralFeatureValue/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/ValueSpecification"/>
+      <ownedAttribute name="value" type="//ram/StructuralFeatureValue/value/@containedType.0" isOrdered="true" lower="1">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/StructuralFeature"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="ParameterValueMapping" superType="//ram/ParameterValueMapping/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Object"/>
+      <ownedAttribute name="parameter" type="//ram/ParameterValueMapping/parameter/@containedType.0" lower="1">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Parameter"/>
+      </ownedAttribute>
+      <ownedAttribute name="value" type="//ram/ParameterValueMapping/value/@containedType.0" lower="1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/ValueSpecification"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="ParameterValue" superType="//ram/ParameterValue/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/ValueSpecification"/>
+      <ownedAttribute name="parameter" type="//ram/ParameterValue/parameter/@containedType.0" lower="1">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Parameter"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="OpaqueExpression" superType="//ram/OpaqueExpression/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/ValueSpecification"/>
+      <ownedAttribute name="body" type="//ram/OpaqueExpression/body/@containedType.0" lower="1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/String"/>
+      </ownedAttribute>
+      <ownedAttribute name="language" type="//ram/OpaqueExpression/language/@containedType.0" lower="1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/String"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="LiteralSpecification" superType="//ram/LiteralSpecification/@containedType.0" isAbstract="true">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/ValueSpecification"/>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="LiteralString" superType="//ram/LiteralString/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/LiteralSpecification"/>
+      <ownedAttribute name="value" type="//ram/LiteralString/value/@containedType.0" lower="1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/String"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="LiteralInteger" superType="//ram/LiteralInteger/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/LiteralSpecification"/>
+      <ownedAttribute name="value" type="//ram/LiteralInteger/value/@containedType.0" lower="1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Integer"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="FragmentContainer" superType="//ram/FragmentContainer/@containedType.0" isAbstract="true">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Object"/>
+      <ownedAttribute name="fragments" type="//ram/FragmentContainer/fragments/@containedType.0" isOrdered="true" lower="0" upper="-1" opposite="//ram/InteractionFragment/container" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/InteractionFragment"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="RCollection" superType="//ram/RCollection/@containedType.0" isAbstract="true">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Type"/>
+      <ownedAttribute name="type" type="//ram/RCollection/type/@containedType.0" isOrdered="true" lower="1">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/ObjectType"/>
+      </ownedAttribute>
+      <ownedOperation name="getName" type="//ram/RCollection/getName/@containedType.0" isOrdered="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/String"/>
+      </ownedOperation>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="RSet" superType="//ram/RSet/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/RCollection"/>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="RList" superType="//ram/RList/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/RCollection"/>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Layout" superType="//ram/Layout/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Object"/>
+      <ownedAttribute name="containers" type="//ram/Layout/containers/@containedType.0" isOrdered="true" lower="1" upper="-1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/ContainerMap"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="ContainerMap" superType="//ram/ContainerMap/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Object"/>
+      <ownedAttribute name="key" type="//ram/ContainerMap/key/@containedType.0" isOrdered="true" lower="1">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Object"/>
+      </ownedAttribute>
+      <ownedAttribute name="value" type="//ram/ContainerMap/value/@containedType.0" isOrdered="true" lower="1" upper="-1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/ElementMap"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="ElementMap" superType="//ram/ElementMap/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Object"/>
+      <ownedAttribute name="key" type="//ram/ElementMap/key/@containedType.0" isOrdered="true" lower="1">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Object"/>
+      </ownedAttribute>
+      <ownedAttribute name="value" type="//ram/ElementMap/value/@containedType.0" isOrdered="true" lower="1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/LayoutElement"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="LayoutElement" superType="//ram/LayoutElement/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Object"/>
+      <ownedAttribute name="x" type="//ram/LayoutElement/x/@containedType.0" isOrdered="true" lower="1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Float"/>
+      </ownedAttribute>
+      <ownedAttribute name="y" type="//ram/LayoutElement/y/@containedType.0" isOrdered="true" lower="1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Float"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:Enumeration" name="InstantiationType">
+      <ownedLiteral name="Depends"/>
+      <ownedLiteral name="Extends"/>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Classifier" superType="//ram/Classifier/@containedType.0" isAbstract="true">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/ObjectType"/>
+      <ownedAttribute name="operations" type="//ram/Classifier/operations/@containedType.0" isOrdered="true" upper="-1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Operation"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="ImplementationClass" superType="//ram/ImplementationClass/@containedType.0">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Classifier"/>
+      <ownedAttribute name="instanceClassName" type="//ram/ImplementationClass/instanceClassName/@containedType.0" isOrdered="true" lower="1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/String"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="TemporaryProperty" superType="//ram/TemporaryProperty/@containedType.0" isAbstract="true">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Object"/>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="StructuralFeature" superType="//ram/StructuralFeature/@containedType.0" isAbstract="true">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/NamedElement"/>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Reference" superType="//ram/Reference/@containedType.0 //ram/Reference/@containedType.1">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/Property"/>
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/TemporaryProperty"/>
+      <ownedAttribute name="type" type="//ram/Reference/type/@containedType.0" isOrdered="true" lower="1">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/ObjectType"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+    <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Property" superType="//ram/Property/@containedType.0" isAbstract="true">
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//ram/StructuralFeature"/>
+      <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Object"/>
+      <ownedAttribute name="lowerBound" type="//ram/Property/lowerBound/@containedType.0" isOrdered="true" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Integer"/>
+      </ownedAttribute>
+      <ownedAttribute name="upperBound" type="//ram/Property/upperBound/@containedType.0" isOrdered="true" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Integer"/>
+      </ownedAttribute>
+      <ownedAttribute name="referenceType" type="//ram/ReferenceType" isOrdered="true" isComposite="true"/>
+      <ownedAttribute name="name" type="//ram/Property/name/@containedType.0" isOrdered="true" lower="1" isComposite="true">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/String"/>
+      </ownedAttribute>
+    </ownedTypeDefinition>
+  </packages>
+  <packages name="kermeta">
+    <nestedPackage name="standard">
+      <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Void" superType="#//kermeta/standard/Void/@containedType.0">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="#//kermeta/standard/Object"/>
+      </ownedTypeDefinition>
+      <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Object">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="#//kermeta/standard/Object"/>
+      </ownedTypeDefinition>
+      <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="String" superType="#//kermeta/standard/String/@containedType.0">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="#//kermeta/standard/Object"/>
+      </ownedTypeDefinition>
+      <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Integer" superType="#//kermeta/standard/Integer/@containedType.0">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="#//kermeta/standard/Numeric">
+          <typeParamBinding variable="#//kermeta/standard/Numeric/G" type="#//kermeta/standard/Integer/@containedType.0/@typeParamBinding.0/@containedType.0">
+            <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="#//kermeta/standard/Integer"/>
+          </typeParamBinding>
+        </containedType>
+      </ownedTypeDefinition>
+      <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Float" superType="#//kermeta/standard/Float/@containedType.0">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="#//kermeta/standard/Numeric">
+          <typeParamBinding variable="#//kermeta/standard/Numeric/G" type="#//kermeta/standard/Integer/@containedType.0/@typeParamBinding.0/@containedType.0">
+            <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="#//kermeta/standard/Float"/>
+          </typeParamBinding>
+        </containedType>
+      </ownedTypeDefinition>
+      <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Boolean" superType="#//kermeta/standard/Boolean/@containedType.0">
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="#//kermeta/standard/Object"/>
+      </ownedTypeDefinition>
+      <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Collection" superType="//kermeta/standard/Collection/@containedType.1" typeParameter="//kermeta/standard/Collection/G" isAbstract="true">
+        <containedType xsi:type="org_kermeta_language_structure:ObjectTypeVariable" name="G"/>
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Object"/>
+      </ownedTypeDefinition>  
+      <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Bag" superType="//kermeta/standard/Bag/@containedType.1" typeParameter="//kermeta/standard/Bag/G">
+        <containedType xsi:type="org_kermeta_language_structure:ObjectTypeVariable" name="G"/>
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="//kermeta/standard/Collection">
+          <typeParamBinding variable="//kermeta/standard/Collection/G" type="//kermeta/standard/Bag/G"/>
+        </containedType>
+      </ownedTypeDefinition>
+      <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Summable" superType="#//kermeta/standard/Summable/@containedType.1" typeParameter="#//kermeta/standard/Summable/G" isAbstract="true">
+        <containedType xsi:type="org_kermeta_language_structure:ObjectTypeVariable" name="G"/>
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="#//kermeta/standard/Object"/>
+      </ownedTypeDefinition>
+      <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Comparable" superType="#//kermeta/standard/Comparable/@containedType.1" typeParameter="#//kermeta/standard/Comparable/G" isAbstract="true">
+        <containedType xsi:type="org_kermeta_language_structure:ObjectTypeVariable" name="G"/>
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="#//kermeta/standard/Object"/>
+      </ownedTypeDefinition>
+      <ownedTypeDefinition xsi:type="org_kermeta_language_structure:ClassDefinition" name="Numeric" superType="#//kermeta/standard/Numeric/@containedType.1 #//kermeta/standard/Numeric/@containedType.2" typeParameter="#//kermeta/standard/Numeric/G">
+        <containedType xsi:type="org_kermeta_language_structure:ObjectTypeVariable" name="G"/>
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="#//kermeta/standard/Summable">
+          <typeParamBinding variable="#//kermeta/standard/Summable/G" type="#//kermeta/standard/Numeric/G"/>
+        </containedType>
+        <containedType xsi:type="org_kermeta_language_structure:Class" typeDefinition="#//kermeta/standard/Comparable">
+          <typeParamBinding variable="#//kermeta/standard/Comparable/G" type="#//kermeta/standard/Numeric/G"/>
+        </containedType>
+      </ownedTypeDefinition>
+    </nestedPackage>
+  </packages>
+</org_kermeta_language_structure:ModelingUnit>

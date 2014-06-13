@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: kompren.diagram
+Bundle-SymbolicName: org.kermeta.kompren.diagram
+Bundle-Version: 1.0.0
+Export-Package: org.kermeta.kompren.diagram.layout,
+ org.kermeta.kompren.diagram.view.impl,
+ org.kermeta.kompren.diagram.view.interfaces
+Bundle-Vendor: INRIA Rennes, Triskell
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

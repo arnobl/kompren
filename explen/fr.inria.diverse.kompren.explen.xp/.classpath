@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry including="**/*.java" kind="src" path="src/main"/>
+	<classpathentry excluding="**/*.java" kind="src" path="src/resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/kompren.gwelet.slicer-2.0.9-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/emf.lib-2.7.0.jar"/>
+	<classpathentry kind="lib" path="lib/kermeta.model-1.4.0.jar"/>
+	<classpathentry kind="lib" path="lib/language.framework.scala-1.4.4-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/language.library.core-2.0.6.jar"/>
+	<classpathentry kind="lib" path="lib/language.model-2.0.6.jar"/>
+	<classpathentry kind="lib" path="lib/malai.core-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/malai.swing-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/scala-library-2.9.0-1.jar"/>
+	<classpathentry kind="lib" path="lib/batik/batik-dom.jar"/>
+	<classpathentry kind="lib" path="lib/batik/batik-ext.jar"/>
+	<classpathentry kind="lib" path="lib/batik/batik-extension.jar"/>
+	<classpathentry kind="lib" path="lib/batik/batik-svg-dom.jar"/>
+	<classpathentry kind="lib" path="lib/batik/batik-svggen.jar"/>
+	<classpathentry kind="lib" path="lib/batik/batik-util.jar"/>
+	<classpathentry kind="lib" path="lib/batik/batik-xml.jar"/>
+	<classpathentry kind="lib" path="lib/batik/batik-awt-util.jar"/>
+	<classpathentry kind="lib" path="lib/kompren.diagram-2.0.9-SNAPSHOT.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
