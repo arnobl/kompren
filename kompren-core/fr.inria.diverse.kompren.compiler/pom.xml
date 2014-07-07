@@ -96,51 +96,51 @@
 <!-- 	      <version>[3.2.0,4.0.0)</version> -->
 <!-- 	      <optional>false</optional> -->
 <!-- 	    </dependency> -->
-		<dependency>
-			<groupId>org.eclipse.emf</groupId>
-			<artifactId>org.eclipse.emf.codegen.ecore</artifactId>
-			<version>[2.9.1,)</version>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.emf</groupId>
-			<artifactId>org.eclipse.emf.codegen</artifactId>
-			<version>[2.9.0,)</version>
-		</dependency>
-        <dependency>
-            <groupId>fr.inria.diverse.kompren</groupId>
-            <artifactId>fr.inria.diverse.kompren.model</artifactId>
-            <version>${kompren.version}</version>
-        </dependency>
-		<dependency>
-			<groupId>org.eclipse.xtend</groupId>
-			<artifactId>org.eclipse.xtend.lib</artifactId>
-			<version>${xtend.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>fr.inria.diverse.k3.al</groupId>
-			<artifactId>fr.inria.diverse.k3.al.annotationprocessor</artifactId>
-			<version>${kermeta.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.emf</groupId>
-			<artifactId>org.eclipse.emf.ecore.xmi</artifactId>
-			<version>${emf.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.emf</groupId>
-			<artifactId>org.eclipse.emf.ecore</artifactId>
-			<version>${emf.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.emf</groupId>
-			<artifactId>org.eclipse.emf.common</artifactId>
-			<version>${emf.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.eclipse.emf</groupId> -->
+<!-- 			<artifactId>org.eclipse.emf.codegen.ecore</artifactId> -->
+<!-- 			<version>[2.9.1,)</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.eclipse.emf</groupId> -->
+<!-- 			<artifactId>org.eclipse.emf.codegen</artifactId> -->
+<!-- 			<version>[2.9.0,)</version> -->
+<!-- 		</dependency> -->
+<!--         <dependency> -->
+<!--             <groupId>fr.inria.diverse.kompren</groupId> -->
+<!--             <artifactId>fr.inria.diverse.kompren.model</artifactId> -->
+<!--             <version>${kompren.version}</version> -->
+<!--         </dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.eclipse.xtend</groupId> -->
+<!-- 			<artifactId>org.eclipse.xtend.lib</artifactId> -->
+<!-- 			<version>${xtend.version}</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>fr.inria.diverse.k3.al</groupId> -->
+<!-- 			<artifactId>fr.inria.diverse.k3.al.annotationprocessor</artifactId> -->
+<!-- 			<version>${kermeta.version}</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.eclipse.emf</groupId> -->
+<!-- 			<artifactId>org.eclipse.emf.ecore.xmi</artifactId> -->
+<!-- 			<version>${emf.version}</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.eclipse.emf</groupId> -->
+<!-- 			<artifactId>org.eclipse.emf.ecore</artifactId> -->
+<!-- 			<version>${emf.version}</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.eclipse.emf</groupId> -->
+<!-- 			<artifactId>org.eclipse.emf.common</artifactId> -->
+<!-- 			<version>${emf.version}</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>junit</groupId> -->
+<!-- 			<artifactId>junit</artifactId> -->
+<!-- 			<version>${junit.version}</version> -->
+<!-- 			<scope>test</scope> -->
+<!-- 		</dependency> -->
 	</dependencies>
 </project>
