@@ -19,8 +19,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<emf.version>2.9.1-v20130827-0309</emf.version>
 		<bundle.vendor>IRISA/Inria</bundle.vendor>
-		<xtend.version>2.6.1</xtend.version>
-		<xtendGenDirectory>target/generated-sources/xtend</xtendGenDirectory>
+		<xtend.version>2.6.0</xtend.version>
+		<xtendGenDirectory>src/main/xtend-gen</xtendGenDirectory>
     	<eclipse-repo.url>http://download.eclipse.org/releases/kepler/</eclipse-repo.url>
 		<xtend-repo.url>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</xtend-repo.url>
 		<tycho-repo.url>https://oss.sonatype.org/content/groups/public/</tycho-repo.url>
@@ -33,9 +33,20 @@
 
 	<repositories>
         <repository>
+        		<!-- reuse same platform as the one used for building K3 (ie. eclipse and xtext, xtend) -->
                 <id>platform</id>
                 <layout>p2</layout>
                 <url>https://ci.inria.fr/k3al/job/k3-composite_updatesite/lastSuccessfulBuild/artifact/k3-composite_updatesite/k3.platform.composite.updatesite/update/</url>
+		</repository>
+        <repository>
+                <id>K3</id>
+                <layout>p2</layout>
+                <url>https://ci.inria.fr/k3al/job/k3-composite_updatesite/lastSuccessfulBuild/artifact/k3-composite_updatesite/k3.composite.updatesite/update/</url>
+		</repository>
+		<repository>
+                <id>Scala-IDE</id>
+                <layout>p2</layout>
+                <url>http://download.scala-ide.org/sdk/helium/e38/scala210/stable/site</url>
 		</repository>
 
 		<!-- repository for pure maven artefacts -->

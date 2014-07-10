@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/fr.inria.diverse.kompren.feature_3.0.0.qualifier.jar" id="fr.inria.diverse.kompren.feature" version="3.0.0.qualifier">
+      <category name="kompren"/>
+   </feature>
+   <category-def name="kompren" label="Kompren"/>
+</site>

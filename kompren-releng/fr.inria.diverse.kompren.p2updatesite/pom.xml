@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>fr.inria.diverse.kompren</groupId>
+        <artifactId>fr.inria.diverse.kompren.root</artifactId>
+        <version>3.0.0-SNAPSHOT</version>
+    </parent>
+
+  <artifactId>fr.inria.diverse.kompren.p2updatesite</artifactId>
+  <packaging>eclipse-update-site</packaging>
+  
+  <!-- we have bundles that are built in pure maven -->
+  <!-- parser, edit and editor are built using maven-bundle-plugin, use pomDependencies to add them to the build -->
+  <dependencies>
+  	<dependency>
+		<groupId>fr.inria.diverse.kompren</groupId>
+		<artifactId>fr.inria.diverse.kompren.parser</artifactId>
+		<version>${project.version}</version>
+	</dependency>
+  	<dependency>
+		<groupId>fr.inria.diverse.kompren</groupId>
+		<artifactId>fr.inria.diverse.kompren.model.edit</artifactId>
+		<version>${project.version}</version>
+	</dependency>
+  	<dependency>
+		<groupId>fr.inria.diverse.kompren</groupId>
+		<artifactId>fr.inria.diverse.kompren.model.editor</artifactId>
+		<version>${project.version}</version>
+	</dependency>
+  </dependencies>
+  <build>
+	  <plugins>
+	    <plugin>
+			<groupId>org.eclipse.tycho</groupId>
+			<artifactId>target-platform-configuration</artifactId>
+			<configuration>
+				<pomDependencies>consider</pomDependencies>
+			</configuration>
+		</plugin>
+	  </plugins>
+  </build>
+</project> 

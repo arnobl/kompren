@@ -1,7 +1,4 @@
 /target
-/.classpath
-/.project
-/.settings
 /bin
 /src-gen
 /xtend-gen

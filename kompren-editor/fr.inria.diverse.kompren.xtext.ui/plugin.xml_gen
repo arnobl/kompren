@@ -250,7 +250,9 @@
    <extension
          point="org.eclipse.xtext.builder.participant">
       <participant
-            class="fr.inria.diverse.kompren.ui.KomprenExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
+            class="fr.inria.diverse.kompren.ui.KomprenExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
+            fileExtensions="kompren"
+            >
       </participant>
    </extension>
    <extension

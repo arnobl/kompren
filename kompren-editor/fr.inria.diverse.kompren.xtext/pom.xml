@@ -4,12 +4,59 @@
   
     <parent>
         <groupId>fr.inria.diverse.kompren</groupId>
-        <artifactId>fr.inria.diverse.kompren.editor.root</artifactId>
+        <artifactId>fr.inria.diverse.kompren.xtext_editor.root</artifactId>
         <version>3.0.0-SNAPSHOT</version>
+        <relativePath>../fr.inria.diverse.kompren.editor.root/pom.xml</relativePath>
     </parent>
   
 	<build>
 		<plugins>
+			<!-- generate code from the xtext grammar -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<includeProjectDependencies>false</includeProjectDependencies>
+					<includePluginDependencies>true</includePluginDependencies>
+					<mainClass>org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher</mainClass>
+					<arguments>
+						<argument>file://${project.basedir}/src/fr/inria/diverse/kompren/GenerateKompren.mwe2</argument>
+						<argument>
+							-p
+						</argument>
+						<argument>
+							runtimeProject=/${project.basedir}
+						</argument>
+					</arguments>
+				</configuration>
+			    <dependencies>
+					<dependency>
+						<groupId>org.eclipse.xtext</groupId>
+						<artifactId>org.eclipse.xtext.xtext</artifactId>
+						<version>${xtend.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.eclipse.xtext</groupId>
+						<artifactId>org.eclipse.xtext.xbase</artifactId>
+						<version>${xtend.version}</version>
+					</dependency>
+			  		<dependency>
+						<groupId>fr.inria.diverse.kompren</groupId>
+						<artifactId>fr.inria.diverse.kompren.model</artifactId>
+						<version>${project.version}</version>
+			  		</dependency>
+			  	</dependencies>
+			</plugin>
+			<!-- Aalso clean generated folders that are outside of the usual target folder -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
@@ -40,50 +87,7 @@
 				</configuration>
 			</plugin>
 			
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.2.1</version>
-				<executions>
-					<execution>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>java</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<includeProjectDependencies>false</includeProjectDependencies>
-					<includePluginDependencies>true</includePluginDependencies>
-					<mainClass>org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher</mainClass>
-					<arguments>
-						<argument>file://${project.basedir}/src/fr/inria/diverse/kompren/GenerateKompren.mwe2</argument>
-						<argument>
-							-p
-						</argument>
-						<argument>
-							runtimeProject=/${project.basedir}
-						</argument>
-					</arguments>
-				</configuration>
-    <dependencies>
-		<dependency>
-			<groupId>org.eclipse.xtext</groupId>
-			<artifactId>org.eclipse.xtext.xtext</artifactId>
-			<version>${xtend.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.xtext</groupId>
-			<artifactId>org.eclipse.xtext.xbase</artifactId>
-			<version>${xtend.version}</version>
-		</dependency>
-  		<dependency>
-			<groupId>fr.inria.diverse.kompren</groupId>
-			<artifactId>fr.inria.diverse.kompren.model</artifactId>
-			<version>${project.version}</version>
-  		</dependency>
-  	</dependencies>
-			</plugin>
+			
 			<plugin>
 				<groupId>org.eclipse.xtend</groupId>
 				<artifactId>xtend-maven-plugin</artifactId>
@@ -125,5 +129,6 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+	<packaging>eclipse-plugin</packaging>
 </project>
 
