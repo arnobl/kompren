@@ -41,7 +41,9 @@
         <repository>
                 <id>K3</id>
                 <layout>p2</layout>
-                <url>https://ci.inria.fr/k3al/job/k3-composite_updatesite/lastSuccessfulBuild/artifact/k3-composite_updatesite/k3.composite.updatesite/update/</url>
+                <!-- temporary fix, because kermeta.org cannot be accessed in ssh by slave and the promotion doesn't work correctly-->
+                <!-- <url>https://ci.inria.fr/k3al/job/k3-composite_updatesite/lastSuccessfulBuild/artifact/k3-composite_updatesite/k3.composite.updatesite/update/</url>  -->
+                <url>https://ci.inria.fr/k3al/job/k3-composite_updatesite/lastSuccessfulBuild/artifact/k3-composite_updatesite/k3.nightly.composite.updatesite/update/</url>
 		</repository>
 		<repository>
                 <id>Scala-IDE</id>
