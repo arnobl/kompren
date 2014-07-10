@@ -23,5 +23,6 @@
 	<module>
 		../../kompren-editor/fr.inria.diverse.kompren.model.editor
 	</module>
+	<module>../../kompren-core/fr.inria.diverse.kompren.root</module>
 	</modules>
 </project>
