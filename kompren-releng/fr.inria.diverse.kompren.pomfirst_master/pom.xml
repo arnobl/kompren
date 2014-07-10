@@ -10,7 +10,6 @@
 	<artifactId>fr.inria.diverse.kompren.pomfirst_master</artifactId>
 	<packaging>pom</packaging>
 	<version>3.0.0-SNAPSHOT</version>
-	<name>fr.inria.diverse.kompren.master :: Master allowing to build all core projects dedicated to Kompren</name>
 	
 	
 	<modules>
