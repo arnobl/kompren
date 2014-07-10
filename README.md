@@ -4,7 +4,7 @@ Kompren
 An eclipse tool for modelling and generating model slicers.
 
 Some documentations:
-http://people.irisa.fr/Arnaud.Blouin/software_kompren.html
+https://github.com/arnobl/kompren/wiki
 
 Papers on Kompren:
 
