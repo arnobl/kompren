@@ -8,8 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import kompren.ecoreSlicer.EcoreCopyHelper;
-
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -30,8 +28,10 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 public class EcoreSlicer {
 	// The slicing criteria
 	List<EModelElement> inputEModelElement;
+	// The input model.
 	List<EPackage> model;
-	Map<EClass,Set<EClass>> subTypes = new IdentityHashMap<>();
+	// The subtypes relation opposite of EClass.eSuperTypes
+	Map<EClass,Set<EClass>> subTypes;
 	
 	// The cloned elements resulting from the slicing.
 	Map<EModelElement, EModelElement> clones = new IdentityHashMap<>();
@@ -39,7 +39,7 @@ public class EcoreSlicer {
 	// An helper map
 	Map<EClass, EClass> clonesClass = new IdentityHashMap<>();
 	// Contains the roots of the sliced model.
-	List<EPackage> roots = new ArrayList<>();
+	List<EPackage> sliceRoots = new ArrayList<>();
 
 
 	/**
@@ -48,6 +48,7 @@ public class EcoreSlicer {
 	public EcoreSlicer(List<EModelElement> inputEModelElement, List<EPackage> model){
 		this.inputEModelElement = inputEModelElement;
 		this.model = model;
+		subTypes = EcoreCopyHelper.feedSubTypes(model);
 	}
 
 	
@@ -55,8 +56,6 @@ public class EcoreSlicer {
 	 * Executes the slicing.
 	 */
 	public void slice(){
-		preprocess();
-		
 		EModelElement elt;
 		while(!inputEModelElement.isEmpty()) {
 			elt = inputEModelElement.remove(inputEModelElement.size()-1);
@@ -70,13 +69,6 @@ public class EcoreSlicer {
 		save();
 	}
 	
-	
-	private void preprocess() {
-		List<EClass> classes = new ArrayList<>();
-		for(EPackage pkg : model) {
-			pkg.eAllContents();
-		}
-	}
 	
 	
 	/**
@@ -143,7 +135,7 @@ public class EcoreSlicer {
 		EPackage src = epackage.getESuperPackage();
 		
 		if(src==null) {
-			roots.add(clone);
+			sliceRoots.add(clone);
 		}else {
 			EPackage srcClone = (EPackage)clones.get(src);
 			if(srcClone==null) {
@@ -266,6 +258,7 @@ public class EcoreSlicer {
 		EClass clone = org.eclipse.emf.ecore.EcoreFactory.eINSTANCE.createEClass();
 		EPackage src = eclass.getEPackage();
 		EPackage srcClone = (EPackage)clones.get(src);
+		Set<EClass> subs = subTypes.get(eclass);
 		
 		if(srcClone==null) {
 			sliceEPackage(src);
@@ -276,6 +269,12 @@ public class EcoreSlicer {
 		EcoreCopyHelper.copyEClass(eclass, clone);
 		clones.put(eclass, clone);
 		clonesClass.put(eclass, clone);
+		
+		if(subs!=null) {
+			for(EClass sub : subs) {
+				sliceEClass(sub);
+			}
+		}
 	}
 
 	
@@ -308,7 +307,7 @@ public class EcoreSlicer {
 		ResourceSet resSet = new ResourceSetImpl();
 		resSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
 		Resource res = resSet.createResource(URI.createURI("modelSlice.ecore"));
-		res.getContents().addAll(roots);
+		res.getContents().addAll(sliceRoots);
 		try{
 			res.save(Collections.emptyMap());
 		}catch(IOException ex) { ex.printStackTrace(); }

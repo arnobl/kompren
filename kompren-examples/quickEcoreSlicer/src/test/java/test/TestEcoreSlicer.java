@@ -28,14 +28,17 @@ public class TestEcoreSlicer {
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
 		Resource res = rs.getResource(URI.createURI("My.ecore"), true);
 		res.load(Collections.emptyMap());
-		EPackage mm = (EPackage) res.getContents().get(0);
+		EPackage pkg = (EPackage) res.getContents().get(0);
+		List<EPackage> mm = new ArrayList<>();
+		mm.add(pkg);
 		EClass cl = null;
-		for(EClassifier classif : mm.getEClassifiers()) {
+		for(EClassifier classif : pkg.getEClassifiers()) {
 			if(classif instanceof EClass && ((EClass)classif).getName().equals("A"))
 				inputs.add(classif);
 			if(classif instanceof EClass && ((EClass)classif).getName().equals("D"))
 				inputs.add(classif);
-			else if(classif instanceof EClass && ((EClass)classif).getName().equals("B")) {
+			else 
+				if(classif instanceof EClass && ((EClass)classif).getName().equals("B")) {
 				EClass b = (EClass) classif;
 				for(EReference ref : b.getEReferences()) {
 					if(ref.getName().equals("f"))
@@ -44,7 +47,7 @@ public class TestEcoreSlicer {
 			}
 		}
 		inputs.add(cl);
-		EcoreSlicer slicer = new EcoreSlicer(inputs);
+		EcoreSlicer slicer = new EcoreSlicer(inputs, mm);
 		slicer.slice();
 	}
 }
