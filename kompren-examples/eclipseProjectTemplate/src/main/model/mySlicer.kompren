@@ -1,0 +1,8 @@
+slicer strict MySlicer{
+	// The input metamodels, for instance Ecore:
+	domain: "platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel"
+	// The types of the slicing criterion:
+	input: ecore.EModelElement 
+	slicedClass: ecore.EClass
+//	slicedProperty:
+}
