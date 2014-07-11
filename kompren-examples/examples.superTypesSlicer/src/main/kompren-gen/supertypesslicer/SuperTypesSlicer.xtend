@@ -1,17 +1,14 @@
 package supertypesslicer
 
-import ex.classModel.Clazz
-import java.util.List
-
 import static extension supertypesslicer.__SlicerAspect__.*
-
+import static extension supertypesslicer.exclassModelClazzAspect.*
 class SuperTypesSlicer{
 
 	public val buf = new StringBuilder
 	
-	val List<Clazz> inputClazz
+	val java.util.List<ex.classModel.Clazz> inputClazz
 
-	new(List<Clazz> inputClazz){
+	new(java.util.List<ex.classModel.Clazz> inputClazz){
 		this.inputClazz = inputClazz
 	}
 
@@ -22,13 +19,13 @@ class SuperTypesSlicer{
 		onEnd
 	}
 
-	def void onClazzSliced(Clazz clazz){
+	def void onClazzSliced(ex.classModel.Clazz clazz){
 		
 	println("Clazz: " + clazz.name)
 	buf.append(clazz.name).append(' ')
 	
 	}
-	def void onsuperClassesSliced(Clazz srcClass, Clazz tgtClass){
+	def void onsuperClassesSliced(ex.classModel.Clazz srcClass, ex.classModel.Clazz tgtClass){
 		
 	println("Inheritance: " + srcClass.name + " " + tgtClass.name)
 	buf.append(srcClass.name).append(' ').append(tgtClass.name).append(' ')

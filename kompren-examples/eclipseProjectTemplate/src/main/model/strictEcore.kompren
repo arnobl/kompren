@@ -3,6 +3,6 @@ slicer strict MySlicer{
 	domain: "platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel"
 	// The types of the slicing criterion:
 	input: ecore.EModelElement 
-//	slicedClass:
+	slicedClass: ecore.EClass
 //	slicedProperty:
 }

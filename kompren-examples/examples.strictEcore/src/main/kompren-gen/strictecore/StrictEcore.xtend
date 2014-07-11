@@ -1,24 +1,31 @@
 package strictecore
 
-import java.util.Collections
-import java.util.List
-import org.eclipse.emf.common.util.URI
-import org.eclipse.emf.ecore.EModelElement
-import org.eclipse.emf.ecore.EObject
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
-
 import static extension strictecore.__SlicerAspect__.*
-
+import static extension strictecore.orgeclipseemfecoreENamedElementAspect.*
+import static extension strictecore.orgeclipseemfecoreEStructuralFeatureAspect.*
+import static extension strictecore.orgeclipseemfecoreEReferenceAspect.*
+import static extension strictecore.orgeclipseemfecoreETypedElementAspect.*
+import static extension strictecore.orgeclipseemfecoreEOperationAspect.*
+import static extension strictecore.orgeclipseemfecoreEAttributeAspect.*
+import static extension strictecore.orgeclipseemfecoreEDataTypeAspect.*
+import static extension strictecore.orgeclipseemfecoreEClassifierAspect.*
+import static extension strictecore.orgeclipseemfecoreEEnumAspect.*
+import static extension strictecore.orgeclipseemfecoreEParameterAspect.*
+import static extension strictecore.orgeclipseemfecoreEPackageAspect.*
+import static extension strictecore.orgeclipseemfecoreEModelElementAspect.*
+import static extension strictecore.orgeclipseemfecoreEAnnotationAspect.*
+import static extension strictecore.orgeclipseemfecoreEEnumLiteralAspect.*
+import static extension strictecore.orgeclipseemfecoreETypeParameterAspect.*
+import static extension strictecore.orgeclipseemfecoreEClassAspect.*
 class StrictEcore{
-	val List<EModelElement> inputEModelElement
-	private val List<EObject> clonedElts = newArrayList
+	val java.util.List<org.eclipse.emf.ecore.EModelElement> inputEModelElement
+	private val java.util.List<org.eclipse.emf.ecore.EObject> clonedElts = newArrayList
 	public val boolean optionlowerTypes
 	val String nameExtension
 
-	val EObject _root
+	val org.eclipse.emf.ecore.EObject _root
 
-	new(List<EModelElement> inputEModelElement, EObject metamodelRoot, boolean optionlowerTypes, String nameExtension){
+	new(java.util.List<org.eclipse.emf.ecore.EModelElement> inputEModelElement, org.eclipse.emf.ecore.EObject metamodelRoot, boolean optionlowerTypes, String nameExtension){
 		this.inputEModelElement = inputEModelElement
 		if(metamodelRoot==null) throw new IllegalArgumentException
 		this._root = metamodelRoot
@@ -33,17 +40,17 @@ class StrictEcore{
 		save
 	}
 
-	def void objectCloned(EObject object){
+	def void objectCloned(org.eclipse.emf.ecore.EObject object){
 		this.clonedElts.add(object)
 	}
 
 	def void save(){
 		val objs = this.clonedElts.filter[eContainer==null]
-		val resSet = new ResourceSetImpl
-		resSet.getResourceFactoryRegistry.getExtensionToFactoryMap.put("*", new XMIResourceFactoryImpl)
-		val res = resSet.createResource(URI.createURI("modelSlice."+this.nameExtension))
+		val resSet = new org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+		resSet.getResourceFactoryRegistry.getExtensionToFactoryMap.put("*", new org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl)
+		val res = resSet.createResource(org.eclipse.emf.common.util.URI.createURI("modelSlice."+this.nameExtension))
 		res.getContents.addAll(objs)
-	    res.save(Collections.emptyMap)
+	    res.save(java.util.Collections.emptyMap)
 	    res.unload
 	}
 

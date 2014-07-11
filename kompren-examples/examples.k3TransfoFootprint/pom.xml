@@ -65,22 +65,22 @@
 		<dependency>
 			<groupId>org.eclipse.xtend</groupId>
 			<artifactId>org.eclipse.xtend.lib</artifactId>
-			<version>${xtend.version}</version>
+			<version>[2.6,)</version>
 		</dependency>
 		<dependency>
 			<groupId>fr.inria.diverse.k3.al</groupId>
 			<artifactId>fr.inria.diverse.k3.al.annotationprocessor</artifactId>
-			<version>${kermeta.version}</version>
+			<version>[2.6,)</version>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.xtext</groupId>
 			<artifactId>org.eclipse.xtext.xbase</artifactId>
-			<version>${xtend.version}</version>
+			<version>[2.6,)</version>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.xtext</groupId>
 			<artifactId>org.eclipse.xtext.common.types</artifactId>
-			<version>${xtend.version}</version>
+			<version>[2.6,)</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>

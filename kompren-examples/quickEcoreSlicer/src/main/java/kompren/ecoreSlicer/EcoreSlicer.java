@@ -30,6 +30,8 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 public class EcoreSlicer {
 	// The slicing criteria
 	List<EModelElement> inputEModelElement;
+	List<EPackage> model;
+	Map<EClass,Set<EClass>> subTypes = new IdentityHashMap<>();
 	
 	// The cloned elements resulting from the slicing.
 	Map<EModelElement, EModelElement> clones = new IdentityHashMap<>();
@@ -43,8 +45,9 @@ public class EcoreSlicer {
 	/**
 	 * @param inputEModelElement The slicing criteria.
 	 */
-	public EcoreSlicer(List<EModelElement> inputEModelElement){
+	public EcoreSlicer(List<EModelElement> inputEModelElement, List<EPackage> model){
 		this.inputEModelElement = inputEModelElement;
+		this.model = model;
 	}
 
 	
@@ -52,6 +55,8 @@ public class EcoreSlicer {
 	 * Executes the slicing.
 	 */
 	public void slice(){
+		preprocess();
+		
 		EModelElement elt;
 		while(!inputEModelElement.isEmpty()) {
 			elt = inputEModelElement.remove(inputEModelElement.size()-1);
@@ -63,6 +68,14 @@ public class EcoreSlicer {
 		completeRelations();
 		// Serializing the model.
 		save();
+	}
+	
+	
+	private void preprocess() {
+		List<EClass> classes = new ArrayList<>();
+		for(EPackage pkg : model) {
+			pkg.eAllContents();
+		}
 	}
 	
 	

@@ -1,20 +1,16 @@
 package lowertypesslicer
 
-import ex.classModel.Clazz
-import java.util.List
-import org.eclipse.emf.ecore.EObject
-
 import static extension lowertypesslicer.__SlicerAspect__.*
-
+import static extension lowertypesslicer.exclassModelClazzAspect.*
 class LowerTypesSlicer{
 
 	public val buf = new StringBuilder
 	
-	val List<Clazz> inputClazz
+	val java.util.List<ex.classModel.Clazz> inputClazz
 
-	val EObject _root
+	val org.eclipse.emf.ecore.EObject _root
 
-	new(List<Clazz> inputClazz, EObject metamodelRoot){
+	new(java.util.List<ex.classModel.Clazz> inputClazz, org.eclipse.emf.ecore.EObject metamodelRoot){
 		this.inputClazz = inputClazz
 		if(metamodelRoot==null) throw new IllegalArgumentException
 		this._root = metamodelRoot
@@ -28,13 +24,13 @@ class LowerTypesSlicer{
 		onEnd
 	}
 
-	def void onClazzSliced(Clazz clazz){
+	def void onClazzSliced(ex.classModel.Clazz clazz){
 		
 	println("Clazz: " + clazz.name)
 	buf.append(clazz.name).append(' ')
 	
 	}
-	def void onlowerTypeSliced(Clazz src, Clazz tgt){
+	def void onlowerTypeSliced(ex.classModel.Clazz src, ex.classModel.Clazz tgt){
 		
 	println("Inheritance: " + src.name + " " + tgt.name)
 	buf.append(src.name).append(' ').append(tgt.name).append(' ')

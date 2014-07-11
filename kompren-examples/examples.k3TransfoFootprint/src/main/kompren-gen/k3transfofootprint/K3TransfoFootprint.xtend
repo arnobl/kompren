@@ -1,30 +1,23 @@
 package k3transfofootprint
 
-import java.util.List
-import java.util.Set
-import org.eclipse.xtext.common.types.JvmFormalParameter
-import org.eclipse.xtext.common.types.JvmIdentifiableElement
-import org.eclipse.xtext.common.types.JvmTypeReference
-import org.eclipse.xtext.xbase.XExpression
-
 import static extension k3transfofootprint.__SlicerAspect__.*
-
+import static extension k3transfofootprint.orgeclipsextextcommontypesJvmTypeReferenceAspect.*
+import static extension k3transfofootprint.orgeclipsextextcommontypesJvmIdentifiableElementAspect.*
 class K3TransfoFootprint{
 
-	public val Set<String> footprint = newHashSet
-	public val List<String> pkgs = newArrayList
+	public val java.util.Set<String> footprint = newHashSet
 	private def addQN(String qn) {
 		if(qn!=null && !qn.startsWith("java.") && !qn.startsWith("com.google.") && 
 			!qn.startsWith("sun.") && !qn.startsWith("javax.") && !qn.startsWith("com.sun") &&
 			!qn.startsWith("com.oracle") && !qn.startsWith("sunw."))
 			footprint.add(qn)
 	}
- 	
-	val List<JvmFormalParameter> inputJvmFormalParameter
-	val List<JvmTypeReference> inputJvmTypeReference
-	val List<XExpression> inputXExpression
+	
+	val java.util.List<org.eclipse.xtext.common.types.JvmFormalParameter> inputJvmFormalParameter
+	val java.util.List<org.eclipse.xtext.common.types.JvmTypeReference> inputJvmTypeReference
+	val java.util.List<org.eclipse.xtext.xbase.XExpression> inputXExpression
 
-	new(List<JvmFormalParameter> inputJvmFormalParameter,List<JvmTypeReference> inputJvmTypeReference,List<XExpression> inputXExpression){
+	new(java.util.List<org.eclipse.xtext.common.types.JvmFormalParameter> inputJvmFormalParameter,java.util.List<org.eclipse.xtext.common.types.JvmTypeReference> inputJvmTypeReference,java.util.List<org.eclipse.xtext.xbase.XExpression> inputXExpression){
 		this.inputJvmFormalParameter = inputJvmFormalParameter
 		this.inputJvmTypeReference = inputJvmTypeReference
 		this.inputXExpression = inputXExpression
@@ -41,10 +34,10 @@ class K3TransfoFootprint{
 		onEnd
 	}
 
-	def void onJvmTypeReferenceSliced(JvmTypeReference type){
+	def void onJvmTypeReferenceSliced(org.eclipse.xtext.common.types.JvmTypeReference type){
 		addQN(type.getQualifiedName)
 	}
-	def void onJvmIdentifiableElementSliced(JvmIdentifiableElement ident){
+	def void onJvmIdentifiableElementSliced(org.eclipse.xtext.common.types.JvmIdentifiableElement ident){
 		addQN(ident.getQualifiedName)
 	}
 
