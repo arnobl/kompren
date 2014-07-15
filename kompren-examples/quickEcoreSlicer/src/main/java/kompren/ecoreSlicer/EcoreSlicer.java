@@ -158,10 +158,20 @@ public class EcoreSlicer {
 		EOperation clone = org.eclipse.emf.ecore.EcoreFactory.eINSTANCE.createEOperation();
 		EClass src = eoperation.getEContainingClass();
 		EClass srcClone = clonesClass.get(src);
+		EClassifier etype = eoperation.getEType();
 		
 		if(srcClone==null) {
 			sliceEClass(src);
 			srcClone = clonesClass.get(src);
+		}
+		
+		if(etype!=null) {
+			EClassifier etypeClone = (EClassifier) clones.get(etype);
+			if(etypeClone==null) {
+				sliceEClassifier(etype);
+				 etypeClone = (EClassifier) clones.get(etype);
+			}
+			clone.setEType(etypeClone);
 		}
 		
 		srcClone.getEOperations().add(clone);
@@ -174,10 +184,20 @@ public class EcoreSlicer {
 		EParameter clone = org.eclipse.emf.ecore.EcoreFactory.eINSTANCE.createEParameter();
 		EOperation src = eparameter.getEOperation();
 		EOperation srcClone = (EOperation)clones.get(src);
+		EClassifier etype = eparameter.getEType();
 		
 		if(srcClone==null) {
 			sliceEOperation(src);
 			srcClone = (EOperation)clones.get(src);
+		}
+		
+		if(etype!=null) {
+			EClassifier etypeClone = (EClassifier) clones.get(etype);
+			if(etypeClone==null) {
+				sliceEClassifier(etype);
+				 etypeClone = (EClassifier) clones.get(etype);
+			}
+			clone.setEType(etypeClone);
 		}
 		
 		srcClone.getEParameters().add(clone);
@@ -195,7 +215,7 @@ public class EcoreSlicer {
 			sliceEPackage(src);
 			srcClone = (EPackage)clones.get(src);
 		}
-		
+		System.out.println(edatatype.getName());
 		srcClone.getEClassifiers().add(clone);
 		EcoreCopyHelper.copyEDataType(edatatype, clone);
 		clones.put(edatatype, clone);
