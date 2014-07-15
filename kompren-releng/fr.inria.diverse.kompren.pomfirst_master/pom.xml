@@ -17,9 +17,6 @@
 	<module>../../kompren-core/fr.inria.diverse.kompren.model</module>
 	<module>../../kompren-core/fr.inria.diverse.kompren.parser</module>
 	<module>
-		../../kompren-editor/fr.inria.diverse.kompren.model.edit
-	</module>
-	<module>
 		../../kompren-editor/fr.inria.diverse.kompren.model.editor
 	</module>
 	<module>../../kompren-core/fr.inria.diverse.kompren.root</module>

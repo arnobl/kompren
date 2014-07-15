@@ -16,27 +16,26 @@
       [Enter License Description here.]
    </license>
 
+   <url>
+      <discovery label="Scala 2.10.4" url="http://download.scala-ide.org/sdk/helium/e38/scala210/stable/site"/>
+   </url>
+
    <plugin
          id="fr.inria.diverse.kompren.model"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+
    <plugin
          id="fr.inria.diverse.kompren.model.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-   <plugin
-         id="fr.inria.diverse.kompren.model.editor"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
 
    <plugin
-         id="fr.inria.diverse.kompren.parser"
+         id="fr.inria.diverse.kompren.model.editor"
          download-size="0"
          install-size="0"
          version="0.0.0"

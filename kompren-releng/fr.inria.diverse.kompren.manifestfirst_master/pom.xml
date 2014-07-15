@@ -20,6 +20,7 @@
 		../../kompren-core/fr.inria.diverse.kompren.compiler
 	</module>
 	<module>../../kompren-core/fr.inria.diverse.kompren.model</module>
+	<module>../../kompren-editor/fr.inria.diverse.kompren.model.edit</module>
 	<module>
 		../../kompren-editor/fr.inria.diverse.kompren.xtext_editor.root
 	</module>
