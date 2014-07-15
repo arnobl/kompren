@@ -31,7 +31,7 @@ public class EcoreSlicer {
 	// The input model.
 	List<EPackage> model;
 	// The subtypes relation opposite of EClass.eSuperTypes
-	Map<EClass,Set<EClass>> subTypes;
+	Map<EClass,List<EClass>> subTypes;
 	
 	// The cloned elements resulting from the slicing.
 	Map<EModelElement, EModelElement> clones = new IdentityHashMap<>();
@@ -258,7 +258,7 @@ public class EcoreSlicer {
 		EClass clone = org.eclipse.emf.ecore.EcoreFactory.eINSTANCE.createEClass();
 		EPackage src = eclass.getEPackage();
 		EPackage srcClone = (EPackage)clones.get(src);
-		Set<EClass> subs = subTypes.get(eclass);
+		List<EClass> subs = subTypes.get(eclass);
 		
 		if(srcClone==null) {
 			sliceEPackage(src);

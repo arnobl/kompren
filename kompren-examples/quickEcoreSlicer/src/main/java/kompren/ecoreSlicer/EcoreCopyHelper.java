@@ -1,11 +1,9 @@
 package kompren.ecoreSlicer;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -22,8 +20,8 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.ETypedElement;
 
 public class EcoreCopyHelper {
-	public static Map<EClass,Set<EClass>> feedSubTypes(List<EPackage> pkgs) {
-		Map<EClass,Set<EClass>> subTypes = new IdentityHashMap<>();
+	public static Map<EClass,List<EClass>> feedSubTypes(List<EPackage> pkgs) {
+		Map<EClass,List<EClass>> subTypes = new IdentityHashMap<>();
 		List<EPackage> ps = new ArrayList<>(pkgs);
 		EPackage p;
 		
@@ -34,9 +32,9 @@ public class EcoreCopyHelper {
 				if(classif instanceof EClass) {
 					EClass cl = (EClass) classif;
 					for(EClass sup : cl.getESuperTypes()) {
-						Set<EClass> subs = subTypes.get(sup);
+						List<EClass> subs = subTypes.get(sup);
 						if(subs==null) {
-							subs = new HashSet<>();
+							subs = new ArrayList<>();
 							subTypes.put(sup, subs);
 						}
 						subs.add(cl);
