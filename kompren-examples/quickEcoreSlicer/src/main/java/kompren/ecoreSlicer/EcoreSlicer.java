@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 public class EcoreSlicer {
@@ -207,18 +208,21 @@ public class EcoreSlicer {
 	
 	
 	private void sliceEDataType(EDataType edatatype) {
-		EDataType clone = org.eclipse.emf.ecore.EcoreFactory.eINSTANCE.createEDataType();
-		EPackage src = edatatype.getEPackage();
-		EPackage srcClone = (EPackage)clones.get(src);
-		
-		if(srcClone==null) {
-			sliceEPackage(src);
-			srcClone = (EPackage)clones.get(src);
+		if(model.contains(EcoreUtil.getRootContainer(edatatype))) {
+			EDataType clone = org.eclipse.emf.ecore.EcoreFactory.eINSTANCE.createEDataType();
+			EPackage src = edatatype.getEPackage();
+			EPackage srcClone = (EPackage)clones.get(src);
+			
+			if(srcClone==null) {
+				sliceEPackage(src);
+				srcClone = (EPackage)clones.get(src);
+			}
+			srcClone.getEClassifiers().add(clone);
+			EcoreCopyHelper.copyEDataType(edatatype, clone);
+			clones.put(edatatype, clone);
+		}else {
+			clones.put(edatatype, edatatype);
 		}
-		System.out.println(edatatype.getName());
-		srcClone.getEClassifiers().add(clone);
-		EcoreCopyHelper.copyEDataType(edatatype, clone);
-		clones.put(edatatype, clone);
 	}
 	
 	
