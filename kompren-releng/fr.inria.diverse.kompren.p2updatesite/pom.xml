@@ -13,7 +13,7 @@
   
   <!-- we have bundles that are built in pure maven -->
   <!-- parser, edit and editor are built using maven-bundle-plugin, use pomDependencies to add them to the build -->
-  <dependencies>
+  <!-- <dependencies>
   	<dependency>
 		<groupId>fr.inria.diverse.kompren</groupId>
 		<artifactId>fr.inria.diverse.kompren.parser</artifactId>
@@ -40,5 +40,5 @@
 			</configuration>
 		</plugin>
 	  </plugins>
-  </build>
+  </build> -->
 </project> 
