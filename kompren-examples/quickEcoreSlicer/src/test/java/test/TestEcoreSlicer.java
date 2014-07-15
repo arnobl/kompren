@@ -8,11 +8,11 @@ import java.util.List;
 import kompren.ecoreSlicer.EcoreSlicer;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EcoreFactoryImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -26,28 +26,40 @@ public class TestEcoreSlicer {
 		ResourceSet rs = new ResourceSetImpl();
 		EcoreFactoryImpl.eINSTANCE.eClass();
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
-		Resource res = rs.getResource(URI.createURI("My.ecore"), true);
+		Resource res = rs.getResource(URI.createURI("UML2.ecore"), true);
 		res.load(Collections.emptyMap());
 		EPackage pkg = (EPackage) res.getContents().get(0);
 		List<EPackage> mm = new ArrayList<>();
 		mm.add(pkg);
 		EClass cl = null;
 		for(EClassifier classif : pkg.getEClassifiers()) {
-			if(classif instanceof EClass && ((EClass)classif).getName().equals("A"))
+			if(classif instanceof EClass && ((EClass)classif).getName().equals("Class")) {
 				inputs.add(classif);
-			if(classif instanceof EClass && ((EClass)classif).getName().equals("D"))
-				inputs.add(classif);
-			else 
-				if(classif instanceof EClass && ((EClass)classif).getName().equals("B")) {
-				EClass b = (EClass) classif;
-				for(EReference ref : b.getEReferences()) {
-					if(ref.getName().equals("f"))
-						inputs.add(ref);
+				EClass clazz = (EClass) classif;
+				for(EAttribute attr: clazz.getEAttributes()) {
+					inputs.add(attr);
 				}
 			}
+//			if(classif instanceof EClass && ((EClass)classif).getName().equals("D"))
+//				inputs.add(classif);
+//			else 
+//				if(classif instanceof EClass && ((EClass)classif).getName().equals("B")) {
+//				EClass b = (EClass) classif;
+//				for(EReference ref : b.getEReferences()) {
+//					if(ref.getName().equals("f"))
+//						inputs.add(ref);
+//				}
+//			}
 		}
 		inputs.add(cl);
-		EcoreSlicer slicer = new EcoreSlicer(inputs, mm);
-		slicer.slice();
+		double loop = 1;
+		double sum = 0;
+		for(int i=0; i<loop; i++) {
+			long time = System.currentTimeMillis();
+			EcoreSlicer slicer = new EcoreSlicer(inputs, mm);
+			slicer.slice();
+			sum += (System.currentTimeMillis()-time);
+		}
+		System.out.println(sum/loop);
 	}
 }

@@ -80,12 +80,16 @@ public class EcoreSlicer {
 		Set<EClass> keys = clonesClass.keySet();
 		EClass stClone;
 		EClass clone;
+		EClass stSrc;
+		List<EClass> supers;
 		
 		// Adding inheritance relations for each sliced class.
 		for(EClass clSrc : keys) {
 			clone = clonesClass.get(clSrc);
 			// Getting the super classes.
-			for(EClass stSrc : clSrc.getESuperTypes()) {
+			supers = clSrc.getESuperTypes();
+			for(int i=0, size=supers.size();i<size; i++) {
+				stSrc = supers.get(i);
 				// If this super class has been sliced, adding the inheritance relation to the clones.
 				stClone = clonesClass.get(stSrc);
 				if(stClone!=null) {
@@ -272,7 +276,8 @@ public class EcoreSlicer {
 		
 		if(subs!=null) {
 			for(EClass sub : subs) {
-				sliceEClass(sub);
+				if(clones.get(sub)==null)
+					sliceEClass(sub);
 			}
 		}
 	}

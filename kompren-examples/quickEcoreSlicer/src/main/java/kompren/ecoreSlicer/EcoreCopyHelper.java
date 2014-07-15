@@ -2,6 +2,7 @@ package kompren.ecoreSlicer;
 
 import java.util.ArrayList;
 import java.util.IdentityHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -22,17 +23,26 @@ import org.eclipse.emf.ecore.ETypedElement;
 public class EcoreCopyHelper {
 	public static Map<EClass,List<EClass>> feedSubTypes(List<EPackage> pkgs) {
 		Map<EClass,List<EClass>> subTypes = new IdentityHashMap<>();
-		List<EPackage> ps = new ArrayList<>(pkgs);
+		LinkedList<EPackage> ps = new LinkedList<>(pkgs);
 		EPackage p;
+		EClass cl;
+		EClassifier classif;
+		List<EClassifier> cls;
+		List<EClass> supers;
+		EClass sup;
+		List<EClass> subs;
 		
 		while(!ps.isEmpty()) {
-			p = ps.remove(ps.size()-1);
-			List<EClassifier> cls = p.getEClassifiers();
-			for(EClassifier classif : cls) {
+			p = ps.removeFirst();
+			cls = p.getEClassifiers();
+			for(int i=0, sizeClassif=cls.size(); i<sizeClassif; i++) {
+				classif = cls.get(i);
 				if(classif instanceof EClass) {
-					EClass cl = (EClass) classif;
-					for(EClass sup : cl.getESuperTypes()) {
-						List<EClass> subs = subTypes.get(sup);
+					cl = (EClass) classif;
+					supers = cl.getESuperTypes();
+					for(int j=0, sizeSupers=supers.size(); j<sizeSupers; j++) {
+						sup = supers.get(j);
+						subs = subTypes.get(sup);
 						if(subs==null) {
 							subs = new ArrayList<>();
 							subTypes.put(sup, subs);
