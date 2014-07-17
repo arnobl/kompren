@@ -29,6 +29,7 @@
 	<module>
 		../../kompren-editor/fr.inria.diverse.kompren.xtext.ui
 	</module>
+	<module>../fr.inria.diverse.kompren.sample.deployer</module>
 	<module>../fr.inria.diverse.kompren.feature</module>
 	<module>../fr.inria.diverse.kompren.p2updatesite</module>
 	</modules>

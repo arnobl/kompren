@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+
+
+	<extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="fr.inria.diverse.kompren.samples.category"
+            name="Kompren examples"
+            parentCategory="org.eclipse.ui.Examples"/>
+      <wizard
+            canFinishEarly="true"
+            category="org.eclipse.ui.Examples/fr.inria.diverse.kompren.samples.category"
+            class="fr.inria.diverse.kompren.sample.deployer.wizard.StrictEcoreExampleWizard"
+            icon="icons/DiverSE_icon_16x16x32.png"
+            id="fr.inria.diverse.kompren.sample.deployer.wizard.StrictEcore.wizard"
+            name="StrictEcore example">
+         <description>
+T⁮his set of projects feature a simple signal processing modeling language (SigPML) which is made executable using Gemoc.
+         </description>
+      </wizard>      
+   </extension>
+ 
+</plugin>

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Kompren Sample Deployer
+Bundle-SymbolicName: fr.inria.diverse.kompren.sample.deployer;singleton:=true
+Bundle-Version: 3.0.0.qualifier
+Bundle-Activator: fr.inria.diverse.kompren.sample.deployer.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.ui
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy

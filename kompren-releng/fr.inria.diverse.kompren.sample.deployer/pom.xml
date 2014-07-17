@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+
+    <properties>
+        <sample_root>${basedir}/../../kompren-examples</sample_root>
+    </properties>
+    
+	<parent>
+        <groupId>fr.inria.diverse.kompren</groupId>
+        <artifactId>fr.inria.diverse.kompren.root</artifactId>
+        <version>3.0.0-SNAPSHOT</version>
+        <relativePath>../fr.inria.diverse.kompren.root/pom.xml</relativePath>
+    </parent>
+
+	<artifactId>fr.inria.diverse.kompren.sample.deployer</artifactId>
+	<packaging>eclipse-plugin</packaging>
+	<build>
+		<plugins>
+			<!-- create the zip files that will be deployed as project samples  -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.3</version>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>
+								<mkdir dir="${basedir}/zips" />								
+
+								<!-- StrictEcore -->
+								<zip destfile="${basedir}/zips/examples.strictEcore.zip">
+									<fileset dir="${sample_root}/examples.strictEcore/" />
+								</zip>
+								
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project> 
+
