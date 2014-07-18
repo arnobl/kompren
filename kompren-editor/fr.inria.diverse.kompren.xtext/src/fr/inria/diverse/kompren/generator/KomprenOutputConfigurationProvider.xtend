@@ -6,9 +6,11 @@ import org.eclipse.xtext.generator.IOutputConfigurationProvider
 import org.eclipse.xtext.generator.OutputConfiguration
 
 class KomprenOutputConfigurationProvider implements IOutputConfigurationProvider {
+	public val static description = "Kompren Slicer Folder"
+	
 	override Set<OutputConfiguration> getOutputConfigurations() {
 	    val slicerOutput = new OutputConfiguration(IFileSystemAccess.DEFAULT_OUTPUT);
-	    slicerOutput.setDescription("Kompren Slicer Folder")
+	    slicerOutput.setDescription(description)
 	    slicerOutput.setOutputDirectory("src/main/kompren-gen")
 	    slicerOutput.setOverrideExistingResources(true)
 	    slicerOutput.setCreateOutputDirectory(true)
