@@ -41,13 +41,15 @@ class KomprenGenerator implements IGenerator {
 			compiler.compile
 			fsa.generateFile(compiler.packageFolder+compiler.fileNameMain, compiler.codeMain)
 			fsa.generateFile(compiler.packageFolder+compiler.fileNameAspect, compiler.codeAspect)
+			
+//BEGIN TEMPORARY CODE
 			ResourcesPlugin.getWorkspace().getRoot().projects.forEach[proj|
 				proj.refreshLocal(IResource.DEPTH_INFINITE, null)
 				proj.touch(null)
 				proj.build(IncrementalProjectBuilder::CLEAN_BUILD, null)
 			]
 
-//TEMPORARY CODE
+
 val myFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path("KomprenSlicerTemplate/"+outputConfig.outputDirectory+"/"+compiler.packageFolder+compiler.fileNameMain))
 val myFile2 = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path("KomprenSlicerTemplate/"+outputConfig.outputDirectory+"/"+compiler.packageFolder+compiler.fileNameAspect))
 myFile.touch(null)
@@ -64,6 +66,7 @@ project.touch(null)
 //				xtendGen.doGenerate(xtextResSet.getResource(URI::createPlatformResourceURI("/KomprenSlicerTemplate/"+myFile2.fullPath.toString, false), true), fsa)			
 //			}
 project.build(IncrementalProjectBuilder::CLEAN_BUILD, null)
+// END TEMPORARY CODE
 		]
 //		ResourcesPlugin.getWorkspace().getRoot().projects.forEach[refreshLocal(IResource.DEPTH_INFINITE, null)]
 	}
