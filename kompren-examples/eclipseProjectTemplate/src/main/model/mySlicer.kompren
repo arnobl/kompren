@@ -4,5 +4,5 @@ slicer strict MySlicer{
 	// The types of the slicing criterion:
 	input: ecore.EModelElement 
 	slicedClass: ecore.EClass
-//	slicedProperty:
+	slicedProperty: ecore.ENamedElement.name
 }
