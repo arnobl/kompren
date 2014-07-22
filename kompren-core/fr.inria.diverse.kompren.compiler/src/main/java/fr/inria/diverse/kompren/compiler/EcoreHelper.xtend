@@ -269,7 +269,7 @@ class ENamedEltAspect {
 						_self.relationCode.append("(_self.clonedElt as ").append(_self.qName(true, slicer.strict)).append(").^").append(name).
 						append(" = _self.^").append(name).append(".clonedElt as ").append(sp.domain.EType.qName(true, slicer.strict)).append('\n')
 			else
-				_self.relationCode.append("\t\ttheSlicer.on").append(name).append("Sliced(_self").append(", _self.^").append(name).append(")\n")
+				_self.relationCode.append("\t\ttheSlicer.on").append(sp.domain.name).append("Sliced(_self").append(", _self.^").append(name).append(")\n")
 		}
 		if(!isPrim) _self.relationCode.append("\t\t}\n")
 	}
@@ -298,7 +298,7 @@ class ENamedEltAspect {
 					append(".add( _elt.clonedElt as ").append(sp.domain.EType.qName(true, slicer.strict)).append(")\n")
 				}
 			else
-				_self.relationCode.append("theSlicer.on").append(name).append("Sliced(_self").append(", _elt)\n")
+				_self.relationCode.append("theSlicer.on").append(sp.domain.name).append("Sliced(_self").append(", _elt)\n")
 		}
 		_self.relationCode.append("\t\t]\n")
 	}
