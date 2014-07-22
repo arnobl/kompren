@@ -34,6 +34,7 @@ import static extension fr.inria.diverse.kompren.compiler.SlicedClassAspect.*
 import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 import org.eclipse.emf.codegen.ecore.genmodel.GenPackage
 import org.eclipse.emf.ecore.resource.ResourceSet
+import kompren.KomprenFactory
 
 class SlicerCompiler {
 	val String slicerName
@@ -184,6 +185,10 @@ class SlicerCompiler {
 				cstDup.cloned = true
 				cstDup.expression = cst.expression
 				cstDup.name = cst.name
+				if(cl.slicedClass==null) {
+					cl.slicedClass = KomprenFactory.eINSTANCE.createSlicedClass
+					cl.slicedClass.domain = cl
+				}
 				cl.slicedClass.constraints += cstDup
 			]
 		]
