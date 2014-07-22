@@ -41,7 +41,7 @@ class SlicerMainGenerator extends SlicerGenerator {
 
 
 	private def StringBuilder generateSave() {
-		val content = "		val objs = this.clonedElts.filter[eContainer==null]
+		val content = "		val objs = this.clonedElts.filter[eContainer===null]
 		val resSet = new org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 		resSet.getResourceFactoryRegistry.getExtensionToFactoryMap.put(\"*\", new org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl)
 		val res = resSet.createResource(org.eclipse.emf.common.util.URI.createURI(\"modelSlice.\"+this."+extensionName+"))
@@ -125,7 +125,7 @@ class SlicerMainGenerator extends SlicerGenerator {
 		buf.append("){\n")
 		slicer.inputClasses.forEach[cl | buf.append("\t\tthis.input").append(cl.name).append(" = input").append(cl.name).append('\n')]
 		if(slicer.hasOpposite)
-			buf.append("\t\tif(metamodelRoot==null) throw new IllegalArgumentException\n\t\tthis._root = metamodelRoot\n")
+			buf.append("\t\tif(metamodelRoot===null) throw new IllegalArgumentException\n\t\tthis._root = metamodelRoot\n")
 		listOptions.forEach[name | buf.append("\t\tthis.").append(name).append(" = ").append(name).append('\n')]
 		if(slicer.strict)
 			buf.append("\t\tthis.").append(extensionName).append('=').append(extensionName).append('\n')

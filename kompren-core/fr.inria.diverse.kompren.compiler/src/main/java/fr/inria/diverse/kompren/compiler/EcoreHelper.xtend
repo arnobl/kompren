@@ -194,7 +194,7 @@ class ENamedEltAspect {
 			_self.codeAction.append("\t\tif(theSlicer.").append(optionName).append("){\n")
 		if(slicer.strict) {
 			if(!_self.abstract)
-				_self.codeAction.append("\t\tif(_self.clonedElt==null){\n\t\t\t_self.clonedElt = ").append(_self.EPackage.factoryName(true)).
+				_self.codeAction.append("\t\tif(_self.clonedElt===null){\n\t\t\t_self.clonedElt = ").append(_self.EPackage.factoryName(true)).
 				append(".eINSTANCE.create").append(_self.name).append("\n\t\t\ttheSlicer.objectCloned(_self.clonedElt)\n\t\t}\n")
 		}
 		else _self.codeAction.append("\t\ttheSlicer.on").append(_self.name).append("Sliced(_self)\n")
@@ -220,7 +220,7 @@ class ENamedEltAspect {
 			else {
 				_self.codeVisit.append("\t\t")
 				if(!sp.constraints.empty) 
-					_self.codeVisit.append("if(_self.^").append(name).append("!=null && ").append(constraints).append(") ")
+					_self.codeVisit.append("if(_self.^").append(name).append("!==null && ").append(constraints).append(") ")
 				_self.codeVisit.append("_self.^").append(name).append("?.visitToAddClasses(theSlicer)\n")
 			}
 
@@ -247,7 +247,7 @@ class ENamedEltAspect {
 	private def void generateVisitToAddRelations4OneCard(SlicedProperty sp, Slicer slicer, String name) {
 		val isPrim = sp.domain.EType.isPrimitiveType
 		if(!isPrim) {
-			_self.relationCode.append("\t\tif(_self.^").append(name).append("!=null")
+			_self.relationCode.append("\t\tif(_self.^").append(name).append("!==null")
 			if(!sp.constraints.empty)
 				_self.relationCode.append(" && ").append(sp.constraintsInXtend)
 			_self.relationCode.append("){\n\t\t_self.^").append(name).append(".visitToAddRelations(theSlicer)\n")
@@ -285,7 +285,7 @@ class ENamedEltAspect {
 			val isPrim = sp.domain.EType.isPrimitiveType
 			_self.relationCode.append("\n\t\t\tif(_self.sliced")
 			if(!isPrim) _self.relationCode.append(" && _elt.sliced")
-			if(!isPrim && slicer.strict) _self.relationCode.append(" && _elt.clonedElt!=null")
+			if(!isPrim && slicer.strict) _self.relationCode.append(" && _elt.clonedElt!==null")
 			_self.relationCode.append(") ")
 			if(slicer.strict)
 				if(isPrim)
