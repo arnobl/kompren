@@ -230,22 +230,21 @@ class ENamedEltAspect {
 
 
 	def void generateVisitToAddRelations(SlicedProperty sp, Slicer slicer) {
-		val okSlice = slicer.strict || (sp.expression!=null && sp.expression.length>0 && sp.tgt!=null && sp.src!=null)
 		val name = sp.getXtendNameOrOppositeOne
 		
 		if(sp.isOption)
 			_self.relationCode.append("\t\tif(theSlicer.").append(slicer.getOptionNameProp(sp)).append("){\n")
 
 		if(sp.domain.upperBound>1 || sp.domain.upperBound<0)
-			_self.generateVisitToAddRelations4MultiCard(sp, slicer, name, okSlice)
+			_self.generateVisitToAddRelations4MultiCard(sp, slicer, name)
 		else
-			_self.generateVisitToAddRelations4OneCard(sp, slicer, name, okSlice)
+			_self.generateVisitToAddRelations4OneCard(sp, slicer, name)
 
 		if(sp.isOption) _self.relationCode.append("\t\t}\n")
 	}
 	
 	
-	private def void generateVisitToAddRelations4OneCard(SlicedProperty sp, Slicer slicer, String name, boolean okSlice) {
+	private def void generateVisitToAddRelations4OneCard(SlicedProperty sp, Slicer slicer, String name) {
 		val isPrim = sp.domain.EType.isPrimitiveType
 		if(!isPrim) {
 			_self.relationCode.append("\t\tif(_self.^").append(name).append("!=null")
@@ -253,7 +252,7 @@ class ENamedEltAspect {
 				_self.relationCode.append(" && ").append(sp.constraintsInXtend)
 			_self.relationCode.append("){\n\t\t_self.^").append(name).append(".visitToAddRelations(theSlicer)\n")
 		}
-		if(okSlice && !sp.domain.derived) {
+		if(!sp.domain.derived) {
 			val hasOpposite = sp.domain instanceof EReference && ((sp.domain) as EReference).EOpposite!=null
 			
 			_self.relationCode.append("\n\t\tif(_self.sliced")
@@ -276,13 +275,13 @@ class ENamedEltAspect {
 	
 	
 	
-	private def void generateVisitToAddRelations4MultiCard(SlicedProperty sp, Slicer slicer, String name, boolean okSlice) {
+	private def void generateVisitToAddRelations4MultiCard(SlicedProperty sp, Slicer slicer, String name) {
 		_self.relationCode.append("\t\t_self.^").append(name)
 			if(!sp.constraints.empty) _self.relationCode.append(".filter[").append(sp.constraintsInXtend).append("]")
 		_self.relationCode.append(".forEach[_elt| _elt.visitToAddRelations(theSlicer)")
 
 		val hasOpposite = sp.domain instanceof EReference && ((sp.domain) as EReference).EOpposite!=null
-		if(okSlice  && !sp.domain.derived && (sp.domain.changeable || hasOpposite)){
+		if(!sp.domain.derived && (sp.domain.changeable || hasOpposite)){
 			val isPrim = sp.domain.EType.isPrimitiveType
 			_self.relationCode.append("\n\t\t\tif(_self.sliced")
 			if(!isPrim) _self.relationCode.append(" && _elt.sliced")
