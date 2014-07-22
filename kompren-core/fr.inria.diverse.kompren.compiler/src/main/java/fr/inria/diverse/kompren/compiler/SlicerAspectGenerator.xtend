@@ -61,7 +61,7 @@ abstract class __SlicerAspect__ {
 		buf.append(getMMPackagesImports).append(aspectVisitor.replace("TYPE", slicerName)).append('\n')
 		val opposite = slicer.hasOpposite
 		
-		metamodelClasses.forEach[cl |
+		metamodelClasses.filter[instanceTypeName==null || instanceTypeName.length==0].forEach[cl |
 			val sts = cl.ESuperTypes.filter[st | st!=null && st.name!=null && st.name.length>0]
 			val superName = if(sts.empty) "__SlicerAspect__" else sts.head.qName(false, false)+"Aspect"
 			val slicedCl = slicer.slicedClasses.findFirst[domain==cl]
