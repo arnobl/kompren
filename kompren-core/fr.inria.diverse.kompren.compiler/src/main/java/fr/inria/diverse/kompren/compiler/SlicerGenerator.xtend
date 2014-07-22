@@ -43,7 +43,7 @@ abstract class SlicerGenerator {
 	private def StringBuilder getMMPackageImport(String qname, EPackage pkg) {
 		val buf = new StringBuilder
 		
-		if(pkg!=null) {
+		if(pkg!==null) {
 			buf.append("import ").append(qname).append(pkg.name).append(".*\n")
 			if(!pkg.EClassifiers.empty)
 				buf.append("import ").append(qname).append(pkg.name).append(".impl.*\n")

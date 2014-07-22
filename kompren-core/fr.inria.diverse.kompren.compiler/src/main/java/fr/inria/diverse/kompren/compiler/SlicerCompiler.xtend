@@ -11,6 +11,7 @@ import java.nio.file.Paths
 import java.util.Collections
 import java.util.List
 import java.util.Set
+import kompren.KomprenFactory
 import kompren.SlicedClass
 import kompren.SlicedProperty
 import kompren.Slicer
@@ -18,11 +19,13 @@ import kompren.impl.KomprenFactoryImpl
 import kompren.impl.KomprenPackageImpl
 import org.eclipse.emf.codegen.ecore.genmodel.GenModel
 import org.eclipse.emf.codegen.ecore.genmodel.GenModelPackage
+import org.eclipse.emf.codegen.ecore.genmodel.GenPackage
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EPackage
 import org.eclipse.emf.ecore.impl.EcoreFactoryImpl
 import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
@@ -32,9 +35,6 @@ import static extension fr.inria.diverse.kompren.compiler.EClassAspect.*
 import static extension fr.inria.diverse.kompren.compiler.EPackageAspect.*
 import static extension fr.inria.diverse.kompren.compiler.SlicedClassAspect.*
 import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
-import org.eclipse.emf.codegen.ecore.genmodel.GenPackage
-import org.eclipse.emf.ecore.resource.ResourceSet
-import kompren.KomprenFactory
 
 class SlicerCompiler {
 	val String slicerName
@@ -72,7 +72,7 @@ class SlicerCompiler {
 		metamodel = getEcoreModel(slicer)
 		getAllClasses(metamodel)
 		initPackagePrefix
-		if(slicer.strict && slicer.outputMetamodel!=null)
+		if(slicer.strict && slicer.outputMetamodel!==null)
 			mapInputOutputMetamodel(set)
 		var last = slicer.name.split("\\.").last
 		slicerName = Character.toUpperCase(last.charAt(0)).toString+last.substring(1)
@@ -119,11 +119,11 @@ class SlicerCompiler {
 	private def void _initPackagePrefix(Iterable<GenPackage> pkgs) {
 		val pkgRoots = metamodel.toMap[name]
 		
-		pkgs.filter[getEcorePackage!=null].forEach[pkg |
+		pkgs.filter[getEcorePackage!==null].forEach[pkg |
 			val pkg2 = pkgRoots.get(pkg.getEcorePackage.name)
-			if(pkg2!=null) {
+			if(pkg2!==null) {
 				val base = pkg.basePackage
-				pkg2.pkgPrefix = if(base!=null && base.length>0) base + '.' else ""
+				pkg2.pkgPrefix = if(base!==null && base.length>0) base + '.' else ""
 				pkg2.pkgPrefixNoSep = pkg2.pkgPrefix.replace(".", "")
 	//			_initPackagePrefix(pkg.nestedGenPackages)
 			}
@@ -149,13 +149,13 @@ class SlicerCompiler {
 		scs.forEach[slicedCl | slicedCl.domain.slicedClass=slicedCl]
 		if(!slicer.strict) {
 			scs.forEach[slicedCl |
-				if(slicedCl.expression==null) slicedCl.expression=" "
-				if(slicedCl.ctx==null) slicedCl.ctx = SlicerFactory::createVarDecl("theVar")
+				if(slicedCl.expression===null) slicedCl.expression=" "
+				if(slicedCl.ctx===null) slicedCl.ctx = SlicerFactory::createVarDecl("theVar")
 			]
 			scp.forEach[slicedProp |
-				if(slicedProp.expression==null) slicedProp.expression = " "
-				if(slicedProp.src==null) slicedProp.src = SlicerFactory::createVarDecl("theSrc")
-				if(slicedProp.tgt==null) slicedProp.tgt = SlicerFactory::createVarDecl("theTgt")
+				if(slicedProp.expression===null) slicedProp.expression = " "
+				if(slicedProp.src===null) slicedProp.src = SlicerFactory::createVarDecl("theSrc")
+				if(slicedProp.tgt===null) slicedProp.tgt = SlicerFactory::createVarDecl("theTgt")
 			]
 		}
 
@@ -189,7 +189,7 @@ class SlicerCompiler {
 				cstDup.cloned = true
 				cstDup.expression = cst.expression
 				cstDup.name = cst.name
-				if(cl.slicedClass==null) {
+				if(cl.slicedClass===null) {
 					cl.slicedClass = KomprenFactory.eINSTANCE.createSlicedClass
 					cl.slicedClass.domain = cl
 				}
@@ -239,14 +239,14 @@ class SlicerCompiler {
 
 	private def _removeClass(String clname) {
 		val classToRemove = slicer.slicedClasses.findFirst[cl | cl.domain.name==clname]
-		if(classToRemove!=null) slicer.slicedElements.remove(classToRemove)
+		if(classToRemove!==null) slicer.slicedElements.remove(classToRemove)
 		val cl = metamodelClasses.findFirst[name==clname]
-		if(cl!=null) metamodelClasses.remove(cl)
+		if(cl!==null) metamodelClasses.remove(cl)
 	}
 
 	private def _removeRef(String name) {
 		val relToRemove = slicer.slicedProps.findFirst[cl | cl.domain.name==name]
-		if(relToRemove!=null) slicer.slicedElements.remove(relToRemove)
+		if(relToRemove!==null) slicer.slicedElements.remove(relToRemove)
 	}
 
 	private def removeEcoreTricks() {
@@ -312,9 +312,9 @@ class SlicerCompiler {
 				SlicedProperty: elt.domain.EContainingClass.EPackage
 				default: null
 			}
-			if(pkg!=null && !pkgsVisited.contains(pkg)) {
+			if(pkg!==null && !pkgsVisited.contains(pkg)) {
 				pkgsVisited.add(pkg)
-				while(pkg.ESuperPackage!=null) {
+				while(pkg.ESuperPackage!==null) {
 					pkg = pkg.ESuperPackage
 					pkgsVisited.add(pkg)
 				}

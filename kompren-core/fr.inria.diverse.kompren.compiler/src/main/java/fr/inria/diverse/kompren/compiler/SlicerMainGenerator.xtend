@@ -22,7 +22,7 @@ class SlicerMainGenerator extends SlicerGenerator {
 		buf.append("package ").append(pkgName).append('\n')
 		buf.append(getMMPackagesImports)
 		buf.append("class ").append(slicerName).append("{\n")
-		if(!slicer.strict && slicer.helper!=null && slicer.helper.length>0) buf.append(slicer.helper).append('\n')
+		if(!slicer.strict && slicer.helper!==null && slicer.helper.length>0) buf.append(slicer.helper).append('\n')
 		buf.append(generateAttributes).append('\n')
 		if(slicer.hasOpposite) buf.append("\tval org.eclipse.emf.ecore.EObject _root\n\n")
 		buf.append(generateConstructor).append('\n')
@@ -65,8 +65,8 @@ class SlicerMainGenerator extends SlicerGenerator {
 				append("\t\t").append(cl.expression).append('\n').append("\t}\n")
 		]
 		slicer.slicedProps.forEach[prop|
-			val name = if(prop.opposite==null) prop.domain.name else prop.opposite.name
-			val exp = if(prop.expression==null) " " else prop.expression
+			val name = if(prop.opposite===null) prop.domain.name else prop.opposite.name
+			val exp = if(prop.expression===null) " " else prop.expression
 			buf.append("\tdef void on").append(name).append("Sliced(").
 				append(prop.src.type.qName(true, false)).append(' ').append(prop.src.varName).append(", ").
 				append(prop.tgt.type.qName(true, false)).append(' ').append(prop.tgt.varName).append("){\n")
@@ -80,7 +80,7 @@ class SlicerMainGenerator extends SlicerGenerator {
 	private def StringBuilder generateOnStart() {
 		val buf = new StringBuilder
 		buf.append("\tprotected def void onStart(){\n")
-		if(slicer.onStart!=null&& slicer.onStart.length>0)
+		if(slicer.onStart!==null && slicer.onStart.length>0)
 			buf.append("\t\t").append(slicer.onStart).append('\n')
 		buf.append("\t}\n")
 		return buf
@@ -90,7 +90,7 @@ class SlicerMainGenerator extends SlicerGenerator {
 	private def StringBuilder generateOnEnd() {
 		val buf = new StringBuilder
 		buf.append("\tprotected def void onEnd(){\n")
-		if(slicer.onEnd!=null&& slicer.onEnd.length>0)
+		if(slicer.onEnd!==null && slicer.onEnd.length>0)
 			buf.append("\t\t").append(slicer.onEnd).append('\n')
 		buf.append("\t}\n")
 		return buf

@@ -46,7 +46,7 @@ class ENamedEltAspect {
 	def void feedSubClassesRelations() {}
 	
 	def boolean isPrimitiveType() {
-		if(_self.primitiveTypes==null) {
+		if(_self.primitiveTypes===null) {
 			_self.primitiveTypes = newHashSet
 			_self.primitiveTypes.add("EString")
 			_self.primitiveTypes.add("EBoolean")
@@ -97,16 +97,16 @@ class ENamedEltAspect {
 
 	@OverrideAspectMethod
 	def String qName(boolean withSep, boolean useOutputMM) {
-		if(useOutputMM && _self.mappedPkg!=null)
+		if(useOutputMM && _self.mappedPkg!==null)
 			_self.mappedPkg.qName(withSep, false)
 		else
 			_self.super_qName(withSep, useOutputMM)
 	}
 	
 	def String factoryName(boolean mappedFactory) {
-		if(_self._factoryName==null) {
+		if(_self._factoryName===null) {
 			var qn = _self.qName(true, mappedFactory)
-			val n = if(mappedFactory && _self.mappedPkg!=null) _self.mappedPkg.name else _self.name
+			val n = if(mappedFactory && _self.mappedPkg!==null) _self.mappedPkg.name else _self.name
 			_self._factoryName = qn+'.'+Character.toUpperCase(n.charAt(0))+n.substring(1)+"Factory"
 		}
 		_self._factoryName
@@ -143,20 +143,20 @@ class ENamedEltAspect {
 	
 	@OverrideAspectMethod
 	def void feedSubClassesRelations() {
-		if(_self.lowerClasses==null) _self.lowerClasses = newArrayList
+		if(_self.lowerClasses===null) _self.lowerClasses = newArrayList
 		_self.ESuperTypes.forEach[addLowerClass(_self)]
 	}
 	
 	
 	private def void addLowerClass(EClass cl) {
-		if(_self.lowerClasses==null) _self.lowerClasses = newArrayList
+		if(_self.lowerClasses===null) _self.lowerClasses = newArrayList
 		if(!_self.lowerClasses.contains(cl)) _self.lowerClasses.add(cl)
 	}
 	
 	
 	def void generateOppositeCode(SlicedProperty sp) {
-		if(sp.opposite!=null) {
-			if(sp.opposite.name==null || sp.opposite.name.length==0)
+		if(sp.opposite!==null) {
+			if(sp.opposite.name===null || sp.opposite.name.length==0)
 				sp.opposite.name = "opposite"+sp.domain.name
 			if(sp.domain.upperBound==1)
 				_self.oppositeAttr.append("\tvar ").append(sp.domain.EType.qName(true, false)).append(' ^').append(sp.opposite.name).append("\n\n")
@@ -179,7 +179,7 @@ class ENamedEltAspect {
 	def void generateFeedOppositeCode(SlicedProperty sp) {
 		val elt = sp.domain
 
-		if(sp.opposite!=null){
+		if(sp.opposite!==null){
 			if(elt.upperBound==1)
 				_self.oppositeFeed.append("_self.^").append(elt.xtendName).append('.^').append(sp.opposite.name).append(" = ").append("_self\n")
 			else
@@ -190,7 +190,7 @@ class ENamedEltAspect {
 
 	def void generateVisitToAddClassesActions(SlicedClass sc, Slicer slicer) {
 		val optionName = slicer.getOptionNameClass(sc)
-		if(optionName!=null)
+		if(optionName!==null)
 			_self.codeAction.append("\t\tif(theSlicer.").append(optionName).append("){\n")
 		if(slicer.strict) {
 			if(!_self.abstract)
@@ -198,7 +198,7 @@ class ENamedEltAspect {
 				append(".eINSTANCE.create").append(_self.name).append("\n\t\t\ttheSlicer.objectCloned(_self.clonedElt)\n\t\t}\n")
 		}
 		else _self.codeAction.append("\t\ttheSlicer.on").append(_self.name).append("Sliced(_self)\n")
-		if(optionName!=null)
+		if(optionName!==null)
 			_self.codeVisit.append("\t\t}\n")
 	}
 
@@ -253,7 +253,7 @@ class ENamedEltAspect {
 			_self.relationCode.append("){\n\t\t_self.^").append(name).append(".visitToAddRelations(theSlicer)\n")
 		}
 		if(!sp.domain.derived) {
-			val hasOpposite = sp.domain instanceof EReference && ((sp.domain) as EReference).EOpposite!=null
+			val hasOpposite = sp.domain instanceof EReference && ((sp.domain) as EReference).EOpposite!==null
 			
 			_self.relationCode.append("\n\t\tif(_self.sliced")
 			if(!isPrim) _self.relationCode.append(" && _self.^").append(name).append(".sliced")
@@ -280,7 +280,7 @@ class ENamedEltAspect {
 			if(!sp.constraints.empty) _self.relationCode.append(".filter[").append(sp.constraintsInXtend).append("]")
 		_self.relationCode.append(".forEach[_elt| _elt.visitToAddRelations(theSlicer)")
 
-		val hasOpposite = sp.domain instanceof EReference && ((sp.domain) as EReference).EOpposite!=null
+		val hasOpposite = sp.domain instanceof EReference && ((sp.domain) as EReference).EOpposite!==null
 		if(!sp.domain.derived && (sp.domain.changeable || hasOpposite)){
 			val isPrim = sp.domain.EType.isPrimitiveType
 			_self.relationCode.append("\n\t\t\tif(_self.sliced")

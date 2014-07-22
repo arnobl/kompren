@@ -61,8 +61,8 @@ abstract class __SlicerAspect__ {
 		buf.append(getMMPackagesImports).append(aspectVisitor.replace("TYPE", slicerName)).append('\n')
 		val opposite = slicer.hasOpposite
 		
-		metamodelClasses.filter[instanceTypeName==null || instanceTypeName.length==0].forEach[cl |
-			val sts = cl.ESuperTypes.filter[st | st!=null && st.name!=null && st.name.length>0]
+		metamodelClasses.filter[instanceTypeName===null || instanceTypeName.length==0].forEach[cl |
+			val sts = cl.ESuperTypes.filter[st | st!==null && st.name!==null && st.name.length>0]
 			val superName = if(sts.empty) "__SlicerAspect__" else sts.head.qName(false, false)+"Aspect"
 			val slicedCl = slicer.slicedClasses.findFirst[domain==cl]
 			val withParam = if(sts.empty) "typeof("+superName+")" 
@@ -76,9 +76,9 @@ abstract class __SlicerAspect__ {
 				buf.append("\t@OverrideAspectMethod\n\tdef void feedOpposites(){\n").append(cl.oppositeFeed).append("\n\t}\n\n")
 			buf.append("\t@OverrideAspectMethod\n")
 			buf.append("\tdef void _visitToAddClasses(").append(slicerName).append(" theSlicer){\n")
-			if(slicer.logVisitClass!=null && slicer.logVisitClass.length>0)
+			if(slicer.logVisitClass!==null && slicer.logVisitClass.length>0)
 				buf.append(slicer.logVisitClass.replaceAll("<aspectClassName>", cl.name+"Aspect").replaceAll("<className>", cl.qName(true, false))).append('\n')
-			if(slicedCl!=null && !slicedCl.constraints.empty)
+			if(slicedCl!==null && !slicedCl.constraints.empty)
 				buf.append("\t\tif(").append(slicedCl.constraintsInXtend).append("){\n")
 			buf.append(cl.codeAction)
 
@@ -88,12 +88,12 @@ abstract class __SlicerAspect__ {
 				sts.forEach[st | buf.append("\t\t_self.super_").append(st.name).append("__visitToAddClasses(theSlicer)\n") ]
 
 			buf.append(cl.codeVisit).append('\n')
-			if(slicedCl!=null && !slicedCl.constraints.empty) buf.append("\t\t}\n")
+			if(slicedCl!==null && !slicedCl.constraints.empty) buf.append("\t\t}\n")
 			buf.append("\t}\n\t@OverrideAspectMethod\n")
 			buf.append("\tdef void _visitToAddRelations(").append(slicerName).append(" theSlicer){\n")
-			if(slicer.logVisitRelation!=null && slicer.logVisitRelation.length>0)
+			if(slicer.logVisitRelation!==null && slicer.logVisitRelation.length>0)
 				buf.append(slicer.logVisitRelation.replaceAll("<aspectClassName>", cl.name+"Aspect").replaceAll("<className>", cl.name)).append('\n')
-			if(slicedCl!=null && !slicedCl.constraints.empty)
+			if(slicedCl!==null && !slicedCl.constraints.empty)
 				buf.append("\t\tif(").append(slicedCl.constraintsInXtend).append("){\n")
 
 			if(sts.size<2)
@@ -102,14 +102,14 @@ abstract class __SlicerAspect__ {
 				sts.forEach[st | buf.append("\t\t_self.super_").append(st.name).append("__visitToAddRelations(theSlicer)\n") ]
 			
 			buf.append(cl.relationCode).append('\n')
-			if(slicedCl!=null && !slicedCl.constraints.empty) buf.append("\t\t}\n")
+			if(slicedCl!==null && !slicedCl.constraints.empty) buf.append("\t\t}\n")
 			buf.append("\t}\n")
 			
 			slicer.slicedProps.filter[domain.EType==cl].forEach[prop |
 				prop.constraints.filter[!cloned].forEach[constraint | buf.append(prop.generateConstraintCode(constraint))]
 			]
 			
-			if(slicedCl!=null)
+			if(slicedCl!==null)
 				slicedCl.constraints.filter[!cloned].forEach[constraint | buf.append(slicedCl.generateConstraintCode(constraint))]
 
 			buf.append("}\n\n")
