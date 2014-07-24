@@ -162,9 +162,8 @@ public class Hand extends Instrument {
 			final Point2D startPt	= interaction.getStartPt();
 			final Point2D endPt		= interaction.getEndPt();
 			final JScrollPane pane	= canvas.getScrollpane();
-
-			action.setPx(pane.getHorizontalScrollBar().getValue()+(int)(startPt.getX() - endPt.getX()));
-			action.setPy(pane.getVerticalScrollBar().getValue()+(int)(startPt.getY() - endPt.getY()));
+			action.setPx(pane.getHorizontalScrollBar().getValue()+pane.getHorizontalScrollBar().getWidth()/2+(startPt.getX() - endPt.getX()));
+			action.setPy(pane.getVerticalScrollBar().getValue()+pane.getVerticalScrollBar().getHeight()/2+(startPt.getY() - endPt.getY()));
 		}
 
 		@Override
