@@ -1,20 +1,15 @@
 slicer ExplenSlicer{
 	domain: "platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel"
 	input: ecore.EClass
-	slicedClass: ecore.ENamedElement
+	slicedClass: ecore.EClass
 	slicedClass: ecore.EReference
 	slicedClass: ecore.EAttribute
+	slicedClass: ecore.EOperation
 	slicedClass: ecore.EStructuralFeature feat
 		constraint: card1 [[ feat.lowerBound>0 ]]
-	slicedProperty: ecore.EClass.eSuperTypes option
-	slicedProperty: ecore.EClass.eSuperTypes option opposite(lowerType) 
+	slicedProperty: ecore.EClass.eSuperTypes option clazz superClass [[ ]]
+	slicedProperty: ecore.EClass.eSuperTypes option opposite(lowerType) clazz lowerClass [[ ]]
 	slicedProperty: ecore.ETypedElement.eType
 	slicedProperty: ecore.EClass.eStructuralFeatures option
 	slicedProperty: ecore.EClass.eOperations option
-	slicedProperty: ecore.ENamedElement.name
-	slicedProperty: ecore.EReference.containment
-	slicedProperty: ecore.EClass.abstract
-	slicedProperty: ecore.EClass.interface
-	slicedProperty: ecore.ETypedElement.lowerBound option
-	slicedProperty: ecore.ETypedElement.upperBound option
 }
