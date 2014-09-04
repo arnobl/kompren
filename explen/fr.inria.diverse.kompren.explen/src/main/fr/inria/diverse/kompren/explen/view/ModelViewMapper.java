@@ -165,7 +165,7 @@ public final class ModelViewMapper {
 	private void createInheritanceView(final EClass cd, final String qname, final MetamodelView view) {
 		for(EClass type : cd.getESuperTypes()) {
 			String qname2 = ModelUtils.INSTANCE.getQualifiedName(type);
-			if(qname.length()>0 && qname2.length()>2 && addedInheritances.get(qname+","+qname2)==null) {
+			if(!type.eIsProxy() && qname!=null && qname2!=null && qname.length()>0 && qname2.length()>2 && addedInheritances.get(qname+","+qname2)==null) {
 				InheritanceView in = view.addInheritanceView(classMappings.get(cd), classMappings.get(cdAdded.get(qname2).get(0)));
 				addedInheritances.put(qname+","+qname2, in);
 			}
