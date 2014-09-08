@@ -4,7 +4,6 @@ import javax.swing.ToolTipManager;
 import javax.swing.UIManager;
 
 import fr.inria.diverse.kompren.explen.ui.ExplenFrame;
-import fr.inria.diverse.kompren.explen.view.ModelViewMapper;
 
 public class Explen {
 	public static void main(final String[] args) {
@@ -18,7 +17,7 @@ public class Explen {
 		frame.setVisible(true);
 		ToolTipManager.sharedInstance().setInitialDelay(10);
 		ToolTipManager.sharedInstance().setDismissDelay(100000);
-		ModelViewMapper.getMapper().build("/media/data/dev/kompren/explen/fr.inria.diverse.kompren.explen/UML.ecore");
+//		ModelViewMapper.getMapper().build("/media/data/dev/kompren/explen/fr.inria.diverse.kompren.explen/UML.ecore");
 		frame.getCanvas().requestFocusInWindow();
 //		frame.getCanvas().setOperationsVisible(false);
 //		frame.getCanvas().update();
