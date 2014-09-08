@@ -305,7 +305,11 @@ public class Completioner extends WidgetInstrument {
 		
 
 		public static void setAction(final String qualifiedPath, final MetamodelView canvas, MoveCamera action) {
-			final ClassView cv = ModelViewMapper.getMapper().getClassView(qualifiedPath);
+			setAction(ModelViewMapper.getMapper().getClassView(qualifiedPath), canvas, action);
+		}
+		
+		
+		public static void setAction(final ClassView cv, final MetamodelView canvas, MoveCamera action) {
 			final double zoom = canvas.getZoom();
 
 			Point2D pt = cv.getCentre();

@@ -18,9 +18,12 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
+import org.kermeta.kompren.diagram.view.interfaces.IEntityView;
 import org.kermeta.kompren.diagram.view.interfaces.IRelationView;
 import org.malai.presentation.Presentation;
 
+import fr.inria.diverse.kompren.explen.actions.MoveCameraUndoable;
+import fr.inria.diverse.kompren.explen.instruments.Completioner;
 import fr.inria.diverse.kompren.explen.model.Model;
 import fr.inria.diverse.kompren.explen.model.ModelUtils;
 
@@ -136,6 +139,16 @@ public final class ModelViewMapper {
 			createRelationsView(view);
 			view.updateLayout();
 			view.update();
+			
+			IEntityView ev = view.getEntities().get(0);
+			
+			if(ev instanceof ClassView) {
+				MoveCameraUndoable action = new MoveCameraUndoable();
+				Completioner.Interaction2MoveCamera.setAction((ClassView)ev, view, action);
+				if(action.canDo())
+					action.doIt();
+				action.flush();
+			}
 		}
 	}
 
@@ -231,7 +244,6 @@ public final class ModelViewMapper {
 				relV = mv.getOppositeRelation(cv, cv2, prop.getName(), oppositeName, ModelUtils.INSTANCE.getCardinalityString(prop));
 			addedReferences.put(prop.getName()+prop.getEType().getName(), (RelationClassView) relV);
 		}
-		else System.out.println("NULL>>> " + prop + " " + type);
 	}
 
 
