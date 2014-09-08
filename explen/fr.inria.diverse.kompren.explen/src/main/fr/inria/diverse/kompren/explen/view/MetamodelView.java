@@ -1,6 +1,7 @@
 package fr.inria.diverse.kompren.explen.view;
 
 import java.awt.Point;
+import java.awt.datatransfer.DataFlavor;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JToolTip;
+import javax.swing.TransferHandler;
 
 import org.apache.batik.dom.GenericDOMImplementation;
 import org.apache.batik.svggen.SVGGraphics2D;
@@ -36,9 +38,38 @@ public class MetamodelView extends ModelView {
 
 		operationsVisible = false;
 		propertiesVisible = true;
-		Hand foo = new Hand(this);
-		addMouseListener(foo);
-		addMouseMotionListener(foo);
+		Hand hand = new Hand(this);
+		addMouseListener(hand);
+		addMouseMotionListener(hand);
+		
+		@SuppressWarnings("serial")
+		TransferHandler handler = new TransferHandler() {
+	        @Override
+	        public boolean canImport(TransferHandler.TransferSupport info) {
+	            return info.isDataFlavorSupported(DataFlavor.javaFileListFlavor);
+	        }
+
+	        @SuppressWarnings("unchecked")
+			@Override
+	        public boolean importData(TransferHandler.TransferSupport info) {
+	            if(!info.isDrop())
+	                return false;
+	            if(!info.isDataFlavorSupported(DataFlavor.javaFileListFlavor))
+	                return false;
+
+	            List<File> data;
+	            try{
+	                data = (List<File>)info.getTransferable().getTransferData(DataFlavor.javaFileListFlavor);
+	            } 
+	            catch(Exception e) { return false; }
+	            if(!data.isEmpty() && data.get(0).canRead()){
+	            	ModelViewMapper.getMapper().build(data.get(0).getPath());
+	            }
+	            return true;
+	        }
+	    };
+	    
+	    setTransferHandler(handler);
 		
 		addKeyListener(new KeyListener() {
 			@Override
