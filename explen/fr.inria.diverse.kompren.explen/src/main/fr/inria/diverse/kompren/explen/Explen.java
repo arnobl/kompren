@@ -18,7 +18,7 @@ public class Explen {
 		frame.setVisible(true);
 		ToolTipManager.sharedInstance().setInitialDelay(10);
 		ToolTipManager.sharedInstance().setDismissDelay(100000);
-		ModelViewMapper.getMapper().build("/media/data/dev/kompren/explen/fr.inria.diverse.kompren.explen/mm.ecore");
+		ModelViewMapper.getMapper().build("/media/data/dev/kompren/explen/fr.inria.diverse.kompren.explen/UML.ecore");
 		frame.getCanvas().requestFocusInWindow();
 //		frame.getCanvas().setOperationsVisible(false);
 //		frame.getCanvas().update();

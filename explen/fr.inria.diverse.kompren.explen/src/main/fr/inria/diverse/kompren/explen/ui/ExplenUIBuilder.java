@@ -50,11 +50,14 @@ public class ExplenUIBuilder extends SwingUIComposer<ExplenFrame> {
 		widget.zoomer.addEventable(mmv);
 		widget.zoomer.addEventable(widget.toolbar);
 		widget.zoomer.setActivated(true);
+		widget.loader.setActivated(true);
+		widget.loader.addEventable(widget.toolbar);
 
 		TextFieldCompletion field = widget.completioner.getTextField();
 		Dimension dim = new Dimension(250, 30);
 		field.setPreferredSize(dim);
 		field.setMaximumSize(dim);
+		widget.toolbar.add(widget.loader.getLoadB());
 		widget.toolbar.add(widget.completioner.getLabel());
 		widget.toolbar.add(field);
 		field.removeActionListener(widget.toolbar.getEventManager());

@@ -25,7 +25,7 @@ public class Model implements AbstractPresentation {
 
 	@Override
 	public void reinit() {
-		// Nothing to do.
+		model = null;
 	}
 
 

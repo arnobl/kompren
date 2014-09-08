@@ -65,7 +65,7 @@ public final class ModelViewMapper {
 	}
 
 
-	private void flush() {
+	public void flush() {
 		cdAdded.clear();
 		classMappings.clear();
 		classMappingsInverted.clear();
@@ -109,13 +109,13 @@ public final class ModelViewMapper {
 
 
 
-	private Optional<EObject> loadEcore(final String uriKmModel) {
+	private Optional<EObject> loadEcore(final String uriModel) {
 		if(!EPackage.Registry.INSTANCE.containsKey(EcorePackage.eNS_URI))
 			EPackage.Registry.INSTANCE.put(EcorePackage.eNS_URI, EcorePackage.eINSTANCE);
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
 		
     	ResourceSet resourceSet = new ResourceSetImpl();
-		URI uri = URI.createURI(uriKmModel);
+		URI uri = URI.createURI(uriModel);
 		Resource resource = resourceSet.getResource(uri, true);
 
 		return resource.getContents().stream().filter(o -> o instanceof EPackage).findFirst();
@@ -132,8 +132,6 @@ public final class ModelViewMapper {
 
 			flush();
 			presentation.getAbstractPresentation().setModel(mm);
-			view.getEntities().clear();
-			view.getRelations().clear();
 			createPackageView(mm, view);
 			createRelationsView(view);
 			view.updateLayout();
@@ -226,11 +224,14 @@ public final class ModelViewMapper {
 	
 	public void addReference(EClass type, boolean oppositeCompo, EReference prop, String opposCardStr, String oppositeName, ClassView cv, MetamodelView mv) {
 		ClassView cv2 = classMappings.get(type);
-		IRelationView relV = mv.addRelation(cv, cv2, prop.isContainment() || oppositeCompo, prop.isContainment(),
-								prop.getName(), oppositeName, ModelUtils.INSTANCE.getCardinalityString(prop), opposCardStr);
-		if(relV==null)
-			relV = mv.getOppositeRelation(cv, cv2, prop.getName(), oppositeName, ModelUtils.INSTANCE.getCardinalityString(prop));
-		addedReferences.put(prop.getName()+prop.getEType().getName(), (RelationClassView) relV);
+		if(type!=null && cv2!=null) {
+			IRelationView relV = mv.addRelation(cv, cv2, prop.isContainment() || oppositeCompo, prop.isContainment(),
+									prop.getName(), oppositeName, ModelUtils.INSTANCE.getCardinalityString(prop), opposCardStr);
+			if(relV==null)
+				relV = mv.getOppositeRelation(cv, cv2, prop.getName(), oppositeName, ModelUtils.INSTANCE.getCardinalityString(prop));
+			addedReferences.put(prop.getName()+prop.getEType().getName(), (RelationClassView) relV);
+		}
+		else System.out.println("NULL>>> " + prop + " " + type);
 	}
 
 

@@ -10,12 +10,15 @@ import org.malai.presentation.Presentation;
 import org.malai.swing.instrument.library.BasicZoomer;
 import org.malai.swing.instrument.library.Scroller;
 import org.malai.swing.instrument.library.UndoRedoManager;
+import org.malai.swing.ui.ISOpenSaver;
 import org.malai.swing.ui.SwingUI;
 import org.malai.swing.ui.UIManager;
 import org.malai.swing.widget.MLayeredPane;
+import org.malai.swing.widget.MProgressBar;
 import org.malai.swing.widget.MToolBar;
 
 import fr.inria.diverse.kompren.explen.instruments.Completioner;
+import fr.inria.diverse.kompren.explen.instruments.MetamodelLoader;
 import fr.inria.diverse.kompren.explen.instruments.UndoRedoManagerExplen;
 import fr.inria.diverse.kompren.explen.instruments.ViewReiniter;
 import fr.inria.diverse.kompren.explen.instruments.Visualiser;
@@ -26,7 +29,7 @@ import fr.inria.diverse.kompren.explen.view.ClassModelBasicStrategy;
 import fr.inria.diverse.kompren.explen.view.MetamodelView;
 import fr.inria.diverse.kompren.explen.view.ModelViewMapper;
 
-public class ExplenFrame extends SwingUI{
+public class ExplenFrame extends SwingUI implements ISOpenSaver<ExplenFrame, Object>{
 	private static final long serialVersionUID = 1L;
 
 	protected JFrame proxiedFrame;
@@ -34,6 +37,8 @@ public class ExplenFrame extends SwingUI{
 	protected Scroller scroller;
 
 	protected Hand hand;
+	
+	protected MetamodelLoader loader;
 
 	protected BasicZoomer zoomer;
 
@@ -57,6 +62,7 @@ public class ExplenFrame extends SwingUI{
 	public ExplenFrame() {
 		super();
 
+		setTitle("Explen");
 		MetamodelView canvas = getCanvas();
 		toolbar = new MToolBar(true);
 		layeredPanel = new MLayeredPane(false, false);
@@ -70,6 +76,7 @@ public class ExplenFrame extends SwingUI{
 		scroller = new Scroller(canvas);
 		zoomer = new BasicZoomer(canvas, true);
 		hand = new Hand(canvas);
+		loader = new MetamodelLoader(composer, this);
 		visualiserManager = new VisualiserManager(composer, layeredPanel, canvas);
 		visualiser = new Visualiser(composer);
 		reiniter = new ViewReiniter(canvas, composer);
@@ -140,5 +147,27 @@ public class ExplenFrame extends SwingUI{
 
 	public Completioner getCompletioner() {
 		return completioner;
+	}
+	
+	
+	@Override
+	public void reinit() {
+		super.reinit();
+		ModelViewMapper.getMapper().flush();
+		getCanvas().flush();
+		getModel().reinit();
+	}
+
+
+	@Override
+	public boolean open(String file, ExplenFrame arg1, MProgressBar arg2, Object arg3) {
+		ModelViewMapper.getMapper().build(file);
+		return false;
+	}
+
+
+	@Override
+	public boolean save(String arg0, ExplenFrame arg1, MProgressBar arg2, Object arg3) {
+		return false;
 	}
 }

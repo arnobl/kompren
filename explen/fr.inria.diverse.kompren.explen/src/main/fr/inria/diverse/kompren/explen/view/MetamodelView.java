@@ -62,6 +62,12 @@ public class MetamodelView extends ModelView {
 	}
 	
 	
+	public void flush() {
+		entities.clear();
+		relations.clear();
+		selection.clear();
+	}
+	
 
 	@Override
 	public JToolTip createToolTip() {
