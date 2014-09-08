@@ -2,20 +2,17 @@ package fr.inria.diverse.kompren.explen.slicing;
 
 import java.util.List;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.ETypedElement;
 import org.kermeta.kompren.diagram.view.interfaces.IComponentView.Visibility;
 import org.kermeta.kompren.diagram.view.interfaces.IEntityView;
 import org.kermeta.kompren.diagram.view.interfaces.IModelView;
 import org.kermeta.kompren.diagram.view.interfaces.IRelationView;
 
 import explenslicer.ExplenSlicer;
+import fr.inria.diverse.kompren.explen.view.ClassView;
 import fr.inria.diverse.kompren.explen.view.InheritanceView;
 import fr.inria.diverse.kompren.explen.view.ModelViewMapper;
 
@@ -28,33 +25,14 @@ public class Slicer extends ExplenSlicer {
 	}
 
 	@Override
-	public void onEClassSliced(EClass theVar) {
-		ModelViewMapper.getMapper().getClassView(theVar).setVisibility(Visibility.STANDARD);
+	public void onEClassSliced(final EClass theVar) {
+		if(theVar!=null && !theVar.eIsProxy()) {
+			final ClassView cv = ModelViewMapper.getMapper().getClassView(theVar);
+			if(cv!=null)
+				ModelViewMapper.getMapper().getClassView(theVar).setVisibility(Visibility.STANDARD);
+		}
 	}
 
-	@Override
-	public void onEReferenceSliced(EReference theVar) {
-		// TODO Auto-generated method stub
-		super.onEReferenceSliced(theVar);
-	}
-
-	@Override
-	public void onEAttributeSliced(EAttribute theVar) {
-		// TODO Auto-generated method stub
-		super.onEAttributeSliced(theVar);
-	}
-
-	@Override
-	public void onEOperationSliced(EOperation theVar) {
-		// TODO Auto-generated method stub
-		super.onEOperationSliced(theVar);
-	}
-
-	@Override
-	public void onEStructuralFeatureSliced(EStructuralFeature feat) {
-		// TODO Auto-generated method stub
-		super.onEStructuralFeatureSliced(feat);
-	}
 
 	@Override
 	public void oneSuperTypesSliced(EClass clazz, EClass superClass) {
@@ -63,17 +41,6 @@ public class Slicer extends ExplenSlicer {
 			iv.setVisibility(Visibility.STANDARD);
 	}
 
-	@Override
-	public void onlowerTypeSliced(EClass clazz, EClass lowerClass) {
-		// TODO Auto-generated method stub
-		super.onlowerTypeSliced(clazz, lowerClass);
-	}
-
-	@Override
-	public void oneTypeSliced(ETypedElement theSrc, EClassifier theTgt) {
-		// TODO Auto-generated method stub
-		super.oneTypeSliced(theSrc, theTgt);
-	}
 
 	@Override
 	public void oneStructuralFeaturesSliced(EClass theSrc, EStructuralFeature theTgt) {
@@ -82,11 +49,6 @@ public class Slicer extends ExplenSlicer {
 		}
 	}
 
-	@Override
-	public void oneOperationsSliced(EClass theSrc, EOperation theTgt) {
-		// TODO Auto-generated method stub
-		super.oneOperationsSliced(theSrc, theTgt);
-	}
 
 	@Override
 	protected void onStart() {
