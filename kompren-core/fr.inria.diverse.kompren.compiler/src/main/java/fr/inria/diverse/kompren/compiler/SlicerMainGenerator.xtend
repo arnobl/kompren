@@ -122,6 +122,9 @@ class SlicerMainGenerator extends SlicerGenerator {
 			buf.append(", ").append(listOptions.map[name | new StringBuilder("boolean ").append(name)].join(", "))
 		if(slicer.strict)
 			buf.append(", String ").append(extensionName)
+		// Generating one attribute for each constraint.	
+		val csts = slicer.slicedElements.map[constraints].flatten
+		buf.append(csts.join(', boolean ', ', boolean', '')[name])
 		buf.append("){\n")
 		slicer.inputClasses.forEach[cl | buf.append("\t\tthis.input").append(cl.name).append(" = input").append(cl.name).append('\n')]
 		if(slicer.hasOpposite)
@@ -129,6 +132,7 @@ class SlicerMainGenerator extends SlicerGenerator {
 		listOptions.forEach[name | buf.append("\t\tthis.").append(name).append(" = ").append(name).append('\n')]
 		if(slicer.strict)
 			buf.append("\t\tthis.").append(extensionName).append('=').append(extensionName).append('\n')
+		csts.forEach[cst | buf.append("\t\tthis.").append(cst.name).append('=').append(cst.name).append('\n')]
 		buf.append("\t}\n")
 		return buf
 	}
@@ -142,6 +146,9 @@ class SlicerMainGenerator extends SlicerGenerator {
 		slicer.optionNames.forEach[name | buf.append("\tpublic val boolean ").append(name).append('\n')]
 		if(slicer.strict)
 			buf.append("\tval String ").append(extensionName).append('\n')
+		
+		// Generating one attribute for each constraint.	
+		slicer.slicedElements.map[constraints].flatten.forEach[cst | buf.append("\tval boolean ").append(cst.name).append('\n')]
 		return buf
 	}
 }

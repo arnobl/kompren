@@ -94,10 +94,6 @@ class SlicedClassAspect {
 	
 	def boolean isEcore() { _self.domain.ecore }
 	
-	def String constraintsInXtend(String cstPrefix) {
-		_self.constraints.map[cstPrefix+expression].join(" && ")
-	}
-
 
 	def StringBuilder generateConstraintCode(Constraint cst) {
 		new StringBuilder().
@@ -109,7 +105,7 @@ class SlicedClassAspect {
 
 	def String constraintsInXtend() {
 		val prefix = "_self.check"
-		_self.constraints.map[prefix+name].join(" && ")
+		_self.constraints.map["!theSlicer."+name +" || "+ prefix+name].join(" && ")
 	}
 }
 
@@ -134,6 +130,6 @@ class SlicedPropertyAspect {
 
 	def String constraintsInXtend() {
 		val prefix = if(_self.domain.upperBound>1 || _self.domain.upperBound<0) "" else "_self.^"+_self.getXtendNameOrOppositeOne+"."
-		_self.constraints.map[prefix+"check"+name+"(_self)"].join(" && ")
+		_self.constraints.map["!theSlicer."+name +" || "+ prefix+"check"+name+"(_self)"].join(" && ")
 	}
 }

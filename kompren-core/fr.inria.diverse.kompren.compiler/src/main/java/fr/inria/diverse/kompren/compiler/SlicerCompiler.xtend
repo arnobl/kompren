@@ -138,7 +138,7 @@ class SlicerCompiler {
 
 
 	def void compile() {
-		if(slicer.strict || slicer.slicedElements.exists[se | !se.constraints.empty])
+		if(slicer.strict || slicer.slicedElements.exists[!constraints.empty])
 			metamodel.forEach[feedSubClassesRelations]
 			
 		if(slicer.strict)
