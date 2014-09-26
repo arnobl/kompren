@@ -46,7 +46,7 @@ public class Flattener extends ExplenSlicer {
 	private final Map<EStructuralFeature, Tuple<EClass,EClass>> movedProps = new IdentityHashMap<>();
 	
 	public Flattener(IModelView view, EClass cdRef, List<EClass> inputEClass, EObject metamodelRoot){ //final IModelView view, EClass cdRef) {
-		super(inputEClass, metamodelRoot, false, true, true, true);
+		super(inputEClass, metamodelRoot, false, true, true, true, false, false);
 		this.view = view;
 		this.cdRef = cdRef;
 		

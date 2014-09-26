@@ -2,10 +2,10 @@ package explenslicer
 
 import static extension explenslicer.__SlicerAspect__.*
 import static extension explenslicer.orgeclipseemfecoreEClassAspect.*
-import static extension explenslicer.orgeclipseemfecoreEReferenceAspect.*
 import static extension explenslicer.orgeclipseemfecoreEAttributeAspect.*
 import static extension explenslicer.orgeclipseemfecoreEOperationAspect.*
 import static extension explenslicer.orgeclipseemfecoreEStructuralFeatureAspect.*
+import static extension explenslicer.orgeclipseemfecoreEReferenceAspect.*
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 
@@ -45,7 +45,7 @@ class orgeclipseemfecoreEAttributeAspect extends orgeclipseemfecoreEStructuralFe
 
 	@OverrideAspectMethod
 	def void _visitToAddClasses(ExplenSlicer theSlicer){
-		if(_self.checkcard1){
+		if((!theSlicer.card1 || _self.checkcard1)){
 		theSlicer.onEAttributeSliced(_self)
 		_self.super__visitToAddClasses(theSlicer)
 
@@ -53,7 +53,7 @@ class orgeclipseemfecoreEAttributeAspect extends orgeclipseemfecoreEStructuralFe
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(ExplenSlicer theSlicer){
-		if(_self.checkcard1){
+		if((!theSlicer.card1 || _self.checkcard1)){
 		_self.super__visitToAddRelations(theSlicer)
 
 		}
@@ -366,7 +366,7 @@ class orgeclipseemfecoreEReferenceAspect extends orgeclipseemfecoreEStructuralFe
 
 	@OverrideAspectMethod
 	def void _visitToAddClasses(ExplenSlicer theSlicer){
-		if(_self.checkcard1){
+		if((!theSlicer.compositeOnly || _self.checkcompositeOnly) && (!theSlicer.card1 || _self.checkcard1)){
 		theSlicer.onEReferenceSliced(_self)
 		_self.super__visitToAddClasses(theSlicer)
 
@@ -374,10 +374,14 @@ class orgeclipseemfecoreEReferenceAspect extends orgeclipseemfecoreEStructuralFe
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(ExplenSlicer theSlicer){
-		if(_self.checkcard1){
+		if((!theSlicer.compositeOnly || _self.checkcompositeOnly) && (!theSlicer.card1 || _self.checkcard1)){
 		_self.super__visitToAddRelations(theSlicer)
 
 		}
+	}
+	def boolean checkcompositeOnly(){
+		val ref = _self
+		 ref.containment 
 	}
 }
 
@@ -390,7 +394,7 @@ abstract class orgeclipseemfecoreEStructuralFeatureAspect extends orgeclipseemfe
 
 	@OverrideAspectMethod
 	def void _visitToAddClasses(ExplenSlicer theSlicer){
-		if(_self.checkcard1){
+		if((!theSlicer.card1 || _self.checkcard1)){
 		theSlicer.onEStructuralFeatureSliced(_self)
 		_self.super__visitToAddClasses(theSlicer)
 
@@ -398,7 +402,7 @@ abstract class orgeclipseemfecoreEStructuralFeatureAspect extends orgeclipseemfe
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(ExplenSlicer theSlicer){
-		if(_self.checkcard1){
+		if((!theSlicer.card1 || _self.checkcard1)){
 		_self.super__visitToAddRelations(theSlicer)
 
 		}

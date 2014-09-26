@@ -89,15 +89,17 @@ public final class ModelViewMapper {
 	
 	
 	public void removeRelationClassView(final EReference prop) {
-		addedReferences.remove(prop.getName()+prop.getEContainingClass().getName());
+		addedReferences.remove(getRelationClassKey(prop));
+	}
+	
+	
+	public String getRelationClassKey(final EReference prop) {
+		return prop.getEContainingClass().getName()+","+prop.getName()+","+prop.getEType().getName();
 	}
 	
 	
 	public RelationClassView getRelationClassView(final EReference prop) {
-		if(addedReferences.get(prop.getName()+prop.getEContainingClass().getName())==null) {
-			System.out.println(addedReferences.keySet());
-		}
-		return addedReferences.get(prop.getName()+prop.getEContainingClass().getName());
+		return addedReferences.get(getRelationClassKey(prop));
 	}
 	
 	
@@ -231,7 +233,7 @@ public final class ModelViewMapper {
 	
 	
 	public void addReference(RelationClassView rcv, EReference prop) {
-		addedReferences.put(prop.getName()+prop.getEType().getName(), rcv);
+		addedReferences.put(getRelationClassKey(prop), rcv);
 	}
 	
 	
@@ -242,7 +244,7 @@ public final class ModelViewMapper {
 									prop.getName(), oppositeName, ModelUtils.INSTANCE.getCardinalityString(prop), opposCardStr);
 			if(relV==null)
 				relV = mv.getOppositeRelation(cv, cv2, prop.getName(), oppositeName, ModelUtils.INSTANCE.getCardinalityString(prop));
-			addedReferences.put(prop.getName()+prop.getEType().getName(), (RelationClassView) relV);
+			addedReferences.put(getRelationClassKey(prop), (RelationClassView) relV);
 		}
 	}
 

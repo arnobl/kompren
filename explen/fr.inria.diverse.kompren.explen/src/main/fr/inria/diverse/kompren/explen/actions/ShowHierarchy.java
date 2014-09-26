@@ -119,7 +119,7 @@ public class ShowHierarchy extends SelectionBasedVisuAction {
 		for(ClassView cl : classes)
 			cds.add(mapper.getClassDefinition(cl));
 
-		Slicer slicer = new Slicer(canvas, cds, EcoreUtil.getRootContainer(cds.get(0)), !superTypes, false, superTypes);
+		Slicer slicer = new Slicer(canvas, cds, EcoreUtil.getRootContainer(cds.get(0)), !superTypes, false, superTypes, false);
 		slicer.slice();
 	}
 

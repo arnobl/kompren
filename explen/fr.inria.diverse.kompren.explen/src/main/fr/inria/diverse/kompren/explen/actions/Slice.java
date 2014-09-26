@@ -51,7 +51,7 @@ public class Slice extends SelectionBasedVisuAction {
 		for(ClassView cl : classes)
 			cds.add(mapper.getClassDefinition(cl));
 
-		Slicer slicer = new Slicer(canvas, cds, EcoreUtil.getRootContainer(cds.get(0)), false, true, true);
+		Slicer slicer = new Slicer(canvas, cds, EcoreUtil.getRootContainer(cds.get(0)), false, true, true, true);
 		slicer.slice();
 		
         Runnable moveScrollbars = new Runnable() {
