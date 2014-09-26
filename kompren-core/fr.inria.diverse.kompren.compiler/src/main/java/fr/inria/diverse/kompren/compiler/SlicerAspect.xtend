@@ -105,7 +105,7 @@ class SlicedClassAspect {
 
 	def String constraintsInXtend() {
 		val prefix = "_self.check"
-		_self.constraints.map["!theSlicer."+name +" || "+ prefix+name].join(" && ")
+		_self.constraints.map["(!theSlicer."+name +" || "+ prefix+name+")"].join(" && ")
 	}
 }
 
