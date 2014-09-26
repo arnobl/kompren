@@ -151,7 +151,7 @@ class SlicerMainGenerator extends SlicerGenerator {
 			buf.append("\tval String ").append(extensionName).append('\n')
 		
 		// Generating one attribute for each constraint.	
-		slicer.slicedElements.map[constraints].flatten.filter[!cloned].forEach[name | buf.append("\tpublic val boolean ").append(name).append('\n')]
+		slicer.slicedElements.map[constraints].flatten.filter[!cloned].forEach[cst | buf.append("\tpublic val boolean ").append(cst.name).append('\n')]
 		return buf
 	}
 }
