@@ -10,7 +10,10 @@ import kompren.Slicer
 import org.eclipse.emf.ecore.EPackage
 
 import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
+import static extension fr.inria.diverse.kompren.compiler.ConstraintAspect.*
 import static extension fr.inria.diverse.kompren.compiler.ENamedEltAspect.*
+
+
 class SlicerMainGenerator extends SlicerGenerator {
 	static val extensionName = "nameExtension"
 	
@@ -123,7 +126,7 @@ class SlicerMainGenerator extends SlicerGenerator {
 		if(slicer.strict)
 			buf.append(", String ").append(extensionName)
 		// Generating one attribute for each constraint.	
-		val csts = slicer.slicedElements.map[constraints].flatten
+		val csts = slicer.slicedElements.map[constraints].flatten.filter[!cloned]
 		buf.append(csts.join(', boolean ', ', boolean', '')[name])
 		buf.append("){\n")
 		slicer.inputClasses.forEach[cl | buf.append("\t\tthis.input").append(cl.name).append(" = input").append(cl.name).append('\n')]
@@ -148,7 +151,7 @@ class SlicerMainGenerator extends SlicerGenerator {
 			buf.append("\tval String ").append(extensionName).append('\n')
 		
 		// Generating one attribute for each constraint.	
-		slicer.slicedElements.map[constraints].flatten.forEach[cst | buf.append("\tval boolean ").append(cst.name).append('\n')]
+		slicer.slicedElements.map[constraints].flatten.filter[!cloned].forEach[name | buf.append("\tval boolean ").append(name).append('\n')]
 		return buf
 	}
 }
