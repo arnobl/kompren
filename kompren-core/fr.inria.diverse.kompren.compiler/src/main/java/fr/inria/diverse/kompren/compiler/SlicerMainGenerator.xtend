@@ -127,7 +127,7 @@ class SlicerMainGenerator extends SlicerGenerator {
 			buf.append(", String ").append(extensionName)
 		// Generating one attribute for each constraint.	
 		val csts = slicer.slicedElements.map[constraints].flatten.filter[!cloned]
-		buf.append(csts.join(', boolean ', ', boolean', '')[name])
+		buf.append(csts.join(', boolean ', ', boolean ', '')[name])
 		buf.append("){\n")
 		slicer.inputClasses.forEach[cl | buf.append("\t\tthis.input").append(cl.name).append(" = input").append(cl.name).append('\n')]
 		if(slicer.hasOpposite)
