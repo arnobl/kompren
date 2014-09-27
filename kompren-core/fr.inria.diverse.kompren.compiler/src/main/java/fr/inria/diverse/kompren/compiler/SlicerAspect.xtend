@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.ENamedElement
 import org.eclipse.emf.ecore.EReference
 
 import static extension fr.inria.diverse.kompren.compiler.EClassifierAspect.*
+import static extension fr.inria.diverse.kompren.compiler.EReferenceAspect.*
 import static extension fr.inria.diverse.kompren.compiler.EStructuralFeatureAspect.*
 
 class SlicerFactory {
@@ -37,8 +38,11 @@ class SlicerAspect {
 	private def void initOptionsMap() {
 		_self._options = newTreeMap(a, b | a.name.compareTo(b.name));
 		_self.slicedElements.filter[isOption].forEach[opt | 
-			if(opt instanceof SlicedProperty && (opt.domain instanceof EReference) && (opt as SlicedProperty).opposite!==null)
-				_self._options.put((opt.domain as EReference).EOpposite, "option"+(opt as SlicedProperty).opposite.name)
+			if(opt instanceof SlicedProperty && (opt.domain instanceof EReference) && (opt as SlicedProperty).opposite!==null) {
+				val ref = opt.domain as EReference
+				if(ref.EOpposite===null) ref.createOpposite((opt as SlicedProperty).opposite)
+				_self._options.put(ref.EOpposite, "option"+(opt as SlicedProperty).opposite.name)
+			}
 			else
 				_self._options.put(opt.domain, "option"+opt.domain.name)
 		]

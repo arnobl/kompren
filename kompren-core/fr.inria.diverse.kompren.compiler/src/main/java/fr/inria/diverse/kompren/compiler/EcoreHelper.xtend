@@ -25,6 +25,8 @@ import static extension fr.inria.diverse.kompren.compiler.EStructuralFeatureAspe
 import static extension fr.inria.diverse.kompren.compiler.SlicedPropertyAspect.*
 import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 import org.eclipse.emf.ecore.ENamedElement
+import kompren.OppositeCreation
+import org.eclipse.emf.ecore.EcoreFactory
 
 @Aspect(className=typeof(ENamedElement))
 class ENamedEltAspect {
@@ -129,6 +131,15 @@ class ENamedEltAspect {
 			Character.toUpperCase(_self.name.charAt(0))+_self.name.substring(1)
 		else
 			_self.name
+	}
+	
+	def void createOpposite(OppositeCreation opp) {
+		if(_self.EOpposite!==null && opp!==null) {
+			val refOpp = EcoreFactory.eINSTANCE.createEReference
+			refOpp.name = opp.name
+			refOpp.EType = _self.EContainingClass
+			_self.setEOpposite(refOpp)
+		}
 	}
 }
 
