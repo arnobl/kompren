@@ -30,6 +30,7 @@ public class MetamodelLoader extends WidgetInstrument {
 	@Override
 	protected void initialiseWidgets() {
 		loadB = new MButton("load");
+		loadB.setFocusable(false);
 	}
 	
 

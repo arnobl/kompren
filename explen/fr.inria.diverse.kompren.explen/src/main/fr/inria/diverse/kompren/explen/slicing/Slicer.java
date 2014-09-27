@@ -5,7 +5,6 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.kermeta.kompren.diagram.view.interfaces.IComponentView.Visibility;
 import org.kermeta.kompren.diagram.view.interfaces.IEntityView;
 import org.kermeta.kompren.diagram.view.interfaces.IModelView;
@@ -46,13 +45,11 @@ public class Slicer extends ExplenSlicer {
 
 
 	@Override
-	public void oneStructuralFeaturesSliced(EClass theSrc, EStructuralFeature theTgt) {
-		super.oneStructuralFeaturesSliced(theSrc, theTgt);
-		if(theTgt instanceof EReference) {
-			final RelationClassView rv = ModelViewMapper.getMapper().getRelationClassView((EReference)theTgt);
-			if(rv!=null) {
-				ModelViewMapper.getMapper().getRelationClassView((EReference)theTgt).setVisibility(Visibility.STANDARD);
-			}
+	public void onEReferenceSliced(EReference ref) {
+		super.onEReferenceSliced(ref);
+		final RelationClassView rv = ModelViewMapper.getMapper().getRelationClassView(ref);
+		if(rv!=null) {
+			ModelViewMapper.getMapper().getRelationClassView(ref).setVisibility(Visibility.STANDARD);
 		}
 	}
 
