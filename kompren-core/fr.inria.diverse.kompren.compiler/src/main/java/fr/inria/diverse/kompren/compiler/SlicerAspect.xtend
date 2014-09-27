@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EReference
 
 import static extension fr.inria.diverse.kompren.compiler.EClassifierAspect.*
 import static extension fr.inria.diverse.kompren.compiler.EStructuralFeatureAspect.*
+import java.util.TreeMap
 
 class SlicerFactory {
 	static def VarDecl createVarDecl(String name) {
@@ -35,7 +36,7 @@ class SlicerAspect {
 	
 	
 	private def void initOptionsMap() {
-		_self._options = newHashMap
+		_self._options = new TreeMap
 		_self.slicedElements.filter[isOption].forEach[opt | 
 			if(opt instanceof SlicedProperty && (opt.domain instanceof EReference) && (opt as SlicedProperty).opposite!==null)
 				_self._options.put((opt.domain as EReference).EOpposite, "option"+(opt as SlicedProperty).opposite.name)
