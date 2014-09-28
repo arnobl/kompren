@@ -19,8 +19,9 @@ import fr.inria.diverse.kompren.explen.view.RelationClassView;
 public class Slicer extends ExplenSlicer {
 	protected IModelView view;
 
-	public Slicer(IModelView view, List<EClass> inputEClass, EObject metamodelRoot, boolean lowerType, boolean structFeat, boolean superType, boolean operations){
-		super(inputEClass, metamodelRoot, operations, structFeat, superType, lowerType, false, false);//TODO composite and card1
+	public Slicer(IModelView view, List<EClass> inputEClass, EObject metamodelRoot, boolean lowerType, boolean structFeat, boolean superType, 
+			boolean operations, boolean card1, boolean composition){
+		super(inputEClass, metamodelRoot, operations, structFeat, superType, lowerType, card1, composition);
 		this.view = view;
 	}
 
