@@ -73,7 +73,7 @@ abstract class __SlicerAspect__ {
 			buf.append("class ").append(cl.qName(false, false)).append("Aspect extends ").append(superName).append("{\n")
 			buf.append(cl.oppositeAttr)
 			if(opposite)
-				buf.append("\t@OverrideAspectMethod\n\tdef void feedOpposites(){\n").append(cl.oppositeFeed).append("\n\t}\n\n")
+				buf.append("\t@OverrideAspectMethod\n\tdef void feedOpposites(){\n\t\t_self.super_feedOpposites\n").append(cl.oppositeFeed).append("\t}\n\n")
 			buf.append("\t@OverrideAspectMethod\n")
 			buf.append("\tdef void _visitToAddClasses(").append(slicerName).append(" theSlicer){\n")
 			if(slicer.logVisitClass!==null && slicer.logVisitClass.length>0)
