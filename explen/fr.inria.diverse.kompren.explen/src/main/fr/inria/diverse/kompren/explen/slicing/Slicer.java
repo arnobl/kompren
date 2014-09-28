@@ -57,25 +57,6 @@ public class Slicer extends ExplenSlicer {
 	@Override
 	protected void onStart() {
 		super.onStart();
-		//FIXME in the model slicer
-//		for(IEntityView ent : view.getEntities()) {
-//			RichClassDefinition rcd = (RichClassDefinition) ModelViewMapper.getMapper().getClassDefinition((ClassView) ent);
-//			rcd.sliced_$eq(false);
-//			rcd.visitedForRelations_$eq(false);
-//			rcd.visitedPass_$eq(false);
-//			for(Property prop : rcd.getOwnedAttribute()) {
-//				RichProperty rp = (RichProperty)prop;
-//				rp.sliced_$eq(false);
-//				rp.visitedForRelations_$eq(false);
-//				rp.visitedPass_$eq(false);
-//			}
-//			for(Operation op : rcd.getOwnedOperation()) {
-//				RichOperation rp = (RichOperation)op;
-//				rp.sliced_$eq(false);
-//				rp.visitedForRelations_$eq(false);
-//				rp.visitedPass_$eq(false);
-//			}
-//		}
 		
 		for(IEntityView ent : view.getEntities())
 			if(ent.getVisibility()==Visibility.STANDARD)
@@ -89,9 +70,10 @@ public class Slicer extends ExplenSlicer {
 	@Override
 	protected void onEnd() {
 		super.onEnd();
+		reinit();
 		for(IEntityView ent : view.getEntities())
-		if(ent.getVisibility()==Visibility.HIDE_START)
-			ent.setVisibility(Visibility.NONE);
+			if(ent.getVisibility()==Visibility.HIDE_START)
+				ent.setVisibility(Visibility.NONE);
 		for(IRelationView rel : view.getRelations())
 			if(rel.getVisibility()==Visibility.HIDE_START)
 				rel.setVisibility(Visibility.NONE);
