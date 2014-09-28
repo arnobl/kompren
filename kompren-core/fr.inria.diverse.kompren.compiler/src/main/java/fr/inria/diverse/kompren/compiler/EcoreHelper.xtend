@@ -134,7 +134,7 @@ class ENamedEltAspect {
 	}
 	
 	def void createOpposite(OppositeCreation opp) {
-		if(_self.EOpposite!==null && opp!==null) {
+		if(_self.EOpposite===null && opp!==null) {
 			val refOpp = EcoreFactory.eINSTANCE.createEReference
 			refOpp.name = opp.name
 			refOpp.EType = _self.EContainingClass
