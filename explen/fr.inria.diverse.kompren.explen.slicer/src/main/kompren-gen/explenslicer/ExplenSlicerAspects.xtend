@@ -16,7 +16,6 @@ abstract class __SlicerAspect__ {
 	protected var org.eclipse.emf.ecore.EObject clonedElt = null
 
 	def void visitToAddClasses(ExplenSlicer theSlicer){
-		println(_self.sliced + " " + _self)
 		if(!_self.sliced) {
 			_self.sliced = true
 			_self._visitToAddClasses(theSlicer)
@@ -421,7 +420,6 @@ class orgeclipseemfecoreEReferenceAspect extends orgeclipseemfecoreEStructuralFe
 
 	@OverrideAspectMethod
 	def void _visitToAddClasses(ExplenSlicer theSlicer){
-		println((!theSlicer.compositeOnly || _self.checkcompositeOnly) + " " + (!theSlicer.card1 || _self.checkcard1))
 		if((!theSlicer.compositeOnly || _self.checkcompositeOnly) && (!theSlicer.card1 || _self.checkcard1)){
 		theSlicer.onEReferenceSliced(_self)
 		_self.super__visitToAddClasses(theSlicer)
@@ -437,7 +435,7 @@ class orgeclipseemfecoreEReferenceAspect extends orgeclipseemfecoreEStructuralFe
 	}
 	def boolean checkcompositeOnly(){
 		val ref = _self
-		 ref.containment 
+		 return ref.containment 
 	}
 }
 
@@ -465,7 +463,7 @@ abstract class orgeclipseemfecoreEStructuralFeatureAspect extends orgeclipseemfe
 	}
 	def boolean checkcard1(){
 		val feat = _self
-		 feat.lowerBound>0 
+		 return feat.lowerBound>0 
 	}
 }
 
