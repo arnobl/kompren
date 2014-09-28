@@ -16,6 +16,7 @@ abstract class __SlicerAspect__ {
 	protected var org.eclipse.emf.ecore.EObject clonedElt = null
 
 	def void visitToAddClasses(ExplenSlicer theSlicer){
+		println(_self.sliced + " " + _self)
 		if(!_self.sliced) {
 			_self.sliced = true
 			_self._visitToAddClasses(theSlicer)
@@ -34,6 +35,12 @@ abstract class __SlicerAspect__ {
 	protected def void _visitToAddRelations(ExplenSlicer theSlicer){}
 
 	def void feedOpposites(){}
+
+	def void reinit(){
+		_self.visitedForRelations = false
+		_self.sliced = false
+		_self.clonedElt = null
+	}
 }
 
 @Aspect(className=typeof(org.eclipse.emf.ecore.EAttribute), with=#[typeof(orgeclipseemfecoreEStructuralFeatureAspect)])
@@ -68,6 +75,13 @@ _self.^details.forEach[feedOpposites]
 _self.^contents.forEach[feedOpposites]
 
 	}
+	
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+		_self.^details.forEach[reinit]
+		_self.^contents.forEach[reinit]
+	}
 
 	@OverrideAspectMethod
 	def void _visitToAddClasses(ExplenSlicer theSlicer){
@@ -92,6 +106,14 @@ _self.^EOperations.forEach[feedOpposites]
 _self.^EStructuralFeatures.forEach[feedOpposites]
 _self.^EGenericSuperTypes.forEach[feedOpposites]
 
+	}
+	
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+		_self.^EOperations.forEach[reinit]
+		_self.^EStructuralFeatures.forEach[reinit]
+		_self.^EGenericSuperTypes.forEach[reinit]
 	}
 
 	@OverrideAspectMethod
@@ -146,6 +168,12 @@ abstract class orgeclipseemfecoreEClassifierAspect extends orgeclipseemfecoreENa
 _self.^ETypeParameters.forEach[feedOpposites]
 
 	}
+	
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+		_self.^ETypeParameters.forEach[reinit]
+	}
 
 	@OverrideAspectMethod
 	def void _visitToAddClasses(ExplenSlicer theSlicer){
@@ -184,6 +212,12 @@ class orgeclipseemfecoreEEnumAspect extends orgeclipseemfecoreEDataTypeAspect{
 	def void feedOpposites(){
 _self.^ELiterals.forEach[feedOpposites]
 
+	}
+	
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+		_self.^ELiterals.forEach[reinit]
 	}
 
 	@OverrideAspectMethod
@@ -242,6 +276,12 @@ abstract class orgeclipseemfecoreEModelElementAspect extends __SlicerAspect__{
 	def void feedOpposites(){
 _self.^EAnnotations.forEach[feedOpposites]
 
+	}
+	
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+		_self.^EAnnotations.forEach[reinit]
 	}
 
 	@OverrideAspectMethod
@@ -303,6 +343,14 @@ _self.^EParameters.forEach[feedOpposites]
 _self.^EGenericExceptions.forEach[feedOpposites]
 
 	}
+	
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+		_self.^ETypeParameters.forEach[reinit]
+		_self.^EParameters.forEach[reinit]
+		_self.^EGenericExceptions.forEach[reinit]
+	}
 
 	@OverrideAspectMethod
 	def void _visitToAddClasses(ExplenSlicer theSlicer){
@@ -324,6 +372,13 @@ class orgeclipseemfecoreEPackageAspect extends orgeclipseemfecoreENamedElementAs
 _self.^EClassifiers.forEach[feedOpposites]
 _self.^ESubpackages.forEach[feedOpposites]
 
+	}
+	
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+		_self.^EClassifiers.forEach[reinit]
+		_self.^ESubpackages.forEach[reinit]
 	}
 
 	@OverrideAspectMethod
@@ -366,6 +421,7 @@ class orgeclipseemfecoreEReferenceAspect extends orgeclipseemfecoreEStructuralFe
 
 	@OverrideAspectMethod
 	def void _visitToAddClasses(ExplenSlicer theSlicer){
+		println((!theSlicer.compositeOnly || _self.checkcompositeOnly) + " " + (!theSlicer.card1 || _self.checkcard1))
 		if((!theSlicer.compositeOnly || _self.checkcompositeOnly) && (!theSlicer.card1 || _self.checkcard1)){
 		theSlicer.onEReferenceSliced(_self)
 		_self.super__visitToAddClasses(theSlicer)
@@ -448,6 +504,14 @@ _self.^ETypeArguments.forEach[feedOpposites]
 _self.^ELowerBound?.feedOpposites
 
 	}
+	
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+		_self.^EUpperBound?.reinit
+		_self.^ETypeArguments.forEach[reinit]
+		_self.^ELowerBound?.reinit
+	}
 
 	@OverrideAspectMethod
 	def void _visitToAddClasses(ExplenSlicer theSlicer){
@@ -467,6 +531,12 @@ class orgeclipseemfecoreETypeParameterAspect extends orgeclipseemfecoreENamedEle
 	def void feedOpposites(){
 _self.^EBounds.forEach[feedOpposites]
 
+	}
+	
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+		_self.^EBounds.forEach[reinit]
 	}
 
 	@OverrideAspectMethod
