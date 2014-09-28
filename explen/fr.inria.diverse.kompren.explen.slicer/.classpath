@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src/main/xtend-gen"/>
-	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="src" path="src/main/model"/>
 	<classpathentry kind="src" path="src/main/kompren-gen"/>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">

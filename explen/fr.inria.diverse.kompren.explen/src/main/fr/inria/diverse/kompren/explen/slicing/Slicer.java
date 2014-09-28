@@ -20,7 +20,7 @@ public class Slicer extends ExplenSlicer {
 	protected IModelView view;
 
 	public Slicer(IModelView view, List<EClass> inputEClass, EObject metamodelRoot, boolean lowerType, boolean structFeat, boolean superType, boolean operations){
-		super(inputEClass, metamodelRoot, lowerType, superType, structFeat, operations, false, false);//TODO composite and card1
+		super(inputEClass, metamodelRoot, operations, structFeat, superType, lowerType, false, false);//TODO composite and card1
 		this.view = view;
 	}
 
