@@ -43,6 +43,15 @@ public class Slicer extends ExplenSlicer {
 			iv.setVisibility(Visibility.STANDARD);
 	}
 
+	
+	@Override
+	public void onlowerTypeSliced(EClass clazz, EClass lowerClass) {
+		super.onlowerTypeSliced(clazz, lowerClass);
+		InheritanceView iv = ModelViewMapper.getMapper().getInheritanceView(lowerClass, clazz);
+		if(iv!=null)
+			iv.setVisibility(Visibility.STANDARD);
+	}
+	
 
 	@Override
 	public void onEReferenceSliced(EReference ref) {

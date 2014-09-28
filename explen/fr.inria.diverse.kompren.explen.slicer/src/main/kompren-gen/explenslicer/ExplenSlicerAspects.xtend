@@ -143,7 +143,7 @@ _self.^EGenericSuperTypes.forEach[feedOpposites]
 		}
 		if(theSlicer.optionlowerType){
 		_self.^lowerType.forEach[_elt| _elt.visitToAddRelations(theSlicer)
-			if(_self.sliced && _elt.sliced) theSlicer.oneSuperTypesSliced(_self, _elt)
+			if(_self.sliced && _elt.sliced) theSlicer.onlowerTypeSliced(_self, _elt)
 		]
 		}
 		if(theSlicer.optioneStructuralFeatures){
