@@ -32,7 +32,7 @@ class KomprenLabelProvider extends DefaultEObjectLabelProvider {
 	
 	def text(Constraint cst) { "Constraint " + if(cst.name==null) "" else cst.name }
 	
-	def text(Radius rad) { "Radius " + rad.focusedClasses.filter[domain!=null && domain.name!=null].map[domain.name].join(", ") }
+	def text(Radius rad) { "Radius " + rad.focusedClasses.map[name].join(", ") }
 	
 	def text(OppositeCreation opp) { "Opposite " + if(opp.name==null) "" else opp.name }
 	
