@@ -74,7 +74,6 @@ class ExplenSlicer{
 	protected def void onEnd(){
 	}
 
-
 	def void reinit() {
 		_root.reinit
 	}

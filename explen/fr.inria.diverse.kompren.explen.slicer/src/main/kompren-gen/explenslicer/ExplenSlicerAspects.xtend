@@ -46,7 +46,7 @@ abstract class __SlicerAspect__ {
 class orgeclipseemfecoreEAttributeAspect extends orgeclipseemfecoreEStructuralFeatureAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
-
+		_self.super_feedOpposites
 	}
 
 	@OverrideAspectMethod
@@ -70,16 +70,16 @@ class orgeclipseemfecoreEAttributeAspect extends orgeclipseemfecoreEStructuralFe
 class orgeclipseemfecoreEAnnotationAspect extends orgeclipseemfecoreEModelElementAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
+		_self.super_feedOpposites
 _self.^details.forEach[feedOpposites]
 _self.^contents.forEach[feedOpposites]
-
 	}
-	
+
 	@OverrideAspectMethod
 	def void reinit(){
 		_self.super_reinit
-		_self.^details.forEach[reinit]
-		_self.^contents.forEach[reinit]
+_self.^details.forEach[reinit]
+_self.^contents.forEach[reinit]
 	}
 
 	@OverrideAspectMethod
@@ -100,19 +100,19 @@ class orgeclipseemfecoreEClassAspect extends orgeclipseemfecoreEClassifierAspect
 
 	@OverrideAspectMethod
 	def void feedOpposites(){
+		_self.super_feedOpposites
 _self.^ESuperTypes.forEach[^lowerType.add(_self)]
 _self.^EOperations.forEach[feedOpposites]
 _self.^EStructuralFeatures.forEach[feedOpposites]
 _self.^EGenericSuperTypes.forEach[feedOpposites]
-
 	}
-	
+
 	@OverrideAspectMethod
 	def void reinit(){
 		_self.super_reinit
-		_self.^EOperations.forEach[reinit]
-		_self.^EStructuralFeatures.forEach[reinit]
-		_self.^EGenericSuperTypes.forEach[reinit]
+_self.^EOperations.forEach[reinit]
+_self.^EStructuralFeatures.forEach[reinit]
+_self.^EGenericSuperTypes.forEach[reinit]
 	}
 
 	@OverrideAspectMethod
@@ -164,14 +164,14 @@ _self.^EGenericSuperTypes.forEach[feedOpposites]
 abstract class orgeclipseemfecoreEClassifierAspect extends orgeclipseemfecoreENamedElementAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
+		_self.super_feedOpposites
 _self.^ETypeParameters.forEach[feedOpposites]
-
 	}
-	
+
 	@OverrideAspectMethod
 	def void reinit(){
 		_self.super_reinit
-		_self.^ETypeParameters.forEach[reinit]
+_self.^ETypeParameters.forEach[reinit]
 	}
 
 	@OverrideAspectMethod
@@ -190,7 +190,7 @@ _self.^ETypeParameters.forEach[feedOpposites]
 class orgeclipseemfecoreEDataTypeAspect extends orgeclipseemfecoreEClassifierAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
-
+		_self.super_feedOpposites
 	}
 
 	@OverrideAspectMethod
@@ -209,14 +209,14 @@ class orgeclipseemfecoreEDataTypeAspect extends orgeclipseemfecoreEClassifierAsp
 class orgeclipseemfecoreEEnumAspect extends orgeclipseemfecoreEDataTypeAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
+		_self.super_feedOpposites
 _self.^ELiterals.forEach[feedOpposites]
-
 	}
-	
+
 	@OverrideAspectMethod
 	def void reinit(){
 		_self.super_reinit
-		_self.^ELiterals.forEach[reinit]
+_self.^ELiterals.forEach[reinit]
 	}
 
 	@OverrideAspectMethod
@@ -235,7 +235,7 @@ _self.^ELiterals.forEach[feedOpposites]
 class orgeclipseemfecoreEEnumLiteralAspect extends orgeclipseemfecoreENamedElementAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
-
+		_self.super_feedOpposites
 	}
 
 	@OverrideAspectMethod
@@ -254,7 +254,7 @@ class orgeclipseemfecoreEEnumLiteralAspect extends orgeclipseemfecoreENamedEleme
 class orgeclipseemfecoreEFactoryAspect extends orgeclipseemfecoreEModelElementAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
-
+		_self.super_feedOpposites
 	}
 
 	@OverrideAspectMethod
@@ -273,14 +273,14 @@ class orgeclipseemfecoreEFactoryAspect extends orgeclipseemfecoreEModelElementAs
 abstract class orgeclipseemfecoreEModelElementAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void feedOpposites(){
+		_self.super_feedOpposites
 _self.^EAnnotations.forEach[feedOpposites]
-
 	}
-	
+
 	@OverrideAspectMethod
 	def void reinit(){
 		_self.super_reinit
-		_self.^EAnnotations.forEach[reinit]
+_self.^EAnnotations.forEach[reinit]
 	}
 
 	@OverrideAspectMethod
@@ -299,7 +299,7 @@ _self.^EAnnotations.forEach[feedOpposites]
 abstract class orgeclipseemfecoreENamedElementAspect extends orgeclipseemfecoreEModelElementAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
-
+		_self.super_feedOpposites
 	}
 
 	@OverrideAspectMethod
@@ -318,7 +318,7 @@ abstract class orgeclipseemfecoreENamedElementAspect extends orgeclipseemfecoreE
 class orgeclipseemfecoreEObjectAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void feedOpposites(){
-
+		_self.super_feedOpposites
 	}
 
 	@OverrideAspectMethod
@@ -337,18 +337,18 @@ class orgeclipseemfecoreEObjectAspect extends __SlicerAspect__{
 class orgeclipseemfecoreEOperationAspect extends orgeclipseemfecoreETypedElementAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
+		_self.super_feedOpposites
 _self.^ETypeParameters.forEach[feedOpposites]
 _self.^EParameters.forEach[feedOpposites]
 _self.^EGenericExceptions.forEach[feedOpposites]
-
 	}
-	
+
 	@OverrideAspectMethod
 	def void reinit(){
 		_self.super_reinit
-		_self.^ETypeParameters.forEach[reinit]
-		_self.^EParameters.forEach[reinit]
-		_self.^EGenericExceptions.forEach[reinit]
+_self.^ETypeParameters.forEach[reinit]
+_self.^EParameters.forEach[reinit]
+_self.^EGenericExceptions.forEach[reinit]
 	}
 
 	@OverrideAspectMethod
@@ -368,16 +368,16 @@ _self.^EGenericExceptions.forEach[feedOpposites]
 class orgeclipseemfecoreEPackageAspect extends orgeclipseemfecoreENamedElementAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
+		_self.super_feedOpposites
 _self.^EClassifiers.forEach[feedOpposites]
 _self.^ESubpackages.forEach[feedOpposites]
-
 	}
-	
+
 	@OverrideAspectMethod
 	def void reinit(){
 		_self.super_reinit
-		_self.^EClassifiers.forEach[reinit]
-		_self.^ESubpackages.forEach[reinit]
+_self.^EClassifiers.forEach[reinit]
+_self.^ESubpackages.forEach[reinit]
 	}
 
 	@OverrideAspectMethod
@@ -396,7 +396,7 @@ _self.^ESubpackages.forEach[feedOpposites]
 class orgeclipseemfecoreEParameterAspect extends orgeclipseemfecoreETypedElementAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
-
+		_self.super_feedOpposites
 	}
 
 	@OverrideAspectMethod
@@ -415,7 +415,7 @@ class orgeclipseemfecoreEParameterAspect extends orgeclipseemfecoreETypedElement
 class orgeclipseemfecoreEReferenceAspect extends orgeclipseemfecoreEStructuralFeatureAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
-
+		_self.super_feedOpposites
 	}
 
 	@OverrideAspectMethod
@@ -435,7 +435,7 @@ class orgeclipseemfecoreEReferenceAspect extends orgeclipseemfecoreEStructuralFe
 	}
 	def boolean checkcompositeOnly(){
 		val ref = _self
-		 return ref.containment 
+		 ref.containment 
 	}
 }
 
@@ -443,7 +443,7 @@ class orgeclipseemfecoreEReferenceAspect extends orgeclipseemfecoreEStructuralFe
 abstract class orgeclipseemfecoreEStructuralFeatureAspect extends orgeclipseemfecoreETypedElementAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
-
+		_self.super_feedOpposites
 	}
 
 	@OverrideAspectMethod
@@ -463,7 +463,7 @@ abstract class orgeclipseemfecoreEStructuralFeatureAspect extends orgeclipseemfe
 	}
 	def boolean checkcard1(){
 		val feat = _self
-		 return feat.lowerBound>0 
+		 feat.lowerBound>0 
 	}
 }
 
@@ -471,8 +471,14 @@ abstract class orgeclipseemfecoreEStructuralFeatureAspect extends orgeclipseemfe
 abstract class orgeclipseemfecoreETypedElementAspect extends orgeclipseemfecoreENamedElementAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
+		_self.super_feedOpposites
 _self.^EGenericType?.feedOpposites
+	}
 
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^EGenericType?.reinit
 	}
 
 	@OverrideAspectMethod
@@ -497,18 +503,18 @@ _self.^EGenericType?.feedOpposites
 class orgeclipseemfecoreEGenericTypeAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void feedOpposites(){
+		_self.super_feedOpposites
 _self.^EUpperBound?.feedOpposites
 _self.^ETypeArguments.forEach[feedOpposites]
 _self.^ELowerBound?.feedOpposites
-
 	}
-	
+
 	@OverrideAspectMethod
 	def void reinit(){
 		_self.super_reinit
-		_self.^EUpperBound?.reinit
-		_self.^ETypeArguments.forEach[reinit]
-		_self.^ELowerBound?.reinit
+_self.^EUpperBound?.reinit
+_self.^ETypeArguments.forEach[reinit]
+_self.^ELowerBound?.reinit
 	}
 
 	@OverrideAspectMethod
@@ -527,14 +533,14 @@ _self.^ELowerBound?.feedOpposites
 class orgeclipseemfecoreETypeParameterAspect extends orgeclipseemfecoreENamedElementAspect{
 	@OverrideAspectMethod
 	def void feedOpposites(){
+		_self.super_feedOpposites
 _self.^EBounds.forEach[feedOpposites]
-
 	}
-	
+
 	@OverrideAspectMethod
 	def void reinit(){
 		_self.super_reinit
-		_self.^EBounds.forEach[reinit]
+_self.^EBounds.forEach[reinit]
 	}
 
 	@OverrideAspectMethod
