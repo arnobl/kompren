@@ -177,6 +177,16 @@ class ENamedEltAspect {
 	}	
 
 
+	def String generateReinitCode() {
+		return _self.EReferences.filter[containment].map[ref|
+			if(ref.upperBound>1 || ref.upperBound<0)
+				"_self.^"+ref.xtendName+".forEach[reinit]\n"
+			else
+				"_self.^"+ref.xtendName+"?.reinit\n"
+		].join
+	}
+
+
 	def void generateFeedOppositeCodeVisitor() {
 		_self.EReferences.filter[containment].forEach[ref|
 			if(ref.upperBound>1 || ref.upperBound<0)

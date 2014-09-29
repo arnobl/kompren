@@ -39,6 +39,9 @@ class SlicerMainGenerator extends SlicerGenerator {
 			buf.append(generateOnStart).append('\n')
 			buf.append(generateOnEnd).append('\n')
 		}
+		buf.append("	def void reinit() {
+		_root.reinit
+	}\n");
 		buf.append("}\n")
 	}
 

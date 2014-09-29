@@ -45,6 +45,12 @@ abstract class __SlicerAspect__ {
 	protected def void _visitToAddRelations(TYPE theSlicer){}
 
 	def void feedOpposites(){}
+
+	def void reinit(){
+		_self.visitedForRelations = false
+		_self.sliced = false
+		_self.clonedElt = null
+	}
 }\n"
 	
 	val List<EClass> metamodelClasses
@@ -74,6 +80,11 @@ abstract class __SlicerAspect__ {
 			buf.append(cl.oppositeAttr)
 			if(opposite)
 				buf.append("\t@OverrideAspectMethod\n\tdef void feedOpposites(){\n\t\t_self.super_feedOpposites\n").append(cl.oppositeFeed).append("\t}\n\n")
+			
+			val reinitCode = cl.generateReinitCode
+			if(!reinitCode.empty)
+				buf.append("\t@OverrideAspectMethod\n\tdef void reinit(){\n\t\t_self.super_reinit\n").append(reinitCode).append("\t}\n\n");
+			
 			buf.append("\t@OverrideAspectMethod\n")
 			buf.append("\tdef void _visitToAddClasses(").append(slicerName).append(" theSlicer){\n")
 			if(slicer.logVisitClass!==null && slicer.logVisitClass.length>0)
