@@ -320,8 +320,10 @@ class ENamedEltAspect {
 					else _self.relationCode.append("(_self.clonedElt as ").append(_self.qName(true, slicer.strict)).append(").^").append(name).
 					append(".add( _elt.clonedElt as ").append(sp.domain.EType.qName(true, slicer.strict)).append(")\n")
 				}
-			else
-				_self.relationCode.append("theSlicer.on").append(sp.domain.name).append("Sliced(_self").append(", _elt)\n")
+			else {
+				val String nRef = if(sp.opposite===null) sp.domain.name else (sp.domain as EReference).EOpposite.name
+				_self.relationCode.append("theSlicer.on").append(nRef).append("Sliced(_self").append(", _elt)\n")
+			}
 		}
 		_self.relationCode.append("\t\t]\n")
 	}
