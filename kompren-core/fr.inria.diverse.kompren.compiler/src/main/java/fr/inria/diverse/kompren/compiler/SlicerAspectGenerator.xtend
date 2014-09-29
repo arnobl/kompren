@@ -78,7 +78,8 @@ abstract class __SlicerAspect__ {
 			if(cl.abstract) buf.append("abstract ")
 			buf.append("class ").append(cl.qName(false, false)).append("Aspect extends ").append(superName).append("{\n")
 			buf.append(cl.oppositeAttr)
-			if(opposite)
+			
+			if(opposite && cl.oppositeFeed.length>0)
 				buf.append("\t@OverrideAspectMethod\n\tdef void feedOpposites(){\n\t\t_self.super_feedOpposites\n").append(cl.oppositeFeed).append("\t}\n\n")
 			
 			val reinitCode = cl.generateReinitCode
