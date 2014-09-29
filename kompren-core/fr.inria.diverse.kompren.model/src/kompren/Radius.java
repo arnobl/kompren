@@ -4,6 +4,7 @@ package kompren;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -32,7 +33,7 @@ public interface Radius extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Focused Classes</b></em>' reference list.
-	 * The list contents are of type {@link kompren.SlicedClass}.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.EClass}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Focused Classes</em>' reference list isn't clear,
@@ -44,6 +45,6 @@ public interface Radius extends EObject {
 	 * @model required="true"
 	 * @generated
 	 */
-	EList<SlicedClass> getFocusedClasses();
+	EList<EClass> getFocusedClasses();
 
 } // Radius

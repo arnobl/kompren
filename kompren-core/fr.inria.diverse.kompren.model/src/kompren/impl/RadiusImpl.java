@@ -3,17 +3,11 @@
 package kompren.impl;
 
 import java.util.Collection;
-
 import kompren.KomprenPackage;
 import kompren.Radius;
-import kompren.SlicedClass;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
@@ -44,7 +38,7 @@ public class RadiusImpl extends MinimalEObjectImpl.Container implements Radius {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SlicedClass> focusedClasses;
+	protected EList<EClass> focusedClasses;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -70,9 +64,9 @@ public class RadiusImpl extends MinimalEObjectImpl.Container implements Radius {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SlicedClass> getFocusedClasses() {
+	public EList<EClass> getFocusedClasses() {
 		if (focusedClasses == null) {
-			focusedClasses = new EObjectResolvingEList<SlicedClass>(SlicedClass.class, this, KomprenPackage.RADIUS__FOCUSED_CLASSES);
+			focusedClasses = new EObjectResolvingEList<EClass>(EClass.class, this, KomprenPackage.RADIUS__FOCUSED_CLASSES);
 		}
 		return focusedClasses;
 	}
@@ -102,7 +96,7 @@ public class RadiusImpl extends MinimalEObjectImpl.Container implements Radius {
 		switch (featureID) {
 			case KomprenPackage.RADIUS__FOCUSED_CLASSES:
 				getFocusedClasses().clear();
-				getFocusedClasses().addAll((Collection<? extends SlicedClass>)newValue);
+				getFocusedClasses().addAll((Collection<? extends EClass>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

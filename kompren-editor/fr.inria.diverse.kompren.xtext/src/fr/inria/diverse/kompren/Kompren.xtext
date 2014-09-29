@@ -25,7 +25,7 @@ terminal CODE_BLOCK : '[[' -> ']]';
 
 Constraint returns Constraint: name=IDKOMPREN expression=CODE_BLOCK;
 
-Radius returns Radius: {Radius} (focusedClasses+=[SlicedClass|QName] ( "," focusedClasses+=[SlicedClass|QName])* )?;
+Radius returns Radius: {Radius} (focusedClasses+=[ecore::EClass|QName] ( "," focusedClasses+=[ecore::EClass|QName])* )?;
 
 SlicedClass returns SlicedClass: domain=[ecore::EClass|QName] (isOption?='option')? (ctx=VarDecl)? 
 	(expression=CODE_BLOCK)? ('constraint' ':' constraints+=Constraint)*;

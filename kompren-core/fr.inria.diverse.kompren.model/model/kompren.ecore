@@ -31,7 +31,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Radius">
     <eStructuralFeatures xsi:type="ecore:EReference" name="focusedClasses" lowerBound="1"
-        upperBound="-1" eType="#//SlicedClass"/>
+        upperBound="-1" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SlicedClass">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ctx" eType="#//VarDecl"

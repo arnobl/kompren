@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
 Bundle-SymbolicName: fr.inria.diverse.kompren.model.edit;singleton:=true
 Bundle-Version: 3.0.0.qualifier
 Bundle-Vendor: IRISA/Inria
@@ -10,6 +11,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: kompren.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.edit;visibility:=reexport,
+ org.eclipse.emf.ecore;visibility:=reexport,
  fr.inria.diverse.kompren.model;bundle-version="3.0.0";visibility:=reexport,
  org.eclipse.emf.ecore.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

@@ -4,7 +4,6 @@ package kompren;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -280,7 +279,7 @@ public interface Slicer extends EObject {
 	 * @see kompren.KomprenPackage#getSlicer_SlicedElements()
 	 * @model containment="true"
 	 */
-	EList<SlicedElement<? extends ENamedElement>> getSlicedElements();
+	EList<SlicedElement<?>> getSlicedElements();
 
 	/**
 	 * Returns the value of the '<em><b>Input Classes</b></em>' reference list.
