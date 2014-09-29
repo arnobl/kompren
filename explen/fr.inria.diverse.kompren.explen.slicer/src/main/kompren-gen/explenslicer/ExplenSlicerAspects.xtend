@@ -45,11 +45,6 @@ abstract class __SlicerAspect__ {
 @Aspect(className=typeof(org.eclipse.emf.ecore.EAttribute), with=#[typeof(orgeclipseemfecoreEStructuralFeatureAspect)])
 class orgeclipseemfecoreEAttributeAspect extends orgeclipseemfecoreEStructuralFeatureAspect{
 	@OverrideAspectMethod
-	def void feedOpposites(){
-		_self.super_feedOpposites
-	}
-
-	@OverrideAspectMethod
 	def void _visitToAddClasses(ExplenSlicer theSlicer){
 		if((!theSlicer.card1 || _self.checkcard1)){
 		theSlicer.onEAttributeSliced(_self)
@@ -189,11 +184,6 @@ _self.^ETypeParameters.forEach[reinit]
 @Aspect(className=typeof(org.eclipse.emf.ecore.EDataType), with=#[typeof(orgeclipseemfecoreEClassifierAspect)])
 class orgeclipseemfecoreEDataTypeAspect extends orgeclipseemfecoreEClassifierAspect{
 	@OverrideAspectMethod
-	def void feedOpposites(){
-		_self.super_feedOpposites
-	}
-
-	@OverrideAspectMethod
 	def void _visitToAddClasses(ExplenSlicer theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
 
@@ -234,11 +224,6 @@ _self.^ELiterals.forEach[reinit]
 @Aspect(className=typeof(org.eclipse.emf.ecore.EEnumLiteral), with=#[typeof(orgeclipseemfecoreENamedElementAspect)])
 class orgeclipseemfecoreEEnumLiteralAspect extends orgeclipseemfecoreENamedElementAspect{
 	@OverrideAspectMethod
-	def void feedOpposites(){
-		_self.super_feedOpposites
-	}
-
-	@OverrideAspectMethod
 	def void _visitToAddClasses(ExplenSlicer theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
 
@@ -252,11 +237,6 @@ class orgeclipseemfecoreEEnumLiteralAspect extends orgeclipseemfecoreENamedEleme
 
 @Aspect(className=typeof(org.eclipse.emf.ecore.EFactory), with=#[typeof(orgeclipseemfecoreEModelElementAspect)])
 class orgeclipseemfecoreEFactoryAspect extends orgeclipseemfecoreEModelElementAspect{
-	@OverrideAspectMethod
-	def void feedOpposites(){
-		_self.super_feedOpposites
-	}
-
 	@OverrideAspectMethod
 	def void _visitToAddClasses(ExplenSlicer theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -298,11 +278,6 @@ _self.^EAnnotations.forEach[reinit]
 @Aspect(className=typeof(org.eclipse.emf.ecore.ENamedElement), with=#[typeof(orgeclipseemfecoreEModelElementAspect)])
 abstract class orgeclipseemfecoreENamedElementAspect extends orgeclipseemfecoreEModelElementAspect{
 	@OverrideAspectMethod
-	def void feedOpposites(){
-		_self.super_feedOpposites
-	}
-
-	@OverrideAspectMethod
 	def void _visitToAddClasses(ExplenSlicer theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
 
@@ -316,11 +291,6 @@ abstract class orgeclipseemfecoreENamedElementAspect extends orgeclipseemfecoreE
 
 @Aspect(className=typeof(org.eclipse.emf.ecore.EObject), with=#[typeof(__SlicerAspect__)])
 class orgeclipseemfecoreEObjectAspect extends __SlicerAspect__{
-	@OverrideAspectMethod
-	def void feedOpposites(){
-		_self.super_feedOpposites
-	}
-
 	@OverrideAspectMethod
 	def void _visitToAddClasses(ExplenSlicer theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -395,11 +365,6 @@ _self.^ESubpackages.forEach[reinit]
 @Aspect(className=typeof(org.eclipse.emf.ecore.EParameter), with=#[typeof(orgeclipseemfecoreETypedElementAspect)])
 class orgeclipseemfecoreEParameterAspect extends orgeclipseemfecoreETypedElementAspect{
 	@OverrideAspectMethod
-	def void feedOpposites(){
-		_self.super_feedOpposites
-	}
-
-	@OverrideAspectMethod
 	def void _visitToAddClasses(ExplenSlicer theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
 
@@ -413,11 +378,6 @@ class orgeclipseemfecoreEParameterAspect extends orgeclipseemfecoreETypedElement
 
 @Aspect(className=typeof(org.eclipse.emf.ecore.EReference), with=#[typeof(orgeclipseemfecoreEStructuralFeatureAspect)])
 class orgeclipseemfecoreEReferenceAspect extends orgeclipseemfecoreEStructuralFeatureAspect{
-	@OverrideAspectMethod
-	def void feedOpposites(){
-		_self.super_feedOpposites
-	}
-
 	@OverrideAspectMethod
 	def void _visitToAddClasses(ExplenSlicer theSlicer){
 		if((!theSlicer.compositeOnly || _self.checkcompositeOnly) && (!theSlicer.card1 || _self.checkcard1)){
@@ -441,11 +401,6 @@ class orgeclipseemfecoreEReferenceAspect extends orgeclipseemfecoreEStructuralFe
 
 @Aspect(className=typeof(org.eclipse.emf.ecore.EStructuralFeature), with=#[typeof(orgeclipseemfecoreETypedElementAspect)])
 abstract class orgeclipseemfecoreEStructuralFeatureAspect extends orgeclipseemfecoreETypedElementAspect{
-	@OverrideAspectMethod
-	def void feedOpposites(){
-		_self.super_feedOpposites
-	}
-
 	@OverrideAspectMethod
 	def void _visitToAddClasses(ExplenSlicer theSlicer){
 		if((!theSlicer.card1 || _self.checkcard1)){
