@@ -19,7 +19,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<emf.version>2.9.1-v20130827-0309</emf.version>
 		<bundle.vendor>IRISA/Inria</bundle.vendor>
-		<xtend.version>2.7.3</xtend.version>
+		<xtend.version>2.7.0</xtend.version>
 		<xtendGenDirectory>src/main/xtend-gen</xtendGenDirectory>
     	<eclipse-repo.url>http://download.eclipse.org/releases/kepler/</eclipse-repo.url>
 		<xtend-repo.url>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</xtend-repo.url>
