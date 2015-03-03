@@ -13,21 +13,21 @@
 	<name>fr.inria.diverse.kompren.root :: Root for the projects dedicated to Kompren</name>
 	
 	<properties>
-		<kermeta.version>3.0.0-SNAPSHOT</kermeta.version>
+		<kermeta.version>3.1.0-SNAPSHOT</kermeta.version>
 		<scala.version>2.11.5</scala.version>
 		<kompren.version>3.0.0-SNAPSHOT</kompren.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<emf.version>2.9.1-v20130827-0309</emf.version>
 		<bundle.vendor>IRISA/Inria</bundle.vendor>
-		<xtend.version>2.7.0</xtend.version>
+		<xtend.version>2.7.3</xtend.version>
 		<xtendGenDirectory>src/main/xtend-gen</xtendGenDirectory>
     	<eclipse-repo.url>http://download.eclipse.org/releases/kepler/</eclipse-repo.url>
 		<xtend-repo.url>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</xtend-repo.url>
 		<tycho-repo.url>https://oss.sonatype.org/content/groups/public/</tycho-repo.url>
     	<junit.version>4.11</junit.version>
     	<java.version>1.7</java.version>
-   		<tycho.version>0.19.0</tycho.version>
-   		<tycho-extras.version>0.19.0</tycho-extras.version>
+   		<tycho.version>0.21.0</tycho.version>
+   		<tycho-extras.version>0.21.0</tycho-extras.version>
    		<nightly.modifier>.nightly</nightly.modifier> <!-- must be set to ".nightly" for SNAPSHOT and set to "" for release -->
 	</properties>
 
