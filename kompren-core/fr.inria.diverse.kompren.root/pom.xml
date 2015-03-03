@@ -14,7 +14,7 @@
 	
 	<properties>
 		<kermeta.version>3.0.0-SNAPSHOT</kermeta.version>
-		<scala.version>2.10.4</scala.version>
+		<scala.version>2.11.5</scala.version>
 		<kompren.version>3.0.0-SNAPSHOT</kompren.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<emf.version>2.9.1-v20130827-0309</emf.version>
