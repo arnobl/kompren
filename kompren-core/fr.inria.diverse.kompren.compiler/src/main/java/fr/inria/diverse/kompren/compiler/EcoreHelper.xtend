@@ -144,13 +144,13 @@ class ENamedEltAspect {
 }
 
 @Aspect(className=typeof(EClass)) class EClassAspect extends EClassifierAspect {
-	val StringBuilder codeVisit = new StringBuilder
-	val StringBuilder codeAction = new StringBuilder
-	val StringBuilder relationCode = new StringBuilder
-	val StringBuilder oppositeAttr = new StringBuilder
-	val StringBuilder oppositeFeed = new StringBuilder
-	var List<EClass> lowerClasses
-	var SlicedClass slicedClass
+	public val StringBuilder codeVisit = new StringBuilder
+	public val StringBuilder codeAction = new StringBuilder
+	public val StringBuilder relationCode = new StringBuilder
+	public val StringBuilder oppositeAttr = new StringBuilder
+	public val StringBuilder oppositeFeed = new StringBuilder
+	public var List<EClass> lowerClasses
+	public var SlicedClass slicedClass
 	
 	@OverrideAspectMethod
 	def void feedSubClassesRelations() {

@@ -88,13 +88,13 @@ class SlicerAspect {
 
 @Aspect(className=typeof(Constraint))
 class ConstraintAspect {
-	var boolean cloned = false
+	public var boolean cloned = false
 }
 
 
 @Aspect(className=typeof(SlicedClass))
 class SlicedClassAspect {
-	var boolean addedToBeSliced = false
+	public var boolean addedToBeSliced = false
 	
 	def boolean isEcore() { _self.domain.ecore }
 	
