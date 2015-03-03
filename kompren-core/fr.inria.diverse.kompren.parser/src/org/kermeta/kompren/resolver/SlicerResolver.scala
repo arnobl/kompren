@@ -51,18 +51,19 @@ object SlicerResolver {
 	
 	
 	private def resolveRadiuses(slicer : Slicer) {
-	  var focusedClasses = List[SlicedClass]()
+	  var focusedClasses = List[EClass]()
 	  
 	  if(slicer.getRadius!=null) {
 		  slicer.getRadius.getFocusedClasses.foreach{fc =>
 		      val res = slicer.getSlicedElements.find{_ match {
-		        case sc : SlicedClass => getQualifiedPath(sc.getDomain)==fc.getDomain.getName
+		        case sc : SlicedClass => getQualifiedPath(sc.getDomain)==fc.getName
 		        case _ => false
 		      }}
 		      
 		      res match {
-		        case Some(elt) if(elt.isInstanceOf[SlicedClass]) => focusedClasses = focusedClasses ++ List(elt.asInstanceOf[SlicedClass])
-		        case _ => println("RADIUS CLASS NOT RESOLVED: " + fc.getDomain.getName)
+		        case Some(elt) if(elt.isInstanceOf[SlicedClass]) => 
+                  focusedClasses = focusedClasses ++ List(elt.asInstanceOf[SlicedClass].getDomain)
+		        case _ => println("RADIUS CLASS NOT RESOLVED: " + fc.getName)
 		      }
 		    }
 		    

@@ -24,7 +24,7 @@ object MainRunner {
     val slicer = parser.parseSlicer(ParserUtil.loadFile(uri))
 
     slicer match {
-      case None => println("Error"+parser.lastNoSuccess)
+      case None => println("Error")
       case Some(elt) =>
         SlicerResolver.resolve(elt, uri)
         saveAsXMI(elt, uri.replace(".komprent", ".kompren"))
