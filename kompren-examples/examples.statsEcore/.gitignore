@@ -1,0 +1,9 @@
+/bin
+/target
+/.settings
+/.classpath
+/.project
+/xtend-gen/
+/resultsAll.txt
+/resultsSum.txt
+/resultsSum.csv
