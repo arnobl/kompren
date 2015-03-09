@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Field;
 import java.nio.file.DirectoryStream;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
@@ -23,14 +24,26 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 
+import fr.inria.diverse.melange.lib.EcoreExtensions;
 import fr.inria.diverse.melange.lib.MatchingHelper;
 
 public class Main {
 	private static final String SEP = " ; ";
-	private static final boolean MATCH = false;
-	private static final boolean PROCESS = true;
-	private static final String PATH = "/media/data/dev/kompren/kompren-examples/examples.statsEcore/models"; 
+	private static final boolean MATCH = true;
+	private static final boolean PROCESS = false;
+	private static final String PATH = "/media/data/dev/testMM/metamodels"; 
 	// "/media/data/dev/kompren/kompren-examples/examples.statsEcore/models" "/media/data/dev/testMM/metamodels"
+	
+	private static Field field;
+	
+	static {
+		try {
+			field = MatchingHelper.class.getDeclaredField("_ecoreExtensions");
+			field.setAccessible(true);
+		}catch(NoSuchFieldException | SecurityException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public static void main(String[] args) {
 		EcoreFactory.eINSTANCE.eClass();
@@ -128,12 +141,20 @@ public class Main {
 
 	private static void match(List<EPackage> mm1, List<EPackage> mm2) {
 		if(mm1.isEmpty() || mm2.isEmpty() || mm1.get(0)==mm2.get(0)) return ;
-		
-		System.out.print("matching: " + mm1 + " " + mm2);
+
 		MatchingHelper match = new MatchingHelper();
+		try {
+			field.set(match, new EcoreExtensions());
+		}catch(IllegalArgumentException | IllegalAccessException e) {
+			e.printStackTrace();
+		}
 		
 		boolean res = match.match(mm1, mm2);
-		System.out.println(" " + res);
+		
+		if(res) {
+			System.out.print("matching: " + mm1.get(0).getNsURI() + " " + mm2.get(0).getNsURI());
+			System.out.println(" " + res);
+		}
 	}
 
 	private static void navigatePkg(EPackage pkg, EPackage root, PrintWriter out, Path path, Ctx ctx) {
