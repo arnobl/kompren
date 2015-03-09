@@ -31,6 +31,12 @@ abstract class __SlicerAspect__ {
 	protected def void _visitToAddRelations(K3TransfoFootprint theSlicer){}
 
 	def void feedOpposites(){}
+
+	def void reinit(){
+		_self.visitedForRelations = false
+		_self.sliced = false
+		_self.clonedElt = null
+	}
 }
 
 @Aspect(className=typeof(org.eclipse.xtext.common.types.JvmIdentifiableElement), with=#[typeof(__SlicerAspect__)])
@@ -79,6 +85,12 @@ class orgeclipsextextcommontypesJvmVoidAspect extends orgeclipsextextcommontypes
 @Aspect(className=typeof(org.eclipse.xtext.common.types.JvmComponentType), with=#[typeof(orgeclipsextextcommontypesJvmTypeAspect)])
 abstract class orgeclipsextextcommontypesJvmComponentTypeAspect extends orgeclipsextextcommontypesJvmTypeAspect{
 	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^arrayType?.reinit
+	}
+
+	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^arrayType?.visitToAddClasses(theSlicer)
@@ -87,8 +99,10 @@ abstract class orgeclipsextextcommontypesJvmComponentTypeAspect extends orgeclip
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^arrayType!=null){
+		if(_self.^arrayType!==null){
 		_self.^arrayType.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^arrayType.sliced) 		theSlicer.onarrayTypeSliced(_self, _self.^arrayType)
 		}
 
 	}
@@ -119,8 +133,10 @@ class orgeclipsextextcommontypesJvmArrayTypeAspect extends orgeclipsextextcommon
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^componentType!=null){
+		if(_self.^componentType!==null){
 		_self.^componentType.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^componentType.sliced) 		theSlicer.oncomponentTypeSliced(_self, _self.^componentType)
 		}
 
 	}
@@ -128,6 +144,13 @@ class orgeclipsextextcommontypesJvmArrayTypeAspect extends orgeclipsextextcommon
 
 @Aspect(className=typeof(org.eclipse.xtext.common.types.JvmDeclaredType), with=#[typeof(orgeclipsextextcommontypesJvmMemberAspect), typeof(orgeclipsextextcommontypesJvmComponentTypeAspect)])
 abstract class orgeclipsextextcommontypesJvmDeclaredTypeAspect extends orgeclipsextextcommontypesJvmMemberAspect{
+//	@OverrideAspectMethod
+//	def void reinit(){
+//		_self.super_reinit
+//_self.^superTypes.forEach[reinit]
+//_self.^members.forEach[reinit]
+//	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super_JvmMember__visitToAddClasses(theSlicer)
@@ -140,8 +163,12 @@ abstract class orgeclipsextextcommontypesJvmDeclaredTypeAspect extends orgeclips
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super_JvmMember__visitToAddRelations(theSlicer)
 		_self.super_JvmComponentType__visitToAddRelations(theSlicer)
-		_self.^superTypes.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
-		_self.^members.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
+		_self.^superTypes.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.onsuperTypesSliced(_self, _elt)
+		]
+		_self.^members.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.onmembersSliced(_self, _elt)
+		]
 
 	}
 }
@@ -159,8 +186,10 @@ class orgeclipsextextcommontypesJvmTypeParameterAspect extends orgeclipsextextco
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super_JvmComponentType__visitToAddRelations(theSlicer)
 		_self.super_JvmConstraintOwner__visitToAddRelations(theSlicer)
-		if(_self.^declarator!=null){
+		if(_self.^declarator!==null){
 		_self.^declarator.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^declarator.sliced) 		theSlicer.ondeclaratorSliced(_self, _self.^declarator)
 		}
 
 	}
@@ -168,6 +197,12 @@ class orgeclipsextextcommontypesJvmTypeParameterAspect extends orgeclipsextextco
 
 @Aspect(className=typeof(org.eclipse.xtext.common.types.JvmTypeParameterDeclarator), with=#[typeof(__SlicerAspect__)])
 abstract class orgeclipsextextcommontypesJvmTypeParameterDeclaratorAspect extends __SlicerAspect__{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^typeParameters.forEach[reinit]
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -177,13 +212,21 @@ abstract class orgeclipsextextcommontypesJvmTypeParameterDeclaratorAspect extend
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		_self.^typeParameters.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
+		_self.^typeParameters.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.ontypeParametersSliced(_self, _elt)
+		]
 
 	}
 }
 
 @Aspect(className=typeof(org.eclipse.xtext.common.types.JvmConstraintOwner), with=#[typeof(__SlicerAspect__)])
 abstract class orgeclipsextextcommontypesJvmConstraintOwnerAspect extends __SlicerAspect__{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^constraints.forEach[reinit]
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -193,13 +236,21 @@ abstract class orgeclipsextextcommontypesJvmConstraintOwnerAspect extends __Slic
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		_self.^constraints.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
+		_self.^constraints.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.onconstraintsSliced(_self, _elt)
+		]
 
 	}
 }
 
 @Aspect(className=typeof(org.eclipse.xtext.common.types.JvmTypeConstraint), with=#[typeof(__SlicerAspect__)])
 abstract class orgeclipsextextcommontypesJvmTypeConstraintAspect extends __SlicerAspect__{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^typeReference?.reinit
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -210,11 +261,15 @@ abstract class orgeclipsextextcommontypesJvmTypeConstraintAspect extends __Slice
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^typeReference!=null){
+		if(_self.^typeReference!==null){
 		_self.^typeReference.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^typeReference.sliced) 		theSlicer.ontypeReferenceSliced(_self, _self.^typeReference)
 		}
-		if(_self.^owner!=null){
+		if(_self.^owner!==null){
 		_self.^owner.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^owner.sliced) 		theSlicer.onownerSliced(_self, _self.^owner)
 		}
 
 	}
@@ -326,6 +381,12 @@ abstract class orgeclipsextextcommontypesJvmTypeReferenceAspect extends __Slicer
 @Aspect(className=typeof(org.eclipse.xtext.common.types.JvmParameterizedTypeReference), with=#[typeof(orgeclipsextextcommontypesJvmTypeReferenceAspect)])
 class orgeclipsextextcommontypesJvmParameterizedTypeReferenceAspect extends orgeclipsextextcommontypesJvmTypeReferenceAspect{
 	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^arguments.forEach[reinit]
+	}
+
+	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^arguments.forEach[visitToAddClasses(theSlicer)]
@@ -335,9 +396,13 @@ class orgeclipsextextcommontypesJvmParameterizedTypeReferenceAspect extends orge
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		_self.^arguments.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
-		if(_self.^type!=null){
+		_self.^arguments.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.onargumentsSliced(_self, _elt)
+		]
+		if(_self.^type!==null){
 		_self.^type.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^type.sliced) 		theSlicer.ontypeSliced(_self, _self.^type)
 		}
 
 	}
@@ -345,6 +410,12 @@ class orgeclipsextextcommontypesJvmParameterizedTypeReferenceAspect extends orge
 
 @Aspect(className=typeof(org.eclipse.xtext.common.types.JvmGenericArrayTypeReference), with=#[typeof(orgeclipsextextcommontypesJvmTypeReferenceAspect)])
 class orgeclipsextextcommontypesJvmGenericArrayTypeReferenceAspect extends orgeclipsextextcommontypesJvmTypeReferenceAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^componentType?.reinit
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -354,8 +425,10 @@ class orgeclipsextextcommontypesJvmGenericArrayTypeReferenceAspect extends orgec
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^componentType!=null){
+		if(_self.^componentType!==null){
 		_self.^componentType.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^componentType.sliced) 		theSlicer.oncomponentTypeSliced(_self, _self.^componentType)
 		}
 
 	}
@@ -388,8 +461,10 @@ class orgeclipsextextcommontypesJvmAnyTypeReferenceAspect extends orgeclipsextex
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^type!=null){
+		if(_self.^type!==null){
 		_self.^type.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^type.sliced) 		theSlicer.ontypeSliced(_self, _self.^type)
 		}
 
 	}
@@ -412,6 +487,12 @@ class orgeclipsextextcommontypesJvmMultiTypeReferenceAspect extends orgeclipsext
 @Aspect(className=typeof(org.eclipse.xtext.common.types.JvmMember), with=#[typeof(orgeclipsextextcommontypesJvmAnnotationTargetAspect)])
 abstract class orgeclipsextextcommontypesJvmMemberAspect extends orgeclipsextextcommontypesJvmAnnotationTargetAspect{
 	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+		_self.^declaringType?.reinit
+	}
+	
+	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^declaringType?.visitToAddClasses(theSlicer)
@@ -420,8 +501,10 @@ abstract class orgeclipsextextcommontypesJvmMemberAspect extends orgeclipsextext
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^declaringType!=null){
+		if(_self.^declaringType!==null){
 		_self.^declaringType.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^declaringType.sliced) 		theSlicer.ondeclaringTypeSliced(_self, _self.^declaringType)
 		}
 
 	}
@@ -430,19 +513,35 @@ abstract class orgeclipsextextcommontypesJvmMemberAspect extends orgeclipsextext
 @Aspect(className=typeof(org.eclipse.xtext.common.types.JvmFeature), with=#[typeof(orgeclipsextextcommontypesJvmMemberAspect)])
 abstract class orgeclipsextextcommontypesJvmFeatureAspect extends orgeclipsextextcommontypesJvmMemberAspect{
 	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^localClasses.forEach[reinit]
+	}
+
+	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^localClasses.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		_self.^localClasses.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.onlocalClassesSliced(_self, _elt)
+		]
 
 	}
 }
 
 @Aspect(className=typeof(org.eclipse.xtext.common.types.JvmField), with=#[typeof(orgeclipsextextcommontypesJvmFeatureAspect)])
 class orgeclipsextextcommontypesJvmFieldAspect extends orgeclipsextextcommontypesJvmFeatureAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^type?.reinit
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -452,8 +551,10 @@ class orgeclipsextextcommontypesJvmFieldAspect extends orgeclipsextextcommontype
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^type!=null){
+		if(_self.^type!==null){
 		_self.^type.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^type.sliced) 		theSlicer.ontypeSliced(_self, _self.^type)
 		}
 
 	}
@@ -461,6 +562,13 @@ class orgeclipsextextcommontypesJvmFieldAspect extends orgeclipsextextcommontype
 
 @Aspect(className=typeof(org.eclipse.xtext.common.types.JvmExecutable), with=#[typeof(orgeclipsextextcommontypesJvmFeatureAspect), typeof(orgeclipsextextcommontypesJvmTypeParameterDeclaratorAspect)])
 abstract class orgeclipsextextcommontypesJvmExecutableAspect extends orgeclipsextextcommontypesJvmFeatureAspect{
+//	@OverrideAspectMethod
+//	def void reinit(){
+//		_self.super_reinit
+//_self.^parameters.forEach[reinit]
+//_self.^exceptions.forEach[reinit]
+//	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super_JvmFeature__visitToAddClasses(theSlicer)
@@ -473,8 +581,12 @@ abstract class orgeclipsextextcommontypesJvmExecutableAspect extends orgeclipsex
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super_JvmFeature__visitToAddRelations(theSlicer)
 		_self.super_JvmTypeParameterDeclarator__visitToAddRelations(theSlicer)
-		_self.^parameters.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
-		_self.^exceptions.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
+		_self.^parameters.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.onparametersSliced(_self, _elt)
+		]
+		_self.^exceptions.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.onexceptionsSliced(_self, _elt)
+		]
 
 	}
 }
@@ -496,6 +608,13 @@ class orgeclipsextextcommontypesJvmConstructorAspect extends orgeclipsextextcomm
 @Aspect(className=typeof(org.eclipse.xtext.common.types.JvmOperation), with=#[typeof(orgeclipsextextcommontypesJvmExecutableAspect)])
 class orgeclipsextextcommontypesJvmOperationAspect extends orgeclipsextextcommontypesJvmExecutableAspect{
 	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^returnType?.reinit
+_self.^defaultValue?.reinit
+	}
+
+	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^returnType?.visitToAddClasses(theSlicer)
@@ -505,11 +624,15 @@ class orgeclipsextextcommontypesJvmOperationAspect extends orgeclipsextextcommon
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^returnType!=null){
+		if(_self.^returnType!==null){
 		_self.^returnType.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^returnType.sliced) 		theSlicer.onreturnTypeSliced(_self, _self.^returnType)
 		}
-		if(_self.^defaultValue!=null){
+		if(_self.^defaultValue!==null){
 		_self.^defaultValue.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^defaultValue.sliced) 		theSlicer.ondefaultValueSliced(_self, _self.^defaultValue)
 		}
 
 	}
@@ -517,6 +640,12 @@ class orgeclipsextextcommontypesJvmOperationAspect extends orgeclipsextextcommon
 
 @Aspect(className=typeof(org.eclipse.xtext.common.types.JvmFormalParameter), with=#[typeof(orgeclipsextextcommontypesJvmAnnotationTargetAspect)])
 class orgeclipsextextcommontypesJvmFormalParameterAspect extends orgeclipsextextcommontypesJvmAnnotationTargetAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^parameterType?.reinit
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -526,8 +655,10 @@ class orgeclipsextextcommontypesJvmFormalParameterAspect extends orgeclipsextext
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^parameterType!=null){
+		if(_self.^parameterType!==null){
 		_self.^parameterType.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^parameterType.sliced) 		theSlicer.onparameterTypeSliced(_self, _self.^parameterType)
 		}
 
 	}
@@ -535,6 +666,12 @@ class orgeclipsextextcommontypesJvmFormalParameterAspect extends orgeclipsextext
 
 @Aspect(className=typeof(org.eclipse.xtext.common.types.JvmAnnotationTarget), with=#[typeof(orgeclipsextextcommontypesJvmIdentifiableElementAspect)])
 abstract class orgeclipsextextcommontypesJvmAnnotationTargetAspect extends orgeclipsextextcommontypesJvmIdentifiableElementAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^annotations.forEach[reinit]
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -544,13 +681,21 @@ abstract class orgeclipsextextcommontypesJvmAnnotationTargetAspect extends orgec
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		_self.^annotations.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
+		_self.^annotations.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.onannotationsSliced(_self, _elt)
+		]
 
 	}
 }
 
 @Aspect(className=typeof(org.eclipse.xtext.common.types.JvmAnnotationReference), with=#[typeof(__SlicerAspect__)])
 class orgeclipsextextcommontypesJvmAnnotationReferenceAspect extends __SlicerAspect__{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^explicitValues.forEach[reinit]
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -561,10 +706,14 @@ class orgeclipsextextcommontypesJvmAnnotationReferenceAspect extends __SlicerAsp
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^annotation!=null){
+		if(_self.^annotation!==null){
 		_self.^annotation.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^annotation.sliced) 		theSlicer.onannotationSliced(_self, _self.^annotation)
 		}
-		_self.^explicitValues.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
+		_self.^explicitValues.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.onexplicitValuesSliced(_self, _elt)
+		]
 
 	}
 }
@@ -580,8 +729,10 @@ abstract class orgeclipsextextcommontypesJvmAnnotationValueAspect extends __Slic
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^operation!=null){
+		if(_self.^operation!==null){
 		_self.^operation.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^operation.sliced) 		theSlicer.onoperationSliced(_self, _self.^operation)
 		}
 
 	}
@@ -716,6 +867,12 @@ class orgeclipsextextcommontypesJvmStringAnnotationValueAspect extends orgeclips
 @Aspect(className=typeof(org.eclipse.xtext.common.types.JvmTypeAnnotationValue), with=#[typeof(orgeclipsextextcommontypesJvmAnnotationValueAspect)])
 class orgeclipsextextcommontypesJvmTypeAnnotationValueAspect extends orgeclipsextextcommontypesJvmAnnotationValueAspect{
 	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^values.forEach[reinit]
+	}
+
+	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^values.forEach[visitToAddClasses(theSlicer)]
@@ -724,7 +881,9 @@ class orgeclipsextextcommontypesJvmTypeAnnotationValueAspect extends orgeclipsex
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		_self.^values.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
+		_self.^values.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.onvaluesSliced(_self, _elt)
+		]
 
 	}
 }
@@ -732,6 +891,12 @@ class orgeclipsextextcommontypesJvmTypeAnnotationValueAspect extends orgeclipsex
 @Aspect(className=typeof(org.eclipse.xtext.common.types.JvmAnnotationAnnotationValue), with=#[typeof(orgeclipsextextcommontypesJvmAnnotationValueAspect)])
 class orgeclipsextextcommontypesJvmAnnotationAnnotationValueAspect extends orgeclipsextextcommontypesJvmAnnotationValueAspect{
 	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^values.forEach[reinit]
+	}
+
+	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^values.forEach[visitToAddClasses(theSlicer)]
@@ -740,7 +905,9 @@ class orgeclipsextextcommontypesJvmAnnotationAnnotationValueAspect extends orgec
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		_self.^values.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
+		_self.^values.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.onvaluesSliced(_self, _elt)
+		]
 
 	}
 }
@@ -756,7 +923,9 @@ class orgeclipsextextcommontypesJvmEnumAnnotationValueAspect extends orgeclipsex
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		_self.^values.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
+		_self.^values.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.onvaluesSliced(_self, _elt)
+		]
 
 	}
 }
@@ -772,8 +941,10 @@ class orgeclipsextextcommontypesJvmDelegateTypeReferenceAspect extends orgeclips
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^delegate!=null){
+		if(_self.^delegate!==null){
 		_self.^delegate.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^delegate.sliced) 		theSlicer.ondelegateSliced(_self, _self.^delegate)
 		}
 
 	}
@@ -781,6 +952,12 @@ class orgeclipsextextcommontypesJvmDelegateTypeReferenceAspect extends orgeclips
 
 @Aspect(className=typeof(org.eclipse.xtext.common.types.JvmSpecializedTypeReference), with=#[typeof(orgeclipsextextcommontypesJvmTypeReferenceAspect)])
 abstract class orgeclipsextextcommontypesJvmSpecializedTypeReferenceAspect extends orgeclipsextextcommontypesJvmTypeReferenceAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^equivalent?.reinit
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -790,8 +967,10 @@ abstract class orgeclipsextextcommontypesJvmSpecializedTypeReferenceAspect exten
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^equivalent!=null){
+		if(_self.^equivalent!==null){
 		_self.^equivalent.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^equivalent.sliced) 		theSlicer.onequivalentSliced(_self, _self.^equivalent)
 		}
 
 	}
@@ -828,6 +1007,12 @@ class orgeclipsextextcommontypesJvmUnknownTypeReferenceAspect extends orgeclipse
 @Aspect(className=typeof(org.eclipse.xtext.common.types.JvmCompoundTypeReference), with=#[typeof(orgeclipsextextcommontypesJvmTypeReferenceAspect)])
 abstract class orgeclipsextextcommontypesJvmCompoundTypeReferenceAspect extends orgeclipsextextcommontypesJvmTypeReferenceAspect{
 	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^references.forEach[reinit]
+	}
+
+	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^type?.visitToAddClasses(theSlicer)
@@ -837,10 +1022,14 @@ abstract class orgeclipsextextcommontypesJvmCompoundTypeReferenceAspect extends 
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^type!=null){
+		if(_self.^type!==null){
 		_self.^type.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^type.sliced) 		theSlicer.ontypeSliced(_self, _self.^type)
 		}
-		_self.^references.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
+		_self.^references.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.onreferencesSliced(_self, _elt)
+		]
 
 	}
 }
@@ -855,6 +1044,32 @@ class orgeclipsextextcommontypesJvmCustomAnnotationValueAspect extends orgeclips
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+
+	}
+}
+
+@Aspect(className=typeof(org.eclipse.xtext.common.types.JvmInnerTypeReference), with=#[typeof(orgeclipsextextcommontypesJvmParameterizedTypeReferenceAspect)])
+class orgeclipsextextcommontypesJvmInnerTypeReferenceAspect extends orgeclipsextextcommontypesJvmParameterizedTypeReferenceAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^outer?.reinit
+	}
+
+	@OverrideAspectMethod
+	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
+		_self.super__visitToAddClasses(theSlicer)
+		_self.^outer?.visitToAddClasses(theSlicer)
+
+	}
+	@OverrideAspectMethod
+	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
+		_self.super__visitToAddRelations(theSlicer)
+		if(_self.^outer!==null){
+		_self.^outer.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^outer.sliced) 		theSlicer.onouterSliced(_self, _self.^outer)
+		}
 
 	}
 }
@@ -876,6 +1091,14 @@ abstract class orgeclipsextextxbaseXExpressionAspect extends __SlicerAspect__{
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XIfExpression), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
 class orgeclipsextextxbaseXIfExpressionAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^if?.reinit
+_self.^then?.reinit
+_self.^else?.reinit
+	}
+
+	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^if?.visitToAddClasses(theSlicer)
@@ -886,14 +1109,20 @@ class orgeclipsextextxbaseXIfExpressionAspect extends orgeclipsextextxbaseXExpre
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^if!=null){
+		if(_self.^if!==null){
 		_self.^if.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^if.sliced) 		theSlicer.onifSliced(_self, _self.^if)
 		}
-		if(_self.^then!=null){
+		if(_self.^then!==null){
 		_self.^then.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^then.sliced) 		theSlicer.onthenSliced(_self, _self.^then)
 		}
-		if(_self.^else!=null){
+		if(_self.^else!==null){
 		_self.^else.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^else.sliced) 		theSlicer.onelseSliced(_self, _self.^else)
 		}
 
 	}
@@ -902,22 +1131,43 @@ class orgeclipsextextxbaseXIfExpressionAspect extends orgeclipsextextxbaseXExpre
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XSwitchExpression), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
 class orgeclipsextextxbaseXSwitchExpressionAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^switch?.reinit
+_self.^cases.forEach[reinit]
+_self.^default?.reinit
+_self.^declaredParam?.reinit
+	}
+
+	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^switch?.visitToAddClasses(theSlicer)
 		_self.^cases.forEach[visitToAddClasses(theSlicer)]
 		_self.^default?.visitToAddClasses(theSlicer)
+		_self.^declaredParam?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^switch!=null){
+		if(_self.^switch!==null){
 		_self.^switch.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^switch.sliced) 		theSlicer.onswitchSliced(_self, _self.^switch)
 		}
-		_self.^cases.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
-		if(_self.^default!=null){
+		_self.^cases.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.oncasesSliced(_self, _elt)
+		]
+		if(_self.^default!==null){
 		_self.^default.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^default.sliced) 		theSlicer.ondefaultSliced(_self, _self.^default)
+		}
+		if(_self.^declaredParam!==null){
+		_self.^declaredParam.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^declaredParam.sliced) 		theSlicer.ondeclaredParamSliced(_self, _self.^declaredParam)
 		}
 
 	}
@@ -925,6 +1175,14 @@ class orgeclipsextextxbaseXSwitchExpressionAspect extends orgeclipsextextxbaseXE
 
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XCasePart), with=#[typeof(__SlicerAspect__)])
 class orgeclipsextextxbaseXCasePartAspect extends __SlicerAspect__{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^case?.reinit
+_self.^then?.reinit
+_self.^typeGuard?.reinit
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -936,14 +1194,20 @@ class orgeclipsextextxbaseXCasePartAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^case!=null){
+		if(_self.^case!==null){
 		_self.^case.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^case.sliced) 		theSlicer.oncaseSliced(_self, _self.^case)
 		}
-		if(_self.^then!=null){
+		if(_self.^then!==null){
 		_self.^then.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^then.sliced) 		theSlicer.onthenSliced(_self, _self.^then)
 		}
-		if(_self.^typeGuard!=null){
+		if(_self.^typeGuard!==null){
 		_self.^typeGuard.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^typeGuard.sliced) 		theSlicer.ontypeGuardSliced(_self, _self.^typeGuard)
 		}
 
 	}
@@ -951,6 +1215,12 @@ class orgeclipsextextxbaseXCasePartAspect extends __SlicerAspect__{
 
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XBlockExpression), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
 class orgeclipsextextxbaseXBlockExpressionAspect extends orgeclipsextextxbaseXExpressionAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^expressions.forEach[reinit]
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -960,13 +1230,22 @@ class orgeclipsextextxbaseXBlockExpressionAspect extends orgeclipsextextxbaseXEx
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		_self.^expressions.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
+		_self.^expressions.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.onexpressionsSliced(_self, _elt)
+		]
 
 	}
 }
 
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XVariableDeclaration), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
 class orgeclipsextextxbaseXVariableDeclarationAspect extends orgeclipsextextxbaseXExpressionAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^type?.reinit
+_self.^right?.reinit
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -977,11 +1256,15 @@ class orgeclipsextextxbaseXVariableDeclarationAspect extends orgeclipsextextxbas
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^type!=null){
+		if(_self.^type!==null){
 		_self.^type.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^type.sliced) 		theSlicer.ontypeSliced(_self, _self.^type)
 		}
-		if(_self.^right!=null){
+		if(_self.^right!==null){
 		_self.^right.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^right.sliced) 		theSlicer.onrightSliced(_self, _self.^right)
 		}
 
 	}
@@ -989,6 +1272,14 @@ class orgeclipsextextxbaseXVariableDeclarationAspect extends orgeclipsextextxbas
 
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XAbstractFeatureCall), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
 abstract class orgeclipsextextxbaseXAbstractFeatureCallAspect extends orgeclipsextextxbaseXExpressionAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^typeArguments.forEach[reinit]
+_self.^implicitReceiver?.reinit
+_self.^implicitFirstArgument?.reinit
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1001,14 +1292,18 @@ abstract class orgeclipsextextxbaseXAbstractFeatureCallAspect extends orgeclipse
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^feature!=null){
+		if(_self.^feature!==null){
 		_self.^feature.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^feature.sliced) 		theSlicer.onfeatureSliced(_self, _self.^feature)
 		}
-		_self.^typeArguments.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
-		if(_self.^implicitReceiver!=null){
+		_self.^typeArguments.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.ontypeArgumentsSliced(_self, _elt)
+		]
+		if(_self.^implicitReceiver!==null){
 		_self.^implicitReceiver.visitToAddRelations(theSlicer)
 		}
-		if(_self.^implicitFirstArgument!=null){
+		if(_self.^implicitFirstArgument!==null){
 		_self.^implicitFirstArgument.visitToAddRelations(theSlicer)
 		}
 
@@ -1017,6 +1312,13 @@ abstract class orgeclipsextextxbaseXAbstractFeatureCallAspect extends orgeclipse
 
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XMemberFeatureCall), with=#[typeof(orgeclipsextextxbaseXAbstractFeatureCallAspect)])
 class orgeclipsextextxbaseXMemberFeatureCallAspect extends orgeclipsextextxbaseXAbstractFeatureCallAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^memberCallTarget?.reinit
+_self.^memberCallArguments.forEach[reinit]
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1027,16 +1329,26 @@ class orgeclipsextextxbaseXMemberFeatureCallAspect extends orgeclipsextextxbaseX
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^memberCallTarget!=null){
+		if(_self.^memberCallTarget!==null){
 		_self.^memberCallTarget.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^memberCallTarget.sliced) 		theSlicer.onmemberCallTargetSliced(_self, _self.^memberCallTarget)
 		}
-		_self.^memberCallArguments.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
+		_self.^memberCallArguments.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.onmemberCallArgumentsSliced(_self, _elt)
+		]
 
 	}
 }
 
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XFeatureCall), with=#[typeof(orgeclipsextextxbaseXAbstractFeatureCallAspect)])
 class orgeclipsextextxbaseXFeatureCallAspect extends orgeclipsextextxbaseXAbstractFeatureCallAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^featureCallArguments.forEach[reinit]
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1046,7 +1358,9 @@ class orgeclipsextextxbaseXFeatureCallAspect extends orgeclipsextextxbaseXAbstra
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		_self.^featureCallArguments.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
+		_self.^featureCallArguments.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.onfeatureCallArgumentsSliced(_self, _elt)
+		]
 
 	}
 }
@@ -1054,19 +1368,34 @@ class orgeclipsextextxbaseXFeatureCallAspect extends orgeclipsextextxbaseXAbstra
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XConstructorCall), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
 class orgeclipsextextxbaseXConstructorCallAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^arguments.forEach[reinit]
+_self.^typeArguments.forEach[reinit]
+	}
+
+	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^constructor?.visitToAddClasses(theSlicer)
 		_self.^arguments.forEach[visitToAddClasses(theSlicer)]
+		_self.^typeArguments.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^constructor!=null){
+		if(_self.^constructor!==null){
 		_self.^constructor.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^constructor.sliced) 		theSlicer.onconstructorSliced(_self, _self.^constructor)
 		}
-		_self.^arguments.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
+		_self.^arguments.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.onargumentsSliced(_self, _elt)
+		]
+		_self.^typeArguments.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.ontypeArgumentsSliced(_self, _elt)
+		]
 
 	}
 }
@@ -1130,6 +1459,12 @@ class orgeclipsextextxbaseXStringLiteralAspect extends orgeclipsextextxbaseXExpr
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XCollectionLiteral), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
 abstract class orgeclipsextextxbaseXCollectionLiteralAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^elements.forEach[reinit]
+	}
+
+	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^elements.forEach[visitToAddClasses(theSlicer)]
@@ -1138,7 +1473,9 @@ abstract class orgeclipsextextxbaseXCollectionLiteralAspect extends orgeclipsext
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		_self.^elements.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
+		_self.^elements.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.onelementsSliced(_self, _elt)
+		]
 
 	}
 }
@@ -1174,29 +1511,46 @@ class orgeclipsextextxbaseXSetLiteralAspect extends orgeclipsextextxbaseXCollect
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XClosure), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
 class orgeclipsextextxbaseXClosureAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^declaredFormalParameters.forEach[reinit]
+_self.^expression?.reinit
+_self.^implicitFormalParameters.forEach[reinit]
+	}
+
+	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
 		_self.^declaredFormalParameters.forEach[visitToAddClasses(theSlicer)]
 		_self.^expression?.visitToAddClasses(theSlicer)
-		_self.^implicitParameter?.visitToAddClasses(theSlicer)
+		_self.^implicitFormalParameters.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		_self.^declaredFormalParameters.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
-		if(_self.^expression!=null){
+		_self.^declaredFormalParameters.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.ondeclaredFormalParametersSliced(_self, _elt)
+		]
+		if(_self.^expression!==null){
 		_self.^expression.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^expression.sliced) 		theSlicer.onexpressionSliced(_self, _self.^expression)
 		}
-		if(_self.^implicitParameter!=null){
-		_self.^implicitParameter.visitToAddRelations(theSlicer)
-		}
+		_self.^implicitFormalParameters.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
 
 	}
 }
 
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XCastedExpression), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
 class orgeclipsextextxbaseXCastedExpressionAspect extends orgeclipsextextxbaseXExpressionAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^type?.reinit
+_self.^target?.reinit
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1207,11 +1561,15 @@ class orgeclipsextextxbaseXCastedExpressionAspect extends orgeclipsextextxbaseXE
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^type!=null){
+		if(_self.^type!==null){
 		_self.^type.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^type.sliced) 		theSlicer.ontypeSliced(_self, _self.^type)
 		}
-		if(_self.^target!=null){
+		if(_self.^target!==null){
 		_self.^target.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^target.sliced) 		theSlicer.ontargetSliced(_self, _self.^target)
 		}
 
 	}
@@ -1219,6 +1577,13 @@ class orgeclipsextextxbaseXCastedExpressionAspect extends orgeclipsextextxbaseXE
 
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XBinaryOperation), with=#[typeof(orgeclipsextextxbaseXAbstractFeatureCallAspect)])
 class orgeclipsextextxbaseXBinaryOperationAspect extends orgeclipsextextxbaseXAbstractFeatureCallAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^leftOperand?.reinit
+_self.^rightOperand?.reinit
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1229,11 +1594,15 @@ class orgeclipsextextxbaseXBinaryOperationAspect extends orgeclipsextextxbaseXAb
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^leftOperand!=null){
+		if(_self.^leftOperand!==null){
 		_self.^leftOperand.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^leftOperand.sliced) 		theSlicer.onleftOperandSliced(_self, _self.^leftOperand)
 		}
-		if(_self.^rightOperand!=null){
+		if(_self.^rightOperand!==null){
 		_self.^rightOperand.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^rightOperand.sliced) 		theSlicer.onrightOperandSliced(_self, _self.^rightOperand)
 		}
 
 	}
@@ -1241,6 +1610,12 @@ class orgeclipsextextxbaseXBinaryOperationAspect extends orgeclipsextextxbaseXAb
 
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XUnaryOperation), with=#[typeof(orgeclipsextextxbaseXAbstractFeatureCallAspect)])
 class orgeclipsextextxbaseXUnaryOperationAspect extends orgeclipsextextxbaseXAbstractFeatureCallAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^operand?.reinit
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1250,8 +1625,10 @@ class orgeclipsextextxbaseXUnaryOperationAspect extends orgeclipsextextxbaseXAbs
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^operand!=null){
+		if(_self.^operand!==null){
 		_self.^operand.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^operand.sliced) 		theSlicer.onoperandSliced(_self, _self.^operand)
 		}
 
 	}
@@ -1260,19 +1637,39 @@ class orgeclipsextextxbaseXUnaryOperationAspect extends orgeclipsextextxbaseXAbs
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XPostfixOperation), with=#[typeof(orgeclipsextextxbaseXAbstractFeatureCallAspect)])
 class orgeclipsextextxbaseXPostfixOperationAspect extends orgeclipsextextxbaseXAbstractFeatureCallAspect{
 	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^operand?.reinit
+	}
+
+	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^operand?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		if(_self.^operand!==null){
+		_self.^operand.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^operand.sliced) 		theSlicer.onoperandSliced(_self, _self.^operand)
+		}
 
 	}
 }
 
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XForLoopExpression), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
 class orgeclipsextextxbaseXForLoopExpressionAspect extends orgeclipsextextxbaseXExpressionAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^forExpression?.reinit
+_self.^eachExpression?.reinit
+_self.^declaredParam?.reinit
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1284,14 +1681,20 @@ class orgeclipsextextxbaseXForLoopExpressionAspect extends orgeclipsextextxbaseX
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^forExpression!=null){
+		if(_self.^forExpression!==null){
 		_self.^forExpression.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^forExpression.sliced) 		theSlicer.onforExpressionSliced(_self, _self.^forExpression)
 		}
-		if(_self.^eachExpression!=null){
+		if(_self.^eachExpression!==null){
 		_self.^eachExpression.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^eachExpression.sliced) 		theSlicer.oneachExpressionSliced(_self, _self.^eachExpression)
 		}
-		if(_self.^declaredParam!=null){
+		if(_self.^declaredParam!==null){
 		_self.^declaredParam.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^declaredParam.sliced) 		theSlicer.ondeclaredParamSliced(_self, _self.^declaredParam)
 		}
 
 	}
@@ -1300,19 +1703,55 @@ class orgeclipsextextxbaseXForLoopExpressionAspect extends orgeclipsextextxbaseX
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XBasicForLoopExpression), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
 class orgeclipsextextxbaseXBasicForLoopExpressionAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^expression?.reinit
+_self.^eachExpression?.reinit
+_self.^initExpressions.forEach[reinit]
+_self.^updateExpressions.forEach[reinit]
+	}
+
+	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^eachExpression?.visitToAddClasses(theSlicer)
+		_self.^expression?.visitToAddClasses(theSlicer)
+		_self.^initExpressions.forEach[visitToAddClasses(theSlicer)]
+		_self.^updateExpressions.forEach[visitToAddClasses(theSlicer)]
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		if(_self.^eachExpression!==null){
+		_self.^eachExpression.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^eachExpression.sliced) 		theSlicer.oneachExpressionSliced(_self, _self.^eachExpression)
+		}
+		if(_self.^expression!==null){
+		_self.^expression.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^expression.sliced) 		theSlicer.onexpressionSliced(_self, _self.^expression)
+		}
+		_self.^initExpressions.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.oninitExpressionsSliced(_self, _elt)
+		]
+		_self.^updateExpressions.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.onupdateExpressionsSliced(_self, _elt)
+		]
 
 	}
 }
 
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XAbstractWhileExpression), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
 abstract class orgeclipsextextxbaseXAbstractWhileExpressionAspect extends orgeclipsextextxbaseXExpressionAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^predicate?.reinit
+_self.^body?.reinit
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1323,11 +1762,15 @@ abstract class orgeclipsextextxbaseXAbstractWhileExpressionAspect extends orgecl
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^predicate!=null){
+		if(_self.^predicate!==null){
 		_self.^predicate.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^predicate.sliced) 		theSlicer.onpredicateSliced(_self, _self.^predicate)
 		}
-		if(_self.^body!=null){
+		if(_self.^body!==null){
 		_self.^body.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^body.sliced) 		theSlicer.onbodySliced(_self, _self.^body)
 		}
 
 	}
@@ -1372,8 +1815,10 @@ class orgeclipsextextxbaseXTypeLiteralAspect extends orgeclipsextextxbaseXExpres
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^type!=null){
+		if(_self.^type!==null){
 		_self.^type.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^type.sliced) 		theSlicer.ontypeSliced(_self, _self.^type)
 		}
 
 	}
@@ -1381,6 +1826,13 @@ class orgeclipsextextxbaseXTypeLiteralAspect extends orgeclipsextextxbaseXExpres
 
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XInstanceOfExpression), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
 class orgeclipsextextxbaseXInstanceOfExpressionAspect extends orgeclipsextextxbaseXExpressionAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^type?.reinit
+_self.^expression?.reinit
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1391,11 +1843,15 @@ class orgeclipsextextxbaseXInstanceOfExpressionAspect extends orgeclipsextextxba
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^type!=null){
+		if(_self.^type!==null){
 		_self.^type.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^type.sliced) 		theSlicer.ontypeSliced(_self, _self.^type)
 		}
-		if(_self.^expression!=null){
+		if(_self.^expression!==null){
 		_self.^expression.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^expression.sliced) 		theSlicer.onexpressionSliced(_self, _self.^expression)
 		}
 
 	}
@@ -1403,6 +1859,12 @@ class orgeclipsextextxbaseXInstanceOfExpressionAspect extends orgeclipsextextxba
 
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XThrowExpression), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
 class orgeclipsextextxbaseXThrowExpressionAspect extends orgeclipsextextxbaseXExpressionAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^expression?.reinit
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1412,8 +1874,10 @@ class orgeclipsextextxbaseXThrowExpressionAspect extends orgeclipsextextxbaseXEx
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^expression!=null){
+		if(_self.^expression!==null){
 		_self.^expression.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^expression.sliced) 		theSlicer.onexpressionSliced(_self, _self.^expression)
 		}
 
 	}
@@ -1421,6 +1885,14 @@ class orgeclipsextextxbaseXThrowExpressionAspect extends orgeclipsextextxbaseXEx
 
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XTryCatchFinallyExpression), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
 class orgeclipsextextxbaseXTryCatchFinallyExpressionAspect extends orgeclipsextextxbaseXExpressionAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^expression?.reinit
+_self.^finallyExpression?.reinit
+_self.^catchClauses.forEach[reinit]
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1432,19 +1904,32 @@ class orgeclipsextextxbaseXTryCatchFinallyExpressionAspect extends orgeclipsexte
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^expression!=null){
+		if(_self.^expression!==null){
 		_self.^expression.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^expression.sliced) 		theSlicer.onexpressionSliced(_self, _self.^expression)
 		}
-		if(_self.^finallyExpression!=null){
+		if(_self.^finallyExpression!==null){
 		_self.^finallyExpression.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^finallyExpression.sliced) 		theSlicer.onfinallyExpressionSliced(_self, _self.^finallyExpression)
 		}
-		_self.^catchClauses.forEach[_elt| _elt.visitToAddRelations(theSlicer)		]
+		_self.^catchClauses.forEach[_elt| _elt.visitToAddRelations(theSlicer)
+			if(_self.sliced && _elt.sliced) theSlicer.oncatchClausesSliced(_self, _elt)
+		]
 
 	}
 }
 
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XCatchClause), with=#[typeof(__SlicerAspect__)])
 class orgeclipsextextxbaseXCatchClauseAspect extends __SlicerAspect__{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^expression?.reinit
+_self.^declaredParam?.reinit
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1455,11 +1940,15 @@ class orgeclipsextextxbaseXCatchClauseAspect extends __SlicerAspect__{
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^expression!=null){
+		if(_self.^expression!==null){
 		_self.^expression.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^expression.sliced) 		theSlicer.onexpressionSliced(_self, _self.^expression)
 		}
-		if(_self.^declaredParam!=null){
+		if(_self.^declaredParam!==null){
 		_self.^declaredParam.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^declaredParam.sliced) 		theSlicer.ondeclaredParamSliced(_self, _self.^declaredParam)
 		}
 
 	}
@@ -1467,6 +1956,13 @@ class orgeclipsextextxbaseXCatchClauseAspect extends __SlicerAspect__{
 
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XAssignment), with=#[typeof(orgeclipsextextxbaseXAbstractFeatureCallAspect)])
 class orgeclipsextextxbaseXAssignmentAspect extends orgeclipsextextxbaseXAbstractFeatureCallAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^assignable?.reinit
+_self.^value?.reinit
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1477,11 +1973,15 @@ class orgeclipsextextxbaseXAssignmentAspect extends orgeclipsextextxbaseXAbstrac
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^assignable!=null){
+		if(_self.^assignable!==null){
 		_self.^assignable.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^assignable.sliced) 		theSlicer.onassignableSliced(_self, _self.^assignable)
 		}
-		if(_self.^value!=null){
+		if(_self.^value!==null){
 		_self.^value.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^value.sliced) 		theSlicer.onvalueSliced(_self, _self.^value)
 		}
 
 	}
@@ -1489,6 +1989,12 @@ class orgeclipsextextxbaseXAssignmentAspect extends orgeclipsextextxbaseXAbstrac
 
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XReturnExpression), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
 class orgeclipsextextxbaseXReturnExpressionAspect extends orgeclipsextextxbaseXExpressionAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^expression?.reinit
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -1498,8 +2004,10 @@ class orgeclipsextextxbaseXReturnExpressionAspect extends orgeclipsextextxbaseXE
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
-		if(_self.^expression!=null){
+		if(_self.^expression!==null){
 		_self.^expression.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^expression.sliced) 		theSlicer.onexpressionSliced(_self, _self.^expression)
 		}
 
 	}
@@ -1508,13 +2016,32 @@ class orgeclipsextextxbaseXReturnExpressionAspect extends orgeclipsextextxbaseXE
 @Aspect(className=typeof(org.eclipse.xtext.xbase.XSynchronizedExpression), with=#[typeof(orgeclipsextextxbaseXExpressionAspect)])
 class orgeclipsextextxbaseXSynchronizedExpressionAspect extends orgeclipsextextxbaseXExpressionAspect{
 	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+_self.^param?.reinit
+_self.^expression?.reinit
+	}
+
+	@OverrideAspectMethod
 	def void _visitToAddClasses(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
+		_self.^expression?.visitToAddClasses(theSlicer)
+		_self.^param?.visitToAddClasses(theSlicer)
 
 	}
 	@OverrideAspectMethod
 	def void _visitToAddRelations(K3TransfoFootprint theSlicer){
 		_self.super__visitToAddRelations(theSlicer)
+		if(_self.^expression!==null){
+		_self.^expression.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^expression.sliced) 		theSlicer.onexpressionSliced(_self, _self.^expression)
+		}
+		if(_self.^param!==null){
+		_self.^param.visitToAddRelations(theSlicer)
+
+		if(_self.sliced && _self.^param.sliced) 		theSlicer.onparamSliced(_self, _self.^param)
+		}
 
 	}
 }
