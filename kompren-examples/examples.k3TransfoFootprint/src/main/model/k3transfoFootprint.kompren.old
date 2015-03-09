@@ -1,0 +1,109 @@
+slicer examples.k3TransfoFootprint{
+	domain: "platform:/plugin/org.eclipse.xtext.xbase/model/Xbase.genmodel"
+	domain: "platform:/plugin/org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel"
+	input: types.JvmFormalParameter, types.JvmTypeReference, xbase.XExpression
+	slicedClass: types.JvmTypeReference type [[addQN(type.getQualifiedName)]]
+	slicedClass: types.JvmIdentifiableElement ident [[addQN(ident.getQualifiedName)]]
+	slicedProperty: xbase.XIfExpression.if
+	slicedProperty: xbase.XIfExpression.then
+	slicedProperty: xbase.XIfExpression.else
+	slicedProperty: xbase.XSwitchExpression.switch
+	slicedProperty: xbase.XSwitchExpression.cases
+	slicedProperty: xbase.XSwitchExpression.default
+	slicedProperty: xbase.XSwitchExpression.declaredParam
+	slicedProperty: xbase.XCasePart.case
+	slicedProperty: xbase.XCasePart.then
+	slicedProperty: xbase.XCasePart.typeGuard
+	slicedProperty: xbase.XBlockExpression.expressions
+	slicedProperty: xbase.XVariableDeclaration.type
+	slicedProperty: xbase.XVariableDeclaration.right
+	slicedProperty: xbase.XAbstractFeatureCall.feature
+	slicedProperty: xbase.XAbstractFeatureCall.typeArguments
+	slicedProperty: xbase.XAbstractFeatureCall.implicitReceiver
+	slicedProperty: xbase.XAbstractFeatureCall.implicitFirstArgument
+	slicedProperty: xbase.XMemberFeatureCall.memberCallTarget
+	slicedProperty: xbase.XMemberFeatureCall.memberCallArguments
+	slicedProperty: xbase.XFeatureCall.featureCallArguments
+	slicedProperty: xbase.XConstructorCall.constructor
+	slicedProperty: xbase.XConstructorCall.arguments
+	slicedProperty: xbase.XConstructorCall.typeArguments
+	slicedProperty: xbase.XCollectionLiteral.elements
+	slicedProperty: xbase.XClosure.declaredFormalParameters
+	slicedProperty: xbase.XClosure.expression
+	slicedProperty: xbase.XClosure.implicitFormalParameters
+	slicedProperty: xbase.XCastedExpression.type
+	slicedProperty: xbase.XCastedExpression.target
+	slicedProperty: xbase.XBinaryOperation.leftOperand
+	slicedProperty: xbase.XBinaryOperation.rightOperand
+	slicedProperty: xbase.XUnaryOperation.operand
+	slicedProperty: xbase.XPostfixOperation.operand
+	slicedProperty: xbase.XForLoopExpression.forExpression
+	slicedProperty: xbase.XForLoopExpression.eachExpression
+	slicedProperty: xbase.XForLoopExpression.declaredParam
+	slicedProperty: xbase.XBasicForLoopExpression.eachExpression
+	slicedProperty: xbase.XBasicForLoopExpression.expression
+	slicedProperty: xbase.XBasicForLoopExpression.initExpressions
+	slicedProperty: xbase.XBasicForLoopExpression.updateExpressions
+	slicedProperty: xbase.XAbstractWhileExpression.predicate
+	slicedProperty: xbase.XAbstractWhileExpression.body
+	slicedProperty: xbase.XTypeLiteral.type
+	slicedProperty: xbase.XInstanceOfExpression.type
+	slicedProperty: xbase.XInstanceOfExpression.expression
+	slicedProperty: xbase.XThrowExpression.expression
+	slicedProperty: xbase.XTryCatchFinallyExpression.expression
+	slicedProperty: xbase.XTryCatchFinallyExpression.finallyExpression
+	slicedProperty: xbase.XTryCatchFinallyExpression.catchClauses
+	slicedProperty: xbase.XCatchClause.expression
+	slicedProperty: xbase.XCatchClause.declaredParam
+	slicedProperty: xbase.XAssignment.assignable
+	slicedProperty: xbase.XAssignment.value
+	slicedProperty: xbase.XReturnExpression.expression
+	slicedProperty: xbase.XSynchronizedExpression.expression
+	slicedProperty: xbase.XSynchronizedExpression.param
+
+	slicedProperty: types.JvmComponentType.arrayType
+	slicedProperty: types.JvmArrayType.componentType
+	slicedProperty: types.JvmDeclaredType.superTypes
+	slicedProperty: types.JvmDeclaredType.members
+	slicedProperty: types.JvmTypeParameter.declarator
+	slicedProperty: types.JvmTypeParameterDeclarator.typeParameters
+	slicedProperty: types.JvmConstraintOwner.constraints
+	slicedProperty: types.JvmTypeConstraint.typeReference
+	slicedProperty: types.JvmTypeConstraint.owner
+	slicedProperty: types.JvmEnumerationType.literals
+	slicedProperty: types.JvmParameterizedTypeReference.arguments
+	slicedProperty: types.JvmParameterizedTypeReference.type
+	slicedProperty: types.JvmGenericArrayTypeReference.componentType
+	slicedProperty: types.JvmAnyTypeReference.type
+	slicedProperty: types.JvmMember.declaringType
+	slicedProperty: types.JvmFeature.localClasses
+	slicedProperty: types.JvmField.type
+	slicedProperty: types.JvmExecutable.parameters
+	slicedProperty: types.JvmExecutable.exceptions
+	slicedProperty: types.JvmOperation.returnType
+	slicedProperty: types.JvmOperation.defaultValue
+	slicedProperty: types.JvmFormalParameter.parameterType
+	slicedProperty: types.JvmAnnotationTarget.annotations
+	slicedProperty: types.JvmAnnotationReference.annotation
+	slicedProperty: types.JvmAnnotationReference.explicitValues
+	slicedProperty: types.JvmAnnotationValue.operation
+	slicedProperty: types.JvmTypeAnnotationValue.values
+	slicedProperty: types.JvmAnnotationAnnotationValue.values
+	slicedProperty: types.JvmEnumAnnotationValue.values
+	slicedProperty: types.JvmDelegateTypeReference.delegate
+	slicedProperty: types.JvmSpecializedTypeReference.equivalent
+	slicedProperty: types.JvmCompoundTypeReference.type
+	slicedProperty: types.JvmCompoundTypeReference.references
+	slicedProperty: types.JvmInnerTypeReference.outer
+	
+	
+	helper [[
+	public val java.util.Set<String> footprint = newHashSet
+	private def addQN(String qn) {
+		if(qn!=null && !qn.startsWith("java.") && !qn.startsWith("com.google.") && 
+			!qn.startsWith("sun.") && !qn.startsWith("javax.") && !qn.startsWith("com.sun") &&
+			!qn.startsWith("com.oracle") && !qn.startsWith("sunw."))
+			footprint.add(qn)
+	}
+	]]
+}
