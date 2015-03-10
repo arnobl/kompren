@@ -11,8 +11,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.ConcurrentModificationException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.URI;
@@ -31,11 +34,14 @@ public class Main {
 	private static final String SEP = " ; ";
 	private static final boolean MATCH = true;
 	private static final boolean PROCESS = false;
-	private static final String PATH = "/media/data/dev/testMM/metamodels"; 
-	// "/media/data/dev/kompren/kompren-examples/examples.statsEcore/models" "/media/data/dev/testMM/metamodels"
-	
+	private static final String PATH = "/media/data/dev/testMM/metamodels";
+	private static final EcoreExtensions EXT = new EcoreExtensions();
+	// "/media/data/dev/kompren/kompren-examples/examples.statsEcore/models"
+	// "/media/data/dev/testMM/metamodels"
+	final static Map<String, Long> NB_CLASSES = new HashMap<>();
+
 	private static Field field;
-	
+
 	static {
 		try {
 			field = MatchingHelper.class.getDeclaredField("_ecoreExtensions");
@@ -44,7 +50,7 @@ public class Main {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		EcoreFactory.eINSTANCE.eClass();
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
@@ -53,34 +59,43 @@ public class Main {
 				PrintWriter outSum = new PrintWriter(new BufferedWriter(new FileWriter("resultsSum.txt", false)));
 				PrintWriter outMatch = new PrintWriter(new BufferedWriter(new FileWriter("resultsMatch.txt", false)));
 				DirectoryStream<Path> ds = Files.newDirectoryStream(FileSystems.getDefault().getPath(PATH));) {
-			ds.forEach(d -> process(outAll, outSum, d));
-			ds.close();
+			ds.forEach(d -> process(outAll, outSum, outMatch, d));
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}
 	}
+	
+	
+	private static List<EPackage> flatPackages(List<EPackage> pkgs) {
+		List<EPackage> pkg2 = pkgs.stream().map(p -> EXT.getAllSubPkgs(p)).flatMap(l->l.stream()).collect(Collectors.<EPackage>toList());
+		pkg2.addAll(pkgs);
+		List<EPackage> externs = pkg2.parallelStream().map(p -> EXT.getReferencedPkgs(p)).flatMap(l->l.stream()).collect(Collectors.<EPackage>toList());
+		pkg2.addAll(externs);
+		return pkg2;
+	}
+	
 
-	private static void process(PrintWriter outAll, PrintWriter outSum, Path d) {
+	private static void process(PrintWriter outAll, PrintWriter outSum, PrintWriter outMatch, Path d) {
 		if(Files.isDirectory(d)) {
 			try(DirectoryStream<Path> ds = Files.newDirectoryStream(d)) {
-				ds.forEach(d2 -> process(outAll, outSum, d2));
-				ds.close();
+				ds.forEach(d2 -> process(outAll, outSum, outMatch, d2));
 			}catch(Exception ex) {
 				ex.printStackTrace();
 			}
 		}else {
-			processFile(outAll, outSum, d);
+			processFile(outAll, outSum, outMatch, d);
 		}
 	}
 
-	private static void processFile(PrintWriter outAll, PrintWriter outSum, Path path) {
+	private static void processFile(PrintWriter outAll, PrintWriter outSum, PrintWriter outMatch, Path path) {
 		ResourceSet rs = new ResourceSetImpl();
 		Resource res = rs.getResource(URI.createURI(path.toString()), true);
 		Ctx ctx = new Ctx();
 
 		try {
 			res.load(Collections.emptyMap());
-
+//			EcoreUtil.resolveAll(res);
+				
 			if(PROCESS) {
 				res.getContents().forEach(elt -> {
 					if(elt instanceof EPackage)
@@ -89,35 +104,40 @@ public class Main {
 			}
 
 			if(MATCH) {
-				match(res.getContents().parallelStream().filter(elt -> elt instanceof EPackage).map(pkg -> (EPackage)pkg).collect(Collectors.<EPackage> toList()));
+				List<EPackage> mm1 = flatPackages(res.getContents().parallelStream().filter(elt -> elt instanceof EPackage).
+													map(pkg -> (EPackage)pkg).collect(Collectors.<EPackage> toList()));
+				computeNbEClasses(path, mm1);
+				match(path, mm1, outMatch);
 			}
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
 
+//		try {res.unload();}catch(Exception ex) {}
+		
 		for(Iterator<Resource> i = rs.getResources().iterator(); i.hasNext();) {
-			i.next().unload();
-			i.remove();
+			Resource resource = i.next();
+			if(resource!=null) {
+				resource.unload();
+			}
+			try{ i.remove();}catch(ConcurrentModificationException ex){}
 		}
 
 		ctx.println(outSum, path);
 	}
 
-	private static void match(List<EPackage> mm) {
+	private static void match(Path path, List<EPackage> mm, PrintWriter out) {
 		try(DirectoryStream<Path> ds2 = Files.newDirectoryStream(FileSystems.getDefault().getPath(PATH))) {
-			ds2.forEach(d2 -> {
-				match(mm, d2);
-			});
+			ds2.forEach(d2 -> match(path, mm, d2, out));
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}
 	}
 
-	private static void match(List<EPackage> mm, Path d) {
+	private static void match(Path path, List<EPackage> mm, Path d, PrintWriter out) {
 		if(Files.isDirectory(d)) {
 			try(DirectoryStream<Path> ds = Files.newDirectoryStream(d)) {
-				ds.forEach(d2 -> match(mm, d2));
-				ds.close();
+				ds.forEach(d2 -> match(path, mm, d2, out));
 			}catch(Exception ex) {
 				ex.printStackTrace();
 			}
@@ -127,33 +147,72 @@ public class Main {
 
 			try {
 				res.load(Collections.emptyMap());
-				match(mm, res.getContents().parallelStream().filter(elt -> elt instanceof EPackage).map(pkg -> (EPackage)pkg).collect(Collectors.<EPackage> toList()));
+//				EcoreUtil.resolveAll(res);
+				List<EPackage> mm2 = flatPackages(res.getContents().parallelStream().filter(elt -> elt instanceof EPackage).
+												map(pkg -> (EPackage)pkg).collect(Collectors.<EPackage> toList()));
+				computeNbEClasses(d, mm2);
+				match(path, mm, d, mm2, out);
+				
 			}catch(IOException e) {
 				e.printStackTrace();
 			}
+			
+//			try {res.unload();}catch(Exception ex) {}
 
 			for(Iterator<Resource> i = rs.getResources().iterator(); i.hasNext();) {
-				i.next().unload();
-				i.remove();
+				Resource resource = i.next();
+				if(resource!=null) {
+					resource.unload();
+				}
+				try{ i.remove();}catch(ConcurrentModificationException ex){}
 			}
 		}
 	}
-
-	private static void match(List<EPackage> mm1, List<EPackage> mm2) {
-		if(mm1.isEmpty() || mm2.isEmpty() || mm1.get(0)==mm2.get(0)) return ;
-
-		MatchingHelper match = new MatchingHelper();
-		try {
-			field.set(match, new EcoreExtensions());
-		}catch(IllegalArgumentException | IllegalAccessException e) {
-			e.printStackTrace();
+	
+	
+	private static long computeNbEClasses(Path path, List<EPackage> pkgs) {
+		Long l = NB_CLASSES.get(path.toString());
+		
+		if(l==null) {
+			l = EXT.getAllClassifiers(pkgs).parallelStream().filter(elt -> elt instanceof EClass).count();
+			NB_CLASSES.put(path.toString(), l);
 		}
 		
-		boolean res = match.match(mm1, mm2);
-		
-		if(res) {
-			System.out.print("matching: " + mm1.get(0).getNsURI() + " " + mm2.get(0).getNsURI());
-			System.out.println(" " + res);
+		return l;
+	}
+	
+
+	private static void match(Path path1, List<EPackage> mm1, Path path2, List<EPackage> mm2, PrintWriter out) {
+		if(mm1.isEmpty() || mm2.isEmpty() || mm1.get(0) == mm2.get(0))
+			return;
+
+		if(computeNbEClasses(path1, mm1)==0l) {
+//			System.out.println(path1 + ";" + path2+";false;empty1");
+			out.println(path1 + ";" + path2+";falseEmpty1");
+			out.flush();
+		}else if(computeNbEClasses(path2, mm2)==0l) {
+//			System.out.println(path1 + ";" + path2+";true;empty2");
+			out.println(path1 + ";" + path2+";trueEmpty2");
+			out.flush();
+		}else {
+			MatchingHelper match = new MatchingHelper();
+			try {
+				field.set(match, EXT);
+			}catch(IllegalArgumentException | IllegalAccessException e) {
+				e.printStackTrace();
+			}
+	
+			try {
+				boolean res = match.match(mm1, mm2);
+//					System.out.println(path1+";"+path2+";"+res);
+					out.println(path1+";"+path2+";"+res+"OK");
+					out.flush();
+			}catch(Exception ex) {
+				ex.printStackTrace();
+//				System.out.println(path1+";"+path2+";false;error");
+				out.println(path1+";"+path2+";falseError");
+				out.flush();
+			}
 		}
 	}
 
