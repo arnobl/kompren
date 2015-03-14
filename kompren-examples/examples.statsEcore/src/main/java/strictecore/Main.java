@@ -21,21 +21,23 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 
 import fr.inria.diverse.melange.lib.EcoreExtensions;
 import fr.inria.diverse.melange.lib.MatchingHelper;
 
 public class Main {
-	private static final String SEP = " ; ";
+	private static final String SEP = ";";
 	private static final boolean MATCH = true;
 	private static final boolean PROCESS = false;
-	private static final String PATH = "/media/data/dev/testMM/metamodels";
+	private static final String PATH = "/home/ablouin/metamodels/metamodels";
 	private static final EcoreExtensions EXT = new EcoreExtensions();
 	// "/media/data/dev/kompren/kompren-examples/examples.statsEcore/models"
 	// "/media/data/dev/testMM/metamodels"
@@ -60,7 +62,7 @@ public class Main {
 		try(PrintWriter outAll = new PrintWriter(new BufferedWriter(new FileWriter("resultsAll.txt", false)));
 				PrintWriter outSum = new PrintWriter(new BufferedWriter(new FileWriter("resultsSum.txt", false)));
 				PrintWriter outMatch = new PrintWriter(new BufferedWriter(new FileWriter("resultsMatch.txt", false)));) {
-			paths.forEach(p -> outMatch.print(";"+p.toString().replaceAll(PATH, "")));
+			paths.forEach(p -> outMatch.print(SEP+p.toString().replaceAll(PATH, "")));
 			outMatch.print('\n');
 			outMatch.flush();
 			paths.forEach(d -> processFile(outAll, outSum, outMatch, d, paths));
@@ -94,12 +96,31 @@ public class Main {
 	}
 
 	private static List<EPackage> flatPackages(List<EPackage> pkgs) {
+		Map<String, EPackage> externs = new HashMap<>();
 		List<EPackage> pkg2 = pkgs.stream().map(p -> EXT.getAllSubPkgs(p)).flatMap(List::stream).collect(Collectors.<EPackage> toList());
 		pkg2.addAll(pkgs);
-		List<EPackage> externs = pkg2.parallelStream().map(p -> EXT.getReferencedPkgs(p)).flatMap(List::stream).collect(Collectors.<EPackage> toList());
-		pkg2.addAll(externs);
+		pkg2.forEach(p -> getReferencedPkgsRec(p, externs));
+		pkg2.addAll(externs.values());
 		return pkg2;
 	}
+	
+
+	private static void getReferencedPkgsRec(EPackage pkg, Map<String, EPackage> ret) {
+		EcoreUtil.ExternalCrossReferencer.find(pkg).keySet().stream().filter(o -> o instanceof EClass).forEach(cls -> {
+			EObject container = cls;
+
+			while(container != null && !(container instanceof EPackage))
+				container = container.eContainer();
+
+			EPackage referenced = (EPackage)container;
+			
+			if(referenced != null && ret.get(referenced.getNsURI())==null) {
+				ret.put(referenced.getNsURI(), referenced);
+				getReferencedPkgsRec(referenced,ret);
+			}
+		});
+	}
+
 
 	private static void processFile(PrintWriter outAll, PrintWriter outSum, PrintWriter outMatch, Path path, List<Path> paths) {
 		ResourceSet rs = new ResourceSetImpl();
@@ -183,10 +204,10 @@ public class Main {
 		System.out.println(path1.toString().replaceAll(PATH, "") + " " + path2.toString().replaceAll(PATH, ""));
 		if(computeNbEClasses(path1, mm1) == 0l) {
 			// System.out.println(path1 + ";" + path2+";false;empty1");
-			out.print(";falseEmpty1");
+			out.print(";fv1");
 		}else if(computeNbEClasses(path2, mm2) == 0l) {
 			// System.out.println(path1 + ";" + path2+";true;empty2");
-			out.print(";trueEmpty2");
+			out.print(";tv2");
 		}else {
 			MatchingHelper match = new MatchingHelper();
 			try {
@@ -198,11 +219,11 @@ public class Main {
 			try {
 				boolean res = match.match(mm1, mm2);
 				// System.out.println(path1+";"+path2+";"+res);
-				out.print(";"+res+"OK");
+				out.print(SEP+String.valueOf(res).charAt(0)+"k");
 			}catch(Exception ex) {
 				ex.printStackTrace();
 				// System.out.println(path1+";"+path2+";false;error");
-				out.print(";falseError");
+				out.print(";fe");
 			}
 		}
 		out.flush();

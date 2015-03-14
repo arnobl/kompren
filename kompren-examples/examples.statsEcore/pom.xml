@@ -17,13 +17,13 @@
 					<execution>
 						<goals>
 							<goal>compile</goal>
-							<goal>testCompile</goal>
+<!-- 							<goal>testCompile</goal> -->
 							<goal>xtend-install-debug-info</goal>
-							<goal>xtend-test-install-debug-info</goal>
+<!-- 							<goal>xtend-test-install-debug-info</goal> -->
 						</goals>
                         <configuration>
                                 <outputDirectory>${xtendGenDirectory}</outputDirectory>
-								<testOutputDirectory>${xtendGenDirectory}-test</testOutputDirectory>
+<!-- 								<testOutputDirectory>${xtendGenDirectory}-test</testOutputDirectory> -->
                         </configuration>
 					</execution>
 				</executions>
@@ -36,6 +36,20 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
+			
+		      <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-jar-plugin</artifactId>
+		        <version>2.6</version>
+		        <configuration>
+		          <archive>
+		            <manifest>
+		              <addClasspath>true</addClasspath>
+		              <mainClass>strictecore.Main</mainClass>
+		            </manifest>
+		          </archive>
+		        </configuration>
+		      </plugin>
 		</plugins>
 	</build>
   

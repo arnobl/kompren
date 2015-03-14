@@ -9,8 +9,8 @@ import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 
 @Aspect(className=typeof(java.lang.Object))
 abstract class __SlicerAspect__ {
-	var boolean visitedForRelations = false
-	var boolean sliced = false
+	protected var boolean visitedForRelations = false
+	protected var boolean sliced = false
 	protected var org.eclipse.emf.ecore.EObject clonedElt = null
 
 	def void visitToAddClasses(StrictEcore theSlicer){
