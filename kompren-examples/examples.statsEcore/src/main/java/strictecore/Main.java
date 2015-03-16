@@ -37,7 +37,7 @@ public class Main {
 	private static final String SEP = ";";
 	private static final boolean MATCH = true;
 	private static final boolean PROCESS = false;
-	private static final String PATH = "/home/ablouin/metamodels/metamodels";
+	private static final String PATH = "/media/data/dev/testMM/metamodels";
 	private static final EcoreExtensions EXT = new EcoreExtensions();
 	// "/media/data/dev/kompren/kompren-examples/examples.statsEcore/models"
 	// "/media/data/dev/testMM/metamodels"
@@ -71,7 +71,7 @@ public class Main {
 		}
 	}
 
-	private static List<Path> getAllFiles() {
+	public static List<Path> getAllFiles() {
 		List<Path> files = new ArrayList<>();
 
 		try(DirectoryStream<Path> ds = Files.newDirectoryStream(FileSystems.getDefault().getPath(PATH))) {
@@ -149,6 +149,13 @@ public class Main {
 			e.printStackTrace();
 		}
 
+		flushResourceSet(rs);
+
+		ctx.println(outSum, path);
+	}
+	
+	
+	public static void flushResourceSet(ResourceSet rs) {
 		for(Iterator<Resource> i = rs.getResources().iterator(); i.hasNext();) {
 			Resource resource = i.next();
 			if(resource != null) {
@@ -156,9 +163,8 @@ public class Main {
 			}
 			try {i.remove();}catch(ConcurrentModificationException ex) {}
 		}
-
-		ctx.println(outSum, path);
 	}
+	
 
 	private static void match(Path path, List<EPackage> mm, Path d, PrintWriter out) {
 		ResourceSet rs = new ResourceSetImpl();
@@ -175,15 +181,7 @@ public class Main {
 			e.printStackTrace();
 		}
 
-		for(Iterator<Resource> i = rs.getResources().iterator(); i.hasNext();) {
-			try{
-				Resource resource = i.next();
-				if(resource != null) {
-					try{resource.unload();}catch(Exception ex){}
-				}
-				try {i.remove();}catch(ConcurrentModificationException ex) {}
-			}catch(Exception e){}
-		}
+		flushResourceSet(rs);
 	}
 
 	private static long computeNbEClasses(Path path, List<EPackage> pkgs) {
