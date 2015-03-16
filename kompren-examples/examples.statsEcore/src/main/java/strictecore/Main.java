@@ -34,16 +34,16 @@ import fr.inria.diverse.melange.lib.EcoreExtensions;
 import fr.inria.diverse.melange.lib.MatchingHelper;
 
 public class Main {
-	private static final String SEP = ";";
-	private static final boolean MATCH = true;
-	private static final boolean PROCESS = false;
-	private static final String PATH = "/media/data/dev/testMM/metamodels";
-	private static final EcoreExtensions EXT = new EcoreExtensions();
+	public static final String SEP = ";";
+	public static final boolean MATCH = true;
+	public static final boolean PROCESS = false;
+	public static final String PATH = "/media/data/dev/testMM/metamodels";
+	public static final EcoreExtensions EXT = new EcoreExtensions();
 	// "/media/data/dev/kompren/kompren-examples/examples.statsEcore/models"
 	// "/media/data/dev/testMM/metamodels"
 	final static Map<String, Long> NB_CLASSES = new HashMap<>();
 
-	private static Field field;
+	public static Field field;
 
 	static {
 		try {
@@ -95,7 +95,7 @@ public class Main {
 		}
 	}
 
-	private static List<EPackage> flatPackages(List<EPackage> pkgs) {
+	public static List<EPackage> flatPackages(List<EPackage> pkgs) {
 		Map<String, EPackage> externs = new HashMap<>();
 		List<EPackage> pkg2 = pkgs.stream().map(p -> EXT.getAllSubPkgs(p)).flatMap(List::stream).collect(Collectors.<EPackage> toList());
 		pkg2.addAll(pkgs);
