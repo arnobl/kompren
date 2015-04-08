@@ -4,26 +4,26 @@ import static extension strictecore.__SlicerAspect__.*
 import static extension strictecore.orgeclipseemfecoreENamedElementAspect.*
 import static extension strictecore.orgeclipseemfecoreEStructuralFeatureAspect.*
 import static extension strictecore.orgeclipseemfecoreEReferenceAspect.*
-import static extension strictecore.orgeclipseemfecoreETypedElementAspect.*
-import static extension strictecore.orgeclipseemfecoreEOperationAspect.*
 import static extension strictecore.orgeclipseemfecoreEAttributeAspect.*
 import static extension strictecore.orgeclipseemfecoreEDataTypeAspect.*
 import static extension strictecore.orgeclipseemfecoreEClassifierAspect.*
-import static extension strictecore.orgeclipseemfecoreEParameterAspect.*
 import static extension strictecore.orgeclipseemfecoreEEnumAspect.*
+import static extension strictecore.orgeclipseemfecoreEClassAspect.*
 import static extension strictecore.orgeclipseemfecoreEEnumLiteralAspect.*
+import static extension strictecore.orgeclipseemfecoreETypedElementAspect.*
+import static extension strictecore.orgeclipseemfecoreEOperationAspect.*
+import static extension strictecore.orgeclipseemfecoreEPackageAspect.*
+import static extension strictecore.orgeclipseemfecoreEParameterAspect.*
 import static extension strictecore.orgeclipseemfecoreEModelElementAspect.*
 import static extension strictecore.orgeclipseemfecoreEAnnotationAspect.*
-import static extension strictecore.orgeclipseemfecoreEPackageAspect.*
 import static extension strictecore.orgeclipseemfecoreETypeParameterAspect.*
-import static extension strictecore.orgeclipseemfecoreEClassAspect.*
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 
 @Aspect(className=typeof(java.lang.Object))
 abstract class __SlicerAspect__ {
-	var boolean visitedForRelations = false
-	var boolean sliced = false
+	protected var boolean visitedForRelations = false
+	protected var boolean sliced = false
 	protected var org.eclipse.emf.ecore.EObject clonedElt = null
 
 	def void visitToAddClasses(StrictEcore theSlicer){
