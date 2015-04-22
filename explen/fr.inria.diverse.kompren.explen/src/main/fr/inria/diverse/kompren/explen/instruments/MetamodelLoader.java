@@ -1,9 +1,6 @@
 package fr.inria.diverse.kompren.explen.instruments;
 
-import java.io.File;
-
 import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileFilter;
 
 import org.malai.instrument.Link;
 import org.malai.swing.instrument.WidgetInstrument;
@@ -38,10 +35,10 @@ public class MetamodelLoader extends WidgetInstrument {
 		if(fileChooser==null) {
 			fileChooser = new JFileChooser();
 			fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-			fileChooser.setFileFilter(new FileFilter() {
-				@Override public String getDescription() {return "Ecore file";}
-				@Override public boolean accept(File f) {return f!=null && f.getName().endsWith(".ecore");}
-			});
+//			fileChooser.setFileFilter(new FileFilter() {
+//				@Override public String getDescription() {return "Ecore file";}
+//				@Override public boolean accept(File f) {return f!=null && f.getName().endsWith(".ecore");}
+//			});
 			fileChooser.setMultiSelectionEnabled(false);
 		}
 
