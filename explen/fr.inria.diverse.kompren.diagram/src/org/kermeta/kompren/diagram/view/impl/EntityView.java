@@ -76,16 +76,16 @@ public abstract class EntityView extends ComponentView implements IEntityView {
 	public EntityView(final String name) {
 		super();
 
-		if(name==null)
-			throw new IllegalArgumentException();
-
-		this.name	= name;
-		anchors		= new ArrayList<IAnchor>();
+		if(name==null || name.length()==0)
+			this.name = "<noName>";
+		else
+			this.name	= name;
+		anchors		= new ArrayList<>();
 		centre		= new Point2D.Double();
 		fontName 	= "Arial";
 		fontSize	= 14.;
 		fontStyle	= Font.PLAIN;
-		outputRelations = new ArrayList<IRelationView>();
+		outputRelations = new ArrayList<>();
 		updateFillingColor(DEFAUT_OPACITY);
 		updateLineColor(255);
 		setScale(1.);

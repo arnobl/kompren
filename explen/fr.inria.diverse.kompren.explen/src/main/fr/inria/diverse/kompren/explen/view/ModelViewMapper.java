@@ -142,14 +142,16 @@ public final class ModelViewMapper {
 			view.updateLayout();
 			view.update();
 			
-			IEntityView ev = view.getEntities().get(0);
-			
-			if(ev instanceof ClassView) {
-				MoveCameraUndoable action = new MoveCameraUndoable();
-				Completioner.Interaction2MoveCamera.setAction((ClassView)ev, view, action);
-				if(action.canDo())
-					action.doIt();
-				action.flush();
+			if(!view.getEntities().isEmpty()) {
+				IEntityView ev = view.getEntities().get(0);
+				
+				if(ev instanceof ClassView) {
+					MoveCameraUndoable action = new MoveCameraUndoable();
+					Completioner.Interaction2MoveCamera.setAction((ClassView)ev, view, action);
+					if(action.canDo())
+						action.doIt();
+					action.flush();
+				}
 			}
 		}
 	}
@@ -178,7 +180,8 @@ public final class ModelViewMapper {
 	private void createInheritanceView(final EClass cd, final String qname, final MetamodelView view) {
 		for(EClass type : cd.getESuperTypes()) {
 			String qname2 = ModelUtils.INSTANCE.getQualifiedName(type);
-			if(!type.eIsProxy() && qname!=null && qname2!=null && qname.length()>0 && qname2.length()>2 && addedInheritances.get(qname+","+qname2)==null) {
+			if(!type.eIsProxy() && qname!=null && qname2!=null && qname.length()>0 && qname2.length()>2 && 
+					addedInheritances.get(qname+","+qname2)==null && cdAdded.get(qname2)!=null) {
 				InheritanceView in = view.addInheritanceView(classMappings.get(cd), classMappings.get(cdAdded.get(qname2).get(0)));
 				addedInheritances.put(qname+","+qname2, in);
 			}
@@ -250,6 +253,9 @@ public final class ModelViewMapper {
 
 
 	private void addAttributes(final EClass cd, final ClassView cv) {
-		cd.getEAttributes().forEach(attr -> cv.addAttribute(attr.getName(),  attr.getEType().getName()));
+		cd.getEAttributes().forEach(attr -> {
+			if(attr.getEType()!=null)
+				cv.addAttribute(attr.getName(),attr.getEType().getName());	
+		});
 	}
 }

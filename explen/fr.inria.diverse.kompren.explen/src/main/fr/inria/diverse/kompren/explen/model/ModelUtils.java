@@ -36,6 +36,8 @@ public final class ModelUtils {
 
 	public String getQualifiedName(final EClassifier cd) {
 		String qname = cd.getName();
+		if(qname==null)
+			qname = "";
 
 		if(cd.getEPackage()!=null)
 			qname = getQualifiedName(cd.getEPackage()) + "." + qname;
