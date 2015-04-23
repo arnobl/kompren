@@ -148,7 +148,7 @@ public class ModelView extends MPanel implements IModelView {
 	}
 
 	
-	public void paintModel(final Graphics g, final boolean clipped, final boolean scaled, final boolean forcePaint) {
+	public void paintModel(final Graphics g, final boolean clipped, final boolean forcePaint) {
 		Graphics2D g2 = (Graphics2D)g;
 		Rectangle rec = scrollpane.getViewport().getViewRect();
 		
@@ -168,22 +168,18 @@ public class ModelView extends MPanel implements IModelView {
 		Rectangle scene = null;
 		
 		if(isEnabled() || forcePaint) {
-			if(scaled) {
-				g2.scale(zoom, zoom);
-	
-				if(scrollpane!=null) {
-					scene = scrollpane.getViewport().getViewRect();
-					scene.height /= zoom;
-					scene.width /= zoom;
-					scene.x /= zoom;
-					scene.y /= zoom;
-				}
+			g2.scale(zoom, zoom);
+
+			if(scrollpane!=null && clipped) {
+				scene = scrollpane.getViewport().getViewRect();
+				scene.height /= zoom;
+				scene.width /= zoom;
+				scene.x /= zoom;
+				scene.y /= zoom;
 			}
 
 			paintCtx.setVisibleScene(scene);
-			
-			if(scaled)
-				paintCtx.setZoom(zoom);
+			paintCtx.setZoom(zoom);
 
 			synchronized(entities) {
 				for(IEntityView entity : entities)
@@ -201,7 +197,7 @@ public class ModelView extends MPanel implements IModelView {
 
 	@Override
 	public void paint(final Graphics g) {
-		paintModel(g, true, true, false);
+		paintModel(g, true, false);
 	}
 
 
