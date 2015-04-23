@@ -64,9 +64,9 @@ public class ModelView extends MPanel implements IModelView {
 		super(withScrollPane, true);
 		paintCtx		= new PaintCtx();
 		zoom 			= 1.;
-		entities 		= new ActiveArrayList<IEntityView>();
-		relations		= new ActiveArrayList<IRelationView>();
-		selection		= new ActiveArrayList<Selectable>();
+		entities 		= new ActiveArrayList<>();
+		relations		= new ActiveArrayList<>();
+		selection		= new ActiveArrayList<>();
 		setDoubleBuffered(true);
 	}
 
@@ -147,12 +147,13 @@ public class ModelView extends MPanel implements IModelView {
 		refresh();
 	}
 
-
-	@Override
-	public void paint(final Graphics g) {
+	
+	public void paintModel(final Graphics g, final boolean clipped, final boolean scaled, final boolean forcePaint) {
 		Graphics2D g2 = (Graphics2D)g;
 		Rectangle rec = scrollpane.getViewport().getViewRect();
-		g.setClip(rec.x, rec.y, rec.width, rec.height);
+		
+		if(clipped)
+			g.setClip(rec.x, rec.y, rec.width, rec.height);
 
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
 		g2.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
@@ -164,22 +165,25 @@ public class ModelView extends MPanel implements IModelView {
 		g2.setColor(Color.WHITE);
 		g2.fillRect(0, 0, getWidth(), getHeight());
 
-		if(isEnabled()) {
-			g2.scale(zoom, zoom);
-			Rectangle scene;
-
-			if(scrollpane==null)
-				scene=null;
-			else {
-				scene = scrollpane.getViewport().getViewRect();
-				scene.height /= zoom;
-				scene.width /= zoom;
-				scene.x /= zoom;
-				scene.y /= zoom;
+		Rectangle scene = null;
+		
+		if(isEnabled() || forcePaint) {
+			if(scaled) {
+				g2.scale(zoom, zoom);
+	
+				if(scrollpane!=null) {
+					scene = scrollpane.getViewport().getViewRect();
+					scene.height /= zoom;
+					scene.width /= zoom;
+					scene.x /= zoom;
+					scene.y /= zoom;
+				}
 			}
-			
+
 			paintCtx.setVisibleScene(scene);
-			paintCtx.setZoom(zoom);
+			
+			if(scaled)
+				paintCtx.setZoom(zoom);
 
 			synchronized(entities) {
 				for(IEntityView entity : entities)
@@ -193,6 +197,11 @@ public class ModelView extends MPanel implements IModelView {
 
 			g2.scale(1./zoom, 1./zoom);
 		}
+	}
+
+	@Override
+	public void paint(final Graphics g) {
+		paintModel(g, true, true, false);
 	}
 
 
@@ -319,7 +328,7 @@ public class ModelView extends MPanel implements IModelView {
 
 	@Override
 	public List<IEntityView> getRootEntities() {
-		return new ArrayList<IEntityView>();
+		return new ArrayList<>();
 	}
 
 

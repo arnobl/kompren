@@ -75,21 +75,26 @@ public class MetamodelView extends ModelView {
 			@Override
 			public void keyTyped(final KeyEvent evt) {
 				if(evt.getKeyChar()=='!') {
-				    DOMImplementation domImpl = GenericDOMImplementation.getDOMImplementation();
-		    	    Document document = domImpl.createDocument("http://www.w3.org/2000/svg", "svg", null);
-		    	    SVGGraphics2D svgGenerator = new SVGGraphics2D(document);
-		    	    MetamodelView.this.paint(svgGenerator);
-		    	    try(FileWriter fw = new FileWriter(new File(System.getProperty("user.home")+FileSystems.getDefault().getSeparator()+"picture.svg"))){
-			    	    svgGenerator.stream(fw, false);
-		    	    }catch(Exception ex){
-		    	    	ex.printStackTrace();
-		    	    }
+					screenshotSVG(System.getProperty("user.home")+FileSystems.getDefault().getSeparator()+"picture.svg");
 				}
 			}
 			
 			@Override public void keyReleased(KeyEvent arg0) { }
 			@Override public void keyPressed(KeyEvent arg0) { }
 		});
+	}
+	
+	
+	public void screenshotSVG(final String outFile) {
+	    DOMImplementation domImpl = GenericDOMImplementation.getDOMImplementation();
+	    Document document = domImpl.createDocument("http://www.w3.org/2000/svg", "svg", null);
+	    SVGGraphics2D svgGenerator = new SVGGraphics2D(document);
+	    MetamodelView.this.paintModel(svgGenerator, false, false, true);
+	    try(FileWriter fw = new FileWriter(new File(outFile))){
+    	    svgGenerator.stream(fw, false);
+	    }catch(Exception ex){
+	    	ex.printStackTrace();
+	    }
 	}
 	
 	
