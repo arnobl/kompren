@@ -5,6 +5,7 @@ import java.awt.datatransfer.DataFlavor;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
+import java.awt.geom.Point2D;
 import java.io.File;
 import java.io.FileWriter;
 import java.nio.file.FileSystems;
@@ -89,7 +90,10 @@ public class MetamodelView extends ModelView {
 	    DOMImplementation domImpl = GenericDOMImplementation.getDOMImplementation();
 	    Document document = domImpl.createDocument("http://www.w3.org/2000/svg", "svg", null);
 	    SVGGraphics2D svgGenerator = new SVGGraphics2D(document);
-	    MetamodelView.this.paintModel(svgGenerator, false, true);
+	    Point2D.Double min = getMinPoint();
+	    svgGenerator.translate(-min.getX(), -min.getY());
+	    paintModel(svgGenerator, false, true, false);
+	    
 	    try(FileWriter fw = new FileWriter(new File(outFile))){
     	    svgGenerator.stream(fw, false);
 	    }catch(Exception ex){

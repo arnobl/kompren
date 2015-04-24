@@ -148,12 +148,13 @@ public class ModelView extends MPanel implements IModelView {
 	}
 
 	
-	public void paintModel(final Graphics g, final boolean clipped, final boolean forcePaint) {
-		Graphics2D g2 = (Graphics2D)g;
-		Rectangle rec = scrollpane.getViewport().getViewRect();
+	public void paintModel(final Graphics g, final boolean clipped, final boolean forcePaint, final boolean paintBackground) {
+		final Graphics2D g2 = (Graphics2D)g;
 		
-		if(clipped)
+		if(clipped) {
+			final Rectangle rec = scrollpane.getViewport().getViewRect();
 			g.setClip(rec.x, rec.y, rec.width, rec.height);
+		}
 
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
 		g2.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
@@ -162,8 +163,10 @@ public class ModelView extends MPanel implements IModelView {
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
-		g2.setColor(Color.WHITE);
-		g2.fillRect(0, 0, getWidth(), getHeight());
+		if(paintBackground) {
+			g2.setColor(Color.WHITE);
+			g2.fillRect(0, 0, getWidth(), getHeight());
+		}
 
 		Rectangle scene = null;
 		
@@ -197,7 +200,7 @@ public class ModelView extends MPanel implements IModelView {
 
 	@Override
 	public void paint(final Graphics g) {
-		paintModel(g, true, false);
+		paintModel(g, true, false, true);
 	}
 
 
@@ -301,6 +304,36 @@ public class ModelView extends MPanel implements IModelView {
 	@Override
 	public void updatePreferredSize() {
 		if(isEnabled()) {
+			Point2D.Double max = getMaxPoint();
+			setPreferredSize(new Dimension((int)max.getX()+2000, (int)max.getY()+2000));
+		}
+		else setPreferredSize(new Dimension(0, 0));
+	}
+	
+	
+	public Point2D.Double getMinPoint() {
+		if(isEnabled()) {
+			double minX = Double.MAX_VALUE;
+			double minY = Double.MAX_VALUE;
+			Rectangle2D dim;
+
+			for(IEntityView entity : entities)
+				if(entity.isVisible()) {
+					dim = entity.getBorders();
+
+					if(dim.getMinX()<minX)
+						minX = dim.getMinX();
+					if(dim.getMinY()<minY)
+						minY = dim.getMinY();
+				}
+
+			return new Point2D.Double(minX*zoom, minY*zoom);
+		}
+		return new Point2D.Double(0, 0);
+	}
+	
+	public Point2D.Double getMaxPoint() {
+		if(isEnabled()) {
 			double maxX = Double.MIN_VALUE;
 			double maxY = Double.MIN_VALUE;
 			Rectangle2D dim;
@@ -315,9 +348,9 @@ public class ModelView extends MPanel implements IModelView {
 						maxY = dim.getMaxY();
 				}
 
-			setPreferredSize(new Dimension((int)(maxX*zoom)+2000, (int)(maxY*zoom)+2000));
+			return new Point2D.Double(maxX*zoom, maxY*zoom);
 		}
-		else setPreferredSize(new Dimension(0, 0));
+		return new Point2D.Double(0, 0);
 	}
 
 
