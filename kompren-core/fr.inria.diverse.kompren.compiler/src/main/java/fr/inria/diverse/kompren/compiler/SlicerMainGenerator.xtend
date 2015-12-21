@@ -27,7 +27,7 @@ class SlicerMainGenerator extends SlicerGenerator {
 		buf.append("class ").append(slicerName).append("{\n")
 		if(!slicer.strict && slicer.helper!==null && slicer.helper.length>0) buf.append(slicer.helper).append('\n')
 		buf.append(generateAttributes).append('\n')
-		buf.append("\tval org.eclipse.emf.ecore.EObject _root\n\n")
+		if(slicer.hasOpposite) buf.append("\tval org.eclipse.emf.ecore.EObject _root\n\n")
 		buf.append(generateConstructor).append('\n')
 		buf.append(generateLaunch).append('\n')
 		if(slicer.strict) {
@@ -39,9 +39,9 @@ class SlicerMainGenerator extends SlicerGenerator {
 			buf.append(generateOnStart).append('\n')
 			buf.append(generateOnEnd).append('\n')
 		}
-		buf.append("	def void reinit() {
-		_root.reinit
-	}\n");
+		buf.append("	def void reinit() {")
+		if(slicer.hasOpposite) buf.append("		_root.reinit")
+		buf.append("	}\n");
 		buf.append("}\n")
 	}
 
@@ -106,7 +106,7 @@ class SlicerMainGenerator extends SlicerGenerator {
 	private def StringBuilder generateLaunch() {
 		val buf = new StringBuilder
 		buf.append("\tdef void slice(){\n")
-		buf.append("\t\t_root.feedOpposites\n")
+		if(slicer.hasOpposite) buf.append("\t\t_root.feedOpposites\n")
 		if(!slicer.strict) buf.append("\t\tonStart\n")
 		slicer.inputClasses.forEach[cl | buf.append("\t\tinput").append(cl.name).append("?.forEach[visitToAddClasses(this)]\n")]
 		slicer.inputClasses.forEach[cl | buf.append("\t\tinput").append(cl.name).append("?.forEach[visitToAddRelations(this)]\n")]
@@ -132,7 +132,7 @@ class SlicerMainGenerator extends SlicerGenerator {
 		buf.append(csts.join(', boolean ', ', boolean ', '')[name])
 		buf.append("){\n")
 		slicer.inputClasses.forEach[cl | buf.append("\t\tthis.input").append(cl.name).append(" = input").append(cl.name).append('\n')]
-		buf.append("\t\tif(metamodelRoot===null) throw new IllegalArgumentException\n\t\tthis._root = metamodelRoot\n")
+		if(slicer.hasOpposite) buf.append("\t\tif(metamodelRoot===null) throw new IllegalArgumentException\n\t\tthis._root = metamodelRoot\n")
 		listOptions.forEach[name | buf.append("\t\tthis.").append(name).append(" = ").append(name).append('\n')]
 		if(slicer.strict)
 			buf.append("\t\tthis.").append(extensionName).append('=').append(extensionName).append('\n')
