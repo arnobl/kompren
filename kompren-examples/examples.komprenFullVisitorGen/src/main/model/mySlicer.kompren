@@ -1,0 +1,42 @@
+slicer FullVisitorGen{
+	domain: "platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel"
+	input: ecore.EPackage
+	slicedClass: ecore.EClass cl [[
+		val qn = getQN(cl)
+		if(qn!=null && (startQN==null || qn.startsWith(startQN))) {
+			code.add("\tslicedClass: " + qn)
+		}
+	]]
+	slicedClass: ecore.EReference ref [[
+		val qn = getQN(ref)
+		if(qn!=null && (startQN==null || qn.startsWith(startQN))) {
+			code.add("\tslicedProperty: " + qn)
+		}
+	]]
+		constraint: compo [[ ref.containment ]]
+	slicedProperty: ecore.EClass.eSuperTypes
+	slicedProperty: ecore.EClass.eStructuralFeatures clazz feat
+	slicedProperty: ecore.EClass.eOperations clazz op
+	slicedProperty: ecore.ETypedElement.eType
+	slicedProperty: ecore.EOperation.eContainingClass
+	slicedProperty: ecore.EStructuralFeature.eContainingClass
+	slicedProperty: ecore.EClassifier.ePackage
+	slicedProperty: ecore.EPackage.eSuperPackage
+	slicedProperty: ecore.EPackage.eSubpackages
+	slicedProperty: ecore.EPackage.eClassifiers
+	
+	helper [[
+	public var String startQN = null
+	private val code = new java.util.ArrayList<String>()
+	private def String getQN(org.eclipse.emf.ecore.ENamedElement elt) {
+		if(elt.eContainer instanceof org.eclipse.emf.ecore.ENamedElement)
+			return getQN(elt.eContainer as org.eclipse.emf.ecore.ENamedElement) + "." + elt.name
+		return elt.name;
+	}
+	
+	def String getCode() {
+		java.util.Collections.sort(code)
+		return code.join("\n")
+	}
+	]]
+}
