@@ -21,10 +21,11 @@ import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 class SlicerAspectGenerator extends SlicerGenerator {
 	protected val Map<String, String> aspects
 	
-	val String imports = "import fr.inria.diverse.k3.al.annotationprocessor.Aspect
-import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod"
+	val String imports = "import fr.inria.diverse.k3.al.annotationprocessor.Aspect\nimport fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod\n"
 	
-	val String aspectVisitor = "@Aspect(className=typeof(java.lang.Object))
+	val String aspectVisitor = "import fr.inria.diverse.k3.al.annotationprocessor.Aspect
+
+@Aspect(className=typeof(java.lang.Object))
 abstract class __SlicerAspect__ {
 	protected var boolean visitedForRelations = false
 	protected var boolean sliced = false
@@ -79,7 +80,7 @@ abstract class __SlicerAspect__ {
 		val pkgs = imports + getMMPackagesImports
 		
 		mainbuf.append("package ").append(pkgName).append('\n').
-			append(pkgs).append(String.format(aspectVisitor, slicerName, slicerName, slicerName, slicerName)).append('\n')
+			append(getMMPackagesImports).append(String.format(aspectVisitor, slicerName, slicerName, slicerName, slicerName)).append('\n')
 			
 		aspects.put("__SlicerAspect__.xtend", mainbuf.toString)
 			
