@@ -46,4 +46,5 @@ class SuperTypesSlicer{
 	
 	}
 
+	def void reinit() {	}
 }
