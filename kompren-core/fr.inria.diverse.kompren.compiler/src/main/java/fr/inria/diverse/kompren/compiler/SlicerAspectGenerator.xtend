@@ -82,9 +82,13 @@ abstract class __SlicerAspect__ {
 			if(opposite && cl.oppositeFeed.length>0)
 				buf.append("\t@OverrideAspectMethod\n\tdef void feedOpposites(){\n\t\t_self.super_feedOpposites\n").append(cl.oppositeFeed).append("\t}\n\n")
 			
-			val reinitCode = cl.generateReinitCode
-			if(!reinitCode.empty)
-				buf.append("\t@OverrideAspectMethod\n\tdef void reinit(){\n\t\t_self.super_reinit\n").append(reinitCode).append("\t}\n\n");
+			buf.append("\t@OverrideAspectMethod\n\tdef void reinit(){\n\t\t")
+			if(cl.ESuperTypes.size<2) {
+				buf.append("_self.super_reinit\n")
+			}else {
+				cl.ESuperTypes.forEach[st | buf.append("_self.super_").append(st.name).append("_reinit\n") ]
+			}
+			buf.append(cl.generateReinitCode).append("\t}\n\n");
 			
 			buf.append("\t@OverrideAspectMethod\n")
 			buf.append("\tdef void _visitToAddClasses(").append(slicerName).append(" theSlicer){\n")
