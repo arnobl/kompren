@@ -26,12 +26,7 @@ class KomprenGenerator implements IGenerator {
 			val compiler = new SlicerCompiler(slicer, false, "")
 			compiler.compile
 			fsa.generateFile(compiler.packageFolder+compiler.fileNameMain, compiler.codeMain)
-			
-			compiler.getAspectsCode.entrySet.forEach[entry | 
-				fsa.generateFile(compiler.packageFolder+entry.key, entry.value)				
-			]
-			
-			compiler.flush
+			fsa.generateFile(compiler.packageFolder+compiler.fileNameAspect, compiler.codeAspect)
 		]			
 	}
 

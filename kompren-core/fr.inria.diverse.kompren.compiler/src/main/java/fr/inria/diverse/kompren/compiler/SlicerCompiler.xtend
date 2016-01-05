@@ -10,7 +10,6 @@ import java.nio.file.Files
 import java.nio.file.Paths
 import java.util.Collections
 import java.util.List
-import java.util.Map
 import java.util.Set
 import kompren.KomprenFactory
 import kompren.SlicedClass
@@ -174,15 +173,6 @@ class SlicerCompiler {
 	}
 	
 	
-	def void flush() {
-		metamodel.clear
-		aspectGenerator.flush
-		mainGenerator.flush
-		metamodelClasses.clear
-		genModels.clear
-	}
-	
-	
 	protected def void completeConstraintsToSubClasses() {
 		slicer.slicedClasses.filter[!constraints.empty && !addedToBeSliced].forEach[slicedCl |
 			_completeConstraintsToSubClasses(slicedCl.domain.lowerClasses, slicedCl)
@@ -274,12 +264,17 @@ class SlicerCompiler {
 		}
 	}
 	
-	def Map<String,String> getAspectsCode() {
-		aspectGenerator.aspects
+	
+	def String getFileNameAspect() {
+		slicerName+"Aspects.xtend"
 	}
 	
 	def String getFileNameMain() {
 		slicerName+".xtend"
+	}
+	
+	def StringBuilder getCodeAspect() {
+		aspectGenerator.code
 	}
 	
 	def StringBuilder getCodeMain() {
@@ -294,18 +289,13 @@ class SlicerCompiler {
 	private def void saveCode() {
 		val p = targetDir+slicer.name+"/src/main/java/"+getPackageFolder
 		val path = Paths.get(p)
-
 		if(!Files.exists(path))
 			Files.createDirectories(path)
-
-		aspectGenerator.aspects.entrySet.forEach[entry |
-			val out = new PrintWriter(p+entry.key)
-			out.println(entry.value)
-			out.flush
-			out.close
-		]
-
-		val out = new PrintWriter(p+getFileNameMain)
+		var out = new PrintWriter(p+getFileNameAspect)
+		out.println(getCodeAspect)
+		out.flush
+		out.close
+		out = new PrintWriter(p+getFileNameMain)
 		out.println(getCodeMain)
 		out.flush
 		out.close

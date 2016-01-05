@@ -6,47 +6,43 @@
 package fr.inria.diverse.kompren.compiler
 
 import java.util.List
-import java.util.Map
 import kompren.Slicer
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EPackage
 
 import static extension fr.inria.diverse.kompren.compiler.ConstraintAspect.*
 import static extension fr.inria.diverse.kompren.compiler.EClassAspect.*
-import static extension fr.inria.diverse.kompren.compiler.ENamedEltAspect.*
 import static extension fr.inria.diverse.kompren.compiler.SlicedClassAspect.*
 import static extension fr.inria.diverse.kompren.compiler.SlicedPropertyAspect.*
 import static extension fr.inria.diverse.kompren.compiler.SlicerAspect.*
 
 class SlicerAspectGenerator extends SlicerGenerator {
-	protected val Map<String, String> aspects
-	
-	val String imports = "import fr.inria.diverse.k3.al.annotationprocessor.Aspect
-import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod"
-	
-	val String aspectVisitor = "@Aspect(className=typeof(java.lang.Object))
+	val String aspectVisitor = "import fr.inria.diverse.k3.al.annotationprocessor.Aspect
+import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
+
+@Aspect(className=typeof(java.lang.Object))
 abstract class __SlicerAspect__ {
 	protected var boolean visitedForRelations = false
 	protected var boolean sliced = false
 	protected var org.eclipse.emf.ecore.EObject clonedElt = null
 
-	def void visitToAddClasses(%s theSlicer){
+	def void visitToAddClasses(TYPE theSlicer){
 		if(!_self.sliced) {
 			_self.sliced = true
 			_self._visitToAddClasses(theSlicer)
 		}
 	}
 	
-	protected def void _visitToAddClasses(%s theSlicer){}
+	protected def void _visitToAddClasses(TYPE theSlicer){}
 
-	def void visitToAddRelations(%s theSlicer){
+	def void visitToAddRelations(TYPE theSlicer){
 		if(!_self.visitedForRelations) {
 			_self.visitedForRelations = true
 			_self._visitToAddRelations(theSlicer)
 		}
 	}
 	
-	protected def void _visitToAddRelations(%s theSlicer){}
+	protected def void _visitToAddRelations(TYPE theSlicer){}
 
 	def void feedOpposites(){}
 
@@ -62,44 +58,25 @@ abstract class __SlicerAspect__ {
 	new(List<EPackage> mm, String name, Slicer slicer, String pkgName, List<EClass> metamodelClasses) {
 		super(mm, name, slicer, pkgName)
 		this.metamodelClasses = metamodelClasses
-		aspects = newHashMap()
 	}
 
-
-	override def void flush() {
-		super.flush
-		metamodelClasses.clear
-		aspects.clear
-	}
 
 	override def generate() {
 		generateClassAspectCode
-		
-		val mainbuf = new StringBuilder
-		val pkgs = imports + getMMPackagesImports
-		
-		mainbuf.append("package ").append(pkgName).append('\n').
-			append(pkgs).append(String.format(aspectVisitor, slicerName, slicerName, slicerName, slicerName)).append('\n')
-			
-		aspects.put("__SlicerAspect__.xtend", mainbuf.toString)
-			
+		buf.append("package ").append(pkgName).append('\n')
+		buf.append(getMMPackagesImports).append(aspectVisitor.replace("TYPE", slicerName)).append('\n')
 		val opposite = slicer.hasOpposite
 		
 		metamodelClasses.filter[instanceTypeName===null || instanceTypeName.length==0].forEach[cl |
-			val buf = new StringBuilder
-			
-			buf.append("package ").append(pkgName).append('\n').append(pkgs).append('\n')
-			
 			val sts = cl.ESuperTypes.filter[st | st!==null && st.name!==null && st.name.length>0]
 			val superName = if(sts.empty) "__SlicerAspect__" else sts.head.qName(false, false)+"Aspect"
 			val slicedCl = slicer.slicedClasses.findFirst[domain==cl]
 			val withParam = if(sts.empty) "typeof("+superName+")" 
 							else sts.map[st | "typeof("+st.qName(false, false)+"Aspect)"].join(", ")
-			val className = cl.qName(false, false)
 			if(opposite) cl.generateFeedOppositeCodeVisitor
 			buf.append("@Aspect(className=typeof(").append(cl.qName(true, false)).append("), with=#[").append(withParam).append("])\n")
 			if(cl.abstract) buf.append("abstract ")
-			buf.append("class ").append(className).append("Aspect extends ").append(superName).append("{\n")
+			buf.append("class ").append(cl.qName(false, false)).append("Aspect extends ").append(superName).append("{\n")
 			buf.append(cl.oppositeAttr)
 			
 			if(opposite && cl.oppositeFeed.length>0)
@@ -148,8 +125,6 @@ abstract class __SlicerAspect__ {
 				slicedCl.constraints.filter[!cloned].forEach[constraint | buf.append(slicedCl.generateConstraintCode(constraint))]
 
 			buf.append("}\n\n")
-			
-			aspects.put(className+".xtend", buf.toString)
 		]
 	}
 

@@ -17,6 +17,7 @@ abstract class SlicerGenerator {
 	protected val String slicerName
 	protected val String pkgName
 	protected val Slicer slicer
+	protected val buf = new StringBuilder
 	protected val imports = new StringBuilder
 
 	
@@ -27,11 +28,9 @@ abstract class SlicerGenerator {
 		this.slicer = slicer
 	}
 	
-	def void flush() {
-		metamodel.clear
-	}
-	
 	abstract def void generate()
+	
+	def StringBuilder code() { buf }
 	
 	protected def String getMMPackagesImports() {
 		imports.append("\nimport static extension " + pkgName + ".__SlicerAspect__.*\n")

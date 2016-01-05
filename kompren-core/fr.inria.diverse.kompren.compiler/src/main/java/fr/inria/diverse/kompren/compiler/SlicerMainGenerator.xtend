@@ -17,8 +17,6 @@ import static extension fr.inria.diverse.kompren.compiler.ENamedEltAspect.*
 class SlicerMainGenerator extends SlicerGenerator {
 	static val extensionName = "nameExtension"
 	
-	protected val buf = new StringBuilder
-	
 	new(List<EPackage> mm, String name, Slicer slicer, String pkgName) {
 		super(mm, name, slicer, pkgName)
 	}
@@ -47,7 +45,6 @@ class SlicerMainGenerator extends SlicerGenerator {
 		buf.append("}\n")
 	}
 
-	def StringBuilder code() { buf }
 
 	private def StringBuilder generateSave() {
 		val content = "		val objs = this.clonedElts.filter[eContainer===null]
