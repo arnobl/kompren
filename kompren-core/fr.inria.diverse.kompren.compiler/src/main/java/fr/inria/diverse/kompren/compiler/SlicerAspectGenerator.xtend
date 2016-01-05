@@ -95,11 +95,11 @@ abstract class __SlicerAspect__ {
 			val slicedCl = slicer.slicedClasses.findFirst[domain==cl]
 			val withParam = if(sts.empty) "typeof("+superName+")" 
 							else sts.map[st | "typeof("+st.qName(false, false)+"Aspect)"].join(", ")
-			val className = cl.qName(false, false)+"Aspect"
+			val className = cl.qName(false, false)
 			if(opposite) cl.generateFeedOppositeCodeVisitor
 			buf.append("@Aspect(className=typeof(").append(cl.qName(true, false)).append("), with=#[").append(withParam).append("])\n")
 			if(cl.abstract) buf.append("abstract ")
-			buf.append("class ").append(className).append(" extends ").append(superName).append("{\n")
+			buf.append("class ").append(className).append("Aspect extends ").append(superName).append("{\n")
 			buf.append(cl.oppositeAttr)
 			
 			if(opposite && cl.oppositeFeed.length>0)
