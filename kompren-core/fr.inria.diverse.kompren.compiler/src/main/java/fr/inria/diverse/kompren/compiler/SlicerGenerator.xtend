@@ -17,7 +17,7 @@ abstract class SlicerGenerator {
 	protected val String slicerName
 	protected val String pkgName
 	protected val Slicer slicer
-	protected var String imports
+	protected val imports = new StringBuilder
 
 	
 	new(List<EPackage> mm, String name, Slicer slicer, String pkgName) {
@@ -25,7 +25,6 @@ abstract class SlicerGenerator {
 		slicerName = name
 		this.pkgName = pkgName
 		this.slicer = slicer
-		imports = ""
 	}
 	
 	def void flush() {
@@ -35,15 +34,11 @@ abstract class SlicerGenerator {
 	abstract def void generate()
 	
 	protected def String getMMPackagesImports() {
-		if(imports.length==0) {
-			val buf = new StringBuilder
-			buf.append("\nimport static extension " + pkgName + ".__SlicerAspect__.*\n")
-			slicer.slicedClasses.forEach[slicedClass |
-				buf.append("import static extension ").append(pkgName).append('.').append(slicedClass.domain.qName(false, false)).append("Aspect.*\n")
-			]
-			imports = buf.toString
-		}
-		imports
+		imports.append("\nimport static extension " + pkgName + ".__SlicerAspect__.*\n")
+		slicer.slicedClasses.forEach[slicedClass |
+			imports.append("import static extension ").append(pkgName).append('.').append(slicedClass.domain.qName(false, false)).append("Aspect.*\n")
+		]
+		imports.toString
 	}
 	
 	private def StringBuilder getMMPackageImport(String qname, EPackage pkg) {
