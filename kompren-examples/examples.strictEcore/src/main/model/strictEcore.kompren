@@ -1,6 +1,6 @@
 slicer strict strictEcore{ 
 	domain: "platform:/resource/examples.strictEcore/src/main/model/Ecore.genmodel"
-	input: ecore.EModelElement 
+	input: ecore.EModelElement
 	slicedClass: ecore.ENamedElement
 	slicedClass: ecore.EStructuralFeature feat
 		constraint: card1 [[ feat.lowerBound>0 ]]

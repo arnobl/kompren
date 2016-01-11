@@ -3,20 +3,20 @@ package strictecore
 import static extension strictecore.__SlicerAspect__.*
 import static extension strictecore.orgeclipseemfecoreENamedElementAspect.*
 import static extension strictecore.orgeclipseemfecoreEStructuralFeatureAspect.*
-import static extension strictecore.orgeclipseemfecoreEReferenceAspect.*
-import static extension strictecore.orgeclipseemfecoreEAttributeAspect.*
-import static extension strictecore.orgeclipseemfecoreEDataTypeAspect.*
-import static extension strictecore.orgeclipseemfecoreEClassifierAspect.*
-import static extension strictecore.orgeclipseemfecoreEEnumAspect.*
-import static extension strictecore.orgeclipseemfecoreEClassAspect.*
-import static extension strictecore.orgeclipseemfecoreEEnumLiteralAspect.*
-import static extension strictecore.orgeclipseemfecoreETypedElementAspect.*
-import static extension strictecore.orgeclipseemfecoreEOperationAspect.*
-import static extension strictecore.orgeclipseemfecoreEPackageAspect.*
-import static extension strictecore.orgeclipseemfecoreEParameterAspect.*
 import static extension strictecore.orgeclipseemfecoreEModelElementAspect.*
-import static extension strictecore.orgeclipseemfecoreEAnnotationAspect.*
+import static extension strictecore.orgeclipseemfecoreETypedElementAspect.*
+import static extension strictecore.orgeclipseemfecoreEPackageAspect.*
+import static extension strictecore.orgeclipseemfecoreEOperationAspect.*
+import static extension strictecore.orgeclipseemfecoreEEnumLiteralAspect.*
 import static extension strictecore.orgeclipseemfecoreETypeParameterAspect.*
+import static extension strictecore.orgeclipseemfecoreEAnnotationAspect.*
+import static extension strictecore.orgeclipseemfecoreEParameterAspect.*
+import static extension strictecore.orgeclipseemfecoreEAttributeAspect.*
+import static extension strictecore.orgeclipseemfecoreEReferenceAspect.*
+import static extension strictecore.orgeclipseemfecoreEClassAspect.*
+import static extension strictecore.orgeclipseemfecoreEDataTypeAspect.*
+import static extension strictecore.orgeclipseemfecoreEEnumAspect.*
+import static extension strictecore.orgeclipseemfecoreEClassifierAspect.*
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 
@@ -25,7 +25,7 @@ abstract class __SlicerAspect__ {
 	protected var boolean visitedForRelations = false
 	protected var boolean sliced = false
 	protected var org.eclipse.emf.ecore.EObject clonedElt = null
-
+ 
 	def void visitToAddClasses(StrictEcore theSlicer){
 		if(!_self.sliced) {
 			_self.sliced = true
@@ -55,6 +55,11 @@ abstract class __SlicerAspect__ {
 
 @Aspect(className=typeof(org.eclipse.emf.ecore.EAttribute), with=#[typeof(orgeclipseemfecoreEStructuralFeatureAspect)])
 class orgeclipseemfecoreEAttributeAspect extends orgeclipseemfecoreEStructuralFeatureAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
 		if((!theSlicer.card1 || _self.checkcard1)){
@@ -211,6 +216,11 @@ _self.^ETypeParameters.forEach[reinit]
 @Aspect(className=typeof(org.eclipse.emf.ecore.EDataType), with=#[typeof(orgeclipseemfecoreEClassifierAspect)])
 class orgeclipseemfecoreEDataTypeAspect extends orgeclipseemfecoreEClassifierAspect{
 	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+	}
+
+	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
 		if(_self.clonedElt===null){
 			_self.clonedElt = org.eclipse.emf.ecore.EcoreFactory.eINSTANCE.createEDataType
@@ -263,6 +273,11 @@ _self.^ELiterals.forEach[reinit]
 @Aspect(className=typeof(org.eclipse.emf.ecore.EEnumLiteral), with=#[typeof(orgeclipseemfecoreENamedElementAspect)])
 class orgeclipseemfecoreEEnumLiteralAspect extends orgeclipseemfecoreENamedElementAspect{
 	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+	}
+
+	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
 		if(_self.clonedElt===null){
 			_self.clonedElt = org.eclipse.emf.ecore.EcoreFactory.eINSTANCE.createEEnumLiteral
@@ -314,6 +329,11 @@ _self.^EAnnotations.forEach[reinit]
 
 @Aspect(className=typeof(org.eclipse.emf.ecore.ENamedElement), with=#[typeof(orgeclipseemfecoreEModelElementAspect)])
 abstract class orgeclipseemfecoreENamedElementAspect extends orgeclipseemfecoreEModelElementAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
 		_self.super__visitToAddClasses(theSlicer)
@@ -417,6 +437,11 @@ _self.^ESubpackages.forEach[reinit]
 @Aspect(className=typeof(org.eclipse.emf.ecore.EParameter), with=#[typeof(orgeclipseemfecoreETypedElementAspect)])
 class orgeclipseemfecoreEParameterAspect extends orgeclipseemfecoreETypedElementAspect{
 	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+	}
+
+	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
 		if(_self.clonedElt===null){
 			_self.clonedElt = org.eclipse.emf.ecore.EcoreFactory.eINSTANCE.createEParameter
@@ -434,6 +459,11 @@ class orgeclipseemfecoreEParameterAspect extends orgeclipseemfecoreETypedElement
 
 @Aspect(className=typeof(org.eclipse.emf.ecore.EReference), with=#[typeof(orgeclipseemfecoreEStructuralFeatureAspect)])
 class orgeclipseemfecoreEReferenceAspect extends orgeclipseemfecoreEStructuralFeatureAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
 		if((!theSlicer.card1 || _self.checkcard1)){
@@ -464,6 +494,11 @@ class orgeclipseemfecoreEReferenceAspect extends orgeclipseemfecoreEStructuralFe
 
 @Aspect(className=typeof(org.eclipse.emf.ecore.EStructuralFeature), with=#[typeof(orgeclipseemfecoreETypedElementAspect)])
 abstract class orgeclipseemfecoreEStructuralFeatureAspect extends orgeclipseemfecoreETypedElementAspect{
+	@OverrideAspectMethod
+	def void reinit(){
+		_self.super_reinit
+	}
+
 	@OverrideAspectMethod
 	def void _visitToAddClasses(StrictEcore theSlicer){
 		if((!theSlicer.card1 || _self.checkcard1)){

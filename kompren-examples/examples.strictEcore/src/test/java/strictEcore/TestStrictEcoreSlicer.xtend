@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
-import strictecore.StrictEcore
+//import strictecore.StrictEcore
 
 class TestStrictEcoreSlicer {
 	var ResourceSet rs
@@ -42,9 +42,9 @@ class TestStrictEcoreSlicer {
 		res.load(Collections.emptyMap)
 		val mm = res.contents.filter(EPackage).head
 		inputs.add(mm.EClassifiers.filter(EClass).findFirst[name=="A"])
-		val slicer = new StrictEcore(inputs, mm, false, "ecore", true)
-		slicer.slice
-		slicer.reinit
+//		val slicer = new StrictEcore(inputs, mm, false, "ecore", true)
+//		slicer.slice
+//		slicer.reinit
 		res.unload
 	}
 	
