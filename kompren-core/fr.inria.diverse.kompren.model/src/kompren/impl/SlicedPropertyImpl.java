@@ -22,12 +22,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link kompren.impl.SlicedPropertyImpl#getOpposite <em>Opposite</em>}</li>
  *   <li>{@link kompren.impl.SlicedPropertyImpl#getSrc <em>Src</em>}</li>
  *   <li>{@link kompren.impl.SlicedPropertyImpl#getTgt <em>Tgt</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -86,6 +86,17 @@ public class SlicedPropertyImpl extends SlicedElementImpl<EStructuralFeature> im
 	@Override
 	protected EClass eStaticClass() {
 		return KomprenPackage.Literals.SLICED_PROPERTY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific type known in this context.
+	 * @generated
+	 */
+	@Override
+	public void setDomain(EStructuralFeature newDomain) {
+		super.setDomain(newDomain);
 	}
 
 	/**
@@ -215,17 +226,6 @@ public class SlicedPropertyImpl extends SlicedElementImpl<EStructuralFeature> im
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, KomprenPackage.SLICED_PROPERTY__TGT, newTgt, newTgt));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * This is specialized for the more specific type known in this context.
-	 * @generated
-	 */
-	@Override
-	public void setDomain(EStructuralFeature newDomain) {
-		super.setDomain(newDomain);
 	}
 
 	/**

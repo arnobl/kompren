@@ -12,11 +12,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link kompren.VarDecl#getVarName <em>Var Name</em>}</li>
  *   <li>{@link kompren.VarDecl#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see kompren.KomprenPackage#getVarDecl()
  * @model

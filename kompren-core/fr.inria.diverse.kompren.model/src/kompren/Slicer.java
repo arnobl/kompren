@@ -11,8 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Slicer</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * The main class of the language. Defines a slicer.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link kompren.Slicer#getName <em>Name</em>}</li>
  *   <li>{@link kompren.Slicer#getUriMetamodel <em>Uri Metamodel</em>}</li>
@@ -28,7 +33,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kompren.Slicer#getLogVisitClass <em>Log Visit Class</em>}</li>
  *   <li>{@link kompren.Slicer#getLogVisitRelation <em>Log Visit Relation</em>}</li>
  * </ul>
- * </p>
  *
  * @see kompren.KomprenPackage#getSlicer()
  * @model
@@ -50,6 +54,9 @@ public interface Slicer extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of the slicer.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see kompren.KomprenPackage#getSlicer_Name()
@@ -77,6 +84,9 @@ public interface Slicer extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The URI of the Ecore models used to define the slicer. The slicer will be based on the model elements of these metamodels.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Uri Metamodel</em>' attribute list.
 	 * @see kompren.KomprenPackage#getSlicer_UriMetamodel()
 	 * @model required="true"
@@ -92,6 +102,9 @@ public interface Slicer extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The name of the output metamodel produced when the output slice is not compatible with the input metamodel.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Output Metamodel</em>' attribute.
 	 * @see #setOutputMetamodel(String)
 	 * @see kompren.KomprenPackage#getSlicer_OutputMetamodel()
@@ -118,6 +131,9 @@ public interface Slicer extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Defines an active slicer. Not implemented yet.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Active</em>' attribute.
 	 * @see #setActive(boolean)
 	 * @see kompren.KomprenPackage#getSlicer_Active()
@@ -144,6 +160,9 @@ public interface Slicer extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Defines a strict slicer. A strict slicer produces as output a model that is always conformed to its input metamodel. This means that some classes, relations, attributes may be sliced while not selected by the user.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Strict</em>' attribute.
 	 * @see #setStrict(boolean)
 	 * @see kompren.KomprenPackage#getSlicer_Strict()
@@ -170,6 +189,9 @@ public interface Slicer extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Defines a block of statements (written in Kermeta3), such as variables, operations, that can be used in other blocks (e.g. onStart).
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Helper</em>' attribute.
 	 * @see #setHelper(String)
 	 * @see kompren.KomprenPackage#getSlicer_Helper()
@@ -196,6 +218,9 @@ public interface Slicer extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Defines a block of Kermeta 3 statements that are executed before the slicing process.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>On Start</em>' attribute.
 	 * @see #setOnStart(String)
 	 * @see kompren.KomprenPackage#getSlicer_OnStart()
@@ -222,6 +247,9 @@ public interface Slicer extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Defines a block of Kermeta 3 statements that are executed after the slicing process.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>On End</em>' attribute.
 	 * @see #setOnEnd(String)
 	 * @see kompren.KomprenPackage#getSlicer_OnEnd()
@@ -248,6 +276,9 @@ public interface Slicer extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Defines the class of the input metamodels that will be considered as the radius. The radius is used to filter the sliced elements in the input model. The radius works as follows: Starting at 0, a value is incremented on each visited class instance focused by the radius. The slicing process stops when no elements can be sliced anymore or when this value is greater than the radius given as parameter. The value of the radius is specificed by the user of the slicer.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Radius</em>' containment reference.
 	 * @see #setRadius(Radius)
 	 * @see kompren.KomprenPackage#getSlicer_Radius()
@@ -290,6 +321,9 @@ public interface Slicer extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Defines the classes of the input metamodels that will be considered during the slicing process.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Input Classes</em>' reference list.
 	 * @see kompren.KomprenPackage#getSlicer_InputClasses()
 	 * @model required="true"
@@ -305,6 +339,9 @@ public interface Slicer extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Log Visit Class</em>' attribute.
 	 * @see #setLogVisitClass(String)
 	 * @see kompren.KomprenPackage#getSlicer_LogVisitClass()

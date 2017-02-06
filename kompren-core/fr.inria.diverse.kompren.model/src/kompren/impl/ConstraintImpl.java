@@ -18,11 +18,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link kompren.impl.ConstraintImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link kompren.impl.ConstraintImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

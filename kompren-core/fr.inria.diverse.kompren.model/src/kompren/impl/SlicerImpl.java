@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link kompren.impl.SlicerImpl#getName <em>Name</em>}</li>
  *   <li>{@link kompren.impl.SlicerImpl#getUriMetamodel <em>Uri Metamodel</em>}</li>
@@ -40,7 +41,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link kompren.impl.SlicerImpl#getLogVisitClass <em>Log Visit Class</em>}</li>
  *   <li>{@link kompren.impl.SlicerImpl#getLogVisitRelation <em>Log Visit Relation</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

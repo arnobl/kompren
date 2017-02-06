@@ -20,10 +20,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link kompren.impl.SlicedClassImpl#getCtx <em>Ctx</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -67,6 +67,17 @@ public class SlicedClassImpl extends SlicedElementImpl<EClass> implements Sliced
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific type known in this context.
+	 * @generated
+	 */
+	@Override
+	public void setDomain(EClass newDomain) {
+		super.setDomain(newDomain);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public VarDecl getCtx() {
@@ -105,17 +116,6 @@ public class SlicedClassImpl extends SlicedElementImpl<EClass> implements Sliced
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, KomprenPackage.SLICED_CLASS__CTX, newCtx, newCtx));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * This is specialized for the more specific type known in this context.
-	 * @generated
-	 */
-	@Override
-	public void setDomain(EClass newDomain) {
-		super.setDomain(newDomain);
 	}
 
 	/**

@@ -9,13 +9,17 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Constraint</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * A constraint can be added to restrict the slicing process.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link kompren.Constraint#getExpression <em>Expression</em>}</li>
  *   <li>{@link kompren.Constraint#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see kompren.KomprenPackage#getConstraint()
  * @model
@@ -37,6 +41,9 @@ public interface Constraint extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Defines the constraint itself.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Expression</em>' attribute.
 	 * @see #setExpression(String)
 	 * @see kompren.KomprenPackage#getConstraint_Expression()
@@ -63,6 +70,9 @@ public interface Constraint extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Defines the name of the constraint.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see kompren.KomprenPackage#getConstraint_Name()

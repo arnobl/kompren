@@ -9,12 +9,16 @@ import org.eclipse.emf.ecore.EClass;
  * A representation of the model object '<em><b>Sliced Class</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * When a sliced class is selected from the input metamodels, instances of this class will be sliced and put in the output model slice.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link kompren.SlicedClass#getCtx <em>Ctx</em>}</li>
  * </ul>
- * </p>
  *
  * @see kompren.KomprenPackage#getSlicedClass()
  * @model

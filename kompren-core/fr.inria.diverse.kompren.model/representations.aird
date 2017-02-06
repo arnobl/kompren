@@ -1,0 +1,1204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis xmi:id="_zLZpoOJwEeaz-pDvaic2-A" selectedViews="_0bvQIOJwEeaz-pDvaic2-A _0b5BIOJwEeaz-pDvaic2-A _0cAV4OJwEeaz-pDvaic2-A _0cKt8OJwEeaz-pDvaic2-A" version="11.1.0.201608251200">
+    <semanticResources>model/kompren.ecore</semanticResources>
+    <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
+    <semanticResources>platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore</semanticResources>
+    <semanticResources>model/kompren.ecorediag</semanticResources>
+    <semanticResources>model/kompren.genmodel</semanticResources>
+    <semanticResources>platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" xmi:id="_0bvQIOJwEeaz-pDvaic2-A">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_gKIq8OPrEea6ANnEArVqXQ" name="kompren class diagram" representation="_1UW6MOJwEeaz-pDvaic2-A">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+        <target xmi:type="ecore:EPackage" href="model/kompren.ecore#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" xmi:id="_0b5BIOJwEeaz-pDvaic2-A">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_paMhEOPrEea6ANnEArVqXQ" name="kompren documentation table" representation="_paNIIOPrEea6ANnEArVqXQ">
+        <description xmi:type="description_2:CrossTableDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']"/>
+        <target xmi:type="ecore:EPackage" href="model/kompren.ecore#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" xmi:id="_0cAV4OJwEeaz-pDvaic2-A">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Archetype']"/>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" xmi:id="_0cKt8OJwEeaz-pDvaic2-A">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']"/>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram xmi:id="_1UW6MOJwEeaz-pDvaic2-A" name="kompren class diagram">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_1UW6MeJwEeaz-pDvaic2-A" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_1UW6MuJwEeaz-pDvaic2-A">
+        <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_2holoOJwEeaz-pDvaic2-A" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <labelFormat>bold</labelFormat>
+          <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:EdgeStyleDescription" xmi:id="_2h32MOJwEeaz-pDvaic2-A" sourceArrow="FillDiamond" routingStyle="manhattan">
+          <strokeColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <centerLabelStyleDescription xmi:type="style:CenterLabelStyleDescription" xmi:id="_2h32MeJwEeaz-pDvaic2-A" showIcon="false" labelExpression="service:render">
+            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </centerLabelStyleDescription>
+          <endLabelStyleDescription xmi:type="style:EndLabelStyleDescription" xmi:id="_2h32MuJwEeaz-pDvaic2-A" labelSize="6" showIcon="false" labelExpression="service:eKeysLabel">
+            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+          </endLabelStyleDescription>
+        </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_gnXZgOPrEea6ANnEArVqXQ" arcWidth="8" arcHeight="8" borderSizeComputationExpression="1" tooltipExpression="service:renderTooltip" roundedCorner="true" widthComputationExpression="12" heightComputationExpression="10" backgroundStyle="Liquid">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+          <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          <foregroundColor xmi:type="description:UserFixedColor" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@userColorsPalettes[name='Ecore%20Palette']/@entries[name='EClass']"/>
+        </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_gneHMOPrEea6ANnEArVqXQ" arcWidth="8" arcHeight="8" borderSizeComputationExpression="1" iconPath="/org.eclipse.emf.ecoretools.design/icons/full/obj16/EClass_abstract.gif" tooltipExpression="service:renderTooltip" roundedCorner="true" widthComputationExpression="12" heightComputationExpression="10" backgroundStyle="Liquid">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+          <labelFormat>italic</labelFormat>
+          <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          <foregroundColor xmi:type="description:UserFixedColor" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@userColorsPalettes[name='Ecore%20Palette']/@entries[name='Abstract%20EClass']"/>
+        </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_gnmqEOPrEea6ANnEArVqXQ" labelExpression="service:renderAsNode" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <labelFormat>bold</labelFormat>
+          <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+        </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_gnwbEOPrEea6ANnEArVqXQ" labelExpression="service:renderAsNode" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <labelFormat>bold</labelFormat>
+          <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+          <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+        </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:EdgeStyleDescription" xmi:id="_gn1TkOPrEea6ANnEArVqXQ" routingStyle="manhattan">
+          <strokeColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+          <centerLabelStyleDescription xmi:type="style:CenterLabelStyleDescription" xmi:id="_gn1TkePrEea6ANnEArVqXQ" showIcon="false" labelExpression="service:render">
+            <labelFormat>bold</labelFormat>
+            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+          </centerLabelStyleDescription>
+          <endLabelStyleDescription xmi:type="style:EndLabelStyleDescription" xmi:id="_gn1TkuPrEea6ANnEArVqXQ" labelSize="6" showIcon="false" labelExpression="service:eKeysLabel">
+            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+          </endLabelStyleDescription>
+        </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:EdgeStyleDescription" xmi:id="_gn7aMOPrEea6ANnEArVqXQ" targetArrow="InputClosedArrow" routingStyle="tree">
+          <strokeColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          <beginLabelStyleDescription xmi:type="style:BeginLabelStyleDescription" xmi:id="_gn7aMePrEea6ANnEArVqXQ" showIcon="false" labelExpression="service:superTypesLabel">
+            <labelFormat>italic</labelFormat>
+            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </beginLabelStyleDescription>
+          <centerLabelStyleDescription xmi:type="style:CenterLabelStyleDescription" xmi:id="_gn7aMuPrEea6ANnEArVqXQ" showIcon="false">
+            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+          </centerLabelStyleDescription>
+        </computedStyleDescriptions>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_1UXhQOJwEeaz-pDvaic2-A" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_1UXhQeJwEeaz-pDvaic2-A" type="Sirius" element="_1UW6MOJwEeaz-pDvaic2-A" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_2iEDcOJwEeaz-pDvaic2-A" type="2003" element="_2hUckOJwEeaz-pDvaic2-A">
+          <children xmi:type="notation:Node" xmi:id="_2iEqgOJwEeaz-pDvaic2-A" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_2iEqgeJwEeaz-pDvaic2-A" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_2iJjA-JwEeaz-pDvaic2-A" type="3010" element="_2hn-kOJwEeaz-pDvaic2-A">
+              <styles xmi:type="notation:FontStyle" xmi:id="_2iJjBOJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_2iJjBeJwEeaz-pDvaic2-A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_2iKKEOJwEeaz-pDvaic2-A" type="3010" element="_2hpMsOJwEeaz-pDvaic2-A">
+              <styles xmi:type="notation:FontStyle" xmi:id="_2iKKEeJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_2iKKEuJwEeaz-pDvaic2-A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_2iKKE-JwEeaz-pDvaic2-A" type="3010" element="_2hpzweJwEeaz-pDvaic2-A">
+              <styles xmi:type="notation:FontStyle" xmi:id="_2iKKFOJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_2iKKFeJwEeaz-pDvaic2-A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_2iKKFuJwEeaz-pDvaic2-A" type="3010" element="_2hqa0eJwEeaz-pDvaic2-A">
+              <styles xmi:type="notation:FontStyle" xmi:id="_2iKKF-JwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_2iKKGOJwEeaz-pDvaic2-A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_2iKxIOJwEeaz-pDvaic2-A" type="3010" element="_2hrB4eJwEeaz-pDvaic2-A">
+              <styles xmi:type="notation:FontStyle" xmi:id="_2iKxIeJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_2iKxIuJwEeaz-pDvaic2-A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_2iKxI-JwEeaz-pDvaic2-A" type="3010" element="_2hro8eJwEeaz-pDvaic2-A">
+              <styles xmi:type="notation:FontStyle" xmi:id="_2iKxJOJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_2iKxJeJwEeaz-pDvaic2-A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_2iKxJuJwEeaz-pDvaic2-A" type="3010" element="_2hsQAeJwEeaz-pDvaic2-A">
+              <styles xmi:type="notation:FontStyle" xmi:id="_2iKxJ-JwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_2iKxKOJwEeaz-pDvaic2-A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_2iLYMOJwEeaz-pDvaic2-A" type="3010" element="_2hs3EeJwEeaz-pDvaic2-A">
+              <styles xmi:type="notation:FontStyle" xmi:id="_2iLYMeJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_2iLYMuJwEeaz-pDvaic2-A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_2iLYM-JwEeaz-pDvaic2-A" type="3010" element="_2hteIeJwEeaz-pDvaic2-A">
+              <styles xmi:type="notation:FontStyle" xmi:id="_2iLYNOJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_2iLYNeJwEeaz-pDvaic2-A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_2iLYNuJwEeaz-pDvaic2-A" type="3010" element="_2huFMeJwEeaz-pDvaic2-A">
+              <styles xmi:type="notation:FontStyle" xmi:id="_2iLYN-JwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_2iLYOOJwEeaz-pDvaic2-A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_goBg0OPrEea6ANnEArVqXQ" type="3010" element="_gnmDAOPrEea6ANnEArVqXQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_goBg0ePrEea6ANnEArVqXQ" fontName="Liberation Sans" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_goBg0uPrEea6ANnEArVqXQ"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_2iEqguJwEeaz-pDvaic2-A"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_2iEqg-JwEeaz-pDvaic2-A"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_2iEDceJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iEDcuJwEeaz-pDvaic2-A" x="245" y="415"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_2iEqhOJwEeaz-pDvaic2-A" type="2003" element="_2hXf4OJwEeaz-pDvaic2-A">
+          <children xmi:type="notation:Node" xmi:id="_2iFRkOJwEeaz-pDvaic2-A" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_2iFRkeJwEeaz-pDvaic2-A" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_2iL_QOJwEeaz-pDvaic2-A" type="3010" element="_2hvTUOJwEeaz-pDvaic2-A">
+              <styles xmi:type="notation:FontStyle" xmi:id="_2iL_QeJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_2iL_QuJwEeaz-pDvaic2-A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_2iL_Q-JwEeaz-pDvaic2-A" type="3010" element="_2hv6YeJwEeaz-pDvaic2-A">
+              <styles xmi:type="notation:FontStyle" xmi:id="_2iL_ROJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_2iL_ReJwEeaz-pDvaic2-A"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_2iFRkuJwEeaz-pDvaic2-A"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_2iFRk-JwEeaz-pDvaic2-A"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_2iEqheJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iEqhuJwEeaz-pDvaic2-A" x="425" y="35"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_2iFRlOJwEeaz-pDvaic2-A" type="2003" element="_2hYuAOJwEeaz-pDvaic2-A">
+          <children xmi:type="notation:Node" xmi:id="_2iFRl-JwEeaz-pDvaic2-A" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_2iFRmOJwEeaz-pDvaic2-A" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_goCH4OPrEea6ANnEArVqXQ" type="3010" element="_gnptYOPrEea6ANnEArVqXQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_goCH4ePrEea6ANnEArVqXQ" fontName="Liberation Sans" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_goCH4uPrEea6ANnEArVqXQ"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_2iFRmeJwEeaz-pDvaic2-A"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_2iFRmuJwEeaz-pDvaic2-A"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_2iFRleJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iFRluJwEeaz-pDvaic2-A" x="235" y="195"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_2iF4oOJwEeaz-pDvaic2-A" type="2003" element="_2hZ8IOJwEeaz-pDvaic2-A">
+          <children xmi:type="notation:Node" xmi:id="_2iF4o-JwEeaz-pDvaic2-A" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_2iF4pOJwEeaz-pDvaic2-A" type="7004">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_2iF4peJwEeaz-pDvaic2-A"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_2iF4puJwEeaz-pDvaic2-A"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_2iF4oeJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iF4ouJwEeaz-pDvaic2-A" x="455" y="425"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_2iF4p-JwEeaz-pDvaic2-A" type="2003" element="_2hbxUOJwEeaz-pDvaic2-A">
+          <children xmi:type="notation:Node" xmi:id="_2iGfsOJwEeaz-pDvaic2-A" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_2iGfseJwEeaz-pDvaic2-A" type="7004">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_2iGfsuJwEeaz-pDvaic2-A"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_2iGfs-JwEeaz-pDvaic2-A"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_2iF4qOJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iF4qeJwEeaz-pDvaic2-A" x="640" y="415"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_2iGftOJwEeaz-pDvaic2-A" type="2003" element="_2hc_cOJwEeaz-pDvaic2-A">
+          <children xmi:type="notation:Node" xmi:id="_2iGft-JwEeaz-pDvaic2-A" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_2iHGwOJwEeaz-pDvaic2-A" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_2iMmUOJwEeaz-pDvaic2-A" type="3010" element="_2hxvkOJwEeaz-pDvaic2-A">
+              <styles xmi:type="notation:FontStyle" xmi:id="_2iMmUeJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_2iMmUuJwEeaz-pDvaic2-A"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_2iHGweJwEeaz-pDvaic2-A"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_2iHGwuJwEeaz-pDvaic2-A"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_2iGfteJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iGftuJwEeaz-pDvaic2-A" x="820" y="195"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_2iHGw-JwEeaz-pDvaic2-A" type="2003" element="_2heNkOJwEeaz-pDvaic2-A">
+          <children xmi:type="notation:Node" xmi:id="_2iMmU-JwEeaz-pDvaic2-A" type="3012" element="_2hyWoeJwEeaz-pDvaic2-A">
+            <children xmi:type="notation:Node" xmi:id="_2iNNYOJwEeaz-pDvaic2-A" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_2iNNYeJwEeaz-pDvaic2-A" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_2iPCkOJwEeaz-pDvaic2-A" type="3005" element="_2hy9sOJwEeaz-pDvaic2-A">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_2iPCkeJwEeaz-pDvaic2-A" fontName="Liberation Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iPCkuJwEeaz-pDvaic2-A"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_2iMmVOJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iMmVeJwEeaz-pDvaic2-A" x="-22" width="30" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2iHt0OJwEeaz-pDvaic2-A" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_2iIU4OJwEeaz-pDvaic2-A" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_2iPpoOJwEeaz-pDvaic2-A" type="3010" element="_2hy9seJwEeaz-pDvaic2-A">
+              <styles xmi:type="notation:FontStyle" xmi:id="_2iPpoeJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_2iPpouJwEeaz-pDvaic2-A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_2iPpo-JwEeaz-pDvaic2-A" type="3010" element="_2hzkweJwEeaz-pDvaic2-A">
+              <styles xmi:type="notation:FontStyle" xmi:id="_2iPppOJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_2iPppeJwEeaz-pDvaic2-A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_goCu8OPrEea6ANnEArVqXQ" type="3010" element="_gnt-0OPrEea6ANnEArVqXQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_goCu8ePrEea6ANnEArVqXQ" fontName="Liberation Sans" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_goCu8uPrEea6ANnEArVqXQ"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_2iIU4eJwEeaz-pDvaic2-A"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_2iIU4uJwEeaz-pDvaic2-A"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_2iHGxOJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8" italic="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iHGxeJwEeaz-pDvaic2-A" x="414" y="195"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_2iIU4-JwEeaz-pDvaic2-A" type="2003" element="_2hgp0OJwEeaz-pDvaic2-A">
+          <children xmi:type="notation:Node" xmi:id="_2iI78OJwEeaz-pDvaic2-A" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_2iJjAOJwEeaz-pDvaic2-A" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_2iQQsOJwEeaz-pDvaic2-A" type="3010" element="_2h0L0eJwEeaz-pDvaic2-A">
+              <styles xmi:type="notation:FontStyle" xmi:id="_2iQQseJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_2iQQsuJwEeaz-pDvaic2-A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_goDWAOPrEea6ANnEArVqXQ" type="3010" element="_gnv0AOPrEea6ANnEArVqXQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_goDWAePrEea6ANnEArVqXQ" fontColor="7490599" fontName="Liberation Sans" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_goDWAuPrEea6ANnEArVqXQ"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_2iJjAeJwEeaz-pDvaic2-A"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_2iJjAuJwEeaz-pDvaic2-A"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_2iIU5OJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iIU5eJwEeaz-pDvaic2-A" x="637" y="195"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_1UXhQuJwEeaz-pDvaic2-A"/>
+        <edges xmi:type="notation:Edge" xmi:id="_2iQ3wOJwEeaz-pDvaic2-A" type="4001" element="_2h3PIOJwEeaz-pDvaic2-A" source="_2iEDcOJwEeaz-pDvaic2-A" target="_2iFRlOJwEeaz-pDvaic2-A">
+          <children xmi:type="notation:Node" xmi:id="_2iQ3xOJwEeaz-pDvaic2-A" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iQ3xeJwEeaz-pDvaic2-A" x="38" y="3"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2iQ3xuJwEeaz-pDvaic2-A" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iQ3x-JwEeaz-pDvaic2-A" x="31" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2iQ3yOJwEeaz-pDvaic2-A" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iQ3yeJwEeaz-pDvaic2-A" x="5" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_2iQ3weJwEeaz-pDvaic2-A" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_2iQ3wuJwEeaz-pDvaic2-A" fontColor="7490599" fontName="Liberation Sans" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2iQ3w-JwEeaz-pDvaic2-A" points="[-58, 0, -29, 122]$[-58, -122, -29, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2iRe0OJwEeaz-pDvaic2-A" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2iRe0eJwEeaz-pDvaic2-A" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_2iRe0uJwEeaz-pDvaic2-A" type="4001" element="_2h4dQOJwEeaz-pDvaic2-A" source="_2iEDcOJwEeaz-pDvaic2-A" target="_2iHGw-JwEeaz-pDvaic2-A">
+          <children xmi:type="notation:Node" xmi:id="_2iSF4OJwEeaz-pDvaic2-A" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iSF4eJwEeaz-pDvaic2-A" x="16" y="-19"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2iSF4uJwEeaz-pDvaic2-A" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iSF4-JwEeaz-pDvaic2-A" x="7" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2iSF5OJwEeaz-pDvaic2-A" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iSF5eJwEeaz-pDvaic2-A" x="-35" y="-5"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_2iRe0-JwEeaz-pDvaic2-A" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_2iRe1OJwEeaz-pDvaic2-A" fontColor="7490599" fontName="Liberation Sans" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2iRe1eJwEeaz-pDvaic2-A" points="[0, 0, -170, 122]$[0, -55, -170, 67]$[157, -55, -13, 67]$[157, -122, -13, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2iSF5uJwEeaz-pDvaic2-A" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2iSF5-JwEeaz-pDvaic2-A" id="(0.4968944099378882,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_2iSF6OJwEeaz-pDvaic2-A" type="4001" element="_2h5EU-JwEeaz-pDvaic2-A" source="_2iHGw-JwEeaz-pDvaic2-A" target="_2iMmU-JwEeaz-pDvaic2-A">
+          <children xmi:type="notation:Node" xmi:id="_2iSs8OJwEeaz-pDvaic2-A" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iSs8eJwEeaz-pDvaic2-A" x="2" y="20"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2iSs8uJwEeaz-pDvaic2-A" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iSs8-JwEeaz-pDvaic2-A" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2iSs9OJwEeaz-pDvaic2-A" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iSs9eJwEeaz-pDvaic2-A" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_2iSF6eJwEeaz-pDvaic2-A" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_2iSF6uJwEeaz-pDvaic2-A" fontColor="7490599" fontName="Liberation Sans" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2iSF6-JwEeaz-pDvaic2-A" points="[427, 358, 427, 358]$[405, 358, 405, 358]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2iSs9uJwEeaz-pDvaic2-A" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2iSs9-JwEeaz-pDvaic2-A" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_2iSs-OJwEeaz-pDvaic2-A" type="4001" element="_2h6ScOJwEeaz-pDvaic2-A" source="_2iHGw-JwEeaz-pDvaic2-A" target="_2iEqhOJwEeaz-pDvaic2-A">
+          <children xmi:type="notation:Node" xmi:id="_2iTUAOJwEeaz-pDvaic2-A" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iTUAeJwEeaz-pDvaic2-A" x="13" y="28"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2iTUAuJwEeaz-pDvaic2-A" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iTUA-JwEeaz-pDvaic2-A" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2iTUBOJwEeaz-pDvaic2-A" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iTUBeJwEeaz-pDvaic2-A" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_2iSs-eJwEeaz-pDvaic2-A" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_2iSs-uJwEeaz-pDvaic2-A" fontColor="7490599" fontName="Liberation Sans" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2iSs--JwEeaz-pDvaic2-A" points="[0, -50, 0, 110]$[0, -110, 0, 50]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2iTUBuJwEeaz-pDvaic2-A" id="(0.4968944099378882,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2iTUB-JwEeaz-pDvaic2-A" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_2iTUCOJwEeaz-pDvaic2-A" type="4001" element="_2h7gkOJwEeaz-pDvaic2-A" source="_2iF4oOJwEeaz-pDvaic2-A" target="_2iIU4-JwEeaz-pDvaic2-A">
+          <children xmi:type="notation:Node" xmi:id="_2iTUDOJwEeaz-pDvaic2-A" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iT7EOJwEeaz-pDvaic2-A" x="49" y="-34"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2iT7EeJwEeaz-pDvaic2-A" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iT7EuJwEeaz-pDvaic2-A" x="29" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2iT7E-JwEeaz-pDvaic2-A" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iT7FOJwEeaz-pDvaic2-A" x="-28" y="-4"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_2iTUCeJwEeaz-pDvaic2-A" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_2iTUCuJwEeaz-pDvaic2-A" fontColor="7490599" fontName="Liberation Sans" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2iTUC-JwEeaz-pDvaic2-A" points="[0, 0, -185, 132]$[0, -75, -185, 57]$[131, -75, -54, 57]$[131, -132, -54, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2iT7FeJwEeaz-pDvaic2-A" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2iT7FuJwEeaz-pDvaic2-A" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_2iUiIOJwEeaz-pDvaic2-A" type="4001" element="_2h8HouJwEeaz-pDvaic2-A" source="_2iF4p-JwEeaz-pDvaic2-A" target="_2iGftOJwEeaz-pDvaic2-A">
+          <children xmi:type="notation:Node" xmi:id="_2iVJMOJwEeaz-pDvaic2-A" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iVJMeJwEeaz-pDvaic2-A" x="-35" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2iVwQOJwEeaz-pDvaic2-A" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iVwQeJwEeaz-pDvaic2-A" x="7" y="6"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2iWXUOJwEeaz-pDvaic2-A" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iWXUeJwEeaz-pDvaic2-A" x="-44" y="-6"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_2iUiIeJwEeaz-pDvaic2-A" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_2iUiIuJwEeaz-pDvaic2-A" fontColor="7490599" fontName="Liberation Sans" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2iUiI-JwEeaz-pDvaic2-A" points="[11, -8, -134, 122]$[11, -58, -134, 72]$[145, -58, 0, 72]$[145, -130, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2iWXUuJwEeaz-pDvaic2-A" id="(0.8,0.09)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2iWXU-JwEeaz-pDvaic2-A" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_2iW-YOJwEeaz-pDvaic2-A" type="4001" element="_2h9VwOJwEeaz-pDvaic2-A" source="_2iF4p-JwEeaz-pDvaic2-A" target="_2iIU4-JwEeaz-pDvaic2-A">
+          <children xmi:type="notation:Node" xmi:id="_2iW-ZOJwEeaz-pDvaic2-A" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iW-ZeJwEeaz-pDvaic2-A" x="43" y="-4"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2iW-ZuJwEeaz-pDvaic2-A" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iW-Z-JwEeaz-pDvaic2-A" x="51" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2iXlcOJwEeaz-pDvaic2-A" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iXlceJwEeaz-pDvaic2-A" x="9" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_2iW-YeJwEeaz-pDvaic2-A" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_2iW-YuJwEeaz-pDvaic2-A" fontColor="7490599" fontName="Liberation Sans" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2iW-Y-JwEeaz-pDvaic2-A" points="[-9, 0, -9, 122]$[-9, -122, -9, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2iXlcuJwEeaz-pDvaic2-A" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2iXlc-JwEeaz-pDvaic2-A" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_2iXldOJwEeaz-pDvaic2-A" type="4001" element="_2h980OJwEeaz-pDvaic2-A" source="_2iF4p-JwEeaz-pDvaic2-A" target="_2iIU4-JwEeaz-pDvaic2-A">
+          <children xmi:type="notation:Node" xmi:id="_2iYMgOJwEeaz-pDvaic2-A" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iYMgeJwEeaz-pDvaic2-A" x="43" y="29"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2iYMguJwEeaz-pDvaic2-A" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iYMg-JwEeaz-pDvaic2-A" x="51" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2iYMhOJwEeaz-pDvaic2-A" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iYMheJwEeaz-pDvaic2-A" x="9" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_2iXldeJwEeaz-pDvaic2-A" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_2iXlduJwEeaz-pDvaic2-A" fontColor="7490599" fontName="Liberation Sans" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2iXld-JwEeaz-pDvaic2-A" points="[21, 0, 21, 122]$[21, -122, 21, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2iYMhuJwEeaz-pDvaic2-A" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2iYMh-JwEeaz-pDvaic2-A" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_2iYMiOJwEeaz-pDvaic2-A" type="4001" element="_2h_yAOJwEeaz-pDvaic2-A" source="_2iF4oOJwEeaz-pDvaic2-A" target="_2iHGw-JwEeaz-pDvaic2-A">
+          <children xmi:type="notation:Node" xmi:id="_2iYzkOJwEeaz-pDvaic2-A" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iYzkeJwEeaz-pDvaic2-A" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2iYzkuJwEeaz-pDvaic2-A" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iYzk-JwEeaz-pDvaic2-A" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2iYzlOJwEeaz-pDvaic2-A" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iYzleJwEeaz-pDvaic2-A" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_2iYMieJwEeaz-pDvaic2-A" routing="Tree"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_2iYMiuJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2iYMi-JwEeaz-pDvaic2-A" points="[0, 0, 24, 60]$[-24, -60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2iYzluJwEeaz-pDvaic2-A" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2iYzl-JwEeaz-pDvaic2-A" id="(0.4968944099378882,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_2iZaoOJwEeaz-pDvaic2-A" type="4001" element="_2iAZEOJwEeaz-pDvaic2-A" source="_2iF4p-JwEeaz-pDvaic2-A" target="_2iHGw-JwEeaz-pDvaic2-A">
+          <children xmi:type="notation:Node" xmi:id="_2iZapOJwEeaz-pDvaic2-A" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iZapeJwEeaz-pDvaic2-A" x="-76" y="-7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2iZapuJwEeaz-pDvaic2-A" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iZap-JwEeaz-pDvaic2-A" x="-24" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2iZaqOJwEeaz-pDvaic2-A" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iZaqeJwEeaz-pDvaic2-A" x="-28" y="35"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_2iZaoeJwEeaz-pDvaic2-A" routing="Tree"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_2iZaouJwEeaz-pDvaic2-A" fontName="Liberation Sans" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2iZao-JwEeaz-pDvaic2-A" points="[0, 0, 206, 122]$[0, -45, 206, 77]$[-139, -45, 67, 77]$[-139, -122, 67, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2iZaquJwEeaz-pDvaic2-A" id="(0.08333333333333333,0.04)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2iZaq-JwEeaz-pDvaic2-A" id="(0.4968944099378882,1.0)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_2hUckOJwEeaz-pDvaic2-A" name="Slicer" tooltipText="&#xA;ERROR : The feature 'eType' of 'EReference{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//Slicer/inputClasses}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass}'&#xA;ERROR : The feature 'eReferenceType' of 'EReference{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//Slicer/inputClasses}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//Slicer/inputClasses/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//Slicer/inputClasses/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass}'" outgoingEdges="_2h3PIOJwEeaz-pDvaic2-A _2h4dQOJwEeaz-pDvaic2-A" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="model/kompren.ecore#//Slicer"/>
+      <semanticElements xmi:type="ecore:EClass" href="model/kompren.ecore#//Slicer"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_gnXZgePrEea6ANnEArVqXQ" labelColor="239,41,41" description="_gnXZgOPrEea6ANnEArVqXQ" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2hn-kOJwEeaz-pDvaic2-A" name="name : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/name"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/name"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2holoeJwEeaz-pDvaic2-A" labelAlignment="LEFT" description="_2holoOJwEeaz-pDvaic2-A">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2hpMsOJwEeaz-pDvaic2-A" name="uriMetamodel : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/uriMetamodel"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/uriMetamodel"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2hpzwOJwEeaz-pDvaic2-A" labelAlignment="LEFT" description="_2holoOJwEeaz-pDvaic2-A">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2hpzweJwEeaz-pDvaic2-A" name="outputMetamodel : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/outputMetamodel"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/outputMetamodel"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2hqa0OJwEeaz-pDvaic2-A" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2hqa0eJwEeaz-pDvaic2-A" name="active : EBoolean = false" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/active"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/active"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2hrB4OJwEeaz-pDvaic2-A" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2hrB4eJwEeaz-pDvaic2-A" name="strict : EBoolean = false" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/strict"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/strict"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2hro8OJwEeaz-pDvaic2-A" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2hro8eJwEeaz-pDvaic2-A" name="helper : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/helper"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/helper"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2hsQAOJwEeaz-pDvaic2-A" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2hsQAeJwEeaz-pDvaic2-A" name="onStart : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/onStart"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/onStart"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2hs3EOJwEeaz-pDvaic2-A" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2hs3EeJwEeaz-pDvaic2-A" name="onEnd : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/onEnd"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/onEnd"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2hteIOJwEeaz-pDvaic2-A" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2hteIeJwEeaz-pDvaic2-A" name="logVisitClass : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/logVisitClass"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/logVisitClass"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2huFMOJwEeaz-pDvaic2-A" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2huFMeJwEeaz-pDvaic2-A" name="logVisitRelation : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/logVisitRelation"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/logVisitRelation"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2husQOJwEeaz-pDvaic2-A" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_gnmDAOPrEea6ANnEArVqXQ" name=" inputClasses" tooltipText="">
+        <target xmi:type="ecore:EReference" href="model/kompren.ecore#//Slicer/inputClasses"/>
+        <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//Slicer/inputClasses"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_gnmqEePrEea6ANnEArVqXQ" labelAlignment="LEFT" description="_gnmqEOPrEea6ANnEArVqXQ" color="114,159,207">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_2hXf4OJwEeaz-pDvaic2-A" name="Constraint" tooltipText="" incomingEdges="_2h6ScOJwEeaz-pDvaic2-A" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="model/kompren.ecore#//Constraint"/>
+      <semanticElements xmi:type="ecore:EClass" href="model/kompren.ecore#//Constraint"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_2hYG8OJwEeaz-pDvaic2-A" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2hvTUOJwEeaz-pDvaic2-A" name="expression : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Constraint/expression"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Constraint/expression"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2hv6YOJwEeaz-pDvaic2-A" labelAlignment="LEFT" description="_2holoOJwEeaz-pDvaic2-A">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2hv6YeJwEeaz-pDvaic2-A" name="name : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Constraint/name"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Constraint/name"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2hwhcOJwEeaz-pDvaic2-A" labelAlignment="LEFT" description="_2holoOJwEeaz-pDvaic2-A">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_2hYuAOJwEeaz-pDvaic2-A" name="Radius" tooltipText="&#xA;ERROR : The feature 'eType' of 'EReference{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//Radius/focusedClasses}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass}'&#xA;ERROR : The feature 'eReferenceType' of 'EReference{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//Radius/focusedClasses}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//Radius/focusedClasses/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//Radius/focusedClasses/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass}'" incomingEdges="_2h3PIOJwEeaz-pDvaic2-A" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="model/kompren.ecore#//Radius"/>
+      <semanticElements xmi:type="ecore:EClass" href="model/kompren.ecore#//Radius"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_gnZ1wOPrEea6ANnEArVqXQ" labelColor="239,41,41" description="_gnXZgOPrEea6ANnEArVqXQ" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_gnptYOPrEea6ANnEArVqXQ" name=" focusedClasses" tooltipText="">
+        <target xmi:type="ecore:EReference" href="model/kompren.ecore#//Radius/focusedClasses"/>
+        <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//Radius/focusedClasses"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_gnqUcOPrEea6ANnEArVqXQ" labelAlignment="LEFT" description="_gnmqEOPrEea6ANnEArVqXQ" color="114,159,207">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_2hZ8IOJwEeaz-pDvaic2-A" name="SlicedClass" tooltipText="&#xA;ERROR : The generic type 'EGenericType{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//SlicedClass/@eGenericSuperTypes.0/@eTypeArguments.0}' is not a valid substitution for type parameter 'ETypeParameter{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//SlicedElement/T}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//SlicedClass/@eGenericSuperTypes.0/@eTypeArguments.0}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//SlicedClass/@eGenericSuperTypes.0/@eTypeArguments.0}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass}'" outgoingEdges="_2h7gkOJwEeaz-pDvaic2-A _2h_yAOJwEeaz-pDvaic2-A" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="model/kompren.ecore#//SlicedClass"/>
+      <semanticElements xmi:type="ecore:EClass" href="model/kompren.ecore#//SlicedClass"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_gnbD4OPrEea6ANnEArVqXQ" labelColor="239,41,41" description="_gnXZgOPrEea6ANnEArVqXQ" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_2hbxUOJwEeaz-pDvaic2-A" name="SlicedProperty" tooltipText="&#xA;ERROR : The generic type 'EGenericType{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//SlicedProperty/@eGenericSuperTypes.0/@eTypeArguments.0}' is not a valid substitution for type parameter 'ETypeParameter{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//SlicedElement/T}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//SlicedProperty/@eGenericSuperTypes.0/@eTypeArguments.0}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EStructuralFeature}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//SlicedProperty/@eGenericSuperTypes.0/@eTypeArguments.0}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EStructuralFeature}'" outgoingEdges="_2h8HouJwEeaz-pDvaic2-A _2h9VwOJwEeaz-pDvaic2-A _2h980OJwEeaz-pDvaic2-A _2iAZEOJwEeaz-pDvaic2-A" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="model/kompren.ecore#//SlicedProperty"/>
+      <semanticElements xmi:type="ecore:EClass" href="model/kompren.ecore#//SlicedProperty"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_gncSAOPrEea6ANnEArVqXQ" labelColor="239,41,41" description="_gnXZgOPrEea6ANnEArVqXQ" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_2hc_cOJwEeaz-pDvaic2-A" name="OppositeCreation" tooltipText="" incomingEdges="_2h8HouJwEeaz-pDvaic2-A" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="model/kompren.ecore#//OppositeCreation"/>
+      <semanticElements xmi:type="ecore:EClass" href="model/kompren.ecore#//OppositeCreation"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_2hc_ceJwEeaz-pDvaic2-A" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2hxvkOJwEeaz-pDvaic2-A" name="name : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//OppositeCreation/name"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//OppositeCreation/name"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2hyWoOJwEeaz-pDvaic2-A" labelAlignment="LEFT" description="_2holoOJwEeaz-pDvaic2-A">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_2heNkOJwEeaz-pDvaic2-A" name="SlicedElement" tooltipText="&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//SlicedElement/T/@eBounds.0}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//ENamedElement}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//SlicedElement/T/@eBounds.0}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//ENamedElement}'&#xA;ERROR : The feature 'eType' of 'EReference{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//SlicedElement/domain}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//ENamedElement}'&#xA;ERROR : The feature 'eReferenceType' of 'EReference{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//SlicedElement/domain}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//ENamedElement}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//SlicedElement/domain/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//ENamedElement}'" outgoingEdges="_2h5EU-JwEeaz-pDvaic2-A _2h6ScOJwEeaz-pDvaic2-A" incomingEdges="_2h4dQOJwEeaz-pDvaic2-A _2h_yAOJwEeaz-pDvaic2-A _2iAZEOJwEeaz-pDvaic2-A" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="model/kompren.ecore#//SlicedElement"/>
+      <semanticElements xmi:type="ecore:EClass" href="model/kompren.ecore#//SlicedElement"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_2hyWoeJwEeaz-pDvaic2-A" name="T" incomingEdges="_2h5EU-JwEeaz-pDvaic2-A" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="ecore:ETypeParameter" href="model/kompren.ecore#//SlicedElement/T"/>
+        <semanticElements xmi:type="ecore:ETypeParameter" href="model/kompren.ecore#//SlicedElement/T"/>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_2hy9sOJwEeaz-pDvaic2-A" showIcon="false" labelPosition="node" workspacePath="/org.eclipse.emf.ecoretools.design/icons/full/back/generic.svg">
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@borderedNodeMappings[name='EC%20ETypeParameter']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@borderedNodeMappings[name='EC%20ETypeParameter']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_gneuQOPrEea6ANnEArVqXQ" iconPath="/org.eclipse.emf.ecoretools.design/icons/full/obj16/EClass_abstract.gif" labelColor="239,41,41" description="_gneHMOPrEea6ANnEArVqXQ" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" foregroundColor="228,228,228">
+        <labelFormat>italic</labelFormat>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2hy9seJwEeaz-pDvaic2-A" name="isOption : EBoolean = false" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//SlicedElement/isOption"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//SlicedElement/isOption"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2hzkwOJwEeaz-pDvaic2-A" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2hzkweJwEeaz-pDvaic2-A" name="expression : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//SlicedElement/expression"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//SlicedElement/expression"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2h0L0OJwEeaz-pDvaic2-A" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_gnt-0OPrEea6ANnEArVqXQ" name=" domain : T" tooltipText="&#xA;ERROR : The feature 'eType' of 'EReference{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//SlicedElement/domain}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//ENamedElement}'&#xA;ERROR : The feature 'eReferenceType' of 'EReference{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//SlicedElement/domain}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//ENamedElement}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//SlicedElement/domain/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//ENamedElement}'">
+        <target xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedElement/domain"/>
+        <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedElement/domain"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_gnul4OPrEea6ANnEArVqXQ" labelAlignment="LEFT" description="_gnmqEOPrEea6ANnEArVqXQ" color="114,159,207">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_2hgp0OJwEeaz-pDvaic2-A" name="VarDecl" tooltipText="&#xA;ERROR : The feature 'eType' of 'EReference{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//VarDecl/type}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass}'&#xA;ERROR : The feature 'eReferenceType' of 'EReference{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//VarDecl/type}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//VarDecl/type/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/fr.inria.diverse.kompren.model/model/kompren.ecore#//VarDecl/type/@eGenericType}' contains an unresolved proxy 'EClass{platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass}'" incomingEdges="_2h7gkOJwEeaz-pDvaic2-A _2h9VwOJwEeaz-pDvaic2-A _2h980OJwEeaz-pDvaic2-A" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="model/kompren.ecore#//VarDecl"/>
+      <semanticElements xmi:type="ecore:EClass" href="model/kompren.ecore#//VarDecl"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_gngjcOPrEea6ANnEArVqXQ" labelColor="239,41,41" description="_gnXZgOPrEea6ANnEArVqXQ" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2h0L0eJwEeaz-pDvaic2-A" name="varName : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//VarDecl/varName"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//VarDecl/varName"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2h0y4OJwEeaz-pDvaic2-A" labelAlignment="LEFT" description="_2holoOJwEeaz-pDvaic2-A">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_gnv0AOPrEea6ANnEArVqXQ" name=" /type" tooltipText="">
+        <target xmi:type="ecore:EReference" href="model/kompren.ecore#//VarDecl/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//VarDecl/type"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_gnwbEePrEea6ANnEArVqXQ" labelColor="39,76,114" labelAlignment="LEFT" description="_gnwbEOPrEea6ANnEArVqXQ" color="114,159,207">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_2h3PIOJwEeaz-pDvaic2-A" name="[0..1] radius" sourceNode="_2hUckOJwEeaz-pDvaic2-A" targetNode="_2hYuAOJwEeaz-pDvaic2-A">
+      <target xmi:type="ecore:EReference" href="model/kompren.ecore#//Slicer/radius"/>
+      <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//Slicer/radius"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_2h32M-JwEeaz-pDvaic2-A" description="_2h32MOJwEeaz-pDvaic2-A" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_2h32NOJwEeaz-pDvaic2-A" showIcon="false">
+          <customFeatures>labelSize</customFeatures>
+        </centerLabelStyle>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_2h32NeJwEeaz-pDvaic2-A" showIcon="false" labelColor="39,76,114">
+          <customFeatures>labelSize</customFeatures>
+        </endLabelStyle>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_2h4dQOJwEeaz-pDvaic2-A" name="[0..*] slicedElements" sourceNode="_2hUckOJwEeaz-pDvaic2-A" targetNode="_2heNkOJwEeaz-pDvaic2-A">
+      <target xmi:type="ecore:EReference" href="model/kompren.ecore#//Slicer/slicedElements"/>
+      <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//Slicer/slicedElements"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_2h5EUOJwEeaz-pDvaic2-A" description="_2h32MOJwEeaz-pDvaic2-A" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_2h5EUeJwEeaz-pDvaic2-A" showIcon="false">
+          <customFeatures>labelSize</customFeatures>
+        </centerLabelStyle>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_2h5EUuJwEeaz-pDvaic2-A" showIcon="false" labelColor="39,76,114">
+          <customFeatures>labelSize</customFeatures>
+        </endLabelStyle>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_2h5EU-JwEeaz-pDvaic2-A" name="[1..1] domain" sourceNode="_2heNkOJwEeaz-pDvaic2-A" targetNode="_2hyWoeJwEeaz-pDvaic2-A">
+      <target xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedElement/domain"/>
+      <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedElement/domain"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_gn1Tk-PrEea6ANnEArVqXQ" description="_gn1TkOPrEea6ANnEArVqXQ" routingStyle="manhattan" strokeColor="239,41,41">
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_gn1TlOPrEea6ANnEArVqXQ" showIcon="false" labelColor="239,41,41">
+          <labelFormat>bold</labelFormat>
+        </centerLabelStyle>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_gn1TlePrEea6ANnEArVqXQ" labelSize="6" showIcon="false" labelColor="39,76,114"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_2h6ScOJwEeaz-pDvaic2-A" name="[0..*] constraints" sourceNode="_2heNkOJwEeaz-pDvaic2-A" targetNode="_2hXf4OJwEeaz-pDvaic2-A">
+      <target xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedElement/constraints"/>
+      <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedElement/constraints"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_2h65gOJwEeaz-pDvaic2-A" description="_2h32MOJwEeaz-pDvaic2-A" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_2h65geJwEeaz-pDvaic2-A" showIcon="false">
+          <customFeatures>labelSize</customFeatures>
+        </centerLabelStyle>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_2h65guJwEeaz-pDvaic2-A" showIcon="false" labelColor="39,76,114">
+          <customFeatures>labelSize</customFeatures>
+        </endLabelStyle>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_2h7gkOJwEeaz-pDvaic2-A" name="[0..1] ctx" sourceNode="_2hZ8IOJwEeaz-pDvaic2-A" targetNode="_2hgp0OJwEeaz-pDvaic2-A">
+      <target xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedClass/ctx"/>
+      <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedClass/ctx"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_2h7gkeJwEeaz-pDvaic2-A" description="_2h32MOJwEeaz-pDvaic2-A" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_2h8HoOJwEeaz-pDvaic2-A" showIcon="false">
+          <customFeatures>labelSize</customFeatures>
+        </centerLabelStyle>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_2h8HoeJwEeaz-pDvaic2-A" showIcon="false" labelColor="39,76,114">
+          <customFeatures>labelSize</customFeatures>
+        </endLabelStyle>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_2h8HouJwEeaz-pDvaic2-A" name="[0..1] opposite" sourceNode="_2hbxUOJwEeaz-pDvaic2-A" targetNode="_2hc_cOJwEeaz-pDvaic2-A">
+      <target xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedProperty/opposite"/>
+      <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedProperty/opposite"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_2h8usOJwEeaz-pDvaic2-A" description="_2h32MOJwEeaz-pDvaic2-A" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_2h8useJwEeaz-pDvaic2-A" showIcon="false">
+          <customFeatures>labelSize</customFeatures>
+        </centerLabelStyle>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_2h8usuJwEeaz-pDvaic2-A" showIcon="false" labelColor="39,76,114">
+          <customFeatures>labelSize</customFeatures>
+        </endLabelStyle>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_2h9VwOJwEeaz-pDvaic2-A" name="[0..1] src" sourceNode="_2hbxUOJwEeaz-pDvaic2-A" targetNode="_2hgp0OJwEeaz-pDvaic2-A">
+      <target xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedProperty/src"/>
+      <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedProperty/src"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_2h9VweJwEeaz-pDvaic2-A" description="_2h32MOJwEeaz-pDvaic2-A" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_2h9VwuJwEeaz-pDvaic2-A" showIcon="false">
+          <customFeatures>labelSize</customFeatures>
+        </centerLabelStyle>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_2h9Vw-JwEeaz-pDvaic2-A" showIcon="false" labelColor="39,76,114">
+          <customFeatures>labelSize</customFeatures>
+        </endLabelStyle>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_2h980OJwEeaz-pDvaic2-A" name="[0..1] tgt" sourceNode="_2hbxUOJwEeaz-pDvaic2-A" targetNode="_2hgp0OJwEeaz-pDvaic2-A">
+      <target xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedProperty/tgt"/>
+      <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedProperty/tgt"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_2h-j4OJwEeaz-pDvaic2-A" description="_2h32MOJwEeaz-pDvaic2-A" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_2h-j4eJwEeaz-pDvaic2-A" showIcon="false">
+          <customFeatures>labelSize</customFeatures>
+        </centerLabelStyle>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_2h-j4uJwEeaz-pDvaic2-A" showIcon="false" labelColor="39,76,114">
+          <customFeatures>labelSize</customFeatures>
+        </endLabelStyle>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_2h_yAOJwEeaz-pDvaic2-A" sourceNode="_2hZ8IOJwEeaz-pDvaic2-A" targetNode="_2heNkOJwEeaz-pDvaic2-A" beginLabel="&lt;&lt;bind T>> ?">
+      <target xmi:type="ecore:EClass" href="model/kompren.ecore#//SlicedClass"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="model/kompren.ecore#//SlicedClass/@eGenericSuperTypes.0"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="model/kompren.ecore#//SlicedClass/@eGenericSuperTypes.0/@eTypeArguments.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_gn8BQOPrEea6ANnEArVqXQ" description="_gn7aMOPrEea6ANnEArVqXQ" targetArrow="InputClosedArrow" routingStyle="tree">
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_gn8BQePrEea6ANnEArVqXQ" showIcon="false">
+          <labelFormat>italic</labelFormat>
+        </beginLabelStyle>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_gn8BQuPrEea6ANnEArVqXQ" showIcon="false" labelColor="239,41,41"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_2iAZEOJwEeaz-pDvaic2-A" sourceNode="_2hbxUOJwEeaz-pDvaic2-A" targetNode="_2heNkOJwEeaz-pDvaic2-A" beginLabel="&lt;&lt;bind T>> ?">
+      <target xmi:type="ecore:EClass" href="model/kompren.ecore#//SlicedProperty"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="model/kompren.ecore#//SlicedProperty/@eGenericSuperTypes.0"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="model/kompren.ecore#//SlicedProperty/@eGenericSuperTypes.0/@eTypeArguments.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_gn8oUOPrEea6ANnEArVqXQ" description="_gn7aMOPrEea6ANnEArVqXQ" targetArrow="InputClosedArrow" routingStyle="tree">
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_gn8oUePrEea6ANnEArVqXQ" showIcon="false">
+          <labelFormat>italic</labelFormat>
+        </beginLabelStyle>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_gn8oUuPrEea6ANnEArVqXQ" showIcon="false" labelColor="239,41,41"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_1UW6NeJwEeaz-pDvaic2-A"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Package']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Validation']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Archetype']/@ownedRepresentationExtensions[name='Entities%20With%20Archetypes']/@layers[name='Archetypes']"/>
+    <target xmi:type="ecore:EPackage" href="model/kompren.ecore#/"/>
+  </diagram:DSemanticDiagram>
+  <table:DTable xmi:id="_paNIIOPrEea6ANnEArVqXQ" name="kompren documentation table" headerColumnWidth="222">
+    <target xmi:type="ecore:EPackage" href="model/kompren.ecore#/"/>
+    <lines xmi:type="table:DLine" xmi:id="_paNvMOPrEea6ANnEArVqXQ" label="EClass : Slicer">
+      <target xmi:type="ecore:EClass" href="model/kompren.ecore#//Slicer"/>
+      <lines xmi:type="table:DLine" xmi:id="_paNvMePrEea6ANnEArVqXQ" label="EAttribute : name">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/name"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/name"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" xmi:id="_qKLMgOPrEea6ANnEArVqXQ" label="The name of the slicer." column="_paOWQOPrEea6ANnEArVqXQ">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/name/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/name/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_qKOP0OPrEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_paNvMuPrEea6ANnEArVqXQ" label="EAttribute : uriMetamodel">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/uriMetamodel"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/uriMetamodel"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" xmi:id="_3eNOYOPrEea6ANnEArVqXQ" label="The URI of the Ecore models used to define the slicer. The slicer will be based on the model elements of these metamodels." column="_paOWQOPrEea6ANnEArVqXQ">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/uriMetamodel/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/uriMetamodel/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_3eN1cOPrEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_paNvM-PrEea6ANnEArVqXQ" label="EAttribute : outputMetamodel">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/outputMetamodel"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/outputMetamodel"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" xmi:id="_4FfQ0OPrEea6ANnEArVqXQ" label="The name of the output metamodel produced when the output slice is not compatible with the input metamodel." column="_paOWQOPrEea6ANnEArVqXQ">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/outputMetamodel/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/outputMetamodel/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_4FfQ0ePrEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_paNvNOPrEea6ANnEArVqXQ" label="EAttribute : active">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/active"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/active"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" xmi:id="_CK6osOPsEea6ANnEArVqXQ" label="Defines an active slicer. Not implemented yet." column="_paOWQOPrEea6ANnEArVqXQ">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/active/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/active/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_CK7PwOPsEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_paNvNePrEea6ANnEArVqXQ" label="EAttribute : strict">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/strict"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/strict"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" xmi:id="_MTT1AOPsEea6ANnEArVqXQ" label="Defines a strict slicer. A strict slicer produces as output a model that is always conformed to its input metamodel. This means that some classes, relations, attributes may be sliced while not selected by the user." column="_paOWQOPrEea6ANnEArVqXQ">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/strict/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/strict/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_MTUcEOPsEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_paNvNuPrEea6ANnEArVqXQ" label="EAttribute : helper">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/helper"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/helper"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" xmi:id="_R-xjAOPsEea6ANnEArVqXQ" label="Defines a block of statements (written in Kermeta3), such as variables, operations, that can be used in other blocks (e.g. onStart)." column="_paOWQOPrEea6ANnEArVqXQ">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/helper/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/helper/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_R-xjAePsEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_paNvN-PrEea6ANnEArVqXQ" label="EAttribute : onStart">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/onStart"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/onStart"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" xmi:id="_WZWQ4OPsEea6ANnEArVqXQ" label="Defines a block of Kermeta 3 statements that are executed before the slicing process." column="_paOWQOPrEea6ANnEArVqXQ">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/onStart/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/onStart/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_WZW38OPsEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_paNvOOPrEea6ANnEArVqXQ" label="EAttribute : onEnd">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/onEnd"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/onEnd"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" xmi:id="_XyIowOPsEea6ANnEArVqXQ" label="Defines a block of Kermeta 3 statements that are executed after the slicing process." column="_paOWQOPrEea6ANnEArVqXQ">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/onEnd/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/onEnd/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_XyJP0OPsEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_paNvOePrEea6ANnEArVqXQ" label="EReference : radius">
+        <target xmi:type="ecore:EReference" href="model/kompren.ecore#//Slicer/radius"/>
+        <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//Slicer/radius"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" xmi:id="_bJeYAOPsEea6ANnEArVqXQ" label="Defines the class of the input metamodels that will be considered as the radius. The radius is used to filter the sliced elements in the input model. The radius works as follows: Starting at 0, a value is incremented on each visited class instance focused by the radius. The slicing process stops when no elements can be sliced anymore or when this value is greater than the radius given as parameter. The value of the radius is specificed by the user of the slicer." column="_paOWQOPrEea6ANnEArVqXQ">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/radius/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/radius/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_bJeYAePsEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_paNvOuPrEea6ANnEArVqXQ" label="EReference : slicedElements">
+        <target xmi:type="ecore:EReference" href="model/kompren.ecore#//Slicer/slicedElements"/>
+        <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//Slicer/slicedElements"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" xmi:id="_4_lsIOPsEea6ANnEArVqXQ" label="Contains the metamodel elements to be considered during the slicing process." column="_paOWQOPrEea6ANnEArVqXQ">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/slicedElements/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/slicedElements/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_4_lsIePsEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_paNvO-PrEea6ANnEArVqXQ" label="EReference : inputClasses">
+        <target xmi:type="ecore:EReference" href="model/kompren.ecore#//Slicer/inputClasses"/>
+        <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//Slicer/inputClasses"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" xmi:id="_8lajUOPsEea6ANnEArVqXQ" label="Defines the classes of the input metamodels that will be considered during the slicing process." column="_paOWQOPrEea6ANnEArVqXQ">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/inputClasses/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/inputClasses/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_8lajUePsEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_paNvPOPrEea6ANnEArVqXQ" label="EAttribute : logVisitClass">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/logVisitClass"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/logVisitClass"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" xmi:id="_9cbq4OPsEea6ANnEArVqXQ" label="" column="_paOWQOPrEea6ANnEArVqXQ">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/logVisitClass/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/logVisitClass/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_9cbq4ePsEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_paNvPePrEea6ANnEArVqXQ" label="EAttribute : logVisitRelation">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/logVisitRelation"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Slicer/logVisitRelation"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="model/kompren.ecore#//Slicer"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" xmi:id="_teKs0OPrEea6ANnEArVqXQ" label="The main class of the language. Defines a slicer." column="_paOWQOPrEea6ANnEArVqXQ">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Slicer/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" xmi:id="_teKs0ePrEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_paNvPuPrEea6ANnEArVqXQ" label="EClass : Constraint">
+      <target xmi:type="ecore:EClass" href="model/kompren.ecore#//Constraint"/>
+      <lines xmi:type="table:DLine" xmi:id="_paNvP-PrEea6ANnEArVqXQ" label="EAttribute : expression">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Constraint/expression"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Constraint/expression"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" xmi:id="_CafgUOPtEea6ANnEArVqXQ" label="Defines the constraint itself." column="_paOWQOPrEea6ANnEArVqXQ">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Constraint/expression/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Constraint/expression/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_CafgUePtEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_paNvQOPrEea6ANnEArVqXQ" label="EAttribute : name">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Constraint/name"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//Constraint/name"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" xmi:id="_DjV-wOPtEea6ANnEArVqXQ" label="Defines the name of the constraint." column="_paOWQOPrEea6ANnEArVqXQ">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Constraint/name/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Constraint/name/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_DjWl0OPtEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="model/kompren.ecore#//Constraint"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" xmi:id="_BHuQ4OPtEea6ANnEArVqXQ" label="A constraint can be added to restrict the slicing process." column="_paOWQOPrEea6ANnEArVqXQ">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Constraint/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Constraint/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" xmi:id="_BHuQ4ePtEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_paNvQePrEea6ANnEArVqXQ" label="EClass : Radius">
+      <target xmi:type="ecore:EClass" href="model/kompren.ecore#//Radius"/>
+      <lines xmi:type="table:DLine" xmi:id="_paNvQuPrEea6ANnEArVqXQ" label="EReference : focusedClasses">
+        <target xmi:type="ecore:EReference" href="model/kompren.ecore#//Radius/focusedClasses"/>
+        <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//Radius/focusedClasses"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="model/kompren.ecore#//Radius"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" xmi:id="_HH8t8OPtEea6ANnEArVqXQ" label="" column="_paOWQOPrEea6ANnEArVqXQ">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Radius/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//Radius/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" xmi:id="_HH9VAOPtEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_paNvQ-PrEea6ANnEArVqXQ" label="EClass : SlicedClass">
+      <target xmi:type="ecore:EClass" href="model/kompren.ecore#//SlicedClass"/>
+      <lines xmi:type="table:DLine" xmi:id="_paNvROPrEea6ANnEArVqXQ" label="EReference : ctx">
+        <target xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedClass/ctx"/>
+        <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedClass/ctx"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="model/kompren.ecore#//SlicedClass"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" xmi:id="_OqEbkOPtEea6ANnEArVqXQ" label="When a sliced class is selected from the input metamodels, instances of this class will be sliced and put in the output model slice." column="_paOWQOPrEea6ANnEArVqXQ">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//SlicedClass/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//SlicedClass/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" xmi:id="_OqEbkePtEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_paNvRePrEea6ANnEArVqXQ" label="EClass : SlicedProperty">
+      <target xmi:type="ecore:EClass" href="model/kompren.ecore#//SlicedProperty"/>
+      <lines xmi:type="table:DLine" xmi:id="_paNvRuPrEea6ANnEArVqXQ" label="EReference : opposite">
+        <target xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedProperty/opposite"/>
+        <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedProperty/opposite"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" xmi:id="_M8ZmkOPyEea6ANnEArVqXQ" label="State whether the property will be visited in its opposite way. This is useful to slice a model in directions normally not possible." column="_paOWQOPrEea6ANnEArVqXQ">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//SlicedProperty/opposite/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//SlicedProperty/opposite/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_M8ZmkePyEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_paNvR-PrEea6ANnEArVqXQ" label="EReference : src">
+        <target xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedProperty/src"/>
+        <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedProperty/src"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" xmi:id="_caFckOPyEea6ANnEArVqXQ" label="The alias name of the source of the property." column="_paOWQOPrEea6ANnEArVqXQ">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//SlicedProperty/src/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//SlicedProperty/src/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_caGDoOPyEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_paNvSOPrEea6ANnEArVqXQ" label="EReference : tgt">
+        <target xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedProperty/tgt"/>
+        <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedProperty/tgt"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" xmi:id="_dJEpgOPyEea6ANnEArVqXQ" label="The alias name of the target of the property." column="_paOWQOPrEea6ANnEArVqXQ">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//SlicedProperty/tgt/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//SlicedProperty/tgt/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_dJEpgePyEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="model/kompren.ecore#//SlicedProperty"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" xmi:id="_MmKQ0OPyEea6ANnEArVqXQ" label="When a property is selected from the input metamodels, instances of this property will be sliced and put in the output model slice." column="_paOWQOPrEea6ANnEArVqXQ">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//SlicedProperty/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//SlicedProperty/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" xmi:id="_MmKQ0ePyEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_paNvSePrEea6ANnEArVqXQ" label="EClass : OppositeCreation">
+      <target xmi:type="ecore:EClass" href="model/kompren.ecore#//OppositeCreation"/>
+      <lines xmi:type="table:DLine" xmi:id="_paNvSuPrEea6ANnEArVqXQ" label="EAttribute : name">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//OppositeCreation/name"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//OppositeCreation/name"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="model/kompren.ecore#//OppositeCreation"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_paNvS-PrEea6ANnEArVqXQ" label="EClass : SlicedElement">
+      <target xmi:type="ecore:EClass" href="model/kompren.ecore#//SlicedElement"/>
+      <lines xmi:type="table:DLine" xmi:id="_paNvTOPrEea6ANnEArVqXQ" label="EAttribute : isOption">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//SlicedElement/isOption"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//SlicedElement/isOption"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" xmi:id="_s0W2oOPyEea6ANnEArVqXQ" label="If optional, an option will be added to the slicer to state whether this slicing element has to be considered during the slicing." column="_paOWQOPrEea6ANnEArVqXQ">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//SlicedElement/isOption/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//SlicedElement/isOption/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_s0W2oePyEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_paNvTePrEea6ANnEArVqXQ" label="EAttribute : expression">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//SlicedElement/expression"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//SlicedElement/expression"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" xmi:id="_1L-B0OPyEea6ANnEArVqXQ" label="The Kermeta 3 code executed when an instance of this element is sliced. Does not work with strict slicer." column="_paOWQOPrEea6ANnEArVqXQ">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//SlicedElement/expression/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//SlicedElement/expression/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_1L-B0ePyEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_paNvTuPrEea6ANnEArVqXQ" label="EReference : domain">
+        <target xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedElement/domain"/>
+        <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedElement/domain"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" xmi:id="_2zKCEOPyEea6ANnEArVqXQ" label="" column="_paOWQOPrEea6ANnEArVqXQ">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//SlicedElement/domain/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//SlicedElement/domain/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_2zKCEePyEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_paNvT-PrEea6ANnEArVqXQ" label="EReference : constraints">
+        <target xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedElement/constraints"/>
+        <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//SlicedElement/constraints"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" xmi:id="_6ybUAOPyEea6ANnEArVqXQ" label="The constraints associated to the sliced element. Each constraint leads to a parameter of the slicer." column="_paOWQOPrEea6ANnEArVqXQ">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//SlicedElement/constraints/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//SlicedElement/constraints/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_6ybUAePyEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="model/kompren.ecore#//SlicedElement"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" xmi:id="_mfgNYOPyEea6ANnEArVqXQ" label="Defines the elements to be sliced." column="_paOWQOPrEea6ANnEArVqXQ">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//SlicedElement/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/kompren.ecore#//SlicedElement/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" xmi:id="_mfg0cOPyEea6ANnEArVqXQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_paNvUOPrEea6ANnEArVqXQ" label="EClass : VarDecl">
+      <target xmi:type="ecore:EClass" href="model/kompren.ecore#//VarDecl"/>
+      <lines xmi:type="table:DLine" xmi:id="_paNvUePrEea6ANnEArVqXQ" label="EAttribute : varName">
+        <target xmi:type="ecore:EAttribute" href="model/kompren.ecore#//VarDecl/varName"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/kompren.ecore#//VarDecl/varName"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_paNvUuPrEea6ANnEArVqXQ" label="EReference : type">
+        <target xmi:type="ecore:EReference" href="model/kompren.ecore#//VarDecl/type"/>
+        <semanticElements xmi:type="ecore:EReference" href="model/kompren.ecore#//VarDecl/type"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="model/kompren.ecore#//VarDecl"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <columns xmi:type="table:DTargetColumn" xmi:id="_paOWQOPrEea6ANnEArVqXQ" label="Domain Documentation" cells="_qKLMgOPrEea6ANnEArVqXQ _teKs0OPrEea6ANnEArVqXQ _3eNOYOPrEea6ANnEArVqXQ _4FfQ0OPrEea6ANnEArVqXQ _CK6osOPsEea6ANnEArVqXQ _MTT1AOPsEea6ANnEArVqXQ _R-xjAOPsEea6ANnEArVqXQ _WZWQ4OPsEea6ANnEArVqXQ _XyIowOPsEea6ANnEArVqXQ _bJeYAOPsEea6ANnEArVqXQ _4_lsIOPsEea6ANnEArVqXQ _8lajUOPsEea6ANnEArVqXQ _9cbq4OPsEea6ANnEArVqXQ _BHuQ4OPtEea6ANnEArVqXQ _CafgUOPtEea6ANnEArVqXQ _DjV-wOPtEea6ANnEArVqXQ _HH8t8OPtEea6ANnEArVqXQ _OqEbkOPtEea6ANnEArVqXQ _MmKQ0OPyEea6ANnEArVqXQ _M8ZmkOPyEea6ANnEArVqXQ _caFckOPyEea6ANnEArVqXQ _dJEpgOPyEea6ANnEArVqXQ _mfgNYOPyEea6ANnEArVqXQ _s0W2oOPyEea6ANnEArVqXQ _1L-B0OPyEea6ANnEArVqXQ _2zKCEOPyEea6ANnEArVqXQ _6ybUAOPyEea6ANnEArVqXQ">
+      <target xmi:type="ecore:EPackage" href="model/kompren.ecore#/"/>
+      <semanticElements xmi:type="ecore:EPackage" href="model/kompren.ecore#/"/>
+      <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedColumnMappings.0"/>
+    </columns>
+    <description xmi:type="description_2:CrossTableDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']"/>
+  </table:DTable>
+</xmi:XMI>

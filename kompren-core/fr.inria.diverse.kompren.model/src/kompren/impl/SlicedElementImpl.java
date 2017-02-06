@@ -26,13 +26,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link kompren.impl.SlicedElementImpl#isIsOption <em>Is Option</em>}</li>
  *   <li>{@link kompren.impl.SlicedElementImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link kompren.impl.SlicedElementImpl#getDomain <em>Domain</em>}</li>
  *   <li>{@link kompren.impl.SlicedElementImpl#getConstraints <em>Constraints</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

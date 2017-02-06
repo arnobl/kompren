@@ -20,11 +20,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link kompren.impl.VarDeclImpl#getVarName <em>Var Name</em>}</li>
  *   <li>{@link kompren.impl.VarDeclImpl#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

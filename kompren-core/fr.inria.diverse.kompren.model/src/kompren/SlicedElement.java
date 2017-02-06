@@ -11,15 +11,19 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Sliced Element</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Defines the elements to be sliced.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link kompren.SlicedElement#isIsOption <em>Is Option</em>}</li>
  *   <li>{@link kompren.SlicedElement#getExpression <em>Expression</em>}</li>
  *   <li>{@link kompren.SlicedElement#getDomain <em>Domain</em>}</li>
  *   <li>{@link kompren.SlicedElement#getConstraints <em>Constraints</em>}</li>
  * </ul>
- * </p>
  *
  * @see kompren.KomprenPackage#getSlicedElement()
  * @model abstract="true"
@@ -41,6 +45,9 @@ public interface SlicedElement<T extends ENamedElement> extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If optional, an option will be added to the slicer to state whether this slicing element has to be considered during the slicing.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Is Option</em>' attribute.
 	 * @see #setIsOption(boolean)
 	 * @see kompren.KomprenPackage#getSlicedElement_IsOption()
@@ -67,6 +74,9 @@ public interface SlicedElement<T extends ENamedElement> extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The Kermeta 3 code executed when an instance of this element is sliced. Does not work with strict slicer.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Expression</em>' attribute.
 	 * @see #setExpression(String)
 	 * @see kompren.KomprenPackage#getSlicedElement_Expression()
@@ -93,6 +103,9 @@ public interface SlicedElement<T extends ENamedElement> extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Domain</em>' reference.
 	 * @see #setDomain(ENamedElement)
 	 * @see kompren.KomprenPackage#getSlicedElement_Domain()
@@ -120,6 +133,9 @@ public interface SlicedElement<T extends ENamedElement> extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The constraints associated to the sliced element. Each constraint leads to a parameter of the slicer.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Constraints</em>' containment reference list.
 	 * @see kompren.KomprenPackage#getSlicedElement_Constraints()
 	 * @model containment="true"

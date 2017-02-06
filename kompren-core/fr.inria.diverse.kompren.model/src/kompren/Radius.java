@@ -12,12 +12,16 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Radius</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * 
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link kompren.Radius#getFocusedClasses <em>Focused Classes</em>}</li>
  * </ul>
- * </p>
  *
  * @see kompren.KomprenPackage#getRadius()
  * @model
