@@ -22,7 +22,7 @@ slicer Slicer1  {
 ```
 A model slicer is a tool that extracts a subset of model elements for a specific purpose. This is the root concept of the Kompren language. Type `slicer`. 
 
-The `name` of the slicer must be defined. The name of the slicer. The expected format is a qualified named (e.g., `pkg1.Class1`).  For our example type `Slicer`. 
+The `name` of the slicer must be defined. The name of the slicer. The expected format is a qualified named (e.g., `pkg1.Class1`).  For our example type `Slicer1`. 
 
 Type `{`. 
 
