@@ -91,6 +91,27 @@ Then, give the value, here: `ex1.A.d `
 See also:<br/>
 [Defining a Slicer](Defining-a-Slicer)
 
+### <a name="Defining-a-helper"></a>Defining a helper
+
+```
+slicer Slicer1 {
+ 	domain : 'platform:/resource/test/src/main/ex1.genmodel' 
+ 	input : ex1.A 
+ 	helper [[ println("Defining the helper")
+// data can be used in all the expressions of the slicer.
+val data = newArrayList() ]]
+ 
+ }
+```
+It defines a block of statements (written in Kermeta3), such as variables, operations, that can be used in other blocks (e.g. onStart). Then, give the value, here: `[[ println("Defining the helper")
+// data can be used in all the expressions of the slicer.
+val data = newArrayList() ]]
+ `
+
+
+See also:<br/>
+[Defining a Slicer](Defining-a-Slicer)
+
 
 ### <a name="Defining-a-post-execution-code-block"></a>Defining a post-execution code block
 
