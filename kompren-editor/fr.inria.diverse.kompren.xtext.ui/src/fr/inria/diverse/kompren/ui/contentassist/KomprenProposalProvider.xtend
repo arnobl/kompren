@@ -165,39 +165,4 @@ If optional, an option will be added to the slicer to state whether this slicing
 			image, displayString, null, values.get(proposal))
 		return cc;
 	}
-	
-	
-//	static class DocCompletionProposal extends ConfigurableCompletionProposal {
-//		new(String replacementString, int replacementOffset, int replacementLength, int cursorPosition, Image image, StyledString displayString, IContextInformation contextInformation, String additionalProposalInfo) {
-//			super(replacementString, replacementOffset, replacementLength, cursorPosition, image, displayString, contextInformation, additionalProposalInfo)
-//		}
-//		
-//		override IInformationControlCreator getInformationControlCreator() {
-//			new MyInformationControlCreator()
-//		}
-//	}
-//	
-//	
-//	static class MyInformationControlCreator implements IInformationControlCreator {
-//		
-//		override createInformationControl(Shell parent) {
-//			new BrowserInformationControl(parent, null, true)
-//		}
-//		
-//	}
-	
-//    static class DocProposalDelegate extends Delegate {
-//		ContentAssistContext ctx
-//
-//		new(ICompletionProposalAcceptor delegate, ContentAssistContext ctx) {
-//			super(delegate)
-//			this.ctx = ctx
-//		}
-//
-//		override accept(ICompletionProposal proposal) {
-//			println("coucoucoucou")
-//			super.accept(proposal)
-//		}
-//
-//	}
 }
