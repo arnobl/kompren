@@ -3,7 +3,7 @@ grammar fr.inria.diverse.kompren.Kompren with org.eclipse.xtext.common.Terminals
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "http://kompren/fr.inria.diverse.kompren" 
 
-Slicer returns Slicer: 'slicer' (active?='active')? (strict?='strict')? name=QName '{'
+Slicer returns Slicer: 'slicer' (strict?='strict')? name=QName '{'
 		(('domain' ':' uriMetamodel+=STRING)+ &
 		('outputDomain' ':' outputMetamodel=STRING)? &
 		('input' ':' inputClasses+=[ecore::EClass|QName] ( "," inputClasses+=[ecore::EClass|QName])*) &
