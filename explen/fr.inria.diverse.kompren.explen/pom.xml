@@ -134,16 +134,16 @@
 			<version>1.7</version>
 		</dependency>
     </dependencies>
-<distributionManagement>
-    <repository>
-        <id>http://maven.inria.fr</id>
-        <name>http://maven.inria.fr-releases</name>
-        <url>http://maven.inria.fr/artifactory/malai-public-release</url>
-    </repository>
-    <snapshotRepository>
-        <id>http://maven.inria.fr</id>
-        <name>http://maven.inria.fr-snapshots</name>
-        <url>http://maven.inria.fr/artifactory/malai-public-snapshot</url>
-    </snapshotRepository>
-</distributionManagement>
+    <repositories>
+        <repository>
+            <id>mavenInriaSnapshot</id>
+            <name>http://maven.inria.fr-snapshots</name>
+            <url>http://maven.inria.fr/artifactory/malai-public-snapshot</url>
+        </repository>
+        <repository>
+            <id>mavenInriaRelease</id>
+            <name>http://maven.inria.fr-releases</name>
+            <url>http://maven.inria.fr/artifactory/malai-public-release</url>
+        </repository>
+    </repositories>
 </project>
