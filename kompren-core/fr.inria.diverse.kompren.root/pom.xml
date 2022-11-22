@@ -36,14 +36,14 @@
         		<!-- reuse same platform as the one used for building K3 (ie. eclipse and xtext, xtend) -->
                 <id>platform</id>
                 <layout>p2</layout>
-                <url>https://ci.inria.fr/k3al/job/k3-composite_updatesite/lastSuccessfulBuild/artifact/k3-composite_updatesite/k3.platform.composite.updatesite/update/</url>
+                <url>http://download.eclipse.org/releases/mars/201602261000</url>
 		</repository>
         <repository>
                 <id>K3</id>
                 <layout>p2</layout>
                 <!-- temporary fix, because kermeta.org cannot be accessed in ssh by slave and the promotion doesn't work correctly-->
                 <!-- <url>https://ci.inria.fr/k3al/job/k3-composite_updatesite/lastSuccessfulBuild/artifact/k3-composite_updatesite/k3.composite.updatesite/update/</url>  -->
-                <url>https://ci.inria.fr/k3al/job/k3-composite_updatesite/lastSuccessfulBuild/artifact/k3-composite_updatesite/k3.nightly.composite.updatesite/update/</url>
+                <url>https://www.kermeta.org/k3/update_2016-12-09/</url>
 		</repository>
 		<repository>
                 <id>Scala-IDE</id>
