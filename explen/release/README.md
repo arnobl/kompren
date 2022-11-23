@@ -1,6 +1,8 @@
-To run with Java up to 8 only.
 
-`java -jar Explen.jar`
+For Java > 9:
+
+`java --add-opens=java.desktop/sun.swing=ALL-UNNAMED -jar Explen.jar`
+
 
 `examples` contains three metamodels that you can load.
 
