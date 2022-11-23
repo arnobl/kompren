@@ -10,7 +10,7 @@
         <groupId>fr.inria.diverse.kompren</groupId>
         <artifactId>fr.inria.diverse.kompren.root</artifactId>
         <version>3.0.0-SNAPSHOT</version>
-        <relativePath>../fr.inria.diverse.kompren.root/pom.xml</relativePath>
+		<relativePath>../../kompren-core/fr.inria.diverse.kompren.root</relativePath>
     </parent>
 
 	<artifactId>fr.inria.diverse.kompren.sample.deployer</artifactId>
