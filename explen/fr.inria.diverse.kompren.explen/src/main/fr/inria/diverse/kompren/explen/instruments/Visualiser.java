@@ -50,10 +50,10 @@ public class Visualiser extends WidgetInstrument {
 
 	@Override
 	protected void initialiseWidgets() {
-		superClasses 	= new MPieMenuButton(new ImageIcon(Class.class.getResource("/res/hierar.png")));
-		pruning 		= new MPieMenuButton(new ImageIcon(Class.class.getResource("/res/prune.png")));
-		flat 			= new MPieMenuButton(new ImageIcon(Class.class.getResource("/res/flat.png")));
-		lowerClasses 	= new MPieMenuButton(new ImageIcon(Class.class.getResource("/res/subType.png")));
+		superClasses 	= new MPieMenuButton(new ImageIcon(getClass().getResource("/res/hierar.png")));
+		pruning 		= new MPieMenuButton(new ImageIcon(getClass().getResource("/res/prune.png")));
+		flat 			= new MPieMenuButton(new ImageIcon(getClass().getResource("/res/flat.png")));
+		lowerClasses 	= new MPieMenuButton(new ImageIcon(getClass().getResource("/res/subType.png")));
 		radius 			= new MSpinner(new MSpinner.MSpinnerNumberModel(0, 0, 1000, 1), null);
 		compo			= new MCheckBox("Composition");
 		card1			= new MCheckBox("Card. 1");
